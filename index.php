@@ -15,6 +15,6 @@
 
 $context          = Timber::context();
 $context['posts'] = new Timber\PostQuery();
-$templates        = array( 'index.twig' );
+$templates        = array( 'views/index.twig' );
 
 Timber::render( $templates, $context );
