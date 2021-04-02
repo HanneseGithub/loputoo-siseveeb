@@ -1,0 +1,79 @@
+/* Typographies */
+
+$font-family-base: 'Lato', 'Open Sans', sans-serif;
+$font-family-title: 'Playfair Display', 'Lato', 'Open Sans', sans-serif;
+
+/* Breakpoints */
+
+$bp-xs-min: 375px;
+$bp-sm-min: 680px;
+$bp-md-min: 1000px;
+$bp-lg-min: 1200px;
+$bp-xl-min: 1400px;
+
+/* Colors */
+
+$color-primary-blue: #00082B;
+$color-primary-blue-hover: #171E3E;
+$color-primary-blue-active: rgba($color-primary-blue, 0.8);
+
+$color-secondary-blue: #171E3E;
+$color-white: #FFFFFF;
+$color-pearl: #FCFCFC;
+$color-light-gray: #ECECEC;
+$color-gray: #C4C4C4;
+$color-dark-gray: #808080;
+$color-red: #BD0404;
+$color-green: #2FB500;
+
+$color-text: #00082B;
+$color-text-white: #ffffff;
+
+/* Font weights */
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+/* Font sizes */
+
+$font-size-base: 16px;
+$font-size-small: 14px;
+
+$font-size-h1-lg: 60px;
+$font-size-h1-xs: 32px;
+
+$font-size-h2-lg: 40px;
+$font-size-h2-xs: 32px;
+
+$font-size-h3-lg: 32px;
+$font-size-h3-xs: 24px;
+
+$font-size-h4: 24px;
+
+/* Line heights */
+
+$line-height-base: 24px;
+$line-height-small: 20px;
+
+$line-height-h1-lg: 70px;
+$line-height-h1-xs: 40px;
+
+$line-height-h2-lg: 48px;
+$line-height-h2-xs: 40px;
+
+$line-height-h3-lg: 40px;
+$line-height-h3-xs: 28px;
+
+$line-height-h4: 28px;
+
+/* Grid */
+
+$grid-cols: 4;
+$grid-cols-md: 12;
+
+$grid-gutter: 20px;
+
+$container-max-width: 1600px;
+$container-padding: 24px;
+$container-padding-sm: 40px;
+$container-padding-lg: 130px;

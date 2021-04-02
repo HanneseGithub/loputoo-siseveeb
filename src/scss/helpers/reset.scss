@@ -20,7 +20,10 @@ html {
 }
 
 body {
-    line-height: 1;
+    font-family: $font-family-base;
+    line-height: $line-height-base;
+    font-size: $font-size-base;
+    background: $color-white;
 }
 
 ol, ul {
