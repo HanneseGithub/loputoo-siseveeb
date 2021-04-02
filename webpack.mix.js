@@ -1,9 +1,8 @@
 // webpack.mix.js
-
 let mix = require('laravel-mix');
 
-mix.sass('./static/main.scss', './style.css')
-    .combine('static/js/**/*.js', 'static/site.js', true)
+mix.sass('src/scss/main.scss', 'static/css/main.css')
+    .combine('src/js/**/*.js', 'static/js/main.js', true)
     .browserSync({
         proxy: 'http://localhost:8888/naiskoor',
         files: [
@@ -12,4 +11,4 @@ mix.sass('./static/main.scss', './style.css')
             'static/site.js',
             'static/js/**/*.js',
         ]
-    });
+});

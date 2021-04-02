@@ -1,4 +1,4 @@
 {
-    "/style.css": "/style.css",
-    "/static/site.js": "/static/site.js"
+    "/static/css/main.css": "/static/css/main.css",
+    "/static/js/main.js": "/static/js/main.js"
 }
