@@ -1,0 +1,54 @@
+.h-container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+
+    @include bp(sm-min) {
+        padding: 0 $container-padding-sm;
+    }
+
+    @include bp(lg-min) {
+        padding: 0 $container-padding-lg;
+    }
+}
+
+.h-hidden {
+    display: none !important;
+}
+
+.h-visible {
+    display: block !important;
+}
+
+.h-text-left {
+    text-align: left;
+}
+
+.h-text-center {
+    text-align: center;
+}
+
+.h-text-right {
+    text-align: right;
+}
+
+.h-margin-bottom-xs {
+    margin-bottom: 4px;
+}
+
+.h-margin-bottom-sm {
+    margin-bottom: 8px;
+}
+
+.h-margin-bottom-md {
+    margin-bottom: 16px;
+}
+
+.h-margin-bottom-lg {
+    margin-bottom: 32px;
+}
+
+.h-margin-bottom-xl {
+    margin-bottom: 64px;
+}
