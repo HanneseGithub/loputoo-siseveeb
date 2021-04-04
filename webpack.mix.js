@@ -1,7 +1,9 @@
 // webpack.mix.js
 let mix = require('laravel-mix');
 
-mix.sass('src/scss/main.scss', 'static/css/main.css')
+mix.setPublicPath('static')
+    .setResourceRoot('../')
+    .sass('src/scss/main.scss', 'static/css/main.css')
     .combine('src/js/**/*.js', 'static/js/main.js', true)
     .browserSync({
         proxy: 'http://localhost:8888/naiskoor',

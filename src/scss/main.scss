@@ -1,4 +1,14 @@
 /*
+ * Helpers
+ */
+@import './helpers/variables';
+@import './helpers/mixins';
+@import './helpers/reset';
+@import './helpers/typography';
+@import './helpers/helpers';
+@import './helpers/grid';
+
+/*
  * Components
  */
-@import './components/exampleComponent'
+@import './components/exampleComponent';
