@@ -1,0 +1,65 @@
+<div class="upperNav row g-0" id="upperNav">
+    <div class="logo-holder">
+      <div class="wrapper">
+        {% if custom_logo_url %}
+          <a class="hdr-logo" href="{{ site.link }}" rel="home">
+            <img src="{{ custom_logo_url }}">
+          </a>
+        {% else %}
+          <h1>
+            <a class="hdr-logo" href="{{ site.link }}" rel="home">
+              {{ site.name }}
+            </a>
+          </h1>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col burger-button">
+      <div onclick="openNav()">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+    <div class="col">
+        <div class="row search-input-holder">
+          <div class="col-10">
+            <input type="text" placeholder="Otsige üritusi, noote, dokumente...">
+          </div>
+          <div class="col-2 search-button-holder">
+              <i class="fas fa-search"></i>
+          </div>
+      </div>
+      <div class="mobile-logo-holder">
+        <div class="wrapper">
+          {% if custom_logo_url %}
+            <a class="hdr-logo" href="{{ site.link }}" rel="home">
+              <img src="{{ custom_logo_url }}">
+            </a>
+          {% else %}
+            <h1>
+              <a class="hdr-logo" href="{{ site.link }}" rel="home">
+                {{ site.name }}
+              </a>
+            </h1>
+          {% endif %}
+        </div>
+      </div>
+      <!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Otsige üritusi, noote, dokumente..." aria-label="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form> -->
+    </div>
+    <div class="col user-info">
+      <div class="avatar">
+        <img src="{{ current_user.avatar({size: 50}) }}" alt="user.avatar">
+      </div>
+      <div class="name-job">
+        <span>{{ current_user.name }}</span>
+        <br>
+        <span class="user-roles">
+          {% for role in current_user.roles %}
+              {{ role }}
+          {% endfor %}
+        </span>
+      </div>
+    </div>
+  </div>

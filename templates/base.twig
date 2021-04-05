@@ -7,21 +7,17 @@
 {% endblock %}
 
 	<body data-template="base.twig">
-		<header>
-			{% block header %}
-			{% endblock %}
-		</header>
-
-		<section>
+		{% block header %}
+			{% include "components/header-nav.twig" %}
+			{% include "components/left-nav.twig" %}
+		{% endblock %}
+		<div class="h-container">
 			{% block content %}
 				Empty!
-          	{% endblock content %}
-		</section>
-
+			{% endblock content %}
+		</div>
+		
 		{% block footer %}
-			<footer>
-				{% include 'components/footer.twig' %}
-			</footer>
 			{{ function('wp_footer') }}
 		{% endblock %}
 	</body>

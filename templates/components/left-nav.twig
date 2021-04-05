@@ -1,0 +1,45 @@
+<div class="sideNav" id="sideNav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+        <i class="far fa-times-circle"></i>
+    </a>
+      <ul>
+        {% for item in menu.get_items %}
+
+        {% if item.children %}
+            <li class="nav-item">
+              <li class="nav-item">
+                <i class="        
+                    {% for row in item._menu_item_classes %}
+                        {{ row }}
+                    {% endfor %}
+                    ">
+                </i>
+                <a class="nav-link {{ item.current ? 'active' }}" aria-current="page" href="{{ item.link }}">{{ item.title }}</a>
+            </li>
+            <ul>
+                {% for child in item.children %}
+                    <li class="nav-item">
+                      <i class="        
+                        {% for row in child._menu_item_classes %}
+                            {{ row }}
+                        {% endfor %}
+                        ">
+                      </i>
+                        <a class="nav-link {{ item.current ? 'active' }}" aria-current="page" href="{{ child.link }}">{{ child.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+              <li class="nav-item">
+                    <i class="        
+                    {% for row in item._menu_item_classes %}
+                        {{ row }}
+                    {% endfor %}
+                    ">
+                  </i>
+                  <a class="nav-link {{ item.current ? 'active' }}" aria-current="page" href="{{ item.link }}">{{ item.title }}</a>
+              </li>
+          {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
