@@ -1,0 +1,307 @@
+.login {
+    background: url(../../images/login-bg.png);
+    background-position: center;
+}
+
+#login {
+    width: 100%;
+}
+
+.login h1 a {
+    background: url(../../images/TYAN-logo.png) center center no-repeat;
+    background-size: contain;
+    width: 100%;
+    display: block;
+    min-height: 50px;
+}
+
+#login_error {
+    width: 30em;
+    margin: 0 auto;
+}
+
+.login #login_error,
+.login .message,
+.login .success {
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+.login form {
+    background: #ffff;
+    border-radius: 3px;
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 30em;
+    border: none;
+    padding: 0;
+}
+
+.message {
+    width: 25em;
+}
+
+.login p,
+.login label {
+    color: #171E3E;
+    font-family: 'Lato';
+    font-size: 16px;
+    font-style: bold;
+}
+
+#wp-submit {
+    border: none;
+}
+
+#wp-submit:hover {
+    background: #171E3E;
+}
+
+#user_login {
+    justify-content: center;
+}
+
+#user_login,
+#user_pass {
+    background-color: rgba(236, 236, 236, 0.5);
+    border-radius: 2px;
+    border: 1px solid rgba(236, 236, 236);
+    font-size: 16px;
+    font-family: 'Lato';
+}
+
+.login form .input,
+.login input[type="text"] {
+    color: #171E3E;
+    border: 1px solid #333333;
+    width: 100%;
+    height: 48px;
+}
+
+#login form>p {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.user-pass-wrap {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.login .button-primary {
+    float: none;
+    margin: 0 auto;
+}
+
+#login form p.submit {
+    text-align: center;
+}
+
+.login form .input:focus,
+.login input[type="text"]:focus {
+    box-shadow: none;
+}
+
+.login .message,
+.login #login_error {
+    background: white;
+    color: #171E3E;
+}
+
+#rememberme {
+    color: #171E3E;
+}
+
+
+/* Links */
+
+a {
+    color: #0073aa;
+}
+
+
+/* Forms */
+
+input[type=checkbox]:checked:before {
+    color: #171E3E;
+}
+
+input[type=radio]:checked:before {
+    background: #171E3E;
+}
+
+.login #login_error,
+.login .message,
+.login .success {
+    border-left: 7px solid white;
+    border-radius: 3px;
+}
+
+#backtoblog {
+    display: none;
+}
+
+
+/* Core UI */
+
+.wp-core-ui .button-primary {
+    background: #171E3E;
+    color: white;
+    text-transform: uppercase;
+    width: 187px;
+    height: 44px;
+    margin-top: 1em;
+}
+
+.wp-core-ui .button-primary.button-hero {
+    box-shadow: 0 2px 0 #2a414d !important;
+}
+
+.wp-core-ui .button-primary.button-hero:active {
+    box-shadow: inset 0 3px 0 #2a414d !important;
+}
+
+.wp-core-ui .wp-ui-primary {
+    color: #533c30;
+    background-color: #e1dbc5;
+}
+
+.wp-core-ui .wp-ui-text-primary {
+    color: #e1dbc5;
+}
+
+.wp-core-ui .wp-ui-highlight {
+    color: #f8f6f1;
+    background-color: #456a7f;
+}
+
+.wp-core-ui .wp-ui-text-highlight {
+    color: #456a7f;
+}
+
+.wp-core-ui .wp-ui-notification {
+    color: #f8f6f1;
+    background-color: #73340f;
+}
+
+.wp-core-ui .wp-ui-text-notification {
+    color: #73340f;
+}
+
+.wp-core-ui .wp-ui-text-icon {
+    color: #533c30;
+}
+
+.login #backtoblog a,
+.login #nav a {
+    color: #ffff;
+    font-size: 16px;
+}
+
+.login #backtoblog a,
+.login #nav a :hover {
+    color: white;
+}
+
+#nav {
+    text-align: center;
+}
+
+.login #backtoblog a:hover,
+.login #nav a:hover,
+.login h1 a:hover {
+    color: #fff;
+}
+
+input[type=checkbox]:checked::before {
+    content: '\2713';
+    margin: .475rem 0 0 -.15rem;
+    color: #171E3E;
+}
+
+.widefat tfoot td input[type=checkbox]:before,
+.widefat th input[type=checkbox]:before,
+.widefat thead td input[type=checkbox]:before,
+input[type=checkbox]:checked:before {
+    color: #171E3E;
+}
+
+.login .button.wp-hide-pw {
+    color: #171E3E
+}
+
+@media (max-width: $bp-sm-min) {
+    .login {
+        background: url(../../images/login-bg-vertical.png);
+        background-position: center;
+        padding: 0px 24px;
+    }
+    .login form {
+        width: 100%;
+        height: 424px;
+    }
+    #user_login,
+    #user_pass {
+        font-size: 14px;
+        height: 48px;
+    }
+    .login .wp-pwd {
+        position: relative;
+        width: 250px;
+        margin: 0 auto;
+    }
+    .login p,
+    .login label {
+        font-size: 14px;
+    }
+    .login .button.wp-hide-pw .dashicons {
+        top: .02rem;
+    }
+    #login form>p {
+        width: 250px;
+        margin: 0 auto;
+    }
+    .user-pass-wrap {
+        width: 250px;
+        margin: 0 auto;
+    }
+    input[type=checkbox],
+    input[type=radio] {
+        width: .56rem;
+        margin: 0rem .25rem 0 0;
+        height: 1rem;
+    }
+    .login #login_error,
+    .login .message,
+    .login .success {
+        width: 100%;
+    }
+    input[type=checkbox]:checked::before {
+        margin: .475rem 0 0 -.4rem;
+    }
+    .login h1 a {
+        width: 70%;
+    }
+}
+
+@media (max-height:500px) {
+    .login form {
+        width: 80%;
+        height: 350px;
+    }
+    #login form>p {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .user-pass-wrap {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .login .wp-pwd {
+        width: 300px;
+    }
+}
