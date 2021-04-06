@@ -7,6 +7,10 @@
 {% endblock %}
 
 	<body data-template="base.twig">
+		<div class="h-hidden" hidden>
+			{{ function('get_template_part', 'static/svg/icons.svg') }}
+		</div>
+
 		<header>
 			{% block header %}
 			{% endblock %}
