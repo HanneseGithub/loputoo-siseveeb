@@ -1,0 +1,141 @@
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  overflow-x: hidden;
+
+  color: $color-white;
+  background-image: url('../../../static/images/background.png');
+  background-repeat: repeat-y;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 15;
+
+  transition: width 0.5s;
+
+  @include bp(sm-min) {
+      width: 200px;
+  }
+
+  .nav-item {
+      margin-top: 2vh;
+      display: flex;
+      align-items: center;
+      width: 100%;
+  }
+
+  a {
+      display: block;
+
+      font-size: $font-size-base;
+      font-weight: $font-weight-regular;
+      font-family: $font-family-base;
+
+      color: $color-white;
+
+      transition: 0.3s;
+    }
+
+    .closebtn {
+      text-decoration: none;
+      display: block;
+      position: relative;
+      font-size: 24px;
+
+      @include bp(sm-min) {
+        display: none;
+      }
+    }
+
+}
+
+// .nav-item {
+  //       margin-top: 2vh;
+  //       display: flex;
+  //       align-items: center;
+  //       width: 100%;
+  //       i {
+  //         width: 20%;
+  //       }
+  //       .nav-link {
+  //         width: 80%;
+  //       }
+  //     }
+
+
+
+
+
+
+
+// .sideNav {
+//     color: white;
+//     margin-top: 8vh;
+//     height: 100%;
+//     width: 200px;
+//     position: fixed;
+//     z-index: 10;
+//     top: 0;
+//     left: 0;
+//     align-items: center;
+//     background-image: url(assets/images/background.png);
+//     background-repeat: repeat-y;
+//     overflow-x: hidden;
+//     padding-top: 20px;
+//     line-height: 50%;
+//     .nav-item {
+//       margin-top: 2vh;
+//       display: flex;
+//       align-items: center;
+//       width: 100%;
+//       i {
+//         width: 20%;
+//       }
+//       .nav-link {
+//         width: 80%;
+//       }
+//     }
+
+//     a {
+//       font-size: 14px;
+//       font-weight: bold;
+//       font-family: "Lato", sans-serif;
+//       color: white;
+//       display: block;
+//       transition: 0.3s;
+//       :hover {
+//         border: 1px solid pink;
+//       }
+//     }
+
+//     // Mobile view functions
+//     .closebtn {
+//       display: none;
+//     }
+
+
+//     @media (max-width: $bp-sm-min) {
+//       margin-top: 0vh;
+//       z-index: 15;
+//       width: 0;
+//       overflow-x: hidden;
+//       transition: 0.5s;
+//       .closebtn {
+//         text-decoration: none;
+//         display: block;
+//         position: absolute;
+//         top: 8vh;
+//         left: 80vw;
+//         font-size: 2rem;
+//       }
+//       .item-container {
+//         margin-top: 10vh;
+//       }
+//       ul {
+//         margin-top: 4vh;
+//       }
+//     }
+// }
