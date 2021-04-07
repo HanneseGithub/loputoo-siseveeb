@@ -5,137 +5,132 @@
 
   overflow-x: hidden;
 
-  color: $color-white;
-  background-image: url('../../../static/images/background.png');
-  background-repeat: repeat-y;
-
-  width: 100%;
+  width: 0; // Muuda 0 peale
   height: 100%;
+
+  padding-top: 24px;
 
   z-index: 15;
 
-  transition: width 0.5s;
+  color: $color-white;
+  background-image: url('../../images/login-bg-vertical.png');
+  background-size: auto;
+  background-repeat: repeat-y;
+
+  transition: width 0.3s;
 
   @include bp(sm-min) {
       width: 200px;
+
+      z-index: 10;
   }
-
-  .nav-item {
-      margin-top: 2vh;
-      display: flex;
-      align-items: center;
-      width: 100%;
-  }
-
-  a {
-      display: block;
-
-      font-size: $font-size-base;
-      font-weight: $font-weight-regular;
-      font-family: $font-family-base;
-
-      color: $color-white;
-
-      transition: 0.3s;
-    }
-
-    .closebtn {
-      text-decoration: none;
-      display: block;
-      position: relative;
-      font-size: 24px;
-
-      @include bp(sm-min) {
-        display: none;
-      }
-    }
-
 }
 
-// .nav-item {
-  //       margin-top: 2vh;
-  //       display: flex;
-  //       align-items: center;
-  //       width: 100%;
-  //       i {
-  //         width: 20%;
-  //       }
-  //       .nav-link {
-  //         width: 80%;
-  //       }
-  //     }
+.side-nav__closebtn {
+  display: block;
 
+  padding: 0 24px;
 
+  font-size: 24px;
 
+  color: $color-white;
 
+  @include bp(sm-min) {
+    display: none;
+  }
+}
 
+.side-nav__nav-item {
+  position: relative;
+  padding: 4px 0 4px 0;
 
+  transition: background-color 0.3s;
 
-// .sideNav {
-//     color: white;
-//     margin-top: 8vh;
-//     height: 100%;
-//     width: 200px;
-//     position: fixed;
-//     z-index: 10;
-//     top: 0;
-//     left: 0;
-//     align-items: center;
-//     background-image: url(assets/images/background.png);
-//     background-repeat: repeat-y;
-//     overflow-x: hidden;
-//     padding-top: 20px;
-//     line-height: 50%;
-//     .nav-item {
-//       margin-top: 2vh;
-//       display: flex;
-//       align-items: center;
-//       width: 100%;
-//       i {
-//         width: 20%;
-//       }
-//       .nav-link {
-//         width: 80%;
-//       }
-//     }
+  &.is-active,
+  &:active {
+    background-color: rgba($color-white, 0.3);
 
-//     a {
-//       font-size: 14px;
-//       font-weight: bold;
-//       font-family: "Lato", sans-serif;
-//       color: white;
-//       display: block;
-//       transition: 0.3s;
-//       :hover {
-//         border: 1px solid pink;
-//       }
-//     }
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: $color-white;
+    }
+  }
 
-//     // Mobile view functions
-//     .closebtn {
-//       display: none;
-//     }
+  @include bp(sm-min) {
+    padding: 4px 0 4px 0;
 
+    margin-bottom: 8px;
+  }
+}
 
-//     @media (max-width: $bp-sm-min) {
-//       margin-top: 0vh;
-//       z-index: 15;
-//       width: 0;
-//       overflow-x: hidden;
-//       transition: 0.5s;
-//       .closebtn {
-//         text-decoration: none;
-//         display: block;
-//         position: absolute;
-//         top: 8vh;
-//         left: 80vw;
-//         font-size: 2rem;
-//       }
-//       .item-container {
-//         margin-top: 10vh;
-//       }
-//       ul {
-//         margin-top: 4vh;
-//       }
-//     }
-// }
+.side-nav__content-wrapper {
+  width: 100%;
+  padding: 0 $container-padding;
+}
+
+.side-nav__content {
+  display: block;
+  color: $color-white;
+
+  border-bottom: 1px solid $color-pearl;
+
+  transition: background-color 0.3s;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  transition: border-bottom 0.3s;
+
+  .side-nav__nav-item.is-active & {
+    border-bottom: none;
+  }
+
+  &:active {
+    border-bottom: none;
+  }
+
+  @include bp(sm-min) {
+    display: flex;
+    align-items: center;
+
+    border-bottom: none;
+  }
+}
+
+.side-nav__nav-icon {
+  display: none;
+
+  @include bp(sm-min) {
+    display: inline;
+    font-size: 16px;
+  }
+}
+
+.side-nav__nav-link {
+  display: block;
+  text-decoration: none;
+
+  color: $color-white;
+
+  font-family: $font-family-title;
+  font-size: $font-size-h2-xs;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-h2-xs;
+
+  white-space: nowrap;
+
+  @include bp(sm-min) {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    margin-left: 4px;
+  }
+}

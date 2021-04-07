@@ -1,45 +1,17 @@
-<div class="sideNav" id="sideNav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-        <i class="far fa-times-circle"></i>
+<div id="side-nav" class="side-nav">
+    <a id="side-nav__close-btn"href="javascript:void(0)" class="h-margin-bottom-sm-md side-nav__closebtn">
+        {% include 'components/icon.twig' with { name: 'sprite-x' } %}
     </a>
-      <ul>
-        {% for item in menu.get_items %}
-
-        {% if item.children %}
-            <li class="nav-item">
-              <li class="nav-item">
-                <i class="        
-                    {% for row in item._menu_item_classes %}
-                        {{ row }}
-                    {% endfor %}
-                    ">
-                </i>
-                <a class="nav-link {{ item.current ? 'active' }}" aria-current="page" href="{{ item.link }}">{{ item.title }}</a>
-            </li>
-            <ul>
-                {% for child in item.children %}
-                    <li class="nav-item">
-                      <i class="        
-                        {% for row in child._menu_item_classes %}
-                            {{ row }}
-                        {% endfor %}
-                        ">
-                      </i>
-                        <a class="nav-link {{ item.current ? 'active' }}" aria-current="page" href="{{ child.link }}">{{ child.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-              <li class="nav-item">
-                    <i class="        
-                    {% for row in item._menu_item_classes %}
-                        {{ row }}
-                    {% endfor %}
-                    ">
-                  </i>
-                  <a class="nav-link {{ item.current ? 'active' }}" aria-current="page" href="{{ item.link }}">{{ item.title }}</a>
-              </li>
-          {% endif %}
+    <ul>
+      {% for item in menu.get_items %}
+          <li class="h-margin-bottom-sm-md side-nav__nav-item {{ item.current ? 'is-active' }}">
+            <div class="side-nav__content-wrapper">
+              <div class="side-nav__content">
+                {% include 'components/icon.twig' with { name: 'sprite-calendar', modifier: 'side-nav__nav-icon' } %}
+                <a class="side-nav__nav-link" href="{{ item.link }}">{{ item.title }}</a>
+              </div>
+            </div>
+          </li>
       {% endfor %}
     </ul>
-  </div>
+</div>
