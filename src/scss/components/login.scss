@@ -27,6 +27,12 @@
     margin-bottom: 2em;
 }
 
+.login .button.wp-hide-pw .dashicons {
+    width: 1.25rem;
+    height: 1.25rem;
+    top: .5rem;
+}
+
 .login form {
     background: #ffff;
     border-radius: 3px;
@@ -36,7 +42,7 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    width: 30em;
+    width: 480px;
     border: none;
     padding: 0;
 }
@@ -63,6 +69,12 @@
 
 #user_login {
     justify-content: center;
+}
+
+.login #login_error,
+.login .message,
+.login .success {
+    width: 480px;
 }
 
 #user_login,
@@ -234,7 +246,7 @@ input[type=checkbox]:checked:before {
     color: #171E3E
 }
 
-@media (max-width: $bp-sm-min) {
+@media (max-width: 500px) {
     .login {
         background: url(../../images/login-bg-vertical.png);
         background-position: center;
@@ -259,7 +271,7 @@ input[type=checkbox]:checked:before {
         font-size: 14px;
     }
     .login .button.wp-hide-pw .dashicons {
-        top: .02rem;
+        top: .5rem;
     }
     #login form>p {
         width: 250px;
@@ -303,5 +315,11 @@ input[type=checkbox]:checked:before {
     }
     .login .wp-pwd {
         width: 300px;
+    }
+}
+
+@media (max-width: $bp-xs-min) {
+    .login form {
+        height: 350px;
     }
 }
