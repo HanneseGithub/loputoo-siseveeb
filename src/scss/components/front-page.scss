@@ -1,0 +1,98 @@
+.home-notifications {
+    display: block;
+    width: 100%;
+    background-color: $color-pearl;
+    & .home-notifications-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+    }
+    & .home-notifcations-border {
+        background-color: #BCC8FF;
+        height: 60px;
+        width: 30px;
+        border-radius: 5px;
+    }
+}
+
+.notify-text-wrapper {
+    display: block;
+    padding: 0 8px;
+    margin-left: 12px;
+    font-family: $font-family-base;
+    & h3 {
+        font-size: $font-size-base;
+        font-weight: $font-weight-bold;
+    }
+    & p {
+        font-size: $font-size-small
+    }
+}
+
+.calendar-container {
+    display: block;
+    width: 100%;
+    align-items: center;
+    & .calendar-date {
+        width: 163px;
+        height: 33px;
+        background-color: $color-primary-blue-hover;
+        display: flex;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 1px;
+    }
+    & .calendar-date p {
+        text-transform: capitalize;
+        color: white;
+        text-align: center;
+        font-size: $font-size-base;
+    }
+    & .calendar-wrapper {
+        border-top: 1px solid black;
+        margin-left: 30px;
+        margin-bottom: 16.67px;
+    }
+    & .calendar-wrapper p {
+        line-height: $line-height-base;
+        margin-top: 12px;
+        font-size: $font-size-base;
+        margin-bottom: 12px;
+    }
+    & .calendar-wrapper a {
+        text-decoration: none;
+        color: #758EFF;
+        margin-top: 12px;
+        font-style: italic;
+        font-size: $font-size-base;
+    }
+    & .calendar-date-time {
+        text-transform: capitalize;
+    }
+    & .calendar-wrapper-title {
+        font-weight: $font-weight-bold;
+    }
+}
+
+@media (max-width:$bp-sm-min) {
+    .calendar-container {
+        & p {}
+        & .calendar-date {
+            margin: 0 auto;
+        }
+        & .calendar-wrapper {
+            margin-left: 0;
+        }
+        & .calendar-wrapper p {
+            font-size: $font-size-small;
+        }
+        & .calendar-date-time {
+            font-size: $font-size-small;
+        }
+        & .calendar-wrapper-title {
+            font-size: $font-size-small;
+        }
+    }
+}

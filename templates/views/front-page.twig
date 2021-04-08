@@ -1,0 +1,42 @@
+{% extends "base.twig" %} {% block content %}
+<div class="h-container">
+    <h2 class="h2--desktop">Teated</h2>
+    <div class="home-notifications">
+        <div class="home-notifications-container">
+            <div class="home-notifcations-border"></div>
+            <div class="notify-text-wrapper">
+                <div class="home-notify-title">
+                    <h3>Tänased sünnipäevalised</h3>
+                </div>
+                <div class="home-notify-content">
+                    <p>Mari Maasikas</p>
+                </div>
+            </div>
+        </div>
+        <div class="home-notifications-container">
+            <div class="home-notifcations-border"></div>
+            <div class="notify-text-wrapper">
+                <div class="home-notify-title">
+                    <h3>Tänased sünnipäevalised</h3>
+                </div>
+                <div class="home-notify-content">
+                    <p>Mari Maasikas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="h2--desktop">Kalender</h2>
+    {% for calendar_event in calendar_events %}
+    <div class="calendar-container">
+        <div class="calendar-date">
+            <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y")}}</p>
+        </div>
+        <div class="calendar-wrapper">
+            <p class="calendar-wrapper-title">{{calendar_event.summary}}</p>
+            <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y") }} @ {{calendar_event.start.dateTime | date("H:i")}} - {{calendar_event.end.dateTime | date("G:i")}} </p>
+            <a href="{{calendar_event.htmlLink}}" target="_blank">Vaata lähemalt</a> / <a href="">Lisa Google Calendrisse</a> {# <pre>{{dump(calendar_event)}}</pre> #}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
