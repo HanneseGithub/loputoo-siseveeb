@@ -24,7 +24,8 @@ mix.setPublicPath('static')
     .browserSync({
         proxy: 'http://localhost:8888/naiskoor',
         files: [
-            'src/**/*.svg',
+            'src/**/*',
             'templates/**/*.twig',
-        ]
+        ],
+        injectChanges: false
 });
