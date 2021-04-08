@@ -1,0 +1,88 @@
+{# Built using this: https://jquerymodal.com/ #}
+<p><a href="#modalButton{{user.ID}}" rel="modal:open">Open Modal</a></p>
+
+<div id="modalButton{{user.ID}}" class="modal">
+    <h1>Liikme andmed</h1>
+    <div class="userinfo-container">
+        <div class="avatar">
+          <img src="{{ function('get_avatar_url', user.ID) }}">
+        </div>
+        <div class="userinfo">
+          <div class="md-form  input-with-post-icon">
+            <table>
+              <tr>
+                  <td class="userinfo-label">Liikme nimi</td>
+                  <td><input type="text" value="{{ user.display_name }}"></td>
+                  <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+              </tr>
+              {% if (isABookie or choirBoss) %}
+                <tr>
+                  <td>Isikukood</td>
+                  <td><input type="text" value="{{ user.personal_ID}}"></td>
+                  <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                </tr>
+              {% endif %}
+                
+              <tr>
+                <td>Liikme e-mail</td>
+                <td><input type="text" value="{{ user.user_email}}"></td>
+                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+
+              </tr>
+              <tr>
+                <td>Sünnipäev</td>
+                <td>
+                  <input type="text" value="{{ function('calculateBirthday', user.personal_ID )}}"></td>
+                  <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+
+              </tr>
+              <tr>
+                <td>Telefon</td>
+                <td>
+                  <input type="number" value="{{ user.phone_number }}">
+                </td>
+                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+
+              </tr>
+              <tr>
+                <td>Tudeng</td>
+                <td>
+                  <select class="custom-select" id="inputGroupSelect02">
+                    <option value="jah">Jah</option>
+                    <option value="ei">Ei</option>
+                  </select>
+                </td>
+                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+
+              </tr>
+              <tr>
+                <td>Noorlaulja</td>
+                <td>Ei</td>
+                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+
+              </tr>
+              <tr>
+                <td>Amet</td>
+                <td>
+                  {{ function('returnUserRoles', user.roles)}}
+                </td>
+                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+              </tr>
+              <tr>
+                <td>Sisseastumise aeg</td>
+                <td>{{ user.user_registered }}</td>
+                <td><i class="fas fa-pencil-alt"></i></td>
+              </tr>
+          </table>
+          </div>
+
+        </div>
+      </div>
+      <a href="#close-modal" class="saveButton" rel="modal:close">
+        Salvesta
+      </a>
+
+
+  </div>
+  
+<!-- Link to open the modal -->

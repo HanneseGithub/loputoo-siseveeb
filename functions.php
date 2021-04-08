@@ -61,18 +61,44 @@ Timber::$autoescape = false;
 class StarterSite extends Timber\Site
 {
 	/** Add timber support. */
-	public function __construct()
-	{
-		add_action('after_setup_theme', array($this, 'theme_supports'));
-		add_filter('timber/context', array($this, 'add_to_context'));
-		add_filter('timber/twig', array($this, 'add_to_twig'));
-		add_action('init', array($this, 'register_post_types'));
-		add_action('init', array($this, 'register_taxonomies'));
-		add_action('wp_enqueue_scripts', array($this, 'enqueue_my_scripts'));
-		add_action('login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
+
+	public function __construct() {
+		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
+		add_action( 'init', array( $this, 'register_post_types' ) );
+		add_action( 'init', array( $this, 'create_roles' ) );
+		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_my_scripts' ) );
 		add_filter('login_headerurl', array($this, 'tyan_login_url'));
 		parent::__construct();
 	}
+
+	// Create the roles when the theme is applied for the first time
+
+	function create_roles(){
+		add_role('singer', 'Laulja');
+		add_role('bookie', 'Raamatupidaja');
+		add_role('conductor', 'Koorivanem');
+		add_role('choirManager', 'Koori juht');
+		add_role('secretary', 'Sekretär');
+		add_role('Note-handler', 'Noodihaldur');
+		$bookie  = get_role('bookie');
+		$singer = get_role('singer');
+		$conductor = get_role('conductor');
+		$choirManager = get_role('choirManager');
+		$secretary = get_role('secretary');
+		$noteHandler = get_role('Note-handler');
+		// Same capabilities as a subscriber
+		$bookie -> add_cap('read');
+		$singer -> add_cap('read');
+		$conductor -> add_cap('read'); 
+		$choirManager -> add_cap('read'); 
+		$secretary -> add_cap('read');
+		$noteHandler -> add_cap('read');
+	}
+
+
 	/** This is where you can register custom post types. */
 	public function register_post_types()
 	{
@@ -87,6 +113,12 @@ class StarterSite extends Timber\Site
 	{
 		// Use jQuery
 		wp_enqueue_script('jquery');
+		// Use bootstrap-table css and js
+		wp_enqueue_style( 'bootstrap-table-style', get_template_directory_uri() . '/src/includes/bootstrap-table.min.css');
+		wp_enqueue_script( 'bootstrap-table-js', get_template_directory_uri() . '/src/includes/bootstrap-table.min.js');
+		// Use jquery.modal
+		wp_enqueue_style( 'jquery-modal-style', get_template_directory_uri() . '/src/includes/jquery.modal.min.css');
+		wp_enqueue_script( 'jquery-modal-js', get_template_directory_uri() . '/src/includes/jquery.modal.min.js');
 
 		// Enqueue our stylesheet and JS file with a jQuery dependency.
 		wp_enqueue_style('my-styles', get_template_directory_uri() . '/static/css/main.css', 1.0);

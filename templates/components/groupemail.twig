@@ -1,0 +1,80 @@
+{# Built using this: https://jquerymodal.com/ #}
+<p onclick=" openEmailForm()"><a href="#groupEmailModal" rel="modal:open">Open Modal</a></p>
+
+<div id="groupEmailModal" class="modal">
+    <h1>E-maili vorm</h1>
+      <form action="" method="POST" class="emailSendingForm">
+      <table>
+        <tr>
+          <td>Kellelt</td>
+          <td>
+            <input 
+            type="email" 
+            class="form-control" 
+            value="naiskoorintra@gmail.com" 
+            readonly
+            required  
+            >
+          </td>
+          <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+        </tr>
+        <tr>
+          <td>Kirja pealkiri</td>
+          <td>
+            <input 
+            type="text" 
+            name="subject" 
+            class="form-control" 
+            placeholder="Lisa päis:"
+            value="[{{ function('returnUserRoles', user.roles)}}]:"
+            required
+            >
+          </td>
+          <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+        </tr>
+        <tr>
+          <td>Siht</td>
+          <td>
+            <input 
+            type="email" 
+            name="recievers"   
+            class="form-control" 
+            placeholder="Enter Email" 
+            id="sendGroupEmail" 
+            multiple
+            required>
+          </td>
+          <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+        </tr>
+        <tr>
+         <td>Sõnum</td> 
+         <td>
+          <textarea 
+          rows="4" 
+          name="message" 
+          class="form-control" 
+          placeholder="Saada e-mail"
+          required
+          ></textarea>
+         </td>
+         <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+        </tr>
+
+          <input type="hidden" value="{{ current_user.name }}" name="sender-name">
+          <input type="hidden" value=
+            "{% for role in current_user.roles %}
+                {{ role }}
+            {% endfor %}"
+             name="sender-roles">
+
+      </table>
+      <div class="form-group text-center">
+        <button 
+          class="btn btn-raised btn-lg btn-warning"
+          type="submit"
+          name="submit"
+          value="Submit">
+          Saada
+        </button>
+      </form>
+  </div>

@@ -1,0 +1,38 @@
+.modal{
+    h1{
+        font-size: 20px;
+    }
+    tr{
+        height: 30px;
+    }
+    td + td{
+        
+        border-bottom: 1px solid black;
+    }
+    .userinfo-container{
+        display: flex;
+        align-items: stretch;
+       margin-bottom: 20px;
+        div{
+            margin: 5px;
+        }
+        .userinfo{
+            input{
+                outline: none;
+                border: none;
+            }
+        }
+    }
+
+    .saveButton{
+        background-color: $color-primary-blue;
+        text-transform: uppercase;
+        color: white;
+        margin-left: 40%;
+        justify-content: space-around;
+        border-radius: 3px;
+        padding: 10px;
+        text-decoration: none;
+    }
+
+}
