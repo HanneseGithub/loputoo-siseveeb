@@ -7,25 +7,24 @@
 {% endblock %}
 
 	<body data-template="base.twig">
-		<div class="h-hidden" hidden>
+		<div class="h-hidden">
 			{{ function('get_template_part', 'static/svg/icons.svg') }}
 		</div>
 
-		<header>
-			{% block header %}
-			{% endblock %}
-		</header>
+		{% block header %}
+			{% include "components/header-nav.twig" %}
+			{% include "components/left-nav.twig" %}
+		{% endblock %}
 
-		<section>
-			{% block content %}
-				Empty!
-          	{% endblock content %}
-		</section>
+		<div class="webpage-content">
+			<div class="h-container">
+				{% block content %}
+					Empty!
+				{% endblock content %}
+			</div>
+		</div>
 
 		{% block footer %}
-			<footer>
-				{% include 'components/footer.twig' %}
-			</footer>
 			{{ function('wp_footer') }}
 		{% endblock %}
 	</body>
