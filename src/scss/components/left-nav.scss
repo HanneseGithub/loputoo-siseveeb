@@ -5,10 +5,10 @@
 
   overflow-x: hidden;
 
-  width: 0; // Muuda 0 peale
+  width: 0;
   height: 100%;
 
-  padding-top: 24px;
+  padding-top: 10px;
 
   z-index: 15;
 
@@ -23,6 +23,8 @@
       width: 200px;
 
       z-index: 10;
+
+      padding-top: 64px;
   }
 }
 
@@ -47,7 +49,7 @@
   transition: background-color 0.3s;
 
   &.is-active,
-  &:active {
+  &:hover {
     background-color: rgba($color-white, 0.3);
 
     &::before {
@@ -92,7 +94,7 @@
     border-bottom: none;
   }
 
-  &:active {
+  &:hover {
     border-bottom: none;
   }
 

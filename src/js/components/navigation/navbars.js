@@ -18,11 +18,18 @@ function checkIfNavbarWidthIsCorrect(){
     else if (jQuery('.side-nav').width() === 200 && jQuery('.side-nav').css('z-index') === '15') {
         jQuery('.side-nav').width('0');
     }
+    else if (jQuery('.side-nav').width() > '200' && jQuery('.side-nav').css('z-index') === '10') {
+        jQuery('.side-nav').width('200');
+    }
 }
 
 jQuery(document).ready(function( $ ) {
     $('#side-nav__close-btn').click(function() {
         $('.side-nav').width('0');
+    });
+
+    $('#header-nav__burger-btn').click(function() {
+        $('.side-nav').width('100%');
     });
 
     $(window).resize(function() {

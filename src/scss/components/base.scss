@@ -1,0 +1,7 @@
+.webpage-content {
+    margin-top: 52px;
+
+    @include bp(sm-min) {
+        margin-left: 200px;
+    }
+}

@@ -7,7 +7,7 @@
 {% endblock %}
 
 	<body data-template="base.twig">
-		<div class="h-hidden" hidden>
+		<div class="h-hidden">
 			{{ function('get_template_part', 'static/svg/icons.svg') }}
 		</div>
 
@@ -16,10 +16,12 @@
 			{% include "components/left-nav.twig" %}
 		{% endblock %}
 
-		<div class="h-container">
-			{% block content %}
-				Empty!
-			{% endblock content %}
+		<div class="webpage-content">
+			<div class="h-container">
+				{% block content %}
+					Empty!
+				{% endblock content %}
+			</div>
 		</div>
 
 		{% block footer %}
