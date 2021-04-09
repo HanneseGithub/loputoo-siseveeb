@@ -1,0 +1,17 @@
+<div id="side-nav" class="side-nav">
+    <a id="side-nav__close-btn" href="javascript:void(0)" class="h-margin-bottom-sm-md side-nav__closebtn">
+        {% include 'components/icon.twig' with { name: 'sprite-x' } %}
+    </a>
+    <ul>
+      {% for item in menu.get_items %}
+          <li class="h-margin-bottom-sm-md side-nav__nav-item {{ item.current ? 'is-active' }}">
+            <div class="side-nav__content-wrapper">
+              <div class="side-nav__content">
+                {% include 'components/icon.twig' with { name: item.custom.nav_link_icon, modifier: 'side-nav__nav-icon' } %}
+                <a class="side-nav__nav-link" href="{{ item.link }}">{{ item.title }}</a>
+              </div>
+            </div>
+          </li>
+      {% endfor %}
+    </ul>
+</div>

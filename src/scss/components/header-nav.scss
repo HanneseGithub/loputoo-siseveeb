@@ -1,0 +1,252 @@
+.header-nav {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 40px;
+
+    padding: 6px 24px;
+
+    background-color: $color-primary-blue;
+    color: white;
+
+    z-index: 15;
+
+    @include bp(sm-min) {
+        justify-content: flex-start;
+
+        height: 52px;
+
+        padding: 6px 0px;
+    }
+}
+
+.header-nav__burger-btn {
+    display: flex;
+
+    align-items: center;
+
+    font-size: 24px;
+
+    color: $color-white;
+
+    @include bp(sm-min) {
+        display: none;
+    }
+}
+
+.header-nav__logo-wrapper {
+    width: 100px;
+    height: 24px;
+
+    @include bp(sm-min) {
+        width: 200px;
+        height: 40px;
+    }
+}
+
+.header-nav__logo {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    margin: auto;
+}
+
+.header-nav__logo--placeholder {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    & a {
+        text-decoration: none;
+        color: $color-white;
+    }
+}
+
+.header-nav__above-content-wrapper {
+    display: flex;
+    flex-grow: 0;
+
+    justify-content: flex-start;
+
+    @include bp(sm-min) {
+        justify-content: space-between;
+        flex-grow: 1;
+
+        padding-right: 20px;
+    }
+}
+
+.header-nav__searchbar {
+    display: none;
+    position: relative;
+    width: 350px;
+
+    @include bp(sm-min) {
+        display: block;
+    }
+}
+
+.header-nav__text-field {
+    width: 100%;
+}
+
+.header-nav__input {
+    display: block;
+    height: 40px;
+    width: 100%;
+    margin: 0;
+    padding: 0 12px 0 40px;
+
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    text-align: left;
+    color: $color-primary-blue;
+
+    border: 1px solid $color-light-gray;
+    border-radius: 4px;
+    background-color: $color-pearl;
+
+    appearance: none;
+    transition: border-color 0.3s;
+
+    &::placeholder {
+        color: $color-dark-gray;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        border-color: $color-dark-gray;
+    }
+}
+
+.header-nav__search-icon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    font-size: 16px;
+
+    color: $color-dark-gray;
+}
+
+.header-nav__user-info {
+    display: flex;
+    position: static;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    @include bp(sm-min) {
+        padding: 0 12px;
+
+        position: relative;
+    }
+}
+
+.header-nav__user-avatar-wrapper {
+    display: flex;
+}
+
+.header-nav__user-avatar {
+    border-radius: 50%;
+
+    @include bp(sm-min) {
+        height: 40px;
+        width: 40px;
+
+        margin-right: 4px;
+    }
+}
+
+.header-nav__personal-info {
+    display: none;
+
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+
+    @include bp(sm-min) {
+        display: block;
+    }
+}
+
+.header-nav__username {
+   font-weight: $font-weight-bold;
+}
+
+.header-nav__user-dropdown__content-box {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding-top: 46px;
+
+    background-color: $color-primary-blue;
+    width: 50%;
+    z-index: -1;
+
+    .header-nav__user-info:hover & {
+        display: block;
+    }
+
+    @include bp(sm-min) {
+        right: auto;
+        left: 0;
+        width: 100%;
+    }
+}
+
+.user-dropdown__nav-item {
+    position: relative;
+    padding: 4px 0 4px 0;
+
+    transition: background-color 0.3s;
+
+    &.is-active,
+    &:hover {
+      background-color: rgba($color-white, 0.3);
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background-color: $color-white;
+      }
+    }
+}
+
+.user-dropdown__link-wrapper {
+    width: 100%;
+    padding: 0 $container-padding;
+}
+
+.user-dropdown__link {
+    display: block;
+    text-decoration: none;
+
+    color: $color-white;
+
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    white-space: nowrap;
+}
