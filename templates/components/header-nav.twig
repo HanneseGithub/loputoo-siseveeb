@@ -1,42 +1,55 @@
-<div id='header-nav' class='header-nav'>
+<div id="header-nav" class="header-nav">
 
-  <div id='header-nav__burger-btn' class='header-nav__burger-btn'>
+  <div id="header-nav__burger-btn" class="header-nav__burger-btn">
     {% include 'components/icon.twig' with { name: 'sprite-list' } %}
   </div>
 
-  <div class='header-nav__logo-wrapper'>
+  <div class="header-nav__logo-wrapper">
       {% if custom_logo_url %}
-        <a href='{{ site.link }}' rel='home'>
-          <img class='header-nav__logo' src='{{ custom_logo_url }}'>
+        <a href="{{ site.link }}" rel="home">
+          <img class="header-nav__logo" src="{{ custom_logo_url }}">
         </a>
       {% else %}
-        <h1 class='header-nav__logo--placeholder'>
-          <a href='{{ site.link }}' rel='home'>
+        <h1 class="header-nav__logo--placeholder">
+          <a href="{{ site.link }}" rel="home">
             {{ site.name }}
           </a>
         </h1>
       {% endif %}
   </div>
 
-  <div class='header-nav__above-content-wrapper'>
-    <div class='header-nav__searchbar'>
-      <div class='header-nav__text-field'>
-        <input class='header-nav__input' type='text' placeholder='Otsige üritusi, noote, dokumente...'>
+  <div class="header-nav__above-content-wrapper">
+    <div class="header-nav__searchbar">
+      <div class="header-nav__text-field">
+        <input class="header-nav__input" type="text" placeholder="Otsige üritusi, noote, dokumente...">
       </div>
       {% include 'components/icon.twig' with { name: 'sprite-search', modifier: 'header-nav__search-icon' } %}
     </div>
-
-    <div class='header-nav__user-info'>
-      <div class='header-nav__user-avatar-wrapper'>
-        <img class='header-nav__user-avatar' src='{{ current_user.avatar({size: 24}) }}' alt='User avatar'>
+    <div class="header-nav__user-info">
+      <div class="header-nav__user-avatar-wrapper">
+        <img class="header-nav__user-avatar" src="{{ current_user.avatar({size: 24}) }}" alt="User avatar">
       </div>
-      <div class='header-nav__personal-info'>
-        <div class='header-nav__username'>{{ current_user.name }}</div>
+      <div class="header-nav__personal-info">
+        <div class="header-nav__username">{{ current_user.name }}</div>
         <div>
           {% for role in current_user.roles %}
               {{ role }}
           {% endfor %}
         </div>
+      </div>
+      <div class="header-nav__user-dropdown__content-box">
+        <ul>
+          <li class="h-margin-bottom-sm-md user-dropdown__nav-item">
+            <div class="user-dropdown__link-wrapper">
+                <a class="user-dropdown__link" href="{{ function('get_edit_profile_url') }}">Minu profiil</a>
+            </div>
+          </li>
+          <li class="h-margin-bottom-sm-md user-dropdown__nav-item">
+            <div class="user-dropdown__link-wrapper">
+                <a class="user-dropdown__link" href="{{ function('wp_logout_url') }}">Logi välja</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
