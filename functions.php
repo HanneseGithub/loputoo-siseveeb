@@ -108,6 +108,8 @@ class StarterSite extends Timber\Site
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
+		$context['current_user'] = new Timber\User();
+		$context['custom_logo_url'] = wp_get_attachment_image_url( get_theme_mod('custom_logo'), 'full');
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
@@ -166,6 +168,17 @@ class StarterSite extends Timber\Site
 		);
 
 		add_theme_support('menus');
+
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'               => 216,
+				'width'                => 676,
+				'flex-height'          => false,
+				'flex-width'           => false,
+				'unlink-homepage-logo' => true,
+			)
+		);
 	}
 
 	/** This Would return 'foo bar!'.

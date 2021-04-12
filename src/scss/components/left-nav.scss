@@ -1,0 +1,138 @@
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  overflow-x: hidden;
+
+  width: 0;
+  height: 100%;
+
+  padding-top: 10px;
+
+  z-index: 15;
+
+  color: $color-white;
+  background-image: url('../../images/login-bg-vertical.png');
+  background-size: auto;
+  background-repeat: repeat-y;
+
+  transition: width 0.3s;
+
+  @include bp(sm-min) {
+      width: 200px;
+
+      z-index: 10;
+
+      padding-top: 64px;
+  }
+}
+
+.side-nav__closebtn {
+  display: block;
+
+  padding: 0 24px;
+
+  font-size: 24px;
+
+  color: $color-white;
+
+  @include bp(sm-min) {
+    display: none;
+  }
+}
+
+.side-nav__nav-item {
+  position: relative;
+  padding: 4px 0 4px 0;
+
+  transition: background-color 0.3s;
+
+  &.is-active,
+  &:hover {
+    background-color: rgba($color-white, 0.3);
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: $color-white;
+    }
+  }
+
+  @include bp(sm-min) {
+    padding: 4px 0 4px 0;
+
+    margin-bottom: 8px;
+  }
+}
+
+.side-nav__content-wrapper {
+  width: 100%;
+  padding: 0 $container-padding;
+}
+
+.side-nav__content {
+  display: block;
+  color: $color-white;
+
+  border-bottom: 1px solid $color-pearl;
+
+  transition: background-color 0.3s;
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  transition: border-bottom 0.3s;
+
+  .side-nav__nav-item.is-active & {
+    border-bottom: none;
+  }
+
+  &:hover {
+    border-bottom: none;
+  }
+
+  @include bp(sm-min) {
+    display: flex;
+    align-items: center;
+
+    border-bottom: none;
+  }
+}
+
+.side-nav__nav-icon {
+  display: none;
+
+  @include bp(sm-min) {
+    display: inline;
+    font-size: 16px;
+  }
+}
+
+.side-nav__nav-link {
+  display: block;
+  text-decoration: none;
+
+  color: $color-white;
+
+  font-family: $font-family-title;
+  font-size: $font-size-h2-xs;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-h2-xs;
+
+  white-space: nowrap;
+
+  @include bp(sm-min) {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+
+    margin-left: 4px;
+  }
+}

@@ -13,7 +13,9 @@
  * Components
  */
 
-@import './components/exampleComponent';
-@import './components/login';
+@import './components/base';
+@import './components/left-nav';
+@import './components/header-nav';
 @import './components/icon/icon';
+@import './components/login';
 @import './components/front-page.scss';
