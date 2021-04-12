@@ -25,11 +25,14 @@
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-.h2--desktop {
+.h2 {
     font-family: $font-family-title;
     font-size: $font-size-h2-lg;
     font-weight: $font-weight-regular;
     line-height: $line-height-h2-lg;
-    margin-bottom: 24px;
-    margin-top: 48px;
+    @media (max-width: $bp-sm-min) {
+        text-align: center;
+        font-size: $font-size-h1-xs;
+        line-height: $line-height-h1-xs;
+    }
 }

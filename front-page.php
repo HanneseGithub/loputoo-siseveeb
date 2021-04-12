@@ -13,8 +13,6 @@ $args = array(
 
 $context = Timber::context();
 
-$timber_post     = new Timber\Post();
 $context['teated'] = Timber::get_posts($args);
-$context['post'] = $timber_post;
 $context['calendar_events'] = $events;
 Timber::render(array('views/front-page.twig', 'views/page.twig'), $context);

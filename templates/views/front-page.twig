@@ -1,10 +1,11 @@
-{% extends "base.twig" %} {% block content %}
-<div class="h-container">
-    <h2 class="h2--desktop">Teated</h2>
+{% extends "base.twig" %}
+{% block content %}
+<div class="section h-padding-top-xxl h-padding-bottom-lg">
+    <h2 class="h2 h-margin-bottom-xxl">Teated</h2>
     {% if teated is empty%}
     <p>Hetkel pole uusi teateid</p>
     {% else %}
-    <div class="home-notifications">
+    <div class="home-notifications h-margin-bottom-xxl">
         {% for teade in teated %}
         <div class="home-notifications-container">
             <div class="home-notifcations-border"></div>
@@ -20,23 +21,28 @@
         {% endfor %}
     </div>
     {% endif %}
-    <h2 class="h2--desktop">Kalender</h2>
+</div>
+<div class="section h-padding-top-lg h-padding-bottom-lg">
+    <h2 class="h2 h-margin-bottom-xxl">Kalender</h2>
     {% if calendar_events is empty %}
     <p>Hetkel pole kalendris üritusi</p>
     {% else %} {% for calendar_event in calendar_events %}
-    <div class="calendar-container">
+    <div class="calendar-container h-margin-bottom-xxl">
         <div class="calendar-date">
             <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y")}}</p>
         </div>
         <div class="calendar-wrapper">
             <p class="calendar-wrapper-title">{{calendar_event.summary}}</p>
-            <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y") }} @ {{calendar_event.start.dateTime | date("H:i")}} - {{calendar_event.end.dateTime | date("G:i")}} </p>
+            <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y") }} @ {{calendar_event.start.dateTime | date("H:i")}} - {{calendar_event.end.dateTime | date("G:i")}}
+            </p>
             <a href="{{calendar_event.htmlLink}}" target="_blank">Vaata lähemalt</a> / <a href="">Lisa Google Calendrisse</a> {# <pre>{{dump(calendar_event)}}</pre> #}
         </div>
     </div>
     {% endfor %} {% endif %}
-    <h2 class="h2--desktop">Lähemad üritused</h2>
-    <div class="events-container">
+</div>
+<div class="section h-padding-top-lg h-padding-bottom-xxl">
+    <h2 class="h2 h-margin-bottom-xxl">Lähemad üritused</h2>
+    <div class="events-container h-margin-bottom-xxl">
         <div class="event-title-container">
             <div class="event-wrapper">
                 <div class="events">
@@ -79,4 +85,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

@@ -3,11 +3,9 @@
     max-width: $container-max-width;
     margin: 0 auto;
     padding: 0 $container-padding;
-
     @include bp(sm-min) {
         padding: 0 $container-padding-sm;
     }
-
     @include bp(lg-min) {
         padding: 0 $container-padding-lg;
     }
@@ -58,5 +56,21 @@
 }
 
 .h-margin-bottom-xxl {
-    margin-bottom: 64px;
+    margin-bottom: 48px;
+}
+
+.h-padding-top-lg {
+    padding-top: 24px;
+}
+
+.h-padding-top-xxl {
+    padding-top: 48px;
+}
+
+.h-padding-bottom-lg {
+    padding-bottom: 24px;
+}
+
+.h-padding-bottom-xxl {
+    padding-bottom: 48px
 }

@@ -5,7 +5,7 @@
  */
 
 $teade_labels = array(
-    'name'                  => 'Post Types',
+    'name'                  => 'Teated',
     'singular_name'         => 'Teade',
     'menu_name'             => 'Teated',
     'name_admin_bar'        => 'Teated',
@@ -34,8 +34,8 @@ $teade_labels = array(
     'filter_items_list'     => 'Filtreeri',
 );
 $teade_args = array(
-    'label'                 => 'Teade',
-    'description'           => 'Foorumi teated',
+    'label'                 => 'Teated',
+    'description'           => 'Siseveebi liikmetele avalehel kuvatavad teated',
     'labels'                => $teade_labels,
     'supports'              => array('title', 'editor'),
     'taxonomies'            => array('category', 'post_tag'),
