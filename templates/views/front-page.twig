@@ -1,32 +1,29 @@
 {% extends "base.twig" %} {% block content %}
 <div class="h-container">
     <h2 class="h2--desktop">Teated</h2>
+    {% if teated is empty%}
+    <p>Hetkel pole uusi teateid</p>
+    {% else %}
     <div class="home-notifications">
+        {% for teade in teated %}
         <div class="home-notifications-container">
             <div class="home-notifcations-border"></div>
             <div class="notify-text-wrapper">
                 <div class="home-notify-title">
-                    <h3>Tänased sünnipäevalised</h3>
+                    <h3>{{ teade.title}}</h3>
                 </div>
                 <div class="home-notify-content">
-                    <p>Mari Maasikas</p>
+                    <p>{{ teade.description}}</p>
                 </div>
             </div>
         </div>
-        <div class="home-notifications-container">
-            <div class="home-notifcations-border"></div>
-            <div class="notify-text-wrapper">
-                <div class="home-notify-title">
-                    <h3>Tänased sünnipäevalised</h3>
-                </div>
-                <div class="home-notify-content">
-                    <p>Mari Maasikas</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+    {% endif %}
     <h2 class="h2--desktop">Kalender</h2>
-    {% for calendar_event in calendar_events %}
+    {% if calendar_events is empty %}
+    <p>Hetkel pole kalendris üritusi</p>
+    {% else %} {% for calendar_event in calendar_events %}
     <div class="calendar-container">
         <div class="calendar-date">
             <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y")}}</p>
@@ -37,7 +34,7 @@
             <a href="{{calendar_event.htmlLink}}" target="_blank">Vaata lähemalt</a> / <a href="">Lisa Google Calendrisse</a> {# <pre>{{dump(calendar_event)}}</pre> #}
         </div>
     </div>
-    {% endfor %}
+    {% endfor %} {% endif %}
     <h2 class="h2--desktop">Lähemad üritused</h2>
     <div class="events-container">
         <div class="event-title-container">
