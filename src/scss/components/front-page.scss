@@ -76,9 +76,71 @@
     }
 }
 
+.events-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & .event-wrapper {
+        display: block;
+        background-image: url(../../images/event-bg.png);
+        background-size: cover;
+        background-position: center;
+        width: 350px;
+        height: 230px;
+        border-radius: 5px;
+    }
+    & .events {
+        position: relative;
+        height: 230px;
+    }
+    & .events p {
+        color: white;
+        text-align: center;
+        font-weight: $font-weight-regular;
+    }
+    & .event-going {
+        position: absolute;
+        width: 120px;
+        height: 30px;
+        background: $color-green;
+        right: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    & .event-date {
+        width: 151px;
+        height: 45px;
+        background: $color-primary-blue;
+        position: absolute;
+        bottom: 0;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    & .event-title-container h3 {
+        font-family: $font-family-title;
+        font-size: $font-size-h3-xs;
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+}
+
 @media (max-width:$bp-sm-min) {
+    .h2--desktop {
+        text-align: center;
+        font-size: $font-size-h3-lg
+    }
+    h3 {
+        text-align: center;
+    }
     .calendar-container {
-        & p {}
         & .calendar-date {
             margin: 0 auto;
         }
@@ -93,6 +155,46 @@
         }
         & .calendar-wrapper-title {
             font-size: $font-size-small;
+        }
+    }
+    .events-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & .event-wrapper {
+            width: 280px;
+            height: 200px;
+            background-position: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        & .events {
+            height: 200px;
+        }
+        & .event-title-container h3 {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .events-container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        & .event-wrapper {
+            width: 280px;
+            height: 200px;
+            background-position: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        & .events {
+            height: 200px;
+        }
+        & .event-title-container h3 {
+            margin-bottom: 24px;
         }
     }
 }
