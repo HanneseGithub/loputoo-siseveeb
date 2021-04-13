@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_60742459f34e3",
-            "label": "Description",
-            "name": "Description",
+            "label": "Teate sisu",
+            "name": "description",
             "type": "wysiwyg",
             "instructions": "",
             "required": 1,
@@ -41,5 +41,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618300575
+    "modified": 1618301655
 }
