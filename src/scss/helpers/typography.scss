@@ -2,25 +2,37 @@
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    src: local(''),
-        url('./fonts/lato-v17-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('./fonts/lato-v17-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
+    src: local(''), url('./fonts/lato-v17-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('./fonts/lato-v17-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 @font-face {
     font-family: 'Lato';
     font-style: normal;
     font-weight: 700;
-    src: local(''),
-        url('./fonts/lato-v17-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('./fonts/lato-v17-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    src: local(''), url('./fonts/lato-v17-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('./fonts/lato-v17-latin-700.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
     font-family: 'Playfair Display';
     font-style: normal;
     font-weight: 400;
-    src: local(''),
-        url('./fonts/playfair-display-v22-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('./fonts/playfair-display-v22-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    src: local(''), url('./fonts/playfair-display-v22-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('./fonts/playfair-display-v22-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+.h2 {
+    font-family: $font-family-title;
+    font-size: $font-size-h2-lg;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-h2-lg;
+    @media (max-width: $bp-sm-min) {
+        text-align: center;
+        font-size: $font-size-h1-xs;
+        line-height: $line-height-h1-xs;
+    }
 }

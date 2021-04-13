@@ -1,0 +1,91 @@
+{% extends "base.twig" %}
+{% block content %}
+<div class="section h-padding-top-xxl h-padding-bottom-lg">
+    <h2 class="h2 h-margin-bottom-lg">Teated</h2>
+    {% if teated is empty%}
+        <p>Hetkel pole uusi teateid</p>
+    {% else %}
+        <div class="home-notifications">
+            {% for teade in teated %}
+            <div class="home-notifications-container h-margin-bottom-sm">
+                <div class="home-notifcations-border"></div>
+                <div class="notify-text-wrapper">
+                    <div class="home-notify-title">
+                        <h3>{{ teade.title }}</h3>
+                    </div>
+                    <div class="home-notify-content">
+                        <p>{{ teade.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<div class="section h-padding-top-lg h-padding-bottom-lg">
+    <h2 class="h2 h-margin-bottom-lg">Kalender</h2>
+    {% if calendar_events is empty %}
+        <p>Hetkel pole kalendris üritusi</p>
+    {% else %}
+        {% for calendar_event in calendar_events %}
+            <div class="calendar-container {{ loop.last ? '' : 'h-margin-bottom-lg'}}">
+                <div class="calendar-date">
+                    <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y")}}</p>
+                </div>
+                <div class="calendar-wrapper">
+                    <p class="calendar-wrapper-title h-margin-bottom-sm-md">{{ calendar_event.summary }}</p>
+                    <p class="calendar-date-time h-margin-bottom-sm-md">{{calendar_event.start.dateTime| date("F d, Y") }} @ {{calendar_event.start.dateTime | date("H:i")}} - {{calendar_event.end.dateTime | date("G:i")}}
+                    </p>
+                    <a href="{{calendar_event.htmlLink}}" target="_blank">Vaata lähemalt / Lisa Google Calendrisse </a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="section h-padding-top-lg h-padding-bottom-xxl">
+    <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
+    <div class="front-page-events-container">
+        <div class="h-margin-bottom-lg single-event-container">
+            <div class="h-margin-bottom-md event-wrapper">
+                <div class="event-going">
+                    <p>Osalen</p>
+                </div>
+                <div class="event-date">
+                    <p>01. jaanuar 2021</p>
+                </div>
+            </div>
+            <div class="event-title">
+                <h3>Suusaretk Läänemaale koos Teet Margnaga</h3>
+            </div>
+        </div>
+        <div class="h-margin-bottom-lg single-event-container">
+            <div class="h-margin-bottom-md event-wrapper">
+                <div class="event-going">
+                    <p>Osalen</p>
+                </div>
+                <div class="event-date">
+                    <p>12. september 2021</p>
+                </div>
+            </div>
+            <div class="event-title">
+                <h3>Suusalaager</h3>
+            </div>
+        </div>
+        <div class="h-margin-bottom-lg single-event-container">
+            <div class="h-margin-bottom-md event-wrapper">
+                <div class="event-going">
+                    <p>Osalen</p>
+                </div>
+                <div class="event-date">
+                    <p>31. detsember 2021</p>
+                </div>
+            </div>
+            <div class="event-title">
+                <h3>Ühislaulmine Ivo Linnaga</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
