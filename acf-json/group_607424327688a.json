@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_60742459f34e3",
-            "label": "description",
-            "name": "description",
+            "label": "Description",
+            "name": "Description",
             "type": "wysiwyg",
             "instructions": "",
             "required": 1,
@@ -41,5 +41,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618247502
+    "modified": 1618300575
 }

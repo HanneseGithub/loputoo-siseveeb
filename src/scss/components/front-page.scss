@@ -1,11 +1,10 @@
 .home-notifications {
     display: block;
     width: 100%;
-    background-color: $color-pearl;
     & .home-notifications-container {
         display: flex;
         align-items: center;
-        margin-bottom: 7px;
+        background-color: $color-pearl;
     }
     & .home-notifcations-border {
         background-color: #BCC8FF;

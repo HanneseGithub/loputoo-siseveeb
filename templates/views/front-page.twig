@@ -1,20 +1,20 @@
 {% extends "base.twig" %}
 {% block content %}
 <div class="section h-padding-top-xxl h-padding-bottom-lg">
-    <h2 class="h2 h-margin-bottom-xxl">Teated</h2>
+    <h2 class="h2 h-margin-bottom-lg">Teated</h2>
     {% if teated is empty%}
     <p>Hetkel pole uusi teateid</p>
     {% else %}
-    <div class="home-notifications h-margin-bottom-xxl">
+    <div class="home-notifications">
         {% for teade in teated %}
-        <div class="home-notifications-container">
+        <div class="home-notifications-container h-margin-bottom-sm ">
             <div class="home-notifcations-border"></div>
             <div class="notify-text-wrapper">
                 <div class="home-notify-title">
                     <h3>{{ teade.title}}</h3>
                 </div>
                 <div class="home-notify-content">
-                    <p>{{ teade.description}}</p>
+                    <p>{{ teade.Description}}</p>
                 </div>
             </div>
         </div>
@@ -23,11 +23,16 @@
     {% endif %}
 </div>
 <div class="section h-padding-top-lg h-padding-bottom-lg">
-    <h2 class="h2 h-margin-bottom-xxl">Kalender</h2>
+    <h2 class="h2 h-margin-bottom-lg">Kalender</h2>
     {% if calendar_events is empty %}
     <p>Hetkel pole kalendris üritusi</p>
-    {% else %} {% for calendar_event in calendar_events %}
+    {% else %} 
+    {% for calendar_event in calendar_events %}
+    {% if loop.last %}
+    <div class="calendar-container">
+    {% else %}
     <div class="calendar-container h-margin-bottom-xxl">
+      {% endif %}
         <div class="calendar-date">
             <p class="calendar-date-time">{{calendar_event.start.dateTime| date("F d, Y")}}</p>
         </div>
@@ -38,10 +43,12 @@
             <a href="{{calendar_event.htmlLink}}" target="_blank">Vaata lähemalt</a> / <a href="">Lisa Google Calendrisse</a> {# <pre>{{dump(calendar_event)}}</pre> #}
         </div>
     </div>
-    {% endfor %} {% endif %}
+  
+    {% endfor %}
+{% endif %}
 </div>
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
-    <h2 class="h2 h-margin-bottom-xxl">Lähemad üritused</h2>
+    <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
     <div class="events-container h-margin-bottom-xxl">
         <div class="event-title-container">
             <div class="event-wrapper">
