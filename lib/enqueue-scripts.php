@@ -7,11 +7,11 @@
 /** Use jQuery */
 wp_enqueue_script('jquery');
 
-// Use bootstrap-table css and js
+/** Use bootstrap-table css and js */
 wp_enqueue_style( 'bootstrap-table-style', get_template_directory_uri() . '/src/includes/bootstrap-table.min.css');
 wp_enqueue_script( 'bootstrap-table-js', get_template_directory_uri() . '/src/includes/bootstrap-table.min.js');
 
-// Use jquery.modal
+/** Use jquery.modal */
 wp_enqueue_style( 'jquery-modal-style', get_template_directory_uri() . '/src/includes/jquery.modal.min.css');
 wp_enqueue_script( 'jquery-modal-js', get_template_directory_uri() . '/src/includes/jquery.modal.min.js');
 
