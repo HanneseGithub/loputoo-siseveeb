@@ -36,14 +36,14 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "2"
+                "value": "5"
             }
         ],
         [
             {
                 "param": "page",
                 "operator": "==",
-                "value": "17"
+                "value": "20"
             }
         ]
     ],
@@ -55,5 +55,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617954040
+    "modified": 1618310630
 }

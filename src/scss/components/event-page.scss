@@ -1,0 +1,13 @@
+.event-page-container {
+    display: flex;
+    align-items: center;
+    & .event-Y-date {
+        color: $color-gray;
+        width: 10%;
+    }
+    & .event-border {
+        height: 1px;
+        width: 100%;
+        background-color: $color-gray;
+    }
+}
