@@ -1,4 +1,4 @@
-.event-page-container {
+.event-date-container {
     display: flex;
     align-items: center;
     & .event-Y-date {
@@ -9,5 +9,58 @@
         height: 1px;
         width: 100%;
         background-color: $color-gray;
+    }
+}
+
+.events-container {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    & .event-wrapper {
+        display: block;
+        position: relative;
+        align-items: center;
+        background-color: $color-pearl;
+        border-radius: 5px;
+    }
+    & .event-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 172.63px;
+        height: 100%;
+        background-image: url(../../images/event-bg.png);
+        background-position: center;
+        background-size: cover;
+        border-radius: 5px;
+        & .event-attend {
+            color: $color-white;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+            height: 32px;
+            background: $color-red;
+            border-radius: 5px;
+        }
+    }
+    & .event-page-title {
+        font-size: $font-size-h3-xs;
+        line-height: $line-height-h3-xs;
+    }
+    & .event-info-container {
+        padding: 16px;
+        display: block;
+        margin-left: 172px;
+    }
+    & .event-date-time {
+        margin-top: 4px;
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+    }
+    & .event-description {
+        margin-top: 8px;
+        text-align: justify;
     }
 }

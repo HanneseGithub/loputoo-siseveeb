@@ -1,7 +1,6 @@
-{% extends "base.twig" %}
-{% block content %}
+{% extends "base.twig" %} {% block content %}
 <div class="section h-padding-top-xxl h-padding-bottom-lg">
-<h2 class="h2 h-margin-bottom-lg">Üritused</h2>
-{% include 'components/event-page-date.twig' %}
+    <h2 class="h2 h-margin-bottom-lg">Üritused</h2>
+    {% include 'components/event-page-date.twig' %} {% include 'components/event-page-events.twig' %}
 </div>
 {% endblock %}
