@@ -4,6 +4,7 @@
  * Custom Post Types
  */
 
+/* Notifications Post Type */
 $teade_labels = array(
     'name'                  => 'Teated',
     'singular_name'         => 'Teade',
@@ -55,3 +56,58 @@ $teade_args = array(
 
 );
 register_post_type('teated', $teade_args);
+
+
+/* Events Post Type */
+
+$üritused_labels = array(
+    'name'                  => 'Üritused',
+    'singular_name'         => 'Üritus',
+    'menu_name'             => 'Üritused',
+    'name_admin_bar'        => 'Üritused',
+    'archives'              => 'Arhiveeritud',
+    'attributes'            => 'Ürituse info',
+    'parent_item_colon'     => 'Sarnane üritus:',
+    'all_items'             => 'Kõik üritused',
+    'add_new_item'          => 'Lisa uus üritus',
+    'add_new'               => 'Lisa uus',
+    'new_item'              => 'Lisa uus üritus',
+    'edit_item'             => 'Muuda üritust',
+    'update_item'           => 'Uuenda üritust',
+    'view_item'             => 'Vaata üritust',
+    'view_items'            => 'Vaata üritusi',
+    'search_items'          => 'Otsi üritust',
+    'not_found'             => 'Ei leitud',
+    'not_found_in_trash'    => 'Ei leitud prügikastist',
+    'featured_image'        => 'Pilt',
+    'set_featured_image'    => 'Lisa pilt',
+    'remove_featured_image' => 'Eemalda pilt',
+    'use_featured_image'    => 'Kasuta pildina',
+    'insert_into_item'      => 'Lisa üritusse',
+    'uploaded_to_this_item' => 'Uuendatud',
+    'items_list'            => 'Nimekiri',
+    'items_list_navigation' => 'Ürituste nimekiri',
+    'filter_items_list'     => 'Filtreeri',
+);
+$üritused_args = array(
+    'label'                 => 'Üritused',
+    'description'           => 'Siseveebi ürituste lehl kuvatavad üritused',
+    'labels'                => $üritused_labels,
+    'supports'              => array('title', 'editor'),
+    'taxonomies'            => array('category', 'post_tag'),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 6,
+    'menu_icon'             => 'dashicons-calendar-alt',
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => false,
+    'can_export'            => true,
+    'has_archive'           => false,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => false,
+    'capability_type'       => 'page',
+
+);
+register_post_type('Üritused', $üritused_args);
