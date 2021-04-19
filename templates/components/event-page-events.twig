@@ -1,31 +1,13 @@
 <div class="events-container">
     <div class="event-wrapper h-margin-bottom-sm">
         <div class="event-image-container">
+            <img src="{{ Image(üritus.image).src }}">
             <div class="event-attend">Ei osale</div>
         </div>
-        <div class="event-info-container">
-            <h3 class="event-page-title">Pealkiri on üks suur osa üritusest</h3>
-            <div class="event-date-time">5. jaanuar 2021 • 09:00 - 13:00 </div>
-            <div class="event-description">Koguneme oma koorimajas ning laulame koos Tartu Üliõpilassegakooriga läbi talvise repretuaari. Tõotab tulla va... Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sunt doloribus quia. Quas, praesentium fugit. Repudiandae velit
-            </div>
-        </div>
     </div>
-    <div class="event-wrapper h-margin-bottom-sm">
-        <div class="event-image-container"></div>
-        <div class="event-info-container">
-            <h3 class="event-page-title">Pealkiri on üks suur osa üritusest</h3>
-            <div class="event-date-time">5. jaanuar 2021 • 09:00 - 13:00 </div>
-            <div class="event-description">Koguneme oma koorimajas ning laulame koos Tartu Üliõpilassegakooriga läbi talvise repretuaari. Tõotab tulla va... Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sunt doloribus quia. Quas, praesentium fugit. Repudiandae velit
-            </div>
-        </div>
-    </div>
-    <div class="event-wrapper">
-        <div class="event-image-container"></div>
-        <div class="event-info-container">
-            <h3 class="event-page-title">Pealkiri on üks suur osa üritusest</h3>
-            <div class="event-date-time">5. jaanuar 2021 • 09:00 - 13:00 </div>
-            <div class="event-description">Koguneme oma koorimajas ning laulame koos Tartu Üliõpilassegakooriga läbi talvise repretuaari. Tõotab tulla va... Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sunt doloribus quia. Quas, praesentium fugit. Repudiandae velit
-            </div>
-        </div>
+    <div class="event-info-container">
+        <h3 class="event-page-title">{{ üritus.title }}</h3>
+        <div class="event-date-time">{{ üritus.datestart | date("d. F Y")}}• {{ üritus.datestart | date("G")}} - {{ üritus.dateend | date("G")}}</div>
+        <div class="event-description">{{ üritus.description }}</div>
     </div>
 </div>

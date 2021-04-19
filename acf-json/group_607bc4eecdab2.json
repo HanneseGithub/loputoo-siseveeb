@@ -47,8 +47,25 @@
         },
         {
             "key": "field_607bc53d72062",
-            "label": "kuupäev",
-            "name": "date",
+            "label": "aeg(mis kell algab)",
+            "name": "datestart",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y g:i a",
+            "return_format": "d\/m\/Y g:i a",
+            "first_day": 1
+        },
+        {
+            "key": "field_607d4702359df",
+            "label": "aeg(Millal lõppeb?)",
+            "name": "dateend",
             "type": "date_time_picker",
             "instructions": "",
             "required": 0,
@@ -82,5 +99,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618724207
+    "modified": 1618823027
 }
