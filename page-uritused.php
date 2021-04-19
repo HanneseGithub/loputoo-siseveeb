@@ -1,13 +1,55 @@
-<<?php
-
-
-$üritused_args = array(
+<?php
+$args = array(
     'post_type' => 'üritused',
-    'posts_per_page' =>  4,
-    'orderby' => array(
-        'date' => 'DESC'
-    )
+    'meta_key'	=> 'datestart',
+    'orderby'   => 'meta_value',
+    'order'     => 'ASC'
 );
+
+$events = Timber::get_posts($args);
+
+function createUniqueMonths($events) {
+    $uniqueMonths = [];
+
+    foreach ($events as $event) {
+        $eventDatestartValue = $event->datestart;
+        $eventDateInUnix = strtotime($eventDatestartValue);
+
+        $eventMonthAndYearAsNumber = date_i18n('Y-m', $eventDateInUnix);
+
+        if (!in_array($eventMonthAndYearAsNumber, $uniqueMonths)) {
+            $uniqueMonths[] = $eventMonthAndYearAsNumber;
+        }
+    }
+
+    return $uniqueMonths;
+}
+
+function createUniqueMonthsWithEvents($uniqueMonths, $events) {
+    $sortedEvents = [];
+
+    foreach ($uniqueMonths as $uniqueMonth) {
+        foreach ($events as $event) {
+            if (compareMonthAndYear($event->datestart, $uniqueMonth)) {
+                $sortedEvents[$uniqueMonth][] = $event;
+            }
+        }
+    }
+
+    return $sortedEvents;
+}
+
+function compareMonthAndYear($eventDatestart, $eventMonthAndYear) {
+    $eventDateUnix = strtotime($eventDatestart);
+    $eventDateFormatted = date_i18n('Y-m', $eventDateUnix);
+
+    return $eventDateFormatted == $eventMonthAndYear;
+}
+
+$eventUniqueMonths = createUniqueMonths($events);
+$eventUniqueMonthsWithEvents = createUniqueMonthsWithEvents($eventUniqueMonths, $events);
+
 $context = Timber::context();
-$context['üritused'] = Timber::get_posts($üritused_args);
+$context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
+
 Timber::render(array('views/events.twig', 'views/page.twig'), $context);

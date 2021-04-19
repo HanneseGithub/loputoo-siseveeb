@@ -34,6 +34,7 @@ $teade_labels = array(
     'items_list_navigation' => 'Teadete nimekiri',
     'filter_items_list'     => 'Filtreeri',
 );
+
 $teade_args = array(
     'label'                 => 'Teated',
     'description'           => 'Siseveebi liikmetele avalehel kuvatavad teated',
@@ -56,7 +57,6 @@ $teade_args = array(
 
 );
 register_post_type('teated', $teade_args);
-
 
 /* Events Post Type */
 
@@ -89,9 +89,10 @@ $üritused_labels = array(
     'items_list_navigation' => 'Ürituste nimekiri',
     'filter_items_list'     => 'Filtreeri',
 );
+
 $üritused_args = array(
     'label'                 => 'Üritused',
-    'description'           => 'Siseveebi ürituste lehl kuvatavad üritused',
+    'description'           => 'Siseveebi ürituste lehel kuvatavad üritused',
     'labels'                => $üritused_labels,
     'supports'              => array('title', 'editor'),
     'taxonomies'            => array('category', 'post_tag'),
@@ -108,6 +109,6 @@ $üritused_args = array(
     'exclude_from_search'   => false,
     'publicly_queryable'    => false,
     'capability_type'       => 'page',
-
 );
+
 register_post_type('Üritused', $üritused_args);

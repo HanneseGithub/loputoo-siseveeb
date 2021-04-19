@@ -69,7 +69,15 @@
             "type": "date_time_picker",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607d86b679115",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -78,6 +86,25 @@
             "display_format": "d\/m\/Y g:i a",
             "return_format": "d\/m\/Y g:i a",
             "first_day": 1
+        },
+        {
+            "key": "field_607d86b679115",
+            "label": "Date endiga?",
+            "name": "has_end_date",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Kas date end on ka olemas? :)",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -99,5 +126,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618823027
+    "modified": 1618839389
 }

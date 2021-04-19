@@ -1,6 +1,13 @@
 {% extends "base.twig" %} {% block content %}
 <div class="section h-padding-top-xxl h-padding-bottom-lg">
     <h2 class="h2 h-margin-bottom-lg">Üritused</h2>
-    {% for üritus in üritused %} {% include 'components/event-page-date.twig' %} {% endfor %} {% for üritus in üritused %} {% include 'components/event-page-events.twig' %} {% endfor %}
+    {% for uniqueMonth, monthEvents in uniqueMonthsWithEvents %}
+        <div class="h-margin-bottom-lg">
+            {% include 'components/event-page-date.twig' with { event: { datestart: uniqueMonth } } %}
+            {% for event in monthEvents %}
+                {% include 'components/event-page-events.twig' with { event: event } %}
+            {% endfor %}
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
