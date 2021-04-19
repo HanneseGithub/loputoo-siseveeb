@@ -1,15 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <div class="h-container">
-    <h1>{{ post.title }}</h1>
-    {% if users %}    
-    <table 
-    data-toggle="table" 
+  <h2 class="h2 h-margin-bottom-lg">{{ post.title }}</h2>
+  {% if users %}
+    <table
+    data-toggle="table"
     data-search="true"
     class="users-table">
       <thead>
-        <tr> 
+        <tr>
           {% if canSendGroupEmails %}
               <th>E-mail</th>
           {% endif %}
@@ -18,15 +17,13 @@
               <th>Isikukood</th>
           {% endif %}
           <th>Liikme nimi</th>
-          <th  data-sortable="true">Häälerühm</th>
-          <th  data-sortable="true">Tiitel</th>
-          <th>Telefoni number</th>
+          <th data-sortable="true">Häälerühm</th>
+          <th data-sortable="true">Tiitel</th>
+          <th>Telefoninumber</th>
           <th>Email</th>
           <th data-sortable="true">Sünnipäev</th>
-          <th  data-sortable="true">Amet naiskooris</th>
-          <th>
-            button
-          </th>
+          <th data-sortable="true">Amet naiskooris</th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -41,7 +38,7 @@
             <img src="{{ function('get_avatar_url', user.ID) }}">
           </td>
           <td>{{user.display_name}}</td>
-          {% if isABookie or  choirBoss %}
+          {% if isABookie or choirBoss %}
             <td>{{ user.personal_ID }}</td>
           {% endif %}
           <td>{{ user.voice }}</td>
@@ -49,13 +46,12 @@
           <td>{{ user.phone_number }}</td>
           <td>{{ user.user_email }}</td>
           <td>
-           {{ function('calculateBirthday', user.personal_ID )}}
+            {{ function('calculateBirthday', user.personal_ID )}}
           </td>
           <td>
             {{ function('returnUserRoles', user.roles)}}
           </td>
-          <td>
-            {% include "components/userinfo.twig" %}
+          <td> {% include "components/userinfo.twig" %}
           </td>
         </tr>
         {% endfor %}
@@ -63,12 +59,9 @@
     </table>
     {% if canSendGroupEmails %}
       {% include "components/groupemail.twig" %}
-    
     {% endif %}
 
-    {% else %}
-      <h1>There are currently no users in the database</h1>
-    {% endif %}
-  </div> 
-  
+  {% else %}
+    <p>There are currently no users in the database</p>
+  {% endif %}
  {% endblock %}
