@@ -1,50 +1,10 @@
 {
-    "key": "group_606c616a0f5af",
-    "title": "Liikmeinfo",
+    "key": "group_607d4cd06f6b2",
+    "title": "Isiklikud andmed",
     "fields": [
         {
-            "key": "field_606c61735a95c",
-            "label": "Voice",
-            "name": "voice",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_606c61cde87b3",
-            "label": "Isikukood",
-            "name": "personal_ID",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
-        },
-        {
-            "key": "field_606d4d958c0af",
-            "label": "Telefoni number",
+            "key": "field_607d4cda3b47c",
+            "label": "Telefoninumber",
             "name": "phone_number",
             "type": "number",
             "instructions": "",
@@ -64,9 +24,9 @@
             "step": ""
         },
         {
-            "key": "field_606d5009b2f7f",
-            "label": "Tiitel",
-            "name": "title",
+            "key": "field_607d4cff3b47d",
+            "label": "Aadress",
+            "name": "adress",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -81,26 +41,42 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_607d4d0b3b47e",
+            "label": "Isikukood",
+            "name": "personal_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "user_form",
                 "operator": "==",
-                "value": "post"
+                "value": "edit"
             }
         ],
         [
             {
-                "param": "user_form",
+                "param": "page",
                 "operator": "==",
-                "value": "edit"
-            },
-            {
-                "param": "current_user",
-                "operator": "==",
-                "value": "logged_in"
+                "value": "16"
             }
         ]
     ],
@@ -112,5 +88,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617776848
+    "modified": 1618828016
 }

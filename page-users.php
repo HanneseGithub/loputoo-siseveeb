@@ -1,30 +1,9 @@
 <?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * To generate specific templates for your pages you can use:
- * /mytheme/templates/page-mypage.twig
- * (which will still route through this PHP file)
- * OR
- * /mytheme/page-mypage.php
- * (in which case you'll want to duplicate this file and save to the above path)
- *
- * Methods for TimberHelper can be found in the /lib sub-directory
- *
- * @package  WordPress
- * @subpackage  Timber
- * @since    Timber 0.1
- */
 
  // Display all the possible roles you want to see in the table
 $users = get_users( [ 'role__in' => [ 
     'singer',
-    'choirBoss',
+    'president',
     'bookie',
     'conductor',
     'secretary',
@@ -73,23 +52,23 @@ function calculateBirthday($Personal_ID){
 function returnUserRoles($userRoles){
     $currentUserRoles= array();
     foreach ($userRoles as $role) {
-        $currentUserRoles = $role;
+        $currentUserRoles = translate_user_role($role);
     }
     return $currentUserRoles;
 }
 
 // Set rules for who can interact with the page
 $bookie = current_user_can( 'bookie' );
-$choirBoss = current_user_can( 'choirBoss' );
+$president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
-$canSendGroupEmails = $bookie || $choirBoss || $conductor;
+$canSendGroupEmails = $bookie || $president || $conductor;
 
 
 $context = Timber::context();
 
 $context['users'] = $users;
 $context['isABookie'] = $bookie;
-$context['choirBoss'] = $choirBoss;
+$context['president'] = $president;
 $context['conductor'] = $conductor;
 $context['canSendGroupEmails'] = $canSendGroupEmails;
 

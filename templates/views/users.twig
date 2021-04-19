@@ -39,26 +39,28 @@
           </td>
           <td>{{user.display_name}}</td>
           {% if isABookie or choirBoss %}
-            <td>{{ user.personal_ID }}</td>
+            <td>
+              {{ user.personal_id }}
+            </td>
           {% endif %}
           <td>{{ user.voice }}</td>
           <td>{{ user.title }}</td>
           <td>{{ user.phone_number }}</td>
           <td>{{ user.user_email }}</td>
           <td>
-            {{ function('calculateBirthday', user.personal_ID )}}
+            {{ function('calculateBirthday', user.personal_id )}}
           </td>
           <td>
             {{ function('returnUserRoles', user.roles)}}
           </td>
-          <td> {% include "components/userinfo.twig" %}
+          <td> {% include "components/user-info.twig" %}
           </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
     {% if canSendGroupEmails %}
-      {% include "components/groupemail.twig" %}
+      {% include "components/group-email.twig" %}
     {% endif %}
 
   {% else %}

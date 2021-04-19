@@ -68,6 +68,7 @@ class StarterSite extends Timber\Site
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'create_roles' ) );
+		add_action( 'init', array( $this, 'remove_roles' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_my_scripts' ) );
 		add_action( 'login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
@@ -80,15 +81,15 @@ class StarterSite extends Timber\Site
 		add_role('singer', 'Laulja');
 		add_role('bookie', 'Raamatupidaja');
 		add_role('conductor', 'Koorivanem');
-		add_role('choirManager', 'Koori juht');
+		add_role('president', 'President');
 		add_role('secretary', 'Sekretär');
-		add_role('Note-handler', 'Noodihaldur');
+		add_role('note-handler', 'Noodihaldur');
 		$bookie  = get_role('bookie');
 		$singer = get_role('singer');
 		$conductor = get_role('conductor');
-		$choirManager = get_role('choirManager');
+		$choirManager = get_role('president');
 		$secretary = get_role('secretary');
-		$noteHandler = get_role('Note-handler');
+		$noteHandler = get_role('note-handler');
 		// Same capabilities as a subscriber
 		$bookie -> add_cap('read');
 		$singer -> add_cap('read');
@@ -97,7 +98,14 @@ class StarterSite extends Timber\Site
 		$secretary -> add_cap('read');
 		$noteHandler -> add_cap('read');
 	}
-
+	// Delete roles we do not use
+	function remove_roles(){
+		remove_role( 'subscriber' );
+		remove_role( 'contributor' );
+		remove_role( 'author' );
+		remove_role( 'editor' );
+		remove_role( 'choirManager' );
+	}
 	/** Register custom post types defined in lib/custom-types */
 	public function register_post_types()
 	{

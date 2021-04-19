@@ -13,27 +13,27 @@
               <tr>
                   <td class="userinfo-label">Liikme nimi</td>
                   <td><input type="text" value="{{ user.display_name }}"></td>
-                  <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                  <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
               </tr>
               {% if (isABookie or choirBoss) %}
                 <tr>
                   <td>Isikukood</td>
-                  <td><input type="text" value="{{ user.personal_ID}}"></td>
-                  <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                  <td><input type="text" value="{{ user.personal_id }}"></td>
+                  <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
                 </tr>
               {% endif %}
                 
               <tr>
                 <td>Liikme e-mail</td>
-                <td><input type="text" value="{{ user.user_email}}"></td>
-                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                <td><input type="text" value="{{ user.user_email }}"></td>
+                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
 
               </tr>
               <tr>
                 <td>Sünnipäev</td>
                 <td>
-                  <input type="text" value="{{ function('calculateBirthday', user.personal_ID )}}"></td>
-                  <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                  <input type="text" value="{{ function('calculateBirthday', user.personal_id )}}"></td>
+                  <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
 
               </tr>
               <tr>
@@ -41,7 +41,7 @@
                 <td>
                   <input type="number" value="{{ user.phone_number }}">
                 </td>
-                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
 
               </tr>
               <tr>
@@ -52,13 +52,13 @@
                     <option value="ei">Ei</option>
                   </select>
                 </td>
-                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
 
               </tr>
               <tr>
                 <td>Noorlaulja</td>
                 <td>Ei</td>
-                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
 
               </tr>
               <tr>
@@ -66,7 +66,7 @@
                 <td>
                   {{ function('returnUserRoles', user.roles)}}
                 </td>
-                <td>{% include 'components/icon.twig' with { name: 'sprite-pencil' } %}</td>
+                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
               </tr>
               <tr>
                 <td>Sisseastumise aeg</td>
