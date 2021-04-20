@@ -1,14 +1,18 @@
 <div class="events-container">
     <div class="event-wrapper h-margin-bottom-sm">
         <div class="event-image-container">
-            <img src="{{ Image(event.image).src }}">
-            <div class="event-attend">Ei osale</div>
+            {% if event.image.aspect
+            < 1 %} {% if not event.image %} <img src="{{theme.link}}/static/images/event-bg.png "> {% else %} <img src="{{ Image(event.image).src|resize(800, 500) }}"> {% endif %} {% endif %}
+                <div class="event-attend">Ei osale</div>
         </div>
     </div>
     <div class="event-info-container">
         <h3 class="event-page-title">{{ event.title }}</h3>
-        {# If lause siia :) #}
+        {% if event.has_end_date %}
         <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}} - {{ event.dateend | date("d. F Y H:i")}}</div>
+        {% else %}
+        <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}}</div>
+        {% endif %}
         <div class="event-description">{{ event.description }}</div>
     </div>
 </div>

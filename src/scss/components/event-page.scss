@@ -4,13 +4,8 @@
     & .event-Y-date {
         color: $color-gray;
         text-transform: capitalize;
-        width: 10%;
-        @media (max-width: $bp-lg-min) {
-            width: 40%;
-        }
-        @media (max-width: $bp-xs-min) {
-            width: 58%;
-        }
+        margin-right: 5px;
+        white-space: nowrap;
     }
     & .event-border {
         height: 1px;
@@ -38,9 +33,6 @@
             position: relative;
             width: 100%;
             border-radius: 5px;
-            @media (max-width: $bp-sm-min) {
-                height: 320px;
-            }
         }
         @media (max-width: $bp-sm-min) {
             position: relative;

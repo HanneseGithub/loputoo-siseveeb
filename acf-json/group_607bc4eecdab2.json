@@ -4,9 +4,9 @@
     "fields": [
         {
             "key": "field_607bc4f672060",
-            "label": "sisu",
+            "label": "Sisu",
             "name": "description",
-            "type": "text",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,14 +16,14 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_607bc51272061",
-            "label": "pilt",
+            "label": "Pilt",
             "name": "image",
             "type": "image",
             "instructions": "",
@@ -47,7 +47,7 @@
         },
         {
             "key": "field_607bc53d72062",
-            "label": "aeg(mis kell algab)",
+            "label": "Ürituse kuupäev ja kellaaeg",
             "name": "datestart",
             "type": "date_time_picker",
             "instructions": "",
@@ -64,7 +64,7 @@
         },
         {
             "key": "field_607d4702359df",
-            "label": "aeg(Millal lõppeb?)",
+            "label": "Ürituse lõpp kuupäev ja kellaaeg",
             "name": "dateend",
             "type": "date_time_picker",
             "instructions": "",
@@ -89,7 +89,7 @@
         },
         {
             "key": "field_607d86b679115",
-            "label": "Date endiga?",
+            "label": "Üritus ilma lõpp kuupäevata",
             "name": "has_end_date",
             "type": "true_false",
             "instructions": "",
@@ -126,5 +126,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618839389
+    "modified": 1618845089
 }
