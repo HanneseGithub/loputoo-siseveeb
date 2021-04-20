@@ -17,7 +17,6 @@ $events = $calendarService->events
         $myCalendarID,
         array(
             'singleEvents' => true,
-            'timeZone' => 'UTC+3',
             'orderBy' => 'startTime',
             'timeMin' => date(DATE_RFC3339),
             'maxResults' => 5,
