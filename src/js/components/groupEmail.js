@@ -9,7 +9,5 @@ function openEmailForm(){
            emailsForInput.push(arrayOfEmails[i].value)
        }
     }
-    console.log(emailsForInput)
     groupEmailInputField.value = emailsForInput
-
 }

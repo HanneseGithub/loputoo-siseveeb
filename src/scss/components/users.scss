@@ -28,4 +28,21 @@
         height: 40px;
     }
 
+    @include bp(sm-min) {
+    // Position of the first two columns is absolute
+    th:first-child, td:first-child
+    {
+    position:sticky;
+    left:0px;
+    min-width: 60px;
+    }
+
+   .name-column{
+        position:sticky;
+        left: 60px;
+    }
+    .sticky-background-color{
+        background-color:$color-gray;
+    }
+      }
 }  

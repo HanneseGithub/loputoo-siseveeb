@@ -6,67 +6,51 @@
     <div class="userinfo-container">
         <div class="avatar">
           <img src="{{ function('get_avatar_url', user.ID) }}">
-        </div>
+        </div>        
         <div class="userinfo">
           <div class="md-form  input-with-post-icon">
+            <form action="POST">
+              <h1>Liikme info</h1>
+            </form>
             <table>
               <tr>
                   <td class="userinfo-label">Liikme nimi</td>
-                  <td><input type="text" value="{{ user.display_name }}"></td>
-                  <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
+                  <td>
+                  {{ user.display_name }}
+                  </td>
               </tr>
               {% if (isABookie or choirBoss) %}
                 <tr>
                   <td>Isikukood</td>
                   <td><input type="text" value="{{ user.personal_id }}"></td>
-                  <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
                 </tr>
               {% endif %}
-                
               <tr>
                 <td>Liikme e-mail</td>
-                <td><input type="text" value="{{ user.user_email }}"></td>
-                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
-
-              </tr>
-              <tr>
-                <td>Sünnipäev</td>
-                <td>
-                  <input type="text" value="{{ function('calculateBirthday', user.personal_id )}}"></td>
-                  <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
-
+                <td>{{ user.user_email }}</td>
               </tr>
               <tr>
                 <td>Telefon</td>
-                <td>
-                  <input type="number" value="{{ user.phone_number }}">
-                </td>
-                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
-
+                <td>{{ user.phone_number }}</td>
               </tr>
               <tr>
-                <td>Tudeng</td>
-                <td>
-                  <select class="custom-select" id="inputGroupSelect02">
-                    <option value="jah">Jah</option>
-                    <option value="ei">Ei</option>
-                  </select>
-                </td>
-                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
-
+                <td>Sünnipäev</td>
+                <td>{{ function('calculateBirthday', user.personal_id )}}</td>
               </tr>
+              
+
               <tr>
-                <td>Noorlaulja</td>
-                <td>Ei</td>
-                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
-
+                <td>Kooli staatus</td>
+                <td>
+                  {{ user.is_in_school[0] }}
+                </td>
               </tr>
+
               <tr>
                 <td>Amet</td>
                 <td>
                   {{ function('returnUserRoles', user.roles)}}
                 </td>
-                <td>{% include 'components/icon.twig' with { name: 'pencil-fill' } %}</td>
               </tr>
               <tr>
                 <td>Sisseastumise aeg</td>
@@ -74,15 +58,27 @@
                 <td><i class="fas fa-pencil-alt"></i></td>
               </tr>
           </table>
+          <hr>
+          <h1>Koori andmed</h1>
+          <table>
+            <tr>
+              <td>Tiitel</td>
+              <td>{{ user.title }}</td>
+            </tr>
+            <tr>
+              <td>Häälerühm</td>
+              <td>{{ user.voice }}</td>
+            </tr>
+          </table>
           </div>
-
+          {# {% if canEditUserChoirRoles %} #}
+            <hr>
+            <h1>Muuda kasutaja andmeid</h1>
+            {{ function('editUserRole', user.ID )  }}
+          {# {% endif %} #}
         </div>
-      </div>
-      <a href="#close-modal" class="saveButton" rel="modal:close">
-        Salvesta
-      </a>
 
-
+    </div>
   </div>
   
 <!-- Link to open the modal -->

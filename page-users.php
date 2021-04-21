@@ -1,5 +1,5 @@
 <?php
-
+acf_form_head(); 
  // Display all the possible roles you want to see in the table
 $users = get_users( [ 'role__in' => [ 
     'singer',
@@ -57,10 +57,27 @@ function returnUserRoles($userRoles){
     return $currentUserRoles;
 }
 
+// Form for editing user position in organisation
+
+function editUserRole($userID){
+    // For editing user roles in the f
+    $options = array(
+        
+        'post_id' => 'user_' . $userID,
+        'field_groups' => array('group_607d4a30d0f6a'),
+        'submit_value' => __("Muuda andmeid", 'acf'),
+        'updated_message' => __("Andmed muudetud!", 'acf'),
+        'html_submit_button'  => '<input type="submit" class="save-button" value="%s" />',
+
+    );
+    acf_form($options);
+}
+
 // Set rules for who can interact with the page
 $bookie = current_user_can( 'bookie' );
 $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
+$canEditUserChoirRoles = $president || $conductor || $bookie;
 $canSendGroupEmails = $bookie || $president || $conductor;
 
 
@@ -70,6 +87,7 @@ $context['users'] = $users;
 $context['isABookie'] = $bookie;
 $context['president'] = $president;
 $context['conductor'] = $conductor;
+$context['canEditUserChoirRoles'] = $canEditUserChoirRoles;
 $context['canSendGroupEmails'] = $canSendGroupEmails;
 
 $timber_post     = new Timber\Post();
