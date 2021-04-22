@@ -105,6 +105,25 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_607fe3a340199",
+            "label": "Asukoht",
+            "name": "location",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -112,7 +131,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "ritused"
+                "value": "uritused"
             }
         ]
     ],
@@ -126,5 +145,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618845089
+    "modified": 1618994125
 }

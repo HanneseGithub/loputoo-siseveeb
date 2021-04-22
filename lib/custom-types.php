@@ -107,8 +107,8 @@ $üritused_args = array(
     'can_export'            => true,
     'has_archive'           => false,
     'exclude_from_search'   => false,
-    'publicly_queryable'    => false,
-    'capability_type'       => 'page',
+    'publicly_queryable'    => true,
+    'capability_type'       => 'post',
 );
 
-register_post_type('Üritused', $üritused_args);
+register_post_type('Uritused', $üritused_args);

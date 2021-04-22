@@ -1,0 +1,113 @@
+.single-post-info-container {
+    display: flex;
+    width: 100%;
+    @media (max-width: $bp-md-min) {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    & .single-post-description-container {
+        width: 60%;
+        display: block;
+        flex-direction: column;
+        @media (max-width: $bp-md-min) {
+            display: flex;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 24px;
+        }
+        & .single-post-going {
+            width: 150px;
+            position: relative;
+            & select {
+                display: none;
+            }
+        }
+        & .single-post-text-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            & svg {
+                margin-right: 8px;
+                color: $color-dark-gray;
+            }
+        }
+        a {
+            color: #758EFF;
+            text-decoration: none;
+        }
+    }
+    & .single-post-image-container {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media (max-width: $bp-md-min) {
+            width: 70%;
+            margin: 0 auto;
+        }
+        & img {
+            width: 400px;
+            height: auto;
+            border-radius: 5px;
+            @media (max-width: $bp-md-min) {
+                width: calc(120% - 0%);
+            }
+        }
+    }
+}
+
+
+/* Single Event page Select*/
+
+.select-selected {
+    background-color: $color-green;
+    border-radius: 5px;
+    &:after {
+        position: absolute;
+        content: "";
+        top: 18px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+    }
+}
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+.select-items div,
+.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.select-items {
+    position: absolute;
+    background-color: $color-green;
+    top: 83%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-radius: 5px;
+    padding-top: 10px
+}
+
+.select-items div:first-child {
+    background: $color-gray;
+    border-radius: 5px;
+}
+
+.select-items div:last-child {
+    background: $color-red;
+    border-radius: 5px;
+}
+
+.select-hide {
+    display: none;
+}

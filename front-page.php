@@ -6,7 +6,7 @@ require('lib/google-calendar.php');
 $currentdate = date_i18n("Y-m-d H:i:s");
 
 $event_args = array(
-    'post_type' => 'üritused',
+    'post_type' => 'Uritused',
     'meta_query'=> array(
         array(
           'key' => 'datestart',
