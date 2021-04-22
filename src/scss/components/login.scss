@@ -50,10 +50,6 @@
     padding: 0;
 }
 
-.message {
-    width: 25em;
-}
-
 .login p,
 .login label {
     color: $color-primary-blue;
@@ -132,18 +128,18 @@
 
 /* Links */
 
-a {
+.login a {
     color: #0073aa;
 }
 
 
 /* Forms */
 
-input[type=checkbox]:checked:before {
+.login input[type=checkbox]:checked:before {
     color: $color-primary-blue;
 }
 
-input[type=radio]:checked:before {
+.login input[type=radio]:checked:before {
     background: $color-primary-blue;
 }
 
@@ -229,7 +225,7 @@ input[type=radio]:checked:before {
     color: $color-white;
 }
 
-input[type=checkbox]:checked::before {
+.login input[type=checkbox]:checked::before {
     content: '\2713';
     margin: .475rem 0 0 -.15rem;
     color: $color-primary-blue;
@@ -238,7 +234,7 @@ input[type=checkbox]:checked::before {
 .widefat tfoot td input[type=checkbox]:before,
 .widefat th input[type=checkbox]:before,
 .widefat thead td input[type=checkbox]:before,
-input[type=checkbox]:checked:before {
+.login input[type=checkbox]:checked:before {
     color: $color-primary-blue;
 }
 
@@ -281,8 +277,8 @@ input[type=checkbox]:checked:before {
         width: 250px;
         margin: 0 auto;
     }
-    input[type=checkbox],
-    input[type=radio] {
+    .login input[type=checkbox],
+    .login input[type=radio] {
         width: .56rem;
         margin: 0rem .25rem 0 0;
         height: 1rem;
@@ -292,7 +288,7 @@ input[type=checkbox]:checked:before {
     .login .success {
         width: 100%;
     }
-    input[type=checkbox]:checked::before {
+    .login input[type=checkbox]:checked::before {
         margin: .475rem 0 0 -.4rem;
     }
     .login h1 a {
