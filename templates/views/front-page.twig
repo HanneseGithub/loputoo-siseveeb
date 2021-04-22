@@ -46,22 +46,24 @@
     <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
     <div class="front-page-events-container">
         {% for event in events %}
-        <div class="h-margin-bottom-lg single-event-container">
-            <div class="h-margin-bottom-md event-wrapper">
-                {% if not event.image %}
-                <img src="{{theme.link}}/static/images/event-bg.png "> {% else %}
-                <img src="{{ Image(event.image).src|resize(800, 500) }}"> {% endif %}
-                <div class="event-going">
-                    <p>Osalen</p>
+        <a class="event-click-container" href="{{event.link}}">
+            <div class="h-margin-bottom-lg single-event-container">
+                <div class="h-margin-bottom-md event-wrapper">
+                    {% if not event.image %}
+                    <img src="{{theme.link}}/static/images/event-bg.png "> {% else %}
+                    <img src="{{ Image(event.image).src|resize(800, 500) }}"> {% endif %}
+                    <div class="event-going">
+                        <p>Osalen</p>
+                    </div>
+                    <div class="event-date">
+                        <p>{{event.date}}</p>
+                    </div>
                 </div>
-                <div class="event-date">
-                    <p>{{event.date}}</p>
+                <div class="event-title">
+                    <h3>{{event.title}}</h3>
                 </div>
             </div>
-            <div class="event-title">
-                <h3>{{event.title}}</h3>
-            </div>
-        </div>
+        </a>
         {% endfor %}
     </div>
 </div>

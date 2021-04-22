@@ -10,11 +10,11 @@
         </div>
         <div class="single-post-text-container h-margin-bottom-sm-md"> {% include 'components/icon.twig' with { name: 'sprite-clock-fill' } %}{{ post.datestart| date("d. F Y. &#8226; H:i")}} - {{ post.dateend | date("G:i")}}</div>
         <div class="single-post-text-container h-margin-bottom-sm-md">{% include 'components/icon.twig' with { name: 'sprite-geo-alt-fill' }%}{{ post.location}}</div>
-        <div class="single-post-text-container h-margin-bottom-sm-md">{% include 'components/icon.twig' with { name: 'sprite-person-fill' }%}Mari</div>
-        <a class="single-post-text-container h-margin-bottom-sm-md" href="#">{% include 'components/icon.twig' with { name: 'sprite-info-circle-fill' }%}Link infolehele</a>
-        <div class="single-post-description">{{post.description}}</div>
+        <div class="single-post-text-container h-margin-bottom-sm-md">{% include 'components/icon.twig' with { name: 'sprite-person-fill' }%}{{post.organizer}}</div>
+        <a class="single-post-text-container h-margin-bottom-sm-md" href="{{post.info_page}}" target=" _blank ">{% include 'components/icon.twig' with { name: 'sprite-info-circle-fill' }%}Link infolehele</a>
+        <div class="single-post-description ">{{post.description}}</div>
     </div>
-    <div class="single-post-image-container">
-        <img src="{{ Image(post.image).src|resize(800, 500) }}">
+    <div class="single-post-image-container ">
+        <img src="{{ Image(post.image).src|resize(800, 500) }} ">
     </div>
 </div>

@@ -15,6 +15,8 @@
             width: 90%;
             margin: 0 auto;
             margin-top: 24px;
+            font-size: $font-size-small;
+            line-height: $line-height-small;
         }
         & .single-post-going {
             width: 150px;
@@ -63,10 +65,12 @@
 .select-selected {
     background-color: $color-green;
     border-radius: 5px;
+    height: 32px;
+    width: auto;
     &:after {
         position: absolute;
         content: "";
-        top: 18px;
+        top: 15px;
         right: 10px;
         width: 0;
         height: 0;
