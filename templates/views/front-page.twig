@@ -46,12 +46,12 @@
     <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
     <div class="front-page-events-container">
         {% for event in events %}
-        <a class="event-click-container" href="{{event.link}}">
+        <a class="event-click-container-front-page" href="{{event.link}}">
             <div class="h-margin-bottom-lg single-event-container">
                 <div class="h-margin-bottom-md event-wrapper">
-                    {% if not event.image %}
-                    <img src="{{theme.link}}/static/images/event-bg.png "> {% else %}
-                    <img src="{{ Image(event.image).src|resize(800, 500) }}"> {% endif %}
+                    {% if not event.image %} {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
+                    <img src="{{ placeholder.src | resize(750, 500) }}"> {% else %}
+                    <img src="{{ Image(event.image).src|resize(750, 500) }}"> {% endif %}
                     <div class="event-going">
                         <p>Osalen</p>
                     </div>

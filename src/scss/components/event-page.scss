@@ -17,18 +17,21 @@
 .event-click-container {
     text-decoration: none;
     color: black;
+    @media (max-width: $bp-md-min) {
+        width: 100%;
+    }
 }
 
 .events-container {
     display: block;
     width: 100%;
     margin-top: 24px;
+    background-color: $color-pearl;
+    border-radius: 5px;
     & .event-wrapper {
         display: block;
         position: relative;
         align-items: center;
-        background-color: $color-pearl;
-        border-radius: 5px;
     }
     & .event-image-container {
         position: absolute;

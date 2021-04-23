@@ -2,8 +2,12 @@
     <a class="event-click-container" href="{{event.link}}">
         <div class="event-wrapper h-margin-bottom-sm">
             <div class="event-image-container">
-                {% if event.image.aspect
-                < 1 %} {% if not event.image %} <img src="{{theme.link}}/static/images/event-bg.png "> {% else %} <img src="{{ Image(event.image).src|resize(800, 500) }}"> {% endif %} {% endif %}
+                {% if not event.image %}
+                 {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
+                    <img src="{{ placeholder.src | resize(750, 500) }}">
+                     {% else %}
+                    <img src="{{ Image(event.image).src|resize(750, 500) }}">
+                     {% endif %}
                     <div class="event-attend">Ei osale</div>
             </div>
         </div>

@@ -81,21 +81,32 @@
     }
     & .single-event-container:hover {
         transform: scale(1.1);
+        @media (max-width: $bp-md-min) {
+            transform: scale(1);
+        }
+    }
+    & .event-click-container-front-page {
+        text-decoration: none;
+        color: black;
+        @media (max-width: $bp-md-min) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
     }
     & .event-wrapper {
-        display: block;
-        position: relative;
-        width: 100%;
-        height: 230px;
         color: $color-white;
         text-align: center;
-        & img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 230px;
+        position: relative;
+        &:before {
+            display: block;
+            width: 100%;
+            padding-top: (76 / 135) * 100%;
+        }
+        >img {
             width: 100%;
             border-radius: 5px;
+            box-shadow: 5px 10px 8px #888888;
         }
     }
     & .event-going {
@@ -117,7 +128,7 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        bottom: 0;
+        bottom: 6px;
         left: 0;
         padding: 8px 24px;
         background: $color-secondary-blue;
@@ -149,14 +160,13 @@
         & .calendar-wrapper-title {
             font-size: $font-size-small;
         }
+        & a {
+            font-size: $font-size-small;
+        }
     }
     .front-page-events-container {
-        & .single-event-container {
-            display: block;
-            width: 280px;
-        }
         & .event-wrapper {
-            height: 200px;
+            width: 100%;
         }
     }
 }

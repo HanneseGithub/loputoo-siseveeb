@@ -15,6 +15,7 @@
         <div class="single-post-description ">{{post.description}}</div>
     </div>
     <div class="single-post-image-container ">
-        <img src="{{ Image(post.image).src|resize(800, 500) }} ">
+        {% if not event.image %} <img src="{{theme.link}}/static/images/event-bg.png "> {% else %}
+        <img src="{{ Image(post.image).src|resize(800, 500) }} "> {% endif %}
     </div>
 </div>
