@@ -1,9 +1,12 @@
 .wrong-page-container {
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transform: translate(-60%, -50%);
     & img {
         width: calc(50% - 10%);
         height: auto;
@@ -15,8 +18,9 @@
     & a {
         text-decoration: none;
         color: white;
-        padding: 15px;
+        padding: 12px;
         background: $color-primary-blue;
         border-radius: 5px;
+        text-transform: uppercase;
     }
 }
