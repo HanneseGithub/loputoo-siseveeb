@@ -1,0 +1,32 @@
+<table
+{% block table_options %}
+  data-toggle="table"
+  data-search="true"
+  data-locale="et-EE"
+{% endblock %}
+id="table"
+{% block table_classes %}
+  class="naiskoor-table"
+{% endblock %}
+>
+  <thead class="naiskoor-table__header">
+    {% block table_header %}
+      <tr>
+        <th
+        data-sortable="true"
+        class="h-text-left">Pealkiri 1 - sorteeritav ja custom class</th>
+        <th class="h-text-center">Pealkiri 2</th>
+      </tr>
+    {% endblock %}
+  </thead>
+  <tbody class="naiskoor-table__body">
+    {% block table_body %}
+      {% for i in 0..10 %}
+        <tr>
+          <td>Tekst 1 - {{i}}</td>
+          <td>Tekst 2</td>
+        </tr>
+      {% endfor %}
+    {% endblock %}
+  </tbody>
+</table>
