@@ -1,26 +1,36 @@
 .wrong-page-container {
-    position: absolute;
-    top: 50%;
-    left: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transform: translate(-60%, -50%);
+
+    height: calc(100vh - 40px);
+
+    @include bp(sm-min) {
+        height: calc(100vh - 52px);
+    }
+
     & img {
         width: calc(50% - 10%);
         height: auto;
-        margin-top: 24px;
     }
-    .h2 {
-        text-align: center;
-    }
+
     & a {
+        padding: 12px 24px;
+
         text-decoration: none;
-        color: white;
-        padding: 12px;
-        background: $color-primary-blue;
+
+        color: $color-white;
+        background-color: $color-primary-blue;
+
         border-radius: 5px;
+
+        white-space: nowrap;
         text-transform: uppercase;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: $color-secondary-blue;
+        }
     }
 }
