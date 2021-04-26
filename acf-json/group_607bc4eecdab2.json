@@ -100,11 +100,65 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Kas date end on ka olemas? :)",
+            "message": "Üritus ilma lõpu kuupäevata",
             "default_value": 1,
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_607fe3a340199",
+            "label": "Asukoht",
+            "name": "location",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60814a31f15db",
+            "label": "Info leht",
+            "name": "info_page",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_60814b6f39084",
+            "label": "Korraldaja",
+            "name": "organizer",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -112,7 +166,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "ritused"
+                "value": "post"
             }
         ]
     ],
@@ -126,5 +180,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618845089
+    "modified": 1619462461
 }
