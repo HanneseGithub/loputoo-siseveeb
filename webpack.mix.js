@@ -1,5 +1,7 @@
 // webpack.mix.js
 let mix = require('laravel-mix');
+require('dotenv').config();
+
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
 mix.webpackConfig({
@@ -22,7 +24,7 @@ mix.setPublicPath('static')
     .sass('src/scss/main.scss', 'static/css/main.css')
     .combine('src/js/**/*.js', 'static/js/main.js', true)
     .browserSync({
-        proxy: 'http://localhost:8888/naiskoor',
+        proxy: process.env.DEVELOPMENT_URL,
         files: [
             'src/**/*',
             'templates/**/*.twig',
