@@ -1,0 +1,127 @@
+/* Bootstrap table overwrites */
+.bootstrap-table .fixed-table-container .table thead th {
+    &:first-child {
+        padding-left: 12px;
+
+        @include bp(sm-min) {
+            padding-left: 8px;
+        }
+    }
+
+    &:last-child{
+        padding-right: 12px;
+
+        @include bp(sm-min) {
+            padding-right: 8px;
+        }
+    }
+}
+
+.bootstrap-table .fixed-table-container .table thead th .th-inner {
+    padding: 12px;
+
+    @include bp(sm-min) {
+        padding: 12px 16px;
+    }
+}
+
+.fixed-table-toolbar{
+    text-align: right;
+}
+
+/* Custom table styles */
+.naiskoor-table__header {
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+
+    color: $color-white;
+
+    font-weight: $font-weight-bold;
+
+    & th {
+        background-color: $color-secondary-blue;
+    }
+
+    & th:first-child {
+        border-radius: 5px 0 0 0;
+    }
+
+    & th:last-child{
+        border-radius: 0 5px 0 0;
+    }
+
+    @include bp(sm-min) {
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+    }
+}
+
+.naiskoor-table__body {
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+
+    color: $color-secondary-blue;
+
+    white-space: nowrap;
+
+    & tr:nth-child(odd){
+        & td {
+            background-color: $color-light-gray;
+            transition: background-color 0.3s;
+        }
+
+        &:hover{
+            & td {
+                background-color: $color-light-blue;
+            }
+        }
+    }
+
+    & tr:nth-child(even){
+        & td {
+            background-color: $color-pearl;
+            transition: background-color 0.3s;
+        }
+
+        &:hover{
+            & td {
+                background-color: $color-light-blue;
+            }
+        }
+    }
+
+    & td {
+        padding: 10px 12px;
+
+        &:first-child {
+            padding: 10px 12px 10px 24px;
+
+            @include bp(sm-min) {
+                padding: 4px 16px 4px 24px;
+            }
+        }
+
+        &:last-child{
+            padding: 10px 24px 10px 12px;
+
+            @include bp(sm-min) {
+                padding: 4px 24px 4px 16px;
+            }
+        }
+
+        @include bp(sm-min) {
+            padding: 4px 16px;
+        }
+    }
+
+    @include bp(sm-min) {
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+    }
+}
+
+.table-cell--fixed {
+    position: sticky;
+
+    left: 0;
+}
