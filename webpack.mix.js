@@ -21,6 +21,7 @@ mix.setPublicPath('static')
     .setResourceRoot('../')
     .sass('src/scss/main.scss', 'static/css/main.css')
     .combine('src/js/**/*.js', 'static/js/main.js', true)
+    .copy( 'src/images/', 'static/images/', false )
     .browserSync({
         proxy: 'http://localhost:8888/naiskoor',
         files: [
