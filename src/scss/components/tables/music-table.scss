@@ -1,0 +1,50 @@
+.music-table{
+    input{
+        background-color: $color-primary-blue;
+        text-transform: uppercase;
+        color: white;
+        justify-content: space-around;
+        border-radius: 3px;
+        padding: 10px;
+        text-decoration: none;
+        display: inline-block;
+    
+    }
+    .music-table-icon{
+        font-size: 20px;
+        color: $color-secondary-blue;
+        
+        @include bp(sm-min) {
+            font-size: 24px;
+        }
+    }
+    
+    & a{
+        text-decoration: none;
+        color: $color-secondary-blue;
+    }
+
+    & .naiskoor-table__body td {
+        padding: 10px 12px;
+
+        &:first-child {
+            padding: 10px 12px 10px 24px;
+
+            @include bp(sm-min) {
+                padding: 10px 16px 10px 24px;
+            }
+        }
+
+        &:last-child{
+            padding: 10px 24px 10px 12px;
+
+            @include bp(sm-min) {
+                padding: 10px 24px 10px 16px;
+            }
+        }
+
+        @include bp(sm-min) {
+            padding: 10px 16px;
+        }
+    }
+}

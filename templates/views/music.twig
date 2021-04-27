@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="section h-padding-top-xxl h-padding-bottom-lg">
+		<div class="music-header">
+			<h2 class="h2 h-margin-bottom-lg">Repertuaar</h2>
+			{% include "components/add-post.twig" with{ title: 'Lisa uus laul', type: 'repertoire'} %}	
+		</div>
+		<br>
+		{% if repertoire is empty %}
+			<h1>Hetkel pole repertuaari lisatud</h1>
+		{% else %}
+			{% include "components/tables/music-table.twig" %}
+		{% endif %}		
+	</div>
+{% endblock %}

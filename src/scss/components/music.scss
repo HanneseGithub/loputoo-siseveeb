@@ -1,0 +1,41 @@
+.music-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.add-post-button{
+    background-color: $color-primary-blue;
+    text-transform: uppercase;
+    color: white;
+    justify-content: space-around;
+    border-radius: 3px;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+.delete-post-modal{
+
+    .button-holder{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .delete-post-buttons{
+        background-color: $color-primary-blue;
+        text-transform: uppercase;
+        color: white;
+        justify-content: space-around;
+        border-radius: 3px;
+        padding: 10px;
+        text-decoration: none;
+        display: inline-block;
+        &:hover{
+            background-color: $color-primary-blue-hover;
+        }
+    }
+
+}
+
+.delete-post-icon{
+    color: $color-red;
+}
