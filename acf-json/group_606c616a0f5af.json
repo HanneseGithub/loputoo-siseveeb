@@ -1,32 +1,11 @@
 {
-    "key": "group_607d4cd06f6b2",
-    "title": "Isiklikud andmed",
+    "key": "group_606c616a0f5af",
+    "title": "Liikmeinfo",
     "fields": [
         {
-            "key": "field_607d4cda3b47c",
-            "label": "Telefoninumber",
-            "name": "phone_number",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
-        },
-        {
-            "key": "field_607d4cff3b47d",
-            "label": "Aadress",
-            "name": "address",
+            "key": "field_606c61735a95c",
+            "label": "Voice",
+            "name": "voice",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -43,10 +22,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_607d4d0b3b47e",
-            "label": "Isikukood",
-            "name": "personal_id",
-            "type": "number",
+            "key": "field_606d5009b2f7f",
+            "label": "Tiitel",
+            "name": "title",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -59,9 +38,7 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "maxlength": ""
         }
     ],
     "location": [
@@ -70,6 +47,11 @@
                 "param": "user_form",
                 "operator": "==",
                 "value": "edit"
+            },
+            {
+                "param": "current_user",
+                "operator": "==",
+                "value": "logged_in"
             }
         ]
     ],
@@ -81,5 +63,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619100359
+    "modified": 1619100166
 }

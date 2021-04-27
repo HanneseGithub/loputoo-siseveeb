@@ -1,0 +1,12 @@
+.users-table__avatar {
+    .users-table & {
+        border-radius: 50%;
+        height: 24px;
+
+        vertical-align: middle;
+
+        @include bp(sm-min) {
+            height: 40px;
+        }
+    }
+}

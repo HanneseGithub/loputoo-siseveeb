@@ -4,23 +4,22 @@
 <div id="groupEmailModal" class="modal">
     <h1>E-maili vorm</h1>
       <form action="" method="POST" class="emailSendingForm">
-  
           <label for="email">E-posti aadress kellelt saadetakse</label>
-            <input 
-            type="email" 
-            class="form-control" 
-            value="naiskoorintra@gmail.com" 
+            <input
+            type="email"
+            class="form-control"
+            value="naiskoorintra@gmail.com"
             readonly
             id="email"
-            required  
+            required
             >
           </td>
           <br>
           <label for="header">Kirja pealkiri</label>
-            <input 
-            type="text" 
-            name="subject" 
-            class="form-control" 
+            <input
+            type="text"
+            name="subject"
+            class="form-control"
             placeholder="Lisa päis:"
             value="[{{ function('returnUserRoles', user.roles)}}]:"
             required
@@ -29,21 +28,21 @@
           <br>
 
             <label for="sendGroupEmail">Kellele saadetakse:</label>
-            <input 
-            type="email" 
-            name="recievers"   
-            class="form-control" 
-            placeholder="Enter Email" 
-            id="sendGroupEmail" 
+            <input
+            type="email"
+            name="recievers"
+            class="form-control"
+            placeholder="Enter Email"
+            id="sendGroupEmail"
             multiple
             required>
           <br>
 
             <label for="message">E-kirja sisu</label>
-            <textarea 
-            rows="4" 
-            name="message" 
-            class="form-control" 
+            <textarea
+            rows="4"
+            name="message"
+            class="form-control"
             placeholder="Saada e-mail"
             id="message"
             required
@@ -58,7 +57,7 @@
              name="sender-roles">
 
       <div class="form-group text-center">
-        <button 
+        <button
           class="btn btn-raised btn-lg btn-warning"
           type="submit"
           name="submit"

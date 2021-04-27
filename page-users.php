@@ -1,18 +1,19 @@
 <?php
-acf_form_head(); 
- // Display all the possible roles you want to see in the table
-$users = get_users( [ 'role__in' => [ 
+acf_form_head();
+
+// Display all the possible roles you want to see in the table
+$users = get_users(['role__in' => [
     'singer',
     'president',
     'bookie',
     'conductor',
     'secretary',
     'noteHandler',
-    'subscriber', 
-    'author' 
-    ] ] );
+    'subscriber',
+    'author'
+]]);
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     // First send a control, e-mail to your own account;
     $websiteEmail = 'naiskoorintra@gmail.com'; // this is your website Email address
     $subject = $_POST['subject'];
@@ -24,13 +25,14 @@ if(isset($_POST['submit'])){
     $messageToFrontend = $senderName . " with the role of " . $senderRoles[0] ." successfully sent e-mails";
     mail($websiteEmail,$subject,$messageToUs);
     mail($recievers,$subject,$message);
-    }
+}
 
 
 // Calculate birthday
 function calculateBirthday($Personal_ID){
     $century = 0;
     $centuryIdentificator = (int) substr($Personal_ID, 0, 1);
+
     if ($centuryIdentificator < 3) {
         $century = 18;
     } elseif ($centuryIdentificator > 2 && $centuryIdentificator < 5) {
@@ -42,7 +44,6 @@ function calculateBirthday($Personal_ID){
     $birthYear = substr($PersonalIdBirthInfo, 0, 2);
     $birthMonth = substr($PersonalIdBirthInfo, 2, 2);
     $birthDay = substr($PersonalIdBirthInfo, 4, 2);
-
 
     $birthDate = $birthDay .'. '. $birthMonth . '. '  . $century . $birthYear;
 
@@ -58,17 +59,14 @@ function returnUserRoles($userRoles){
 }
 
 // Form for editing user position in organisation
-
 function editUserRole($userID){
     // For editing user roles in the f
     $options = array(
-        
         'post_id' => 'user_' . $userID,
         'field_groups' => array('group_607d4a30d0f6a'),
         'submit_value' => __("Muuda andmeid", 'acf'),
         'updated_message' => __("Andmed muudetud!", 'acf'),
         'html_submit_button'  => '<input type="submit" class="save-button" value="%s" />',
-
     );
     acf_form($options);
 }
@@ -79,7 +77,6 @@ $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
 $canEditUserChoirRoles = $president || $conductor || $bookie;
 $canSendGroupEmails = $bookie || $president || $conductor;
-
 
 $context = Timber::context();
 
