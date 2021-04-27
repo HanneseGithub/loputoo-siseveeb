@@ -30,6 +30,9 @@
     font-size: $font-size-h2-lg;
     font-weight: $font-weight-regular;
     line-height: $line-height-h2-lg;
+
+    color: $color-primary-blue;
+
     @media (max-width: $bp-sm-min) {
         text-align: center;
         font-size: $font-size-h1-xs;
