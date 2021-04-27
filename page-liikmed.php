@@ -3,6 +3,7 @@ acf_form_head();
 
 // Display all the possible roles you want to see in the table.
 $users = get_users(['role__in' => [
+    'administrator',
     'singer',
     'bookie',
     'conductor',
@@ -68,11 +69,12 @@ function editUserRole($userID){
 }
 
 // Set rules for who can interact with the page
+$administrator = current_user_can( 'administrator' );
 $bookie = current_user_can( 'bookie' );
 $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
-$canEditUserChoirRoles = $president || $conductor || $bookie;
-$canSendGroupEmails = $bookie || $president || $conductor;
+$canEditUserChoirRoles = $administrator || $president || $conductor || $bookie;
+$canSendGroupEmails = $administrator || $bookie || $president || $conductor;
 
 $context = Timber::context();
 
