@@ -2,7 +2,7 @@
 $currentdate = date_i18n("Y-m-d H:i:s");
 
 $args = array(
-    'post_type' => 'Uritused',
+    'post_type' => 'uritused',
     'meta_query'=> array(
         array(
           'key' => 'datestart',
