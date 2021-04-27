@@ -65,6 +65,7 @@ function createNewPostUrl($post_type){
 
 
 $context = Timber::context();
+$context['post'] = new Timber\Post();
 $context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
 $context['post'] = new Timber\Post();
 $context['createNewPostUrl'] = createNewPostUrl('uritused');
