@@ -8,7 +8,7 @@
   <tr>
     {% if canSendGroupEmails %}
     <th data-width="36" class="h-text-center table-cell--fixed users-table__checkbox-js">
-      <input class="toggleAllCheckBoxes" type="checkbox" value="{{user.user_email}}">
+      <input onClick="toggleAllUsersCheckboxes(this)" type="checkbox" value="{{user.user_email}}">
     </th>
     {% endif %}
     <th class="h-text-center table-cell--fixed users-table__avatar-js">Pilt</th>
@@ -29,7 +29,7 @@
     <tr>
       {% if canSendGroupEmails %}
       <td>
-        <input type="checkbox" value="{{user.user_email}}" class="sendEmailsTo">
+        <input type="checkbox" value="{{user.user_email}}" class="sendEmailTo">
       </td>
       {% endif %}
       <td>
