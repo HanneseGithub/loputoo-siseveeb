@@ -1,21 +1,19 @@
 <?php
 acf_form_head();
 
-// Display all the possible roles you want to see in the table
+// Display all the possible roles you want to see in the table.
 $users = get_users(['role__in' => [
     'singer',
-    'president',
     'bookie',
     'conductor',
+    'president',
     'secretary',
-    'noteHandler',
-    'subscriber',
-    'author'
+    'note-handler',
 ]]);
 
+// Send email to selected people and yourself.
 if (isset($_POST['submit'])) {
-    // First send a control, e-mail to your own account;
-    $websiteEmail = 'naiskoorintra@gmail.com'; // this is your website Email address
+    $websiteEmail = 'naiskoorintra@gmail.com';
     $subject = $_POST['subject'];
     $senderName = $_POST['sender-name'];
     $senderRoles = $_POST['sender-roles'];
@@ -27,8 +25,7 @@ if (isset($_POST['submit'])) {
     mail($recievers,$subject,$message);
 }
 
-
-// Calculate birthday
+// Calculate birthday.
 function calculateBirthday($Personal_ID){
     $century = 0;
     $centuryIdentificator = (int) substr($Personal_ID, 0, 1);
@@ -58,9 +55,8 @@ function returnUserRoles($userRoles){
     return $currentUserRoles;
 }
 
-// Form for editing user position in organisation
+// Form for editing user info in the users view.
 function editUserRole($userID){
-    // For editing user roles in the f
     $options = array(
         'post_id' => 'user_' . $userID,
         'field_groups' => array('group_607d4a30d0f6a'),
@@ -82,11 +78,9 @@ $context = Timber::context();
 
 $context['users'] = $users;
 $context['isABookie'] = $bookie;
-$context['president'] = $president;
-$context['conductor'] = $conductor;
 $context['canEditUserChoirRoles'] = $canEditUserChoirRoles;
 $context['canSendGroupEmails'] = $canSendGroupEmails;
 
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
-Timber::render( array( 'views/' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
+Timber::render( array( 'views/users-page.twig', 'page.twig' ), $context );

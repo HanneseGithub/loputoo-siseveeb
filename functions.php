@@ -84,12 +84,14 @@ class StarterSite extends Timber\Site
 		add_role('president', 'President');
 		add_role('secretary', 'Sekretär');
 		add_role('note-handler', 'Noodihaldur');
+
 		$bookie  = get_role('bookie');
 		$singer = get_role('singer');
 		$conductor = get_role('conductor');
 		$choirManager = get_role('president');
 		$secretary = get_role('secretary');
 		$noteHandler = get_role('note-handler');
+
 		// Same capabilities as a subscriber
 		$bookie -> add_cap('read');
 		$singer -> add_cap('read');
@@ -104,8 +106,8 @@ class StarterSite extends Timber\Site
 		remove_role( 'contributor' );
 		remove_role( 'author' );
 		remove_role( 'editor' );
-		remove_role( 'choirManager' );
 	}
+
 	/** Register custom post types defined in lib/custom-types */
 	public function register_post_types()
 	{
