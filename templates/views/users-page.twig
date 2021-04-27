@@ -1,12 +1,13 @@
 {% extends "base.twig" %}
 
 {% block content %}
+<div class="section h-padding-top-xxl h-padding-bottom-xxl">
   <h2 class="h2 h-margin-bottom-lg">{{ post.title }}</h2>
   {% if users %}
     {% include "components/tables/users-table.twig" with { users: users }%}
-
     {% include "components/group-email.twig" %}
   {% else %}
     <p>There are currently no users in the database</p>
   {% endif %}
+</div>
 {% endblock %}
