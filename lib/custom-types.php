@@ -111,4 +111,4 @@ $üritused_args = array(
     'capability_type'       => 'page',
 );
 
-register_post_type('Üritused', $üritused_args);
+register_post_type('üritused', $üritused_args);

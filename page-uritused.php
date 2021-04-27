@@ -1,8 +1,6 @@
 <?php
 $currentdate = date_i18n("Y-m-d H:i:s");
 
-var_dump($currentdate);
-
 $args = array(
     'post_type' => 'üritused',
     'meta_query'=> array(
@@ -61,6 +59,7 @@ $eventUniqueMonths = createUniqueMonths($events);
 $eventUniqueMonthsWithEvents = createUniqueMonthsWithEvents($eventUniqueMonths, $events);
 
 $context = Timber::context();
+$context['post'] = new Timber\Post();
 $context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
 
 Timber::render(array('views/events.twig', 'views/page.twig'), $context);

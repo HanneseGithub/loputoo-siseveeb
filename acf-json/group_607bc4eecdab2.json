@@ -47,7 +47,7 @@
         },
         {
             "key": "field_607bc53d72062",
-            "label": "Ürituse kuupäev ja kellaaeg",
+            "label": "Ürituse alguse kuupäev ja kellaaeg",
             "name": "datestart",
             "type": "date_time_picker",
             "instructions": "",
@@ -64,7 +64,7 @@
         },
         {
             "key": "field_607d4702359df",
-            "label": "Ürituse lõpp kuupäev ja kellaaeg",
+            "label": "Ürituse lõpu kuupäev ja kellaaeg",
             "name": "dateend",
             "type": "date_time_picker",
             "instructions": "",
@@ -89,7 +89,7 @@
         },
         {
             "key": "field_607d86b679115",
-            "label": "Üritus ilma lõpp kuupäevata",
+            "label": "Kas üritusel on lõpu kuupäev ja kellaaeg?",
             "name": "has_end_date",
             "type": "true_false",
             "instructions": "",
@@ -100,7 +100,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Üritus ilma lõpu kuupäevata",
+            "message": "Üritus on koos lõpu kuupäeva ja kellaajaga",
             "default_value": 1,
             "ui": 0,
             "ui_on_text": "",
@@ -127,7 +127,7 @@
         },
         {
             "key": "field_60814a31f15db",
-            "label": "Info leht",
+            "label": "Infoleht",
             "name": "info_page",
             "type": "url",
             "instructions": "",
@@ -166,7 +166,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "ritused"
             }
         ]
     ],
@@ -180,5 +180,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1619462461
+    "modified": 1619515922
 }
