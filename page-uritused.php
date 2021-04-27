@@ -58,7 +58,16 @@ function compareMonthAndYear($eventDatestart, $eventMonthAndYear) {
 $eventUniqueMonths = createUniqueMonths($events);
 $eventUniqueMonthsWithEvents = createUniqueMonthsWithEvents($eventUniqueMonths, $events);
 
+function createNewPostUrl($post_type){
+    $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
+    return $adminurl = admin_url($create_new_post_url_slug);
+}
+
+
 $context = Timber::context();
 $context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
+$context['post'] = new Timber\Post();
+$context['createNewPostUrl'] = createNewPostUrl('uritused');
 
 Timber::render(array('views/events.twig', 'views/page.twig'), $context);
+

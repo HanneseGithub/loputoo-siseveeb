@@ -27,7 +27,14 @@ $args = array(
     )
 );
 
+function createNewPostUrl($post_type){
+    $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
+    return $adminurl = admin_url($create_new_post_url_slug);
+}
+
+
 $context = Timber::context();
+$context['createNewPostUrl'] = createNewPostUrl('teated');
 $context['events'] = Timber::get_posts($event_args);
 $context['teated'] = Timber::get_posts($args);
 $context['calendar_events'] = $events;

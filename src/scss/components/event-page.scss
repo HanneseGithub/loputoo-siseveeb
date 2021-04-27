@@ -21,13 +21,15 @@
         width: 100%;
     }
 }
-
 .events-container {
     display: block;
     width: 100%;
     margin-top: 24px;
     background-color: $color-pearl;
     border-radius: 5px;
+    &:active {
+        background-color: $color-light-blue;
+    }
     & .event-wrapper {
         display: block;
         position: relative;

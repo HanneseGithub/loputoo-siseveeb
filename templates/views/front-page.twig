@@ -1,6 +1,6 @@
 {% extends "base.twig" %} {% block content %}
 <div class="section h-padding-top-xxl h-padding-bottom-lg">
-    <h2 class="h2 h-margin-bottom-lg">Teated</h2>
+    {% include "components/webpage-title.twig" with {title: 'Teated', link: createNewPostUrl, link_text: 'Lisa Teade'} %}
     {% if teated is empty%}
     <p>Hetkel pole uusi teateid</p>
     {% else %}
@@ -16,6 +16,9 @@
                     <p>{{ teade.description }}</p>
                 </div>
             </div>
+            <div class="delete-item-button-container">
+            <a class="delete-item-icon" href="#">{% include 'components/icon.twig' with { name: 'sprite-trash-fill' }%}</a>
+        </div>
         </div>
         {% endfor %}
     </div>

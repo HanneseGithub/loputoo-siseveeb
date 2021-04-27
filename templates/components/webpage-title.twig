@@ -1,0 +1,7 @@
+<div class="event-header-container">
+    <h2 class="h2 h-margin-bottom-lg">{{title}}</h2>
+    {% if link %}
+    <a class="post-edit-link-mobile" href="{{link}}">{% include 'components/icon.twig' with { name: 'sprite-plus-circle-fill' }%}</a>
+    <a class="post-edit-link h-margin-bottom-lg" href="{{link}}">{{link_text}}</a>
+    {% endif %}
+</div>
