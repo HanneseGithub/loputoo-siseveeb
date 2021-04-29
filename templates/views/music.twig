@@ -4,7 +4,10 @@
 	<div class="section h-padding-top-xxl h-padding-bottom-lg">
 		<div class="music-header">
 			<h2 class="h2 h-margin-bottom-lg">Repertuaar</h2>
-			{% include "components/add-post.twig" with{ title: 'Lisa uus laul', type: 'repertoire'} %}	
+			<div class="music-header-buttons">
+				{% include "components/add-new-song.twig" %}
+				{% include "components/add-post.twig" with{ title: 'Lisa uus laul admin keskkonnas', type: 'repertoire'} %}	
+			</div>
 		</div>
 		<br>
 		{% if repertoire is empty %}

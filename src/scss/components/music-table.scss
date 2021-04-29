@@ -1,0 +1,63 @@
+.fixed-table-toolbar{
+    float: right;
+}
+.music-table{
+    .clickable-link{
+        color: $color-light-blue-link;
+        &:hover{
+            color: $color-light-blue-link-hover;
+        }
+    }
+    .delete-icon-style{
+        color: $color-red;
+    }
+    th{
+        color: $color-white;
+        background-color: $color-primary-blue;
+        text-align: left;
+    }
+    td{
+        padding: 5px;
+    }
+    tr{
+        border-bottom: 1px solid $color-primary-blue;
+    }
+    tr:hover{
+        background-color:  #dddddd;
+    }
+    tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even):hover{
+        background-color:  #dddddd;
+    }
+
+    @include bp(sm-min) {
+        // Position of the first two columns is absolute
+        th:first-child, td:first-child
+        {
+        position:sticky;
+        left:0px;
+        min-width: 60px;
+        }
+
+    .sticky-column{
+            max-width: 150px;
+            position:sticky;
+            left: 60px;
+        }
+        .sticky-background-color{
+            background-color:$color-gray;
+        }
+    }
+    .tooltip .tooltiptext::after {
+        content: " ";
+        position: absolute;
+        bottom: 100%;  /* At the top of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+}  

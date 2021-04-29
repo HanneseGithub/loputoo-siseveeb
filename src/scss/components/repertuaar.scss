@@ -3,6 +3,9 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.music-header-buttons{
+    justify-content: center;
+}
 .add-post-button{
     background-color: $color-primary-blue;
     text-transform: uppercase;
@@ -35,7 +38,6 @@
     }
 
 }
-
 .delete-post-icon{
     color: $color-red;
 }

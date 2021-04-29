@@ -1,0 +1,149 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="single-repertuaar-header">
+        <h2 class="h2 h-margin-bottom-lg">{{ post.title }}</h2>
+        {% include "components/edit-song-info.twig" %}
+    </div>
+    <div class="song-post-info">
+        <div>
+            Autor: {{ post.author_of_song}}
+        </div>
+        <div>
+            Hooaeg: {{ post.terms('category') | join(', ') }}
+            Lisatud: {{ post.post_date|time_ago }}
+            Lisaja: {{ post.author }}
+        </div>
+    </div>
+    <hr>
+    <div class="content">
+        <div class="post-info">
+            {{ post.post_content|wpautop }}
+        </div>
+        <div class="sheet-music-files">
+
+            {% if post.note_file %}
+                <div class="file-header">
+                    <h2 class="h2 h-margin-bottom-lg">
+                        Noodifail
+                        {% if post.note_file_2 %}1{% endif %}:
+                        {{ function('get_the_title', post.note_file )}}
+                    </h2>
+                    <div class="buttons h-padding-bottom-lg">
+                        <span title="{{ function('get_the_title', post.note_file )}}">
+                            <a href="{{ function('retrieve_file_url', post.note_file) }}"  class="open-in-new-window-button">
+                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                Ava uues aknas
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <iframe src="{{ function('retrieve_file_url', post.note_file) }}" title="W3Schools Free Online Web Tutorials">
+                </iframe>  
+            {% endif %}
+            {% if post.note_file_2 %}
+                <div class="file-header">
+                    <h2 class="h2 h-margin-bottom-lg">
+                        Noodifail 2: 
+                        {{ function('get_the_title', post.note_file_2 )}}
+                    </h2>
+                        <div class="buttons h-padding-bottom-lg">
+                            <span title="{{ function('get_the_title', post.note_file_2 )}}">
+                                <a href="{{ function('retrieve_file_url', post.note_file_2) }}"  class="open-in-new-window-button">
+                                    {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                    Ava uues aknas
+                                </a>
+                            </span>
+                        </div>
+                </div>
+                <iframe src="{{ function('retrieve_file_url', post.note_file_2) }}" title="W3Schools Free Online Web Tutorials">
+                </iframe>  
+            {% endif %}
+            {% if post.note_file_3 %}
+                <div class="file-header">
+                    <h2 class="h2 h-margin-bottom-lg">
+                        Noodifail 3:
+                        {{ function('retrieve_file_name', post.note_file_3 )}}
+                    </h2>
+                    <div class="buttons h-padding-bottom-lg">
+                        <span title="{{ function('get_the_title', post.note_file_3 )}}">
+                            <a href="{{ function('retrieve_file_url', post.note_file_3 ) }}"  class="open-in-new-window-button">
+                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                Ava uues aknas
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <iframe src="{{ function('retrieve_file_url', post.note_file_3) }}" title="W3Schools Free Online Web Tutorials">
+                </iframe>  
+            {% endif %}
+        </div>
+        <div class="audio-music-files">
+
+            {% if post.song_file %}
+                <div class="file-header">
+                    <h2 class="h2 h-margin-bottom-lg" >
+                        Muusika fail
+                        {% if post.song_file_2 %}1{% endif %}:
+                        {{ function('retrieve_file_name', post.song_file )}}
+                    </h2>
+                    <div class="buttons h-padding-bottom-lg">
+                        <span title="{{ function('retrieve_file_name', post.song_file )}}">
+                            <a href="{{ function('retrieve_file_url', post.song_file) }}"  class="open-in-new-window-button">
+                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                Ava uues aknas
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <audio controls>
+                    <source src="{{ function('retrieve_file_url', post.song_file) }}" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+            {% endif %}
+            {% if post.note_file_2 %}
+                <div class="file-header">
+                        <h2 class="h2 h-margin-bottom-lg">
+                            Muusika fail 2: 
+                            {{ function('retrieve_file_name', post.song_file_2 )}}
+                        </h2>
+                        <div class="buttons h-padding-bottom-lg">
+
+                        <span title="{{ function('retrieve_file_name', post.song_file_2 )}}">
+                            <a href="{{ function('retrieve_file_url', post.song_file_2) }}"  class="open-in-new-window-button">
+                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                Ava uues aknas
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <audio controls>
+                    <source src="{{ function('retrieve_file_url', post.song_file_2) }}" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+            {% endif %}
+            {% if post.song_file_3 %}
+                <div class="file-header">
+                        <h2 class="h2 h-margin-bottom-lg">
+                            Noodifail 3:
+                            {{ function('retrieve_file_name', post.song_file_3 )}}
+                        </h2>
+                        <div class="buttons h-padding-bottom-lg">
+
+                        <span title="{{ function('retrieve_file_name', post.song_file_3 )}}">
+                            <a href="{{ function('retrieve_file_url', post.song_file_3 ) }}"  class="open-in-new-window-button">
+                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                Ava uues aknas
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <audio controls>
+                    <source src="{{ function('retrieve_file_url', post.song_file_3) }}" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

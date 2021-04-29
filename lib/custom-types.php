@@ -146,7 +146,7 @@ $reprtuaar_labels = array(
 
 $repertuaar_args = array(
     'label'                 => 'Repertuaar',
-    'description'           => 'Siseveebi ürituste lehel kuvatavad repertuaar',
+    'description'           => 'Siseveebi repertuaari lehel kuvatavad muusika',
     'labels'                => $reprtuaar_labels,
     'supports'              => array('title', 'editor'),
     'taxonomies'            => array('category', 'post_tag'),
@@ -161,8 +161,8 @@ $repertuaar_args = array(
     'can_export'            => true,
     'has_archive'           => false,
     'exclude_from_search'   => false,
-    'publicly_queryable'    => false,
+    'publicly_queryable'    => true,
     'capability_type'       => 'page',
 );
 
-register_post_type('repertoire', $repertuaar_args);
+register_post_type('repertuaar', $repertuaar_args);

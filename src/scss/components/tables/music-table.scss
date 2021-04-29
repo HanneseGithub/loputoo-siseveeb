@@ -1,4 +1,7 @@
 .music-table{
+    .clickable-link{
+        color: $color-light-blue-link;
+    }
     input{
         background-color: $color-primary-blue;
         text-transform: uppercase;

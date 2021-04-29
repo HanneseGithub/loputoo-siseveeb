@@ -1,0 +1,71 @@
+.single-repertuaar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.song-post-info{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.content{
+    .file-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        border-top: #EEEEEE solid 1px; 
+        h2{
+            max-width: 80%;
+        }
+        div{
+            float: right;
+            min-width: 20%;
+        }
+    }
+    .sheet-music-files{
+        iframe{
+            width: 100%;
+            height: 1000px;
+        }
+    }
+    .audio-music-files{
+        audio{
+            width: 100%;
+            height: 50px;
+            color: $color-primary-blue;
+        }
+    }
+    .buttons{
+        .open-in-new-window-button{
+            background-color: $color-primary-blue;
+            transition-duration: 0.4s;
+            padding: 10px;
+            color: white;
+            border-radius: 12px;
+            &:hover{
+                background-color: $color-primary-blue-hover;
+            }
+        }
+        .download-button{
+            margin-left: 10px;
+            background-color: $color-primary-blue;
+            transition-duration: 0.4s;
+            padding: 10px;
+            color: white;
+            border-radius: 12px;
+            &:hover{
+                background-color: $color-primary-blue-hover;
+            }
+        }
+    }
+
+}
+.edit-post-button{
+    width: 100%;
+    background-color: $color-primary-blue;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+}

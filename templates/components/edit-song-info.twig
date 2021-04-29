@@ -1,0 +1,10 @@
+{# Built using this: https://jquerymodal.com/ #}
+<p><a href="#modalButton{{ post.id }}" rel="modal:open" class="add-post-button">Muuda laulu infot</a></p>
+
+<div id="modalButton{{ post.id }}" class="modal">
+    <h1 class="h2">Muuda laulu infot</h1>
+
+      {{ function('editPostInfo', post.id )  }}
+  </div>
+  
+<!-- Link to open the modal -->
