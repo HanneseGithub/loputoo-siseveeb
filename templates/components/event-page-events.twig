@@ -3,12 +3,13 @@
         <div class="event-wrapper h-margin-bottom-sm">
             <div class="event-image-container">
                 {% if not event.image %}
-                 {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
+                    {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
                     <img src="{{ placeholder.src | resize(750, 500) }}">
-                     {% else %}
+                {% else %}
                     <img src="{{ Image(event.image).src|resize(750, 500) }}">
-                     {% endif %}
-                    <div class="event-attend">Ei osale</div>
+                {% endif %}
+
+                {% include 'components/events/event-participation.twig' with { event: { event_participation: event.event_participation } } %}
             </div>
         </div>
 
@@ -20,7 +21,6 @@
             <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}}</div>
             {% endif %}
             <div class="event-description">{{ event.description }}</div>
-
         </div>
     </a>
 </div>

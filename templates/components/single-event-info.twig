@@ -2,15 +2,11 @@
     <div class="single-post-description-container">
         <div class="single-event-header-container h-margin-bottom-lg">
         <div class="single-post-going h-margin-bottom-lg">
-            <select>
-                  <option value="1">Pole vastanud</option>
-                  <option value="1">Pole vastanud</option>
-                  <option value="2">Osalen</option>
-                  <option value="3">Ei osale</option>
-                </select>
+            <a class="single-post-going__button single-post-going__button--going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="true" href="{{ participationFunctionLink }}&amp;event_participation=true">Osalen</a>
+            <a class="single-post-going__button single-post-going__button--not-going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="false" href="{{ participationFunctionLink }}&amp;event_participation=false">Ei osale</a>
         </div>
         {{ function('edit_post_link', 'Muuda') }}
-    </div>
+        </div>
         <div class="single-post-text-container h-margin-bottom-sm-md"> {% include 'components/icon.twig' with { name: 'sprite-clock-fill' } %}{{ post.datestart| date("d. F Y. &#8226; H:i")}} - {{ post.dateend | date("G:i")}}</div>
         <div class="single-post-text-container h-margin-bottom-sm-md">{% include 'components/icon.twig' with { name: 'sprite-geo-alt-fill' }%}{{ post.location}}</div>
         <div class="single-post-text-container h-margin-bottom-sm-md">{% include 'components/icon.twig' with { name: 'sprite-person-fill' }%}{{post.organizer}}</div>
@@ -18,7 +14,7 @@
         <div class="single-post-description ">{{post.description}}</div>
     </div>
     <div class="single-post-image-container ">
-        {% if not post.image %} 
+        {% if not post.image %}
         {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
         <img src="{{ placeholder.src | resize(750, 500) }}">
          {% else %}
