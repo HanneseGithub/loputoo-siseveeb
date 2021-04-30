@@ -1,0 +1,32 @@
+.event-participation {
+    .events-container & {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        bottom: -116px;
+
+        width: 100%;
+        height: 32px;
+
+        color: $color-white;
+        border-radius: 5px;
+
+        @media (max-width: $bp-sm-min) {
+            bottom: 0;
+        }
+    }
+
+    &.event-participation--going {
+        background: $color-green;
+    }
+
+    &.event-participation--not-going {
+        background: $color-red;
+    }
+
+    &.event-participation--undecided {
+        background: $color-dark-gray;
+    }
+}

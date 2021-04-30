@@ -1,4 +1,6 @@
 <?php
+global $wpdb;
+
 $currentdate = date_i18n("Y-m-d H:i:s");
 
 $args = array(
@@ -16,6 +18,23 @@ $args = array(
 );
 
 $events = Timber::get_posts($args);
+
+$table_name = $wpdb->prefix . "event_participations";
+$current_user_id = get_current_user_id();
+
+foreach ($events as $event) {
+    $event_participation = $wpdb->get_var(
+        $wpdb->prepare(
+        "
+            SELECT participation
+            FROM $table_name
+            WHERE participant_id = %d AND event_id = %d
+        ",
+        $current_user_id, $event->id)
+    );
+
+    $event->event_participation = $event_participation;
+}
 
 function createUniqueMonths($events) {
     $uniqueMonths = [];
@@ -63,12 +82,9 @@ function createNewPostUrl($post_type){
     return $adminurl = admin_url($create_new_post_url_slug);
 }
 
-
 $context = Timber::context();
 $context['post'] = new Timber\Post();
 $context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
-$context['post'] = new Timber\Post();
 $context['createNewPostUrl'] = createNewPostUrl('uritused');
 
-Timber::render(array('views/events.twig', 'views/page.twig'), $context);
-
+Timber::render(array('views/events-page.twig', 'views/page.twig'), $context);
