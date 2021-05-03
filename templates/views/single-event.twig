@@ -1,7 +1,7 @@
 {% extends "base.twig" %}
 {% block content %}
 	<div class="section h-padding-top-lg h-padding-bottom-xxl">
-		<div class="single-event-next-previous-container h-padding-bottom-lg">
+		<div class="single-event-next-previous-container h-margin-bottom-lg">
             {% if post.prev.link %}
 			<a href="{{post.prev.link}}">{% include 'components/icon.twig' with { name: 'sprite-arrow-left' }%}</a>
             {% else %}
