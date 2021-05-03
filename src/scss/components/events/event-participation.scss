@@ -18,6 +18,23 @@
         }
     }
 
+    .front-page-events-container & {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 120px;
+        height: 30px;
+
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
     &.event-participation--going {
         background: $color-green;
     }

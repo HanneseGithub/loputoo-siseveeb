@@ -123,20 +123,6 @@
             box-shadow: 5px 10px 8px #888888;
         }
     }
-    & .event-going {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 120px;
-        height: 30px;
-        background: $color-green;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
     & .event-date {
         display: flex;
         align-items: center;

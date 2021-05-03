@@ -1,4 +1,6 @@
 <?php
+global $wpdb;
+
 require __DIR__ . '/vendor/autoload.php';
 
 require('lib/google-calendar.php');
@@ -19,7 +21,8 @@ $event_args = array(
     'order'     => 'ASC',
     'posts_per_page' =>  4
 );
-$args = array(
+
+$teated_args = array(
     'post_type' => 'teated',
     'posts_per_page' =>  4,
     'orderby' => array(
@@ -27,15 +30,34 @@ $args = array(
     )
 );
 
+$custom_events = Timber::get_posts($event_args);
+
+$table_name = $wpdb->prefix . "event_participations";
+$current_user_id = get_current_user_id();
+
+foreach ($custom_events as $event) {
+    $event_participation = $wpdb->get_var(
+        $wpdb->prepare(
+        "
+            SELECT participation
+            FROM $table_name
+            WHERE participant_id = %d AND event_id = %d
+        ",
+        $current_user_id, $event->id)
+    );
+
+    $event->event_participation = $event_participation;
+}
+
 function createNewPostUrl($post_type){
     $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
     return $adminurl = admin_url($create_new_post_url_slug);
 }
 
-
 $context = Timber::context();
 $context['createNewPostUrl'] = createNewPostUrl('teated');
-$context['events'] = Timber::get_posts($event_args);
-$context['teated'] = Timber::get_posts($args);
+$context['events'] = $custom_events;
+$context['teated'] = Timber::get_posts($teated_args);
 $context['calendar_events'] = $events;
+
 Timber::render(array('views/front-page.twig', 'views/page.twig'), $context);

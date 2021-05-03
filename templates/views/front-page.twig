@@ -55,9 +55,9 @@
                     {% if not event.image %} {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
                     <img src="{{ placeholder.src | resize(750, 500) }}"> {% else %}
                     <img src="{{ Image(event.image).src|resize(750, 500) }}"> {% endif %}
-                    <div class="event-going">
-                        <p>Osalen</p>
-                    </div>
+
+                    {% include 'components/events/event-participation.twig' with { event: { event_participation: event.event_participation } } %}
+
                     <div class="event-date">
                         <p>{{event.date}}</p>
                     </div>
