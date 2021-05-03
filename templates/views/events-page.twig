@@ -1,12 +1,12 @@
 {% extends "base.twig" %}
 {% block content %}
-	<div class="section h-padding-top-xxl h-padding-bottom-lg">
-		{% include "components/webpage-title.twig" with {title: post.title, link: createNewPostUrl, link_text: 'Lisa Üritus'} %}
+	<div class="section h-padding-top-xxl h-padding-bottom-xxl">
+		{% include "components/webpage-title.twig" with { title: post.title, link: createNewPostUrl, link_text: 'Lisa Üritus' } %}
 		{% for uniqueMonth, monthEvents in uniqueMonthsWithEvents %}
 			<div class="h-margin-bottom-lg">
-				{% include 'components/event-page-date.twig' with { event: { datestart: uniqueMonth } } %}
+				{% include 'components/events/event-page-date.twig' with { event: { datestart: uniqueMonth } } %}
 				{% for event in monthEvents %}
-					{% include 'components/event-page-events.twig' with { event: event } %}
+					{% include 'components/events/event-page-events.twig' with { event: event } %}
 				{% endfor %}
 			</div>
 		{% endfor %}

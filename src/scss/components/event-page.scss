@@ -1,86 +1,77 @@
 .event-date-container {
     display: flex;
     align-items: center;
+
     & .event-Y-date {
+        margin-right: 4px;
+
         color: $color-gray;
-        text-transform: capitalize;
-        margin-right: 5px;
         white-space: nowrap;
+        text-transform: capitalize;
     }
     & .event-border {
         height: 1px;
         width: 100%;
+
         background-color: $color-gray;
     }
 }
 
-.event-click-container {
-    text-decoration: none;
-    color: black;
-    @media (max-width: $bp-md-min) {
-        width: 100%;
-    }
-}
 .events-container {
     display: block;
     width: 100%;
+
     margin-top: 24px;
     background-color: $color-pearl;
+
     border-radius: 5px;
-    &:active {
+
+    &:active, &:hover {
         background-color: $color-light-blue;
     }
+
     & .event-wrapper {
         display: block;
         position: relative;
-        align-items: center;
     }
+
     & .event-image-container {
         position: absolute;
         width: 172.63px;
         height: 100%;
+
         & img {
             position: relative;
             width: 100%;
             border-radius: 5px;
         }
+
         @media (max-width: $bp-sm-min) {
             position: relative;
             height: auto;
             width: 90%;
             margin: 0 auto;
         }
-        & .event-attend {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: $color-white;
-            position: absolute;
-            bottom: -116px;
-            width: 100%;
-            height: 32px;
-            background: $color-red;
-            border-radius: 5px;
-            @media (max-width: $bp-sm-min) {
-                bottom: 0;
-            }
-        }
     }
+
     & .event-page-title {
         font-size: $font-size-h3-xs;
         line-height: $line-height-h3-xs;
     }
+
     & .event-info-container {
-        padding: 16px;
         display: block;
         margin-left: 172px;
+
+        padding: 16px;
+
         @media (max-width: $bp-sm-min) {
-            margin-left: 0;
             width: 90%;
-            margin: 0 auto;
+
+            margin: 0 auto 24px auto;
+
             padding: 0;
             padding-top: 16px;
-            margin-bottom: 24px;
         }
     }
     & .event-date-time {
@@ -95,5 +86,15 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+}
+
+.event-click-container {
+    color: $color-primary-blue;
+
+    text-decoration: none;
+
+    @media (max-width: $bp-md-min) {
+        width: 100%;
     }
 }
