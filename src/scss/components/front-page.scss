@@ -87,7 +87,7 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     & .single-event-container {
         display: block;
         width: 350px;
@@ -102,6 +102,7 @@
     & .event-click-container-front-page {
         text-decoration: none;
         color: black;
+        margin-right: 48px;
         @media (max-width: $bp-md-min) {
             width: 100%;
             display: flex;
@@ -168,6 +169,9 @@
         & .event-wrapper {
             width: 100%;
         }
+    }
+    .no-posts {
+        text-align: center;
     }
 }
 

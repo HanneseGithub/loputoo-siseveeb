@@ -30,6 +30,14 @@ $teated_args = array(
     )
 );
 
+if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['deletePost']))
+
+{
+
+    wp_trash_post($_POST['ID']);
+
+}
+
 $custom_events = Timber::get_posts($event_args);
 
 $table_name = $wpdb->prefix . "event_participations";

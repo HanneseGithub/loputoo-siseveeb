@@ -8,7 +8,7 @@ jQuery(document).ready( function() {
 
         jQuery.ajax({
             type : "post",
-            url  : 'http://localhost:8888/naiskoor/wp-admin/admin-ajax.php',
+            url  : 'http://localhost/wordpress/wp-admin/admin-ajax.php',
             data : {action: "event_participation", event_id: event_id, nonce: nonce, event_participation: event_participation },
             success: function(response) {
                 alert(response);

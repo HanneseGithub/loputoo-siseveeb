@@ -16,7 +16,7 @@
         <div class="event-info-container">
             <h3 class="event-page-title">{{ event.title }}</h3>
             {% if event.has_end_date %}
-            <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}} - {{ event.dateend | date("d. F Y H:i")}}</div>
+            <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}} - {{ event.dateend | date("d. F Y &#8226; H:i")}}</div>
             {% else %}
             <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}}</div>
             {% endif %}
