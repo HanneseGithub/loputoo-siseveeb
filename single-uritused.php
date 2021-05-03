@@ -18,7 +18,7 @@ $single_event_event_participation = $wpdb->get_var(
 
 $nonce = wp_create_nonce("event_participation");
 
-$context         = Timber::context();
+$context = Timber::context();
 $context['post'] = $timber_post;
 $context['nonce'] = $nonce;
 $context['singleEventEditUrl'] = get_edit_post_link();
