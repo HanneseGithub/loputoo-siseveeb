@@ -1,6 +1,6 @@
 {% extends "base.twig" %}
 {% block content %}
-	<div class="section h-padding-top-xxl h-padding-bottom-xxl">
+	<div class="section h-padding-top-lg h-padding-bottom-xxl">
 		<div class="single-event-next-previous-container h-padding-bottom-lg">
             {% if post.prev.link %}
 			<a href="{{post.prev.link}}">{% include 'components/icon.twig' with { name: 'sprite-arrow-left' }%}</a>
@@ -13,7 +13,7 @@
                 <div></div>
             {% endif %}
 		</div>
-        {% include "components/webpage-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda'} %}
+        {% include "components/events/single-event-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda'} %}
 		{% include "components/single-event-info.twig" %}
 	</div>
 </div>{% endblock %}
