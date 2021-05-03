@@ -6,3 +6,16 @@
         margin-top: 52px;
     }
 }
+
+
+.webpage-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+
+    @media(max-width:$bp-sm-min) {
+        justify-content: center;
+    }
+}

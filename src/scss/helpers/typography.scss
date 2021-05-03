@@ -39,6 +39,7 @@
         line-height: $line-height-h1-xs;
     }
 }
+
 .post-edit-link {
     color:$color-white;
     background-color: $color-primary-blue;
@@ -58,24 +59,14 @@
 }
 
 .post-edit-link-mobile {
-  display: none;
-@media (max-width:$bp-sm-min){
-    font-size: $font-size-h1-xs;
-    color: $color-secondary-blue;
-    display: block;
-    position: absolute;
-    right: 0;
-    top:4px;
-}
-}
-.event-header-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    justify-content: space-between;
-    @media(max-width:$bp-sm-min) {
-        justify-content: center;
-        
+    display: none;
+
+    @media (max-width:$bp-sm-min){
+        font-size: $font-size-h1-xs;
+        color: $color-secondary-blue;
+        display: block;
+        position: absolute;
+        right: 0;
+        top:4px;
     }
 }
-

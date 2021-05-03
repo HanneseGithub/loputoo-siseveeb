@@ -1,11 +1,10 @@
 <div class="single-post-info-container">
     <div class="single-post-description-container">
         <div class="single-event-header-container h-margin-bottom-lg">
-        <div class="single-post-going h-margin-bottom-lg">
-            <a class="single-post-going__button single-post-going__button--going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="true" href="{{ participationFunctionLink }}&amp;event_participation=true">Osalen</a>
-            <a class="single-post-going__button single-post-going__button--not-going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="false" href="{{ participationFunctionLink }}&amp;event_participation=false">Ei osale</a>
-        </div>
-        {{ function('edit_post_link', 'Muuda') }}
+            <div class="single-post-going h-margin-bottom-lg">
+                <a class="single-post-going__button single-post-going__button--going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="true" href="{{ participationFunctionLink }}&amp;event_participation=true">Osalen</a>
+                <a class="single-post-going__button single-post-going__button--not-going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="false" href="{{ participationFunctionLink }}&amp;event_participation=false">Ei osale</a>
+            </div>
         </div>
         <div class="single-post-text-container h-margin-bottom-sm-md"> {% include 'components/icon.twig' with { name: 'sprite-clock-fill' } %}{{ post.datestart| date("d. F Y. &#8226; H:i")}} - {{ post.dateend | date("G:i")}}</div>
         <div class="single-post-text-container h-margin-bottom-sm-md">{% include 'components/icon.twig' with { name: 'sprite-geo-alt-fill' }%}{{ post.location}}</div>

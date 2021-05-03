@@ -13,7 +13,7 @@
                 <div></div>
             {% endif %}
 		</div>
-		<h2 class="h2 h-margin-bottom-lg">{{ post.title }}</h2>
+        {% include "components/webpage-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda'} %}
 		{% include "components/single-event-info.twig" %}
 	</div>
 </div>{% endblock %}
