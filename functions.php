@@ -70,7 +70,7 @@ class StarterSite extends Timber\Site
 		add_action('init', array($this, 'register_taxonomies'));
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_my_scripts'));
 		add_action('login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
-		add_filter('login_headerurl', array($this, 'tyan_login_url'));
+		add_action('template_redirect', array($this, 'redirect_non_logged_users_to_specific_page'));
 		parent::__construct();
 	}
 
@@ -107,7 +107,7 @@ class StarterSite extends Timber\Site
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['current_user'] = new Timber\User();
-		$context['custom_logo_url'] = wp_get_attachment_image_url( get_theme_mod('custom_logo'), 'full');
+		$context['custom_logo_url'] = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
@@ -137,6 +137,13 @@ class StarterSite extends Timber\Site
 		$twig->addExtension(new Twig\Extension\StringLoaderExtension());
 		$twig->addFilter(new Twig\TwigFilter('myfoo', array($this, 'myfoo')));
 		return $twig;
+	}
+
+	public function redirect_non_logged_users_to_specific_page()
+	{
+		if (!is_user_logged_in()) {
+			auth_redirect();
+		}
 	}
 }
 

@@ -48,6 +48,9 @@
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
     <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
     <div class="front-page-events-container">
+        {% if events is empty%}
+        <p>Hetkel pole üritusi</p>
+        {% else %}
         {% for event in events %}
         <a class="event-click-container-front-page" href="{{event.link}}">
             <div class="h-margin-bottom-lg single-event-container">
@@ -68,6 +71,7 @@
             </div>
         </a>
         {% endfor %}
+        {% endif %}
     </div>
 </div>
 {% endblock %}

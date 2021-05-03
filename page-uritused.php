@@ -16,7 +16,6 @@ $args = array(
     'orderby'   => 'meta_value',
     'order'     => 'ASC',
 );
-
 $events = Timber::get_posts($args);
 
 $table_name = $wpdb->prefix . "event_participations";
