@@ -63,15 +63,29 @@ class StarterSite extends Timber\Site
 	/** Add timber support. */
 	public function __construct()
 	{
-		add_action('after_setup_theme', array($this, 'theme_supports'));
-		add_filter('timber/context', array($this, 'add_to_context'));
-		add_filter('timber/twig', array($this, 'add_to_twig'));
-		add_action('init', array($this, 'register_post_types'));
-		add_action('init', array($this, 'register_taxonomies'));
-		add_action('wp_enqueue_scripts', array($this, 'enqueue_my_scripts'));
-		add_action('login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
-		add_filter('login_headerurl', array($this, 'tyan_login_url'));
+		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
+		add_action( 'init', array( $this, 'register_post_types' ) );
+		add_action( 'init', array( $this, 'create_custom_user_roles' ) );
+		add_action( 'init', array( $this, 'remove_unused_user_roles' ) );
+		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_my_scripts' ) );
+		add_action( 'login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
+		add_filter( 'login_headerurl', array($this, 'tyan_login_url'));
 		parent::__construct();
+	}
+
+	/** Create custom roles defined in lib/custom-user-roles */
+	function create_custom_user_roles(){
+		require('lib/custom-user-roles.php');
+	}
+
+	function remove_unused_user_roles(){
+		remove_role( 'subscriber' );
+		remove_role( 'contributor' );
+		remove_role( 'author' );
+		remove_role( 'editor' );
 	}
 
 	/** Register custom post types defined in lib/custom-types */
@@ -103,9 +117,6 @@ class StarterSite extends Timber\Site
 	 */
 	public function add_to_context($context)
 	{
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['current_user'] = new Timber\User();
 		$context['custom_logo_url'] = wp_get_attachment_image_url( get_theme_mod('custom_logo'), 'full');
 		$context['menu']  = new Timber\Menu();
@@ -128,6 +139,14 @@ class StarterSite extends Timber\Site
 		return $text;
 	}
 
+	public function returnUserRoleDisplayName($userRole) {
+		foreach ($userRole as $role) {
+			$currentUserRole = wp_roles()->get_names()[$role];
+		}
+
+		return translate_user_role($currentUserRole);
+	}
+
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param string $twig get extension.
@@ -136,6 +155,7 @@ class StarterSite extends Timber\Site
 	{
 		$twig->addExtension(new Twig\Extension\StringLoaderExtension());
 		$twig->addFilter(new Twig\TwigFilter('myfoo', array($this, 'myfoo')));
+		$twig->addFunction(new Timber\Twig_Function( 'returnUserRoleDisplayName', array($this, 'returnUserRoleDisplayName')));
 		return $twig;
 	}
 }
