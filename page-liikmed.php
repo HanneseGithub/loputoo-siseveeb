@@ -48,14 +48,6 @@ function calculateBirthday($Personal_ID){
     return $birthDate;
 }
 
-function returnUserRoles($userRoles){
-    $currentUserRoles= array();
-    foreach ($userRoles as $role) {
-        $currentUserRoles = translate_user_role($role);
-    }
-    return $currentUserRoles;
-}
-
 // Form for editing user info in the users view.
 function editUserRole($userID){
     $options = array(

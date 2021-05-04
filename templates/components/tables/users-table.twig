@@ -26,6 +26,7 @@
 
 {% block table_body %}
   {% for user in users %}
+
     <tr>
       {% if canSendGroupEmails %}
       <td>
@@ -42,7 +43,7 @@
       <td>{{ user.phone_number }}</td>
       <td>{{ user.user_email }}</td>
       <td>{{ function('calculateBirthday', user.personal_id )}}</td>
-      <td>{{ function('returnUserRoles', user.roles)}}</td>
+      <td>{{ returnUserRoleDisplayName(user.roles) }}</td>
       <td>{% include "components/user-info.twig" %}</td>
     </tr>
   {% endfor %}

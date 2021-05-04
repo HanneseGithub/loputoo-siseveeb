@@ -162,6 +162,14 @@ class StarterSite extends Timber\Site
 		return $text;
 	}
 
+	public function returnUserRoleDisplayName($userRole) {
+		foreach ($userRole as $role) {
+			$currentUserRole = wp_roles()->get_names()[$role];
+		}
+
+		return $currentUserRole;
+	}
+
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param string $twig get extension.
@@ -170,6 +178,7 @@ class StarterSite extends Timber\Site
 	{
 		$twig->addExtension(new Twig\Extension\StringLoaderExtension());
 		$twig->addFilter(new Twig\TwigFilter('myfoo', array($this, 'myfoo')));
+		$twig->addFunction( new Timber\Twig_Function( 'returnUserRoleDisplayName', array($this, 'returnUserRoleDisplayName') ) );
 		return $twig;
 	}
 }
