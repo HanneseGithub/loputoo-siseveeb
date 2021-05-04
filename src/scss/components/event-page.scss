@@ -9,6 +9,7 @@
         white-space: nowrap;
         text-transform: capitalize;
     }
+
     & .event-border {
         height: 1px;
         width: 100%;
@@ -21,13 +22,17 @@
     display: block;
     width: 100%;
 
-    margin-top: 24px;
+    margin-top: 8px;
     background-color: $color-pearl;
 
     border-radius: 5px;
 
     &:active, &:hover {
         background-color: $color-light-blue;
+    }
+
+    @media (max-width: $bp-sm-min) {
+        padding: 16px 12px;
     }
 
     & .event-wrapper {
@@ -48,9 +53,9 @@
 
         @media (max-width: $bp-sm-min) {
             position: relative;
+
+            width: 100%;
             height: auto;
-            width: 90%;
-            margin: 0 auto;
         }
     }
 
@@ -66,9 +71,9 @@
         padding: 16px;
 
         @media (max-width: $bp-sm-min) {
-            width: 90%;
+            width: 100%;
 
-            margin: 0 auto 24px auto;
+            margin: 0;
 
             padding: 0;
             padding-top: 16px;

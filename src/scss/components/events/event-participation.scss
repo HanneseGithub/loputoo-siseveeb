@@ -14,7 +14,8 @@
         border-radius: 5px;
 
         @media (max-width: $bp-sm-min) {
-            bottom: 0;
+            height: 42px;
+            bottom: 6px;
         }
     }
 
