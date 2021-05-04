@@ -167,7 +167,7 @@ class StarterSite extends Timber\Site
 			$currentUserRole = wp_roles()->get_names()[$role];
 		}
 
-		return $currentUserRole;
+		return translate_user_role($currentUserRole);
 	}
 
 	/** This is where you can add your own functions to twig.
