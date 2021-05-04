@@ -85,14 +85,20 @@
 
 .front-page-events-container {
     display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-start;
 
-    @media (max-width:1024px) {
+    width: 100%;
+
+    overflow-x: scroll;
+
+    @media (max-width: $bp-sm-min) {
         flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+
+        overflow-x: visible;
     }
 
     & .single-event-container {
@@ -100,21 +106,18 @@
         width: 350px;
         transition: transform 0.8s;
 
-        &:nth-child(odd) {
-            margin-right: 24px;
-            @media (max-width: $bp-md-min) {
-                margin-right: 0;
-            }
-            @media (min-width:$bp-lg-min) and (max-width:1210px) {
-                margin-right: 20px;
-            }
+        margin-right: 24px;
+
+        @media (max-width: $bp-sm-min) {
+            margin-right: 0;
         }
     }
 
     & .single-event-container:hover {
         transform: scale(1.1);
+
         @media (max-width: $bp-md-min) {
-            transform: scale(1);
+            transform: none;
         }
     }
     & .event-click-container-front-page {
