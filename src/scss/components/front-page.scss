@@ -14,20 +14,20 @@
         left: 0;
         width: 30px;
         height: 100%;
-        background-color: #BCC8FF;
+        background-color: #bcc8ff;
         border-radius: 5px;
     }
-    & .delete-item-button-container{
+    & .delete-item-button-container {
         position: absolute;
         right: 12px;
     }
     .delete-item-icon {
-        color:$color-red;
+        color: $color-red;
         font-size: $font-size-h3-xs;
         transition: 0.4s;
         padding: 2px;
         &:hover {
-            color:rgba($color-red, 0.5)
+            color: rgba($color-red, 0.5);
         }
     }
 }
@@ -75,7 +75,7 @@
     }
     & .calendar-wrapper a {
         text-decoration: none;
-        color: #758EFF;
+        color: #758eff;
         font-style: italic;
     }
     & .calendar-date-time {
@@ -88,11 +88,29 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    @media (max-width:1024px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     & .single-event-container {
         display: block;
         width: 350px;
-        transition: transform .8s;
+        transition: transform 0.8s;
+
+        &:nth-child(odd) {
+            margin-right: 24px;
+            @media (max-width: $bp-md-min) {
+                margin-right: 0;
+            }
+            @media (min-width:$bp-lg-min) and (max-width:1210px) {
+                margin-right: 20px;
+            }
+        }
     }
+
     & .single-event-container:hover {
         transform: scale(1.1);
         @media (max-width: $bp-md-min) {
@@ -102,7 +120,6 @@
     & .event-click-container-front-page {
         text-decoration: none;
         color: black;
-        margin-right: 48px;
         @media (max-width: $bp-md-min) {
             width: 100%;
             display: flex;
@@ -118,7 +135,7 @@
             width: 100%;
             padding-top: (76 / 135) * 100%;
         }
-        >img {
+        > img {
             width: 100%;
             border-radius: 5px;
             box-shadow: 5px 10px 8px #888888;
@@ -172,14 +189,5 @@
     }
     .no-posts {
         text-align: center;
-    }
-}
-
-@media (max-width: $bp-md-min) {
-    .front-page-events-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
 }

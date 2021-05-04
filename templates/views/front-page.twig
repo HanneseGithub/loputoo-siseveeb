@@ -2,7 +2,7 @@
 <div class="section h-padding-top-xxl h-padding-bottom-lg">
     {% include "components/webpage-title.twig" with {title: 'Teated', link: createNewPostUrl, link_text: 'Lisa Teade'} %}
     {% if teated is empty%}
-    <p class="h-text-center">Hetkel pole uusi teateid</p>
+    <p class="no-posts">Hetkel pole uusi teateid</p>
     {% else %}
     <div class="home-notifications">
         {% for teade in teated %}
@@ -29,7 +29,7 @@
 
     <h2 class="h2 h-margin-bottom-lg">Kalender</h2>
     {% if calendar_events is empty %}
-    <p class="h-text-center">Hetkel pole kalendris üritusi</p>
+    <p class="no-posts">Hetkel pole kalendris üritusi</p>
     {% else %} {% for calendar_event in calendar_events %}
     <div class="calendar-container {{ loop.last ? '' : 'h-margin-bottom-lg'}}">
         <div class="calendar-date">
@@ -49,7 +49,7 @@
     <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
     <div class="front-page-events-container">
         {% if events is empty%}
-        <p class="h-text-center">Hetkel pole üritusi</p>
+        <p class="no-posts">Hetkel pole üritusi</p>
         {% else %}
         {% for event in events %}
         <a class="event-click-container-front-page" href="{{event.link}}">
