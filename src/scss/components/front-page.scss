@@ -97,27 +97,17 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-
         overflow-x: visible;
     }
 
     & .single-event-container {
         display: block;
         width: 350px;
-        transition: transform 0.8s;
 
         margin-right: 24px;
 
         @media (max-width: $bp-sm-min) {
             margin-right: 0;
-        }
-    }
-
-    & .single-event-container:hover {
-        transform: scale(1.1);
-
-        @media (max-width: $bp-md-min) {
-            transform: none;
         }
     }
     & .event-click-container-front-page {
@@ -142,6 +132,11 @@
             width: 100%;
             border-radius: 5px;
             box-shadow: 5px 10px 8px #888888;
+            transition: filter 0.5s;
+            &:hover {
+                filter: grayscale(100%);
+
+            }
         }
     }
     & .event-date {
