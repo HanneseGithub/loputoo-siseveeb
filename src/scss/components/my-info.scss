@@ -1,0 +1,85 @@
+.userinfo-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    flex-direction: column;
+    .avatar{
+        border-radius: 100%;
+        img{
+            height: 160px;
+            border-radius: 50%;
+            @media(max-width:$bp-md-min) {
+                margin-top: 20px;
+                height: 100px;
+            }
+        }
+    }
+    table{
+        td{
+            padding: 4px;
+        }
+        td:nth(1){
+            max-width: 40px;
+        }
+        select{
+            width: 100%;
+        }
+        input{
+            width: 100%;
+            max-width: 250px;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid gray;
+            &:active{
+                border: none;
+            }
+        }
+    }
+    
+}
+.stylised-button{
+    background-color: $color-primary-blue;
+    text-transform: uppercase;
+    color: white;
+    justify-content: space-around;
+    border-radius: 3px;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    &:hover{
+        background-color: $color-primary-blue-hover;
+    }
+    @media(max-width:$bp-sm-min) {
+        width: 100%;
+    }
+}
+.submit-button{
+    width: 100%;
+}
+.editUserinfoModal{
+    .inputWrapper {
+        border-bottom: 1px solid gray;
+
+        svg{
+            height: 24px;
+        }
+        label{
+        color: $color-dark-gray;
+        display:block;
+      }
+      .inputHolder{
+        display: flex;
+        justify-content: space-between;
+        input{
+            padding: 5px;
+            border: none;
+            width: 90%;
+            &:active{
+                border: none;
+            }
+        }
+      }
+    }
+}

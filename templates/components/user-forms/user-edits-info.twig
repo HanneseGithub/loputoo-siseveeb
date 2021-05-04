@@ -1,0 +1,140 @@
+<form action="#" method="POST">
+    <table>
+        <tr>
+            <td>
+                Eesnimi                        
+            </td>
+            <td>
+                <input type="text" name="firstName" value="{{ user.first_name }}">
+            </td>
+            <td>
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Perenimi
+            </td>
+            <td>
+                <input type="text" name="lastName" value="{{ user.last_name}}">
+            </td>
+            <td>
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Isikukood
+            </td>
+            <td>
+                
+                <input type="text" name="personalId" value="{{ user.personal_id_code}}" disabled>
+            </td>
+            <td>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                E-mail
+            </td>
+            <td>
+                <input type="email" name="email" value="{{ user.user_email }}">
+            </td>
+            <td>
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                Telefon
+            </td>
+            <td>
+                <input type="number" name="phoneNumber" value="{{ user.phone_number }}">
+            </td>
+            <td>
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Aadress
+            </td>
+            <td>
+                <input type="text" name="homeAdress" value="{{ user.home_address }}">
+            </td>
+            <td>
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Häälerühm
+            </td>
+            <td>
+                <input type="text" name="voice" value="{{ user.voice }}" disabled>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tudeng
+            </td>
+            <td>
+                <select name="isInSchool" value="{{ user.is_in_school }}">
+                    <option value="Jah">Jah</option>
+                    <option value="Ei">Ei</option>
+                </select>
+                <input type="text" name="isInSchool" value="{{ user.is_in_school }}" disabled>
+            </td>
+            <td>
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Noorlaulja
+            </td>
+            <td>
+                <input type="text" value="ei" disabled>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Amet
+            </td>
+            <td>
+                <input type="text" value="{{ function('returnUserRoles', user.roles)}}" 
+                disabled>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sünnipäev
+            </td>
+            <td>
+                <input type="text" value="{{ function('calculateBirthday', user.personal_id_code) }}" disabled>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Registreerimise aeg
+            </td>
+            <td>
+                <input type="text" value="{{ user.user_registered }}" disabled>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" value="{{ user.ID }}" name="userID">
+    <input type="hidden" value="{{ user.user_email }}" name="currentEmail">
+    <input name="editUserInfo" type="submit" value="Muuda infot"  class="stylised-button">
+  </form>

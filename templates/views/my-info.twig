@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <h2 class="h2">
+        Minu andmed
+    </h2>
+    {% include "components/user-forms/user-edits-password.twig" %}
+    {# {% if canEditUserChoirRoles %} #}
+          {% include "components/user-forms/manager-edits-info.twig" %}
+    {# {% endif %} #}
+    <div class="userinfo-container">
+        <div class="avatar">
+          <img src="{{ function('get_avatar_url', user.ID) }}">
+        </div>        
+        <div class="userinfo">
+          <div class="md-form  input-with-post-icon">
+                {% include "components/user-forms/user-edits-info.twig" %}
+
+        </div>
+
+{% endblock %}
