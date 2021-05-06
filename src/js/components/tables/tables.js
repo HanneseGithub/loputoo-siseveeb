@@ -22,3 +22,9 @@ jQuery(document).ready(function( $ ) {
         });
     }
 });
+
+jQuery(document).ready(function( $ ) {
+    if ($(".form-control.search-input").length) {
+        $(".form-control.search-input").attr('placeholder', 'Otsi...')
+    }
+});
