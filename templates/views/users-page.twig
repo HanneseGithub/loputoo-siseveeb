@@ -5,7 +5,9 @@
   <h2 class="h2 h-margin-bottom-lg">{{ post.title }}</h2>
   {% if users %}
     {% include "components/tables/users-table.twig" with { users: users }%}
-    {% include "components/group-email.twig" %}
+    {% if canSendGroupEmails %}
+      {% include "components/group-email.twig" %}
+    {% endif %}
   {% else %}
     <p>There are currently no users in the database</p>
   {% endif %}

@@ -7,13 +7,15 @@
 {% block table_header %}
   <tr>
     {% if canSendGroupEmails %}
-    <th data-width="36" class="h-text-center table-cell--fixed users-table__checkbox-js">
-      <input onClick="toggleAllUsersCheckboxes(this)" type="checkbox" value="{{user.user_email}}">
-    </th>
+      <th data-width="36" class="h-text-center table-cell--fixed users-table__checkbox-js">
+        <input onClick="toggleAllUsersCheckboxes(this)" type="checkbox" value="{{user.user_email}}">
+      </th>
     {% endif %}
     <th class="h-text-center table-cell--fixed users-table__avatar-js">Pilt</th>
     <th class="h-text-left table-cell--fixed users-table__name-js">Liikme nimi</th>
-    <th class="h-text-left">Isikukood</th>
+    {% if canSeePersonalId %}
+      <th class="h-text-left">Isikukood</th>
+    {% endif %}
     <th data-sortable="true" class="h-text-left">Häälerühm</th>
     <th data-sortable="true" class="h-text-left">Tiitel</th>
     <th class="h-text-left">Telefoninumber</th>
@@ -28,22 +30,26 @@
   {% for user in users %}
     <tr>
       {% if canSendGroupEmails %}
-      <td>
-        <input type="checkbox" value="{{user.user_email}}" class="sendEmailTo">
-      </td>
+        <td>
+          <input type="checkbox" value="{{user.user_email}}" class="sendEmailTo">
+        </td>
       {% endif %}
       <td>
         <img class="users-table__avatar" src="{{ function('get_avatar_url', user.ID) }}">
       </td>
       <td>{{ user.display_name }}</td>
-      <td>{{ user.personal_id }}</td>
+      {% if canSeePersonalId %}
+        <td>{{ user.personal_id }}</td>
+      {% endif %}
       <td>{{ user.voice }}</td>
       <td>{{ user.title }}</td>
       <td>{{ user.phone_number }}</td>
       <td>{{ user.user_email }}</td>
       <td>{{ user.birthday|date("d.m.Y") }}</td>
       <td>{{ returnUserRoleDisplayName(user.roles) }}</td>
-      <td>{% include "components/user-info.twig" %}</td>
+      {% if isAdministrator %}
+        <td>{% include "components/user-info.twig" %}</td>
+      {% endif %}
     </tr>
   {% endfor %}
 {% endblock %}

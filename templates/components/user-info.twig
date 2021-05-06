@@ -1,5 +1,7 @@
 {# Built using this: https://jquerymodal.com/ #}
-<p><a href="#modalButton{{user.ID}}" rel="modal:open">Open Modal</a></p>
+<a href="#modalButton{{user.ID}}" rel="modal:open" class="naiskoor-table__link-with-icon">
+  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'users-table__edit-icon' } %}
+</a>
 
 <div id="modalButton{{user.ID}}" class="modal">
     <h1>Liikme andmed</h1>

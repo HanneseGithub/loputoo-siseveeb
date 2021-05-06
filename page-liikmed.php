@@ -43,13 +43,17 @@ $administrator = current_user_can( 'administrator' );
 $bookie = current_user_can( 'bookie' );
 $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
-$canEditUserChoirRoles = $administrator || $president || $conductor || $bookie;
+
+$canSeePersonalId = $administrator || $president || $conductor;
+$canEditUserChoirRoles = $administrator;
 $canSendGroupEmails = $administrator || $bookie || $president || $conductor;
 
 $context = Timber::context();
 
 $context['users'] = $users;
 $context['isABookie'] = $bookie;
+$context['isAdministrator'] = $administrator;
+$context['canSeePersonalId'] = $canSeePersonalId;
 $context['canEditUserChoirRoles'] = $canEditUserChoirRoles;
 $context['canSendGroupEmails'] = $canSendGroupEmails;
 

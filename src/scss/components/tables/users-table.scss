@@ -10,3 +10,19 @@
         }
     }
 }
+
+.users-table__edit-icon {
+    font-size: 16px;
+
+    color: $color-primary-blue;
+
+    transition: color 0.3s;
+
+    &:hover {
+        color: rgba($color-primary-blue, 0.75);
+    }
+
+    @include bp(sm-min) {
+        font-size: 20px;
+    }
+}
