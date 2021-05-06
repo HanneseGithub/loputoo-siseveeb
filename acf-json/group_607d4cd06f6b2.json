@@ -3,12 +3,12 @@
     "title": "Isiklikud andmed",
     "fields": [
         {
-            "key": "field_607d4cda3b47c",
-            "label": "Telefoninumber",
-            "name": "phone_number",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
+            "key": "field_607d4d0b3b47e",
+            "label": "Isikukood",
+            "name": "personal_id",
+            "type": "text",
+            "instructions": "Seda näevad ainult veebilehe haldur, president ja koorivanem.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -19,14 +19,29 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "maxlength": ""
         },
         {
-            "key": "field_607d4cff3b47d",
-            "label": "Aadress",
-            "name": "address",
+            "key": "field_60916d22a7bca",
+            "label": "Sünnipäev",
+            "name": "birthday",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_6093c62793e61",
+            "label": "Telefoninumber",
+            "name": "phone_number",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -43,12 +58,12 @@
             "maxlength": ""
         },
         {
-            "key": "field_607d4d0b3b47e",
-            "label": "Isikukood",
-            "name": "personal_id",
-            "type": "number",
+            "key": "field_607d4cff3b47d",
+            "label": "Aadress",
+            "name": "address",
+            "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -59,9 +74,57 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "maxlength": ""
+        },
+        {
+            "key": "field_6093c5812b67e",
+            "label": "Tudeng",
+            "name": "is_student",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Jah": "Jah",
+                "Ei": "Ei"
+            },
+            "default_value": "Ei",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6093c54e2b67d",
+            "label": "TÜ tudeng või vilistlane",
+            "name": "is_student_or_graduate",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Jah": "Jah",
+                "Ei": "Ei"
+            },
+            "default_value": "Jah",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -81,5 +144,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619100359
+    "modified": 1620297310
 }

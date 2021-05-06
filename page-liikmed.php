@@ -26,28 +26,6 @@ if (isset($_POST['submit'])) {
     mail($recievers,$subject,$message);
 }
 
-// Calculate birthday.
-function calculateBirthday($Personal_ID){
-    $century = 0;
-    $centuryIdentificator = (int) substr($Personal_ID, 0, 1);
-
-    if ($centuryIdentificator < 3) {
-        $century = 18;
-    } elseif ($centuryIdentificator > 2 && $centuryIdentificator < 5) {
-        $century = 19;
-    } elseif ($centuryIdentificator > 4 && $centuryIdentificator < 7) {
-        $century = 20;
-    }
-    $PersonalIdBirthInfo =  substr($Personal_ID, 1, 6);
-    $birthYear = substr($PersonalIdBirthInfo, 0, 2);
-    $birthMonth = substr($PersonalIdBirthInfo, 2, 2);
-    $birthDay = substr($PersonalIdBirthInfo, 4, 2);
-
-    $birthDate = $birthDay .'. '. $birthMonth . '. '  . $century . $birthYear;
-
-    return $birthDate;
-}
-
 // Form for editing user info in the users view.
 function editUserRole($userID){
     $options = array(

@@ -3,10 +3,10 @@
     "title": "Liikmeinfo",
     "fields": [
         {
-            "key": "field_606c61735a95c",
-            "label": "Voice",
+            "key": "field_60916c26a42a7",
+            "label": "Häälerühm",
             "name": "voice",
-            "type": "text",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,15 +15,100 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "choices": {
+                "I sopran": "I sopran",
+                "II sopran": "II sopran",
+                "I alt": "I alt",
+                "II alt": "II alt"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60916fb424156",
+            "label": "Hääle kõrgus",
+            "name": "voice_pitch",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Kõrge": "Kõrge",
+                "Madal": "Madal"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60916e943fcaa",
+            "label": "Noorlaulja",
+            "name": "noorlaulja",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Jah": "Jah",
+                "Ei": "Ei"
+            },
+            "allow_custom": 0,
+            "default_value": [
+                "Ei"
+            ],
+            "layout": "is_student",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
+        },
+        {
+            "key": "field_60917028760e7",
+            "label": "Reservlane",
+            "name": "in_reserve",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Jah": "Jah",
+                "Ei": "Ei"
+            },
+            "allow_custom": 0,
+            "default_value": [
+                "Ei"
+            ],
+            "layout": "horizontal",
+            "toggle": 0,
+            "return_format": "value",
+            "save_custom": 0
         },
         {
             "key": "field_606d5009b2f7f",
-            "label": "Tiitel",
+            "label": "Juhatuse amet",
             "name": "title",
             "type": "text",
             "instructions": "",
@@ -47,11 +132,6 @@
                 "param": "user_form",
                 "operator": "==",
                 "value": "edit"
-            },
-            {
-                "param": "current_user",
-                "operator": "==",
-                "value": "logged_in"
             }
         ]
     ],
@@ -63,5 +143,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619100166
+    "modified": 1620297182
 }

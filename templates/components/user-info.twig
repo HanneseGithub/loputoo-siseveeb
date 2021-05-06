@@ -35,7 +35,7 @@
               </tr>
               <tr>
                 <td>Sünnipäev</td>
-                <td>{{ function('calculateBirthday', user.personal_id )}}</td>
+                <td>{{ user.birthday|date("d.m.Y") }}</td>
               </tr>
 
 
