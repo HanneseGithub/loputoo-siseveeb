@@ -30,10 +30,10 @@ if (isset($_POST['submit'])) {
 function editUserRole($userID){
     $options = array(
         'post_id' => 'user_' . $userID,
-        'field_groups' => array('group_607d4a30d0f6a'),
-        'submit_value' => __("Muuda andmeid", 'acf'),
+        'field_groups' => array('group_606c616a0f5af'),
+        'submit_value' => __("Salvesta", 'acf'),
         'updated_message' => __("Andmed muudetud!", 'acf'),
-        'html_submit_button'  => '<input type="submit" class="save-button" value="%s" />',
+        'html_submit_button'  => '<input type="submit" class="user-info__save-button" value="%s" />',
     );
     acf_form($options);
 }

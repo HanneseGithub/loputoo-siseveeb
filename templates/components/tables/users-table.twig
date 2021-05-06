@@ -22,7 +22,9 @@
     <th class="h-text-left">Email</th>
     <th data-sortable="true" class="h-text-left">Sünnipäev</th>
     <th data-sortable="true" class="h-text-left">Amet naiskooris</th>
-    <th class="h-text-center">Tegevused</th>
+    {% if isAdministrator %}
+      <th class="h-text-center">Tegevused</th>
+    {% endif %}
   </tr>
 {% endblock %}
 

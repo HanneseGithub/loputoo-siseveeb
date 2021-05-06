@@ -1,39 +1,70 @@
-.modal{
-    h1{
-        font-size: 20px;
-    }
-    tr{
-        height: 30px;
-    }
-    td + td{
+.jquery-modal {
+    padding: 0;
+    padding-top: 40px;
 
-        border-bottom: 1px solid black;
-    }
-    .userinfo-container{
-        height: 500px;
+    z-index: 20;
 
+    @include bp(sm-min) {
+        padding-left: 200px;
+        padding-top: 52px;
+    }
+}
+
+.user-info-modal {
+    padding: 24px;
+
+    & h3 {
+        font-family: $font-family-title;
+        font-size: $font-size-h3-lg;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-h3-lg;
+
+        color: $color-primary-blue;
+
+        @media (max-width: $bp-sm-min) {
+            text-align: center;
+            font-size: $font-size-h3-xs;
+            line-height: $line-height-h3-xs;
+        }
+    }
+
+    & .user-info-container {
         display: flex;
-        align-items: stretch;
-       margin-bottom: 20px;
-        div{
-            margin: 5px;
-        }
-        .userinfo{
-            overflow:auto;
-            input{
-                outline: none;
-                border: none;
-            }
-        }
+
+        max-height: 500px;
     }
 
-    .save-button{
+    .user-info__fields {
+        width: 100%;
+        margin-left: 32px;
+        overflow-y: auto;
+    }
+
+    & .user-info__avatar {
+        height: 128px;
+        border-radius: 50%;
+    }
+
+    & .user-info__save-button{
         background-color: $color-primary-blue;
+        color: $color-white;
+
+        padding: 12px 36px;
+        margin-left: 10px;
+        margin-top: 8px;
+
+        border: none;
+        border-radius: 5px;
+
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-small;
+
         text-transform: uppercase;
-        color: white;
-        justify-content: space-around;
-        border-radius: 3px;
-        padding: 10px;
-        text-decoration: none;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: $color-secondary-blue;
+        }
     }
 }

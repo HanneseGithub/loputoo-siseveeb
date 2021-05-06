@@ -1,86 +1,17 @@
-{# Built using this: https://jquerymodal.com/ #}
-<a href="#modalButton{{user.ID}}" rel="modal:open" class="naiskoor-table__link-with-icon">
+<a href="#modal-button-{{user.ID}}" rel="modal:open" class="naiskoor-table__link-with-icon">
   {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'users-table__edit-icon' } %}
 </a>
 
-<div id="modalButton{{user.ID}}" class="modal">
-    <h1>Liikme andmed</h1>
-    <div class="userinfo-container">
-        <div class="avatar">
-          <img src="{{ function('get_avatar_url', user.ID) }}">
+<div id="modal-button-{{user.ID}}" class="modal user-info-modal">
+    <h3 class="h-margin-bottom-lg">Liikme andmed</h3>
+    <div class="h-margin-bottom-lg user-info-container">
+        <div>
+          <img class="user-info__avatar" src="{{ function('get_avatar_url', user.ID) }}">
         </div>
-        <div class="userinfo">
-          <div class="md-form  input-with-post-icon">
-            <form action="POST">
-              <h1>Liikme info</h1>
-            </form>
-            <table>
-              <tr>
-                  <td class="userinfo-label">Liikme nimi</td>
-                  <td>
-                  {{ user.display_name }}
-                  </td>
-              </tr>
-              {% if (isABookie or choirBoss) %}
-                <tr>
-                  <td>Isikukood</td>
-                  <td><input type="text" value="{{ user.personal_id }}"></td>
-                </tr>
-              {% endif %}
-              <tr>
-                <td>Liikme e-mail</td>
-                <td>{{ user.user_email }}</td>
-              </tr>
-              <tr>
-                <td>Telefon</td>
-                <td>{{ user.phone_number }}</td>
-              </tr>
-              <tr>
-                <td>Sünnipäev</td>
-                <td>{{ user.birthday|date("d.m.Y") }}</td>
-              </tr>
-
-
-              <tr>
-                <td>Kooli staatus</td>
-                <td>
-                  {{ user.is_in_school[0] }}
-                </td>
-              </tr>
-
-              <tr>
-                <td>Amet</td>
-                <td>
-                  {{ returnUserRoleDisplayName(user.roles) }}
-                </td>
-              </tr>
-              <tr>
-                <td>Sisseastumise aeg</td>
-                <td>{{ user.user_registered }}</td>
-                <td><i class="fas fa-pencil-alt"></i></td>
-              </tr>
-          </table>
-          <hr>
-          <h1>Koori andmed</h1>
-          <table>
-            <tr>
-              <td>Tiitel</td>
-              <td>{{ user.title }}</td>
-            </tr>
-            <tr>
-              <td>Häälerühm</td>
-              <td>{{ user.voice }}</td>
-            </tr>
-          </table>
-          </div>
-          {# {% if canEditUserChoirRoles %} #}
-            <hr>
-            <h1>Muuda kasutaja andmeid</h1>
+        <div class="user-info__fields">
+          {% if canEditUserChoirRoles %}
             {{ function('editUserRole', user.ID )  }}
-          {# {% endif %} #}
+          {% endif %}
         </div>
-
     </div>
   </div>
-
-<!-- Link to open the modal -->
