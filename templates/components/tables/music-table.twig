@@ -70,7 +70,7 @@
   </td>
   <td>
     {% if song.song_file %}
-      <span title="{{ function('get_the_title', song.song_file )}}">
+      <span class="music-options" title="{{ function('get_the_title', song.song_file )}}">
         <a href="{{ function('retrieve_file_url', song.song_file) }}"  class="clickable-link">
           {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
           Mängi

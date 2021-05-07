@@ -3,9 +3,16 @@
 }
 .music-table{
     .clickable-link{
-        color: $color-light-blue-link;
+        color: $color-primary-blue;
+        display: flex;
+        align-items: center;
+
         &:hover{
             color: $color-light-blue-link-hover;
+        }
+        & a {
+           display: flex;
+           align-items: center;
         }
     }
     .delete-icon-style{
