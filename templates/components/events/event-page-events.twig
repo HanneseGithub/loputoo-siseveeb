@@ -1,0 +1,26 @@
+<div class="events-container">
+    <a class="event-click-container" href="{{event.link}}">
+        <div class="event-wrapper">
+            <div class="event-image-container">
+                {% if not event.image %}
+                    {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
+                    <img src="{{ placeholder.src | resize(750, 500) }}">
+                {% else %}
+                    <img src="{{ Image(event.image).src|resize(750, 500) }}">
+                {% endif %}
+
+                {% include 'components/events/event-participation.twig' with { event: { event_participation: event.event_participation } } %}
+            </div>
+        </div>
+
+        <div class="event-info-container">
+            <h3 class="event-page-title">{{ event.title }}</h3>
+            {% if event.has_end_date %}
+            <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}} - {{ event.dateend | date("d. F Y &#8226; H:i")}}</div>
+            {% else %}
+            <div class="event-date-time">{{ event.datestart | date("d. F Y &#8226; H:i")}}</div>
+            {% endif %}
+            <div class="event-description">{{ event.description }}</div>
+        </div>
+    </a>
+</div>
