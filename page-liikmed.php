@@ -12,18 +12,23 @@ $users = get_users(['role__in' => [
     'note-handler',
 ]]);
 
-// Send email to selected people and yourself.
-if (isset($_POST['submit'])) {
+// Send an email when sending button is pressed.
+if (isset($_POST['submitGroupEmail'])) {
     $websiteEmail = 'naiskoorintra@gmail.com';
     $subject = $_POST['subject'];
     $senderName = $_POST['sender-name'];
-    $senderRoles = $_POST['sender-roles'];
+    $senderRole = $_POST['sender-role'];
     $recievers = $_POST['recievers'];
+    $headers = 'From: ' . $websiteEmail . "\r\n" .
+    'Reply-To: ' . $websiteEmail . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
     $message = $_POST['message'];
-    $messageToUs = $senderName . "with a ." . $senderRoles. ". e-mailed the following:" . "\n\n" . $message . "\n\n" . "to the following recievers: " . $recievers;
-    $messageToFrontend = $senderName . " with the role of " . $senderRoles[0] ." successfully sent e-mails";
-    mail($websiteEmail,$subject,$messageToUs);
-    mail($recievers,$subject,$message);
+    $messageToUs = $senderName . " saatis liikmetele järgneva e-maili:" . "\n\n" . $message . "\n\n" . ". E-mail saadeti järgmistele isikutele: " . $recievers;
+    $messageToFrontend = "E-maili saatmine õnnestus!";
+
+    mail($websiteEmail,$subject,$messageToUs, $headers);
+    mail($recievers,$subject,$message, $headers);
 }
 
 // Form for editing user info in the users view.

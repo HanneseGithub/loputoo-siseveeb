@@ -1,0 +1,115 @@
+.group-email__modal-button {
+    display: inline-flex;
+    align-items: center;
+
+    background-color: $color-secondary-blue;
+    color: $color-white;
+
+    padding: 12px 24px;
+    margin-top: 12px;
+
+    border: none;
+    border-radius: 5px;
+
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $color-primary-blue;
+    }
+}
+
+.group-email__button-icon {
+    font-size: 16px;
+    color: $color-white;
+}
+
+.group-email__modal-button-text {
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-small;
+
+    margin-left: 4px;
+}
+
+.group-email-modal {
+    padding: 24px;
+
+    & h3 {
+        font-family: $font-family-title;
+        font-size: $font-size-h3-lg;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-h3-lg;
+
+        color: $color-primary-blue;
+
+        @media (max-width: $bp-sm-min) {
+            text-align: center;
+            font-size: $font-size-h3-xs;
+            line-height: $line-height-h3-xs;
+        }
+    }
+
+    & .group_email__input-group {
+        display: flex;
+        flex-direction: column;
+
+        margin-bottom: 16px;
+    }
+
+    & .group-email__label {
+        margin-bottom: 4px;
+
+        color: $color-primary-blue;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+    }
+
+    & .group-email__input {
+        height: 32px;
+
+        color: $color-secondary-blue;
+
+        border: none;
+        border-bottom: 1px solid $color-gray;
+
+        &.group-email__input--textarea {
+            height: auto;
+            resize: vertical;
+        }
+
+        &::placeholder {
+            color: $color-dark-gray;
+        }
+    }
+
+    & .group-email__send-button {
+        background-color: $color-primary-blue;
+        color: $color-white;
+
+        padding: 12px 36px;
+
+        width: 100%;
+
+        border: none;
+        border-radius: 5px;
+
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-small;
+
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-secondary-blue;
+        }
+
+        @include bp(sm-min) {
+            width: auto;
+        }
+
+    }
+}

@@ -1,68 +1,41 @@
-{# Built using this: https://jquerymodal.com/ #}
-<p onclick=" openEmailForm()"><a href="#groupEmailModal" rel="modal:open">Open Modal</a></p>
+<a href="#groupEmailModal" rel="modal:open" onclick="openEmailForm()" class="group-email__modal-button">
+  {% include 'components/icon.twig' with { name: 'sprite-envelope-fill', modifier: 'group-email__button-icon' } %}
+  <p class="group-email__modal-button-text">Koosta email</p>
+</a>
 
-<div id="groupEmailModal" class="modal">
-    <h1>E-maili vorm</h1>
+<div id="groupEmailModal" class="modal group-email-modal">
+    <h3 class="h-margin-bottom-lg">E-maili saatmine</h3>
+    <div class="group-email__form">
       <form action="" method="POST" class="emailSendingForm">
-          <label for="email">E-posti aadress kellelt saadetakse</label>
-            <input
-            type="email"
-            class="form-control"
-            value="naiskoorintra@gmail.com"
-            readonly
-            id="email"
-            required
-            >
-          </td>
-          <br>
-          <label for="header">Kirja pealkiri</label>
-            <input
-            type="text"
-            name="subject"
-            class="form-control"
-            placeholder="Lisa päis:"
-            value="[{{ function('returnUserRoles', user.roles)}}]:"
-            required
-            id="header"
-            >
-          <br>
+        <div class="group_email__input-group">
+          <label for="group_email__email-input" class="group-email__label">Saatja e-mail</label>
+          <input type="email" class="group-email__input" value="naiskoorintra@gmail.com" readonly id="group_email__email-input" required>
+        </div>
 
-            <label for="sendGroupEmail">Kellele saadetakse:</label>
-            <input
-            type="email"
-            name="recievers"
-            class="form-control"
-            placeholder="Enter Email"
-            id="sendGroupEmail"
-            multiple
-            required>
-          <br>
+        <div class="group_email__input-group">
+          <label for="group_email__heading-input" class="group-email__label">Kirja pealkiri</label>
+          <input type="text" name="subject" class="group-email__input" value="[{{ function('implode', ' ', user.roles) }}]:" id="group_email__heading-input" required placeholder="E-maili pealkiri" autocomplete="off">
+        </div>
 
-            <label for="message">E-kirja sisu</label>
-            <textarea
-            rows="4"
-            name="message"
-            class="form-control"
-            placeholder="Saada e-mail"
-            id="message"
-            required
-            ></textarea>
-            <br>
+        <div class="group_email__input-group">
+          <label for="sendGroupEmail" class="group-email__label">Kirja saajad</label>
+          <input type="email" name="recievers" class="group-email__input" id="sendGroupEmail" multiple required placeholder="Saajate e-mailid" autocomplete="off">
+        </div>
 
-          <input type="hidden" value="{{ current_user.name }}" name="sender-name">
-          <input type="hidden" value=
-            "{% for role in current_user.roles %}
-                {{ role }}
-            {% endfor %}"
-             name="sender-roles">
+        <div class="group_email__input-group">
+          <label for="group_email__content-input" class="group-email__label">Sõnum</label>
+          <textarea rows="4" name="message" class="group-email__input group-email__input--textarea" id="group_email__content-input" required placeholder="E-maili sisu" autocomplete="off"></textarea>
+        </div>
 
-      <div class="form-group text-center">
-        <button
-          class="btn btn-raised btn-lg btn-warning"
-          type="submit"
-          name="submit"
-          value="Submit">
-          Saada
-        </button>
+        <input type="hidden" value="{{ current_user.name }}" name="sender-name">
+        <input type="hidden" value="{{ function('implode', ' ', user.roles) }}" name="sender-role">
+
+        <div class="group-email__button-container">
+          <button class="group-email__send-button" type="submit" name="submitGroupEmail">
+            Saada
+          </button>
+        </div>
+
       </form>
+    </div>
   </div>
