@@ -1,15 +1,3 @@
-.jquery-modal {
-    padding: 0;
-    padding-top: 40px;
-
-    z-index: 20;
-
-    @include bp(sm-min) {
-        padding-left: 200px;
-        padding-top: 52px;
-    }
-}
-
 .user-info-modal {
     padding: 24px;
 

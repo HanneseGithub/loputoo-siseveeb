@@ -67,8 +67,8 @@ class StarterSite extends Timber\Site
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'create_roles' ) );
-		add_action( 'init', array( $this, 'remove_roles' ) );
+		add_action( 'init', array( $this, 'create_custom_user_roles' ) );
+		add_action( 'init', array( $this, 'remove_unused_user_roles' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_my_scripts' ) );
 		add_action( 'login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
@@ -76,32 +76,12 @@ class StarterSite extends Timber\Site
 		parent::__construct();
 	}
 
-	// Create the roles when the theme is applied for the first time
-	function create_roles(){
-		add_role('singer', 'Laulja');
-		add_role('bookie', 'Raamatupidaja');
-		add_role('conductor', 'Koorivanem');
-		add_role('president', 'President');
-		add_role('secretary', 'Sekretär');
-		add_role('note-handler', 'Noodihaldur');
-
-		$bookie  = get_role('bookie');
-		$singer = get_role('singer');
-		$conductor = get_role('conductor');
-		$choirManager = get_role('president');
-		$secretary = get_role('secretary');
-		$noteHandler = get_role('note-handler');
-
-		// Same capabilities as a subscriber
-		$bookie -> add_cap('read');
-		$singer -> add_cap('read');
-		$conductor -> add_cap('read');
-		$choirManager -> add_cap('read');
-		$secretary -> add_cap('read');
-		$noteHandler -> add_cap('read');
+	/** Create custom roles defined in lib/custom-user-roles */
+	function create_custom_user_roles(){
+		require('lib/custom-user-roles.php');
 	}
-	// Delete roles we do not use
-	function remove_roles(){
+
+	function remove_unused_user_roles(){
 		remove_role( 'subscriber' );
 		remove_role( 'contributor' );
 		remove_role( 'author' );
@@ -137,11 +117,8 @@ class StarterSite extends Timber\Site
 	 */
 	public function add_to_context($context)
 	{
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['current_user'] = new Timber\User();
-		$context['custom_logo_url'] = wp_get_attachment_image_url( get_theme_mod('custom_logo'), 'full');
+		$context['custom_logo_url'] = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
@@ -178,8 +155,15 @@ class StarterSite extends Timber\Site
 	{
 		$twig->addExtension(new Twig\Extension\StringLoaderExtension());
 		$twig->addFilter(new Twig\TwigFilter('myfoo', array($this, 'myfoo')));
-		$twig->addFunction( new Timber\Twig_Function( 'returnUserRoleDisplayName', array($this, 'returnUserRoleDisplayName') ) );
+		$twig->addFunction(new Timber\Twig_Function( 'returnUserRoleDisplayName', array($this, 'returnUserRoleDisplayName')));
 		return $twig;
+	}
+
+	public function redirect_non_logged_users_to_specific_page()
+	{
+		if (!is_user_logged_in()) {
+			auth_redirect();
+		}
 	}
 }
 

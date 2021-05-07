@@ -1,0 +1,10 @@
+{% if event_participation is null %}
+    <a class="single-post-going__button single-post-going__button--going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="true" href="{{ participationFunctionLink }}&amp;event_participation=true">Osalen</a>
+    <a class="single-post-going__button single-post-going__button--not-going h-margin-left-sm" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="false" href="{{ participationFunctionLink }}&amp;event_participation=false">Ei osale</a>
+{% elseif event_participation is defined and event_participation == '1' %}
+    <a class="single-post-going__button single-post-going__button--going active" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="true" href="{{ participationFunctionLink }}&amp;event_participation=true">Osalen</a>
+    <a class="single-post-going__button single-post-going__button--not-going h-margin-left-sm" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="false" href="{{ participationFunctionLink }}&amp;event_participation=false">Ei osale</a>
+{% elseif event_participation is defined and event_participation == '0' %}
+    <a class="single-post-going__button single-post-going__button--going" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="true" href="{{ participationFunctionLink }}&amp;event_participation=true">Osalen</a>
+    <a class="single-post-going__button single-post-going__button--not-going h-margin-left-sm active" data-nonce="{{ nonce }}" data-event_id="{{post.id}}" data-event_participation="false" href="{{ participationFunctionLink }}&amp;event_participation=false">Ei osale</a>
+{% endif %}

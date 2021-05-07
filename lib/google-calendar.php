@@ -11,15 +11,14 @@ $client->setScopes(
 );
 $calendarService = new Google_Service_Calendar($client);
 
-$myCalendarID = "markkopoljakov@gmail.com";
+$myCalendarID = get_option('google-calendar-id');
 $events = $calendarService->events
     ->listEvents(
         $myCalendarID,
         array(
             'singleEvents' => true,
-            'timeZone' => 'UTC+3',
             'orderBy' => 'startTime',
             'timeMin' => date(DATE_RFC3339),
-            'maxResults' => 5,
+            'maxResults' => get_option('google-calendar-number')
         ),
     )->getItems();
