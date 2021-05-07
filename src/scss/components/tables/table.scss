@@ -25,8 +25,105 @@
     }
 }
 
-.fixed-table-toolbar{
-    text-align: right;
+.fixed-table-toolbar {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::after {
+        content: none !important;
+    }
+
+    @include bp(sm-min) {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+.bootstrap-table .fixed-table-toolbar .columns-right,
+.bootstrap-table .fixed-table-toolbar .search {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bootstrap-table .fixed-table-toolbar .columns .dropdown-menu {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    max-height: 300px;
+    width: max-content;
+
+    overflow: auto;
+
+    padding: 12px;
+
+    background-color: $color-white;
+
+    text-align: left;
+    white-space: nowrap;
+    z-index: 16;
+
+    & #toggle-all-users {
+        pointer-events: none;
+    }
+}
+
+.bootstrap-table .fixed-table-toolbar .columns .keep-open {
+    & .dropdown-toggle {
+        display: inline-block;
+
+        padding: 4px 12px;
+
+        background: none;
+
+        background-color: #758EFF;
+        color: $color-white;
+
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+
+        border: none;
+        border-radius: 5px;
+
+        &::before {
+            content: 'Vali väljad';
+        }
+    }
+
+    &:hover .dropdown-menu,
+    &:active .dropdown-menu {
+        display: block;
+    }
+}
+
+.dropdown-item {
+    .dropdown-menu & {
+        position: relative;
+        padding: 4px 0 4px 0;
+
+        transition: background-color 0.3s;
+
+        &.is-active,
+        &:hover {
+        background-color: rgba($color-white, 0.3);
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: $color-white;
+        }
+        }
+    }
 }
 
 /* Custom table styles */

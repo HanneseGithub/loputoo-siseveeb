@@ -1,5 +1,10 @@
 {% extends "components/tables/table.twig" %}
 
+{% block table_options %}
+  {{ parent() }}
+  data-show-columns="true"
+{% endblock %}
+
 {% block table_classes %}
   class="naiskoor-table users-table"
 {% endblock %}
@@ -8,7 +13,7 @@
   <tr>
     {% if canSendGroupEmails %}
       <th data-width="36" class="h-text-center table-cell--fixed users-table__checkbox-js">
-        <input onClick="toggleAllUsersCheckboxes(this)" type="checkbox" value="{{user.user_email}}">
+        <input onClick="toggleAllUsersCheckboxes(this)" type="checkbox" id="toggle-all-users">
       </th>
     {% endif %}
     <th class="h-text-center table-cell--fixed users-table__avatar-js">Pilt</th>

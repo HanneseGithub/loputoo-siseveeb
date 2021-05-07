@@ -17,7 +17,7 @@ jQuery(document).ready(function( $ ) {
 
         $(window).resize(function() {
             debounce(function() {
-                refreshUsersTableStickyHeaderValues()
+                refreshUsersTableStickyHeaderValues();
             }, 500, 'users-table')
         });
     }
@@ -27,4 +27,10 @@ jQuery(document).ready(function( $ ) {
     if ($(".form-control.search-input").length) {
         $(".form-control.search-input").attr('placeholder', 'Otsi...')
     }
+});
+
+jQuery(document).ready(function( $ ) {
+    $(".dropdown-item input").on('click', function() {
+        refreshUsersTableStickyHeaderValues();
+    })
 });

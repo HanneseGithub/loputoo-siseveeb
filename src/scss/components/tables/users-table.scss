@@ -11,6 +11,16 @@
     }
 }
 
+.users-table {
+    & .naiskoor-table__body td {
+        height: 44px
+    }
+
+    @include bp(sm-min) {
+        height: 48px;
+    }
+}
+
 .users-table__edit-icon {
     font-size: 16px;
 
