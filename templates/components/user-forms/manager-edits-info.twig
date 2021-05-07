@@ -1,34 +1,5 @@
-<!-- Modal HTML embedded directly into document -->
 <div id="choirInfoModal" class="modal editUserinfoModal">
     <h2 class="h2">Muuda kasutaja andmeid</h2>
-    <form action="#" method="POST">
-          <div class="inputWrapper">
-              <label for="voice">Häälegrupp</label>
-              <div class="inputHolder">
-                  <input name="voice" type="text" value="{{ user.voice }}">
-                  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}    
-              </div>
-          </div>
-          <div class="inputWrapper">
-              <label for="showPassword1">Tiitel</label>
-              <div class="inputHolder">
-                  <input name="userTitle" type="text" value="{{ user.title }}">
-                  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}        
-              </div>
-         </div>
-          <div class="inputWrapper">
-              <label for="is_beginner">Kas on noorlaulja</label>
-              <div class="inputHolder">
-                  <input name="is_beginner" type="text" value="{{ user.is_beginner }}">
-                  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}    
-              </div>
-          </div>
-      <input type="hidden" value="{{ user.ID }}" name="userID">
-      <input type='submit' name='managerEditsUserInfo' value="Salvesta" class="stylised-button submit-button"/>
-    </form> 
-
-  </div>
-  
-  <!-- Link to open the modal -->
-  
+    {{ function('editUserRole', user.ID )  }}
+</div>  
   <a href="#choirInfoModal" rel="modal:open" class="stylised-button">Muuda kasutaja andmeid</a>

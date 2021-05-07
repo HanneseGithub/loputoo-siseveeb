@@ -1,0 +1,110 @@
+<table>
+    <tr>
+        <td>
+            Eesnimi                        
+        </td>
+        <td>
+            <input type="text" name="firstName" value="{{ author.first_name }}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Perenimi
+        </td>
+        <td>
+            <input type="text" name="lastName" value="{{ author.last_name}}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Isikukood
+        </td>
+        <td>
+            <input type="text" name="personalId" value="{{ author.personal_id_code}}" disabled>
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            E-mail
+        </td>
+        <td>
+            <input type="email" name="email" value="{{ author.user_email }}" disabled>
+        </td>
+    </tr> 
+    <tr>
+        <td>
+            Telefon
+        </td>
+        <td>
+            <input type="number" name="phoneNumber" value="{{ author.phone_number }}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Aadress
+        </td>
+        <td>
+            <input type="text" name="homeAdress" value="{{ author.home_address }}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Häälerühm
+        </td>
+        <td>
+            <input type="text" name="voice" value="{{ author.voice }}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tudeng
+        </td>
+        <td>
+            <input type="text" name="isInSchool" value="{{ author.is_in_school }}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Noorlaulja
+        </td>
+        <td>
+            <input type="text" value="ei" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Tiitel
+        </td>
+        <td>
+            <input type="text" value=" {{ author.title }}" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Roll veebilehel
+        </td>
+        <td>
+            <input type="text" value="{{ function('returnUserRoles', author.roles)}}" 
+            disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sünnipäev
+        </td>
+        <td>
+            <input type="text" value="{{ function('calculateBirthday', author.personal_id_code) }}" disabled>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Registreerimise aeg
+        </td>
+        <td>
+            <input type="text" value="{{ author.user_registered }}" disabled>
+        </td>
+    </tr>
+</table>

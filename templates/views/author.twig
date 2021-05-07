@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="section h-padding-top-xxl h-padding-bottom-lg">
+    <h2 class="h2">
+      Minu andmed
+  </h2>
+
+  {# Only the logged in user can edit his/her password #}
+  {% if current_user.ID == author.ID %}
+    {% include "components/user-forms/user-edits-password.twig" %}
+  {% endif %}
+
+  {% if canEditUser  %}
+    {% include "components/user-forms/manager-edits-info.twig" %}
+  {% endif %} 
+  <div class="userinfo-container">
+      <div class="avatar">
+        <img src="{{ function('get_avatar_url', author.ID) }}">
+      </div>        
+      <div class="userinfo">
+        {% if current_user.ID == author.ID %}
+        <div class="md-form  input-with-post-icon">
+          {% include "components/user-forms/user-edits-info.twig" %}
+        </div>
+        {% else %}
+        <div class="md-form  input-with-post-icon">
+          {% include "components/user-forms/user-profile-modal.twig" %}
+        </div>
+        {% endif %}
+
+      </div>
+
+  </div>
+
+{% endblock %}

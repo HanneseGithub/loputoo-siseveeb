@@ -5,7 +5,7 @@
                 Eesnimi                        
             </td>
             <td>
-                <input type="text" name="firstName" value="{{ user.first_name }}">
+                <input type="text" name="firstName" value="{{ author.first_name }}">
             </td>
             <td>
                 {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
@@ -16,7 +16,7 @@
                 Perenimi
             </td>
             <td>
-                <input type="text" name="lastName" value="{{ user.last_name}}">
+                <input type="text" name="lastName" value="{{ author.last_name}}">
             </td>
             <td>
                 {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
@@ -28,7 +28,7 @@
             </td>
             <td>
                 
-                <input type="text" name="personalId" value="{{ user.personal_id_code}}" disabled>
+                <input type="text" name="personalId" value="{{ author.personal_id_code}}" disabled>
             </td>
             <td>
             </td>
@@ -39,7 +39,7 @@
                 E-mail
             </td>
             <td>
-                <input type="email" name="email" value="{{ user.user_email }}">
+                <input type="email" name="email" value="{{ author.user_email }}">
             </td>
             <td>
                 {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
@@ -50,7 +50,7 @@
                 Telefon
             </td>
             <td>
-                <input type="number" name="phoneNumber" value="{{ user.phone_number }}">
+                <input type="number" name="phoneNumber" value="{{ author.phone_number }}">
             </td>
             <td>
                 {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
@@ -61,7 +61,7 @@
                 Aadress
             </td>
             <td>
-                <input type="text" name="homeAdress" value="{{ user.home_address }}">
+                <input type="text" name="homeAdress" value="{{ author.home_address }}">
             </td>
             <td>
                 {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
@@ -72,7 +72,7 @@
                 Häälerühm
             </td>
             <td>
-                <input type="text" name="voice" value="{{ user.voice }}" disabled>
+                <input type="text" name="voice" value="{{ author.voice }}" disabled>
             </td>
             <td>
             </td>
@@ -82,11 +82,11 @@
                 Tudeng
             </td>
             <td>
-                <select name="isInSchool" value="{{ user.is_in_school }}">
+                <select name="isInSchool" value="{{ author.is_in_school }}">
                     <option value="Jah">Jah</option>
                     <option value="Ei">Ei</option>
                 </select>
-                <input type="text" name="isInSchool" value="{{ user.is_in_school }}" disabled>
+                <input type="text" name="isInSchool" value="{{ author.is_in_school }}" disabled>
             </td>
             <td>
                 {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
@@ -104,10 +104,20 @@
         </tr>
         <tr>
             <td>
-                Amet
+                Tiitel
             </td>
             <td>
-                <input type="text" value="{{ function('returnUserRoles', user.roles)}}" 
+                <input type="text" value=" {{ author.title }}" disabled>
+
+               
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Roll veebilehel
+            </td>
+            <td>
+                <input type="text" value="{{ function('returnUserRoles', author.roles)}}" 
                 disabled>
             </td>
             <td>
@@ -118,7 +128,7 @@
                 Sünnipäev
             </td>
             <td>
-                <input type="text" value="{{ function('calculateBirthday', user.personal_id_code) }}" disabled>
+                <input type="text" value="{{ function('calculateBirthday', author.personal_id_code) }}" disabled>
             </td>
             <td>
             </td>
@@ -128,13 +138,13 @@
                 Registreerimise aeg
             </td>
             <td>
-                <input type="text" value="{{ user.user_registered }}" disabled>
+                <input type="text" value="{{ author.user_registered }}" disabled>
             </td>
             <td>
             </td>
         </tr>
     </table>
-    <input type="hidden" value="{{ user.ID }}" name="userID">
-    <input type="hidden" value="{{ user.user_email }}" name="currentEmail">
+    <input type="hidden" value="{{ author.ID }}" name="userID">
+    <input type="hidden" value="{{ author.user_email }}" name="currentEmail">
     <input name="editUserInfo" type="submit" value="Muuda infot"  class="stylised-button">
   </form>
