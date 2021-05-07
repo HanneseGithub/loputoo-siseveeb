@@ -1,0 +1,7 @@
+{% if event.event_participation is null %}
+    <div class="event-participation event-participation--undecided">Pole vastanud</div>
+{% elseif event.event_participation is defined and event.event_participation == '1' %}
+    <div class="event-participation event-participation--going">Osalen</div>
+{% elseif event.event_participation is defined and event.event_participation == '0' %}
+    <div class="event-participation event-participation--not-going">Ei osale</div>
+{% endif %}

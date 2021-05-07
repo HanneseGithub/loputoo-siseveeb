@@ -118,7 +118,7 @@ class StarterSite extends Timber\Site
 	public function add_to_context($context)
 	{
 		$context['current_user'] = new Timber\User();
-		$context['custom_logo_url'] = wp_get_attachment_image_url( get_theme_mod('custom_logo'), 'full');
+		$context['custom_logo_url'] = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
 		return $context;
@@ -157,6 +157,13 @@ class StarterSite extends Timber\Site
 		$twig->addFilter(new Twig\TwigFilter('myfoo', array($this, 'myfoo')));
 		$twig->addFunction(new Timber\Twig_Function( 'returnUserRoleDisplayName', array($this, 'returnUserRoleDisplayName')));
 		return $twig;
+	}
+
+	public function redirect_non_logged_users_to_specific_page()
+	{
+		if (!is_user_logged_in()) {
+			auth_redirect();
+		}
 	}
 }
 
