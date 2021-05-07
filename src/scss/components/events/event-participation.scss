@@ -1,0 +1,50 @@
+.event-participation {
+    .events-container & {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        bottom: -116px;
+
+        width: 100%;
+        height: 32px;
+
+        color: $color-white;
+        border-radius: 5px;
+
+        @media (max-width: $bp-sm-min) {
+            height: 42px;
+            bottom: 6px;
+        }
+    }
+
+    .front-page-events-container & {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        width: 120px;
+        height: 30px;
+
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    &.event-participation--going {
+        background: $color-green;
+    }
+
+    &.event-participation--not-going {
+        background: $color-red;
+    }
+
+    &.event-participation--undecided {
+        background: $color-dark-gray;
+    }
+}

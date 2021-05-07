@@ -1,0 +1,17 @@
+<div id="ex{{ id }}" class="modal delete-post-modal">
+    <h3 class="h2 h-margin-bottom-lg">Oled sa kindel, et sa tahad kustutada: {{ title }}</h3>
+    <div class="button-holder">
+      <form action="#" method="post">
+        <input type="submit" name="deletePost" value="Kustuta" class="delete-post-buttons deletion-button"/>
+        <input type="hidden" value="{{ id }}" name="ID">
+      </form>
+      <a href="#" rel="modal:close">
+        <input type="button" value="Sulge" class="delete-post-buttons">
+      </a>
+    </div>
+  </div>
+
+  <!-- Link to open the modal -->
+  <a href="#ex{{ id }}" rel="modal:open">
+    {% include 'components/icon.twig' with { name: 'sprite-trash-fill', modifier: 'delete-item-icon'} %}
+  </a>
