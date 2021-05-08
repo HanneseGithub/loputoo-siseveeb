@@ -1,7 +1,45 @@
 {
     "key": "group_60812edb3d926",
-    "title": "Repertuaar",
+    "title": "Repertuaari lisaväljad",
     "fields": [
+        {
+            "key": "field_6096c24bab64d",
+            "label": "Tiitel",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6096c283ab64e",
+            "label": "Sisu",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "text",
+            "media_upload": 0,
+            "toolbar": "full",
+            "delay": 0
+        },
         {
             "key": "field_608261c6c461c",
             "label": "Autor",
@@ -22,87 +60,11 @@
             "maxlength": ""
         },
         {
-            "key": "field_608a96b95ccd8",
-            "label": "Hooaeg",
-            "name": "season",
-            "type": "text",
-            "instructions": "Lisa hooaeg kujul 2020\/2021",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_6081317cf2e30",
-            "label": "Noodi fail",
-            "name": "note_file",
-            "type": "file",
-            "instructions": "Lisa noodid pdf faili või pildi failina",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "library": "uploadedTo",
-            "min_size": "",
-            "max_size": 50,
-            "mime_types": ".pdf, .jpg, .png, .doc,"
-        },
-        {
-            "key": "field_6087a992b461d",
-            "label": "Noodi fail 2",
-            "name": "note_file_2",
-            "type": "file",
-            "instructions": "Lisa noodid pdf faili või pildi failina",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "library": "uploadedTo",
-            "min_size": "",
-            "max_size": 50,
-            "mime_types": ".pdf, .jpg, .png, .doc,"
-        },
-        {
-            "key": "field_6087e526be35e",
-            "label": "Noodi fail 3",
-            "name": "note_file_3",
-            "type": "file",
-            "instructions": "Lisa noodid pdf faili või pildi failina",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "library": "uploadedTo",
-            "min_size": "",
-            "max_size": 50,
-            "mime_types": ".pdf, .jpg, .png, .doc,"
-        },
-        {
             "key": "field_60812f0af2e2f",
             "label": "Laulu fail",
             "name": "song_file",
             "type": "file",
-            "instructions": "Lisa fail audio formaadis",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -114,14 +76,14 @@
             "library": "uploadedTo",
             "min_size": "",
             "max_size": "",
-            "mime_types": "mp3, flac, m4a, mp4, wav, wma, aac"
+            "mime_types": ""
         },
         {
             "key": "field_6087a988b461c",
             "label": "Laulu fail 2",
             "name": "song_file_2",
             "type": "file",
-            "instructions": "Lisa fail audio formaadis",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -133,14 +95,14 @@
             "library": "uploadedTo",
             "min_size": "",
             "max_size": "",
-            "mime_types": "mp3, flac, m4a, mp4, wav, wma, aac"
+            "mime_types": ""
         },
         {
             "key": "field_6087e518be35d",
             "label": "Laulu fail 3",
             "name": "song_file_3",
             "type": "file",
-            "instructions": "Lisa fail audio formaadis",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -152,7 +114,81 @@
             "library": "uploadedTo",
             "min_size": "",
             "max_size": "",
-            "mime_types": "mp3, flac, m4a, mp4, wav, wma, aac"
+            "mime_types": ""
+        },
+        {
+            "key": "field_6081317cf2e30",
+            "label": "Noodi fail",
+            "name": "note_file",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "uploadedTo",
+            "min_size": "",
+            "max_size": 50,
+            "mime_types": ""
+        },
+        {
+            "key": "field_6087a992b461d",
+            "label": "Noodi fail 2",
+            "name": "note_file_2",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "uploadedTo",
+            "min_size": "",
+            "max_size": 50,
+            "mime_types": ""
+        },
+        {
+            "key": "field_6087e526be35e",
+            "label": "Noodi fail 3",
+            "name": "note_file_3",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "uploadedTo",
+            "min_size": "",
+            "max_size": 50,
+            "mime_types": ""
+        },
+        {
+            "key": "field_608131eaf2e32",
+            "label": "Hooaeg",
+            "name": "season",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
         }
     ],
     "location": [
@@ -172,5 +208,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619695984
+    "modified": 1620494409
 }

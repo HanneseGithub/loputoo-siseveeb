@@ -11,6 +11,6 @@
   </div>
 </div>
 <!-- Link to open the modal -->
-<a href="#ex{{ id }}" rel="modal:open">
-  {% include 'components/icon.twig' with { name: 'sprite-trash-fill', modifier: 'delete-post-icon'} %}
+<a class="music-table-icon--delete-post" href="#ex{{ id }}" rel="modal:open">
+  {% include 'components/icon.twig' with  {name: 'sprite-trash-fill', modifier: 'clickable-link-delete'}%}
 </a>

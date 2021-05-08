@@ -4,13 +4,30 @@
         display: flex;
         align-items: center;
         margin-right: 20px;
+        padding: 2px;
         & svg {
             margin-right: 5px;
+            font-size: 24px;
         }
         @media (max-width: $bp-sm-min){
             margin-right: 20px;
         }
     }
+        .clickable-link-delete{
+            color: $color-red;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 24px;
+            padding: 2px;
+            & svg {
+                margin-right: 5px;
+                
+            }
+            @media (max-width: $bp-sm-min){
+                margin-right: 20px;
+            }
+        }
     input{
         background-color: $color-primary-blue;
         text-transform: uppercase;
@@ -26,7 +43,10 @@
         font-size: 20px;
         color: $color-secondary-blue;
 
-        
+
+        &.music-table-icon--delete-post {
+            font-size:30px;
+        }
         @include bp(sm-min) {
             font-size: 24px;
         }

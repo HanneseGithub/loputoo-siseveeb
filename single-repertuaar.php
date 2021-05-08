@@ -6,8 +6,6 @@ acf_enqueue_uploader();
 function editPostInfo($post_id){
     $options = array(
         'post_id' => $post_id,
-        'post_title'    => true,
-        'post_content'  => true,
         'submit_value'  => __('Muuda laulu infot'),
         'html_submit_button'  => '<input type="submit" class="edit-post-button" value="%s" />',
         'updated_message' => __("Laulu andmed on muudetud.", 'acf'),

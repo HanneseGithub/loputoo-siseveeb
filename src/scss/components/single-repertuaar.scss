@@ -8,6 +8,9 @@
     justify-content: space-between;
     font-weight: $font-weight-bold;
     font-size: $font-size-small;
+    @media (max-width:$bp-sm-min) {
+        flex-direction: column;
+    }
     & div:first-child {
         margin-right: 10px;
     }
@@ -60,7 +63,8 @@
             justify-content: center;
             align-items: center;
             padding: 10px 16px;
-            &svg {
+
+            & svg {
                 margin-right: 10px;
             }
             &:hover{
@@ -82,11 +86,11 @@
 
 }
 .edit-post-button{
-    width: 100%;
+    width:50%;
     background-color: $color-primary-blue;
     color: $color-white;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px 16px;
     border:none;
     pointer-events: all;
     cursor: pointer;
@@ -94,5 +98,16 @@
     text-transform: uppercase;
     &:hover {
         background-color: $color-primary-blue-hover;
+    }
+}
+.acf-form-submit {
+    display: flex;
+    justify-content: center;
+}
+.acf-form {
+    max-height: 500px;
+    overflow-y: auto;
+    @media (max-width:$bp-sm-min) {
+        height: 70vh;
     }
 }

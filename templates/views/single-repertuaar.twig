@@ -2,17 +2,19 @@
 
 {% block content %}
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
-    <div class="single-repertuaar-header">
         {% include "components/events/single-event-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda'} %}
         {% include "components/edit-song-info.twig" %}
-    </div>
     <div class="song-post-info">
         <div>
             Autor: {{ post.author_of_song}}
         </div>
         <div>
             Hooaeg: {{ post.terms('category') | join(', ') }}
+        </div>
+        <div>
             Lisatud: {{ post.post_date|time_ago }}
+        </div>
+        <div>
             Lisaja: {{ post.author }}
         </div>
     </div>
