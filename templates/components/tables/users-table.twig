@@ -19,14 +19,19 @@
     <th class="h-text-center table-cell--fixed users-table__avatar-js">Pilt</th>
     <th class="h-text-left table-cell--fixed users-table__name-js">Liikme nimi</th>
     {% if canSeePersonalId %}
-      <th class="h-text-left">Isikukood</th>
+      <th class="h-text-left" data-visible="false">Isikukood</th>
     {% endif %}
     <th data-sortable="true" class="h-text-left">Häälerühm</th>
-    <th data-sortable="true" class="h-text-left">Tiitel</th>
+    <th class="h-text-left" data-visible="false">Hääle kõrgus</th>
     <th class="h-text-left">Telefoninumber</th>
     <th class="h-text-left">Email</th>
     <th data-sortable="true" class="h-text-left">Sünnipäev</th>
     <th data-sortable="true" class="h-text-left">Amet naiskooris</th>
+    <th class="h-text-left" data-visible="false">Noorlaulja</th>
+    <th class="h-text-left" data-visible="false">Tudeng</th>
+    <th class="h-text-left" data-visible="false">TÜ tudeng/vilistlane</th>
+    <th class="h-text-left" data-visible="false">Reservlane</th>
+    <th data-sortable="true" class="h-text-left" data-visible="false">Juhatuse amet</th>
     {% if isAdministrator %}
       <th class="h-text-center">Tegevused</th>
     {% endif %}
@@ -49,11 +54,16 @@
         <td>{{ user.personal_id }}</td>
       {% endif %}
       <td>{{ user.voice }}</td>
-      <td>{{ user.title }}</td>
+      <td>{{ user.voice_pitch }}</td>
       <td>{{ user.phone_number }}</td>
       <td>{{ user.user_email }}</td>
       <td>{{ user.birthday|date("d.m.Y") }}</td>
       <td>{{ returnUserRoleDisplayName(user.roles) }}</td>
+      <td>{{ user.is_new_singer }}</td>
+      <td>{{ user.is_student }}</td>
+      <td>{{ user.is_student_or_graduate }}</td>
+      <td>{{ user.in_reserve }}</td>
+      <td>{{ user.title }}</td>
       {% if isAdministrator %}
         <td>{% include "components/user-info.twig" %}</td>
       {% endif %}

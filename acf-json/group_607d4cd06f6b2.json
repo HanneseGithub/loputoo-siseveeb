@@ -58,25 +58,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_607d4cff3b47d",
-            "label": "Aadress",
-            "name": "address",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_6093c5812b67e",
             "label": "Tudeng",
             "name": "is_student",
@@ -144,5 +125,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620297310
+    "modified": 1620479994
 }

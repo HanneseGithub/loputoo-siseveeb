@@ -3,11 +3,24 @@ function refreshUsersTableStickyHeaderValues(){
     let usersAvatar = jQuery(".users-table__avatar-js");
     let usersName = jQuery(".users-table__name-js");
 
+    // Check if checkbox exists in the users table.
     if (usersCheckbox.length) {
-        usersAvatar.css( "left", usersCheckbox.outerWidth() );
-        usersName.css( "left", (usersCheckbox.outerWidth() + usersAvatar.outerWidth() ) );
+        // Both name and avatar exist
+        if (usersAvatar.length && usersName.length) {
+            usersAvatar.css( "left", usersCheckbox.outerWidth() );
+            usersName.css( "left", (usersCheckbox.outerWidth() + usersAvatar.outerWidth()) );
+        // Name exists
+        } else if (!usersAvatar.length && usersName.length) {
+            usersName.css( "left", usersCheckbox.outerWidth() );
+        // Avatar exists
+        } else if (usersAvatar.length && !usersName.length) {
+            usersAvatar.css( "left", usersCheckbox.outerWidth() );
+        }
     } else {
-        usersName.css( "left", usersAvatar.outerWidth() );
+        // Both name and avatar exist
+        if (usersAvatar.length && usersName.length) {
+            usersName.css( "left", usersAvatar.outerWidth() );
+        }
     }
 }
 
@@ -30,7 +43,23 @@ jQuery(document).ready(function( $ ) {
 });
 
 jQuery(document).ready(function( $ ) {
+    $(".naiskoor-table th").click( function(e) {
+        if ($(e.currentTarget).children().hasClass('sortable')) {
+            $('naiskoor-table').ready(function () {
+                refreshUsersTableStickyHeaderValues();
+            });
+        }
+    });
+
     $(".dropdown-item input").on('click', function() {
         refreshUsersTableStickyHeaderValues();
+
+        $(".naiskoor-table th").click( function(e) {
+            if ($(e.currentTarget).children().hasClass('sortable')) {
+                $('naiskoor-table').ready(function () {
+                    refreshUsersTableStickyHeaderValues();
+                });
+            }
+        });
     })
 });

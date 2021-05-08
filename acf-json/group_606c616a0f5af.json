@@ -21,7 +21,7 @@
                 "I alt": "I alt",
                 "II alt": "II alt"
             },
-            "default_value": false,
+            "default_value": "I sopran",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -46,7 +46,7 @@
                 "Kõrge": "Kõrge",
                 "Madal": "Madal"
             },
-            "default_value": false,
+            "default_value": "Kõrge",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -57,7 +57,7 @@
         {
             "key": "field_60916e943fcaa",
             "label": "Noorlaulja",
-            "name": "noorlaulja",
+            "name": "is_new_singer",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -96,7 +96,7 @@
                 "Jah": "Jah",
                 "Ei": "Ei"
             },
-            "default_value": false,
+            "default_value": "Ei",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -117,7 +117,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "-",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -141,5 +141,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620297439
+    "modified": 1620479962
 }
