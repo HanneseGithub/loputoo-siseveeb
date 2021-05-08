@@ -49,7 +49,10 @@
 }
 
 .bootstrap-table .fixed-table-toolbar .columns .dropdown-menu {
-    display: none;
+    display: block;
+
+    visibility: hidden;
+    opacity: 0;
 
     position: absolute;
     top: 0;
@@ -60,6 +63,7 @@
 
     overflow: auto;
 
+    margin-top: 32px;
     padding: 12px;
 
     background-color: $color-white;
@@ -67,6 +71,9 @@
     text-align: left;
     white-space: nowrap;
     z-index: 16;
+
+    transition: all 0.5s;
+    transition-property: visibility, opacity;
 
     & #toggle-all-users {
         pointer-events: none;
@@ -97,31 +104,42 @@
 
     &:hover .dropdown-menu,
     &:active .dropdown-menu {
-        display: block;
+        visibility: visible;
+        opacity: 1;
     }
 }
 
-.dropdown-item {
-    .dropdown-menu & {
-        position: relative;
-        padding: 4px 0 4px 0;
+// Dropdown item
+.bootstrap-table .fixed-table-toolbar .columns label {
+    display: block;
+    position: relative;
+    padding: 4px 12px;
 
-        transition: background-color 0.3s;
+    transition: background-color 0.3s;
 
-        &.is-active,
-        &:hover {
-        background-color: rgba($color-white, 0.3);
+    line-height: $line-height-base;
 
-        &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background-color: $color-white;
-        }
+    color: $color-primary-blue;
+
+    clear: unset;
+
+    &.is-active,
+    &:hover {
+        @include bp(sm-min) {
+            &::before {
+                content: '';
+
+                display: block;
+                position: absolute;
+
+                top: 0;
+                left: 0;
+
+                width: 4px;
+                height: 100%;
+
+                background-color: #758EFF;
+            }
         }
     }
 }
