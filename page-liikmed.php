@@ -55,6 +55,10 @@ $canSendGroupEmails = $administrator || $bookie || $president || $conductor;
 
 $context = Timber::context();
 
+if( isset($_GET['updated']) && $_GET['updated'] == 'true' ) {
+    $context['successfulInfoUpdate'] = true;
+}
+
 $context['users'] = $users;
 $context['isABookie'] = $bookie;
 $context['isAdministrator'] = $administrator;

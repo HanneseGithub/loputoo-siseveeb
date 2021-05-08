@@ -13,3 +13,10 @@
   {% endif %}
 </div>
 {% endblock %}
+
+{% block footer %}
+  {{ parent() }}
+  {% if successfulInfoUpdate %}
+	  <script type="text/javascript">notifyOnSuccessfulUsersTableInfoChange();</script>
+  {% endif %}
+{% endblock %}
