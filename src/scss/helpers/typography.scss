@@ -58,6 +58,9 @@
     font-family: $font-family-base;
     font-size: $font-size-h3-xs;
     line-height: $line-height-h3-xs;
+    @media (max-width: $bp-sm-min) {
+        text-align: center;
+    }
 
 }
 

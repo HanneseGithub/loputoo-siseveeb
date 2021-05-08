@@ -1,8 +1,11 @@
 {# Built using this: https://jquerymodal.com/ #}
-<p><a href="#modalButton{{ post.id }}" rel="modal:open" class="add-post-button">Muuda laulu infot</a></p>
 
-<div id="modalButton{{ post.id }}" class="modal">
-    <h1 class="h2">Muuda laulu infot</h1>
+<div class="single-event-heading-container">
+      <a class="post-edit-link-mobile" href="#modalButton{{ post.id }}" rel="modal:open">{% include 'components/icon.twig' with { name: 'sprite-pencil-fill' }%}</a>
+      <a href="#modalButton{{ post.id }}" rel="modal:open" class="post-edit-link h-margin-bottom-lg">Muuda</a>
+</div>
+<div id="modalButton{{ post.id }}" class="modal h-margin-top-lg ">
+    <h1 class="h3">Muuda: {{post.title}}</h1>
 
       {{ function('editPostInfo', post.id )  }}
   </div>

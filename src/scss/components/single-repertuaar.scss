@@ -1,27 +1,38 @@
 .single-repertuaar-header{
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
 }
 .song-post-info{
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-small;
+    & div:first-child {
+        margin-right: 10px;
+    }
 }
+
 .content{
     .file-header{
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 20px;
-        border-top: #EEEEEE solid 1px; 
-        h2{
-            max-width: 80%;
+        border-top: #EEEEEE solid 1px;
+        .song-title-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            @media (max-width:$bp-md-min) {
+                flex-direction:column-reverse;
+                justify-content: center;
+            } 
         }
         div{
             float: right;
-            min-width: 20%;
+            min-width: 180px;
         }
     }
     .sheet-music-files{
@@ -38,12 +49,20 @@
         }
     }
     .buttons{
+        margin-top:16px;
         .open-in-new-window-button{
             background-color: $color-primary-blue;
             transition-duration: 0.4s;
-            padding: 10px;
-            color: white;
-            border-radius: 12px;
+            color: $color-white;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 16px;
+            &svg {
+                margin-right: 10px;
+            }
             &:hover{
                 background-color: $color-primary-blue-hover;
             }
@@ -65,7 +84,15 @@
 .edit-post-button{
     width: 100%;
     background-color: $color-primary-blue;
-    color: white;
-    border-radius: 10px;
+    color: $color-white;
+    border-radius: 5px;
     padding: 20px;
+    border:none;
+    pointer-events: all;
+    cursor: pointer;
+    transition: 0.5s;
+    text-transform: uppercase;
+    &:hover {
+        background-color: $color-primary-blue-hover;
+    }
 }

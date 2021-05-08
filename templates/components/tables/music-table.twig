@@ -30,7 +30,7 @@
   </td>
   <td>
     {% if song.note_file %}
-      <span title="{{ function('get_the_title', song.note_file )}}">
+      <span class="music-options" title="{{ function('get_the_title', song.note_file )}}">
         <a href="{{ function('retrieve_file_url', song.note_file) }}"  class="clickable-link">
           {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
           Ava uues aknas
@@ -43,9 +43,9 @@
     {% endif %}
     {% if song.note_file_2 %}
     <hr>
-    <span title="{{ function('get_the_title', song.note_file_2 )}}">
+    <span class="music-options" title="{{ function('get_the_title', song.note_file_2 )}}">
       <a href="{{ function('retrieve_file_url', song.note_file_2) }}"  class="clickable-link">
-        {% include 'components/icon.twig' with { name: 'sprite-window', modifier: 'music-table-icon'} %}
+        {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
         Ava uues aknas
       </a>
       <a href="{{ function('retrieve_file_url', song.note_file_2) }}" download  class="clickable-link">
@@ -56,7 +56,7 @@
   {% endif %}
   {% if song.note_file_3 %}
   <hr>
-  <span title="{{ function('get_the_title', song.note_file_3 )}}">
+  <span class="music-options" title="{{ function('get_the_title', song.note_file_3 )}}">
     <a href="{{ function('retrieve_file_url', song.note_file_3) }}" class="clickable-link" >
       {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
       Ava uues aknas
@@ -83,7 +83,7 @@
     {% endif %}
     {% if song.song_file_2 %}
     <hr>
-    <span title="{{ function('get_the_title', song.song_file_2 )}}">
+    <span class="music-options" title="{{ function('get_the_title', song.song_file_2 )}}">
       <a href="{{ function('retrieve_file_url', song.song_file_2) }}"  class="clickable-link" >
         {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
         Mängi
@@ -96,7 +96,7 @@
   {% endif %}
   {% if song.song_file_3 %}
     <hr>
-    <span title="{{ function('get_the_title', song.song_file_3 )}}">
+    <span class="music-options" title="{{ function('get_the_title', song.song_file_3 )}}">
       <a href="{{ function('retrieve_file_url', song.song_file_3) }}"  class="clickable-link">
         {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
         Mängi
