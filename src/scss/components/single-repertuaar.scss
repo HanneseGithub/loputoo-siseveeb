@@ -96,6 +96,9 @@
     cursor: pointer;
     transition: 0.5s;
     text-transform: uppercase;
+    @media (max-width:$bp-sm-min) {
+        width: 90%;
+    }
     &:hover {
         background-color: $color-primary-blue-hover;
     }

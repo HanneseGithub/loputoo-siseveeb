@@ -8,6 +8,7 @@
         & svg {
             margin-right: 5px;
             font-size: 24px;
+            padding: 2px;
         }
         @media (max-width: $bp-sm-min){
             margin-right: 20px;
@@ -20,6 +21,10 @@
             margin-right: 20px;
             font-size: 24px;
             padding: 2px;
+            transition: 0.5s;
+            &:hover {
+                color:rgba($color: $color-red, $alpha: 0.5);
+            }
             & svg {
                 margin-right: 5px;
                 
@@ -81,4 +86,8 @@
             padding: 10px 16px;
         }
     }
+}
+.border-bottom-md {
+    border-bottom:1px solid $color-gray;
+    margin-bottom:10px;
 }

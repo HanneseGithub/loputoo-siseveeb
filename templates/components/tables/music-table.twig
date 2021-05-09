@@ -29,7 +29,7 @@
   </td>
   <td>
     {% if song.note_file %}
-      <span class="music-options" title="{{ function('get_the_title', song.note_file )}}">
+      <span class="music-options border-bottom-md" title="{{ function('get_the_title', song.note_file )}}">
         <a href="{{ function('retrieve_file_url', song.note_file) }}"  class="open-new-window clickable-link ">
           {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
           Ava uues aknas
@@ -41,8 +41,7 @@
       </span>
     {% endif %}
     {% if song.note_file_2 %}
-    <hr>
-    <span class="music-options" title="{{ function('get_the_title', song.note_file_2 )}}">
+    <span class="music-options border-bottom-md" title="{{ function('get_the_title', song.note_file_2 )}}">
       <a href="{{ function('retrieve_file_url', song.note_file_2) }}"  class="open-new-window clickable-link">
         {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
         Ava uues aknas
@@ -54,8 +53,7 @@
     </span>
   {% endif %}
   {% if song.note_file_3 %}
-  <hr>
-  <span class="music-options" title="{{ function('get_the_title', song.note_file_3 )}}">
+  <span class="music-options border-bottom-md" title="{{ function('get_the_title', song.note_file_3 )}}">
     <a href="{{ function('retrieve_file_url', song.note_file_3) }}" class=" open-new-window clickable-link" >
       {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
       Ava uues aknas
@@ -69,7 +67,7 @@
   </td>
   <td>
     {% if song.song_file %}
-      <span class="music-options" title="{{ function('get_the_title', song.song_file )}}">
+      <span class="music-options border-bottom-md" title="{{ function('get_the_title', song.song_file )}}">
         <a href="{{ function('retrieve_file_url', song.song_file) }}"  class="clickable-link">
           {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
           Mängi
@@ -81,8 +79,7 @@
       </span>
     {% endif %}
     {% if song.song_file_2 %}
-    <hr>
-    <span class="music-options" title="{{ function('get_the_title', song.song_file_2 )}}">
+    <span class="music-options border-bottom-md" title="{{ function('get_the_title', song.song_file_2 )}}">
       <a href="{{ function('retrieve_file_url', song.song_file_2) }}"  class="clickable-link" >
         {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
         Mängi
@@ -94,8 +91,7 @@
     </span>
   {% endif %}
   {% if song.song_file_3 %}
-    <hr>
-    <span class="music-options" title="{{ function('get_the_title', song.song_file_3 )}}">
+    <span class="music-options border-bottom-md" title="{{ function('get_the_title', song.song_file_3 )}}">
       <a href="{{ function('retrieve_file_url', song.song_file_3) }}"  class="clickable-link">
         {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
         Mängi
