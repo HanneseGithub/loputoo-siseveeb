@@ -46,7 +46,10 @@
 </div>
 
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
+    <div class="webpage-heading-container">
     <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
+    <a class="all-event-button h-margin-bottom-lg" href=""><p>Kõik üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
+</div>
     <div class="front-page-events-container">
         {% if events is empty%}
         <p class="no-posts">Hetkel pole üritusi</p>
