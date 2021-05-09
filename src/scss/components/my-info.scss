@@ -38,6 +38,11 @@
     }
     
 }
+.button-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .stylised-button{
     color: $color-white;
     background-color: $color-primary-blue;
