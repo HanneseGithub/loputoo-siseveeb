@@ -39,15 +39,17 @@
     
 }
 .stylised-button{
+    color: $color-white;
     background-color: $color-primary-blue;
+    padding: 8px 24px 8px 24px;
+    border-radius: 5px;
     text-transform: uppercase;
-    color: white;
-    justify-content: space-around;
-    border-radius: 3px;
-    padding: 10px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    border:none;
+    transition: 0.8s;
+    pointer-events: all;
+    cursor: pointer;
     &:hover{
         background-color: $color-primary-blue-hover;
     }

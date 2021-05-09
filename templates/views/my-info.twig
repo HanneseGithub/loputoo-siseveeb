@@ -1,14 +1,16 @@
 {% extends "base.twig" %}
 
 {% block content %}
-
+  <div class="webpage-heading-container">
     <h2 class="h2">
         Minu andmed
     </h2>
     {% include "components/user-forms/user-edits-password.twig" %}
+ 
     {# {% if canEditUserChoirRoles %} #}
           {% include "components/user-forms/manager-edits-info.twig" %}
     {# {% endif %} #}
+  </div>
     <div class="userinfo-container">
         <div class="avatar">
           <img src="{{ function('get_avatar_url', user.ID) }}">

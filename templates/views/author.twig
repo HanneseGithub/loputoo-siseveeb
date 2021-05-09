@@ -2,6 +2,7 @@
 
 {% block content %}
   <div class="section h-padding-top-xxl h-padding-bottom-lg">
+    <div class="webpage-heading-container h-padding-bottom-lg">
     <h2 class="h2">
       Minu andmed
   </h2>
@@ -10,7 +11,7 @@
   {% if current_user.ID == author.ID %}
     {% include "components/user-forms/user-edits-password.twig" %}
   {% endif %}
-
+</div>
   {% if canEditUser  %}
     {% include "components/user-forms/manager-edits-info.twig" %}
   {% endif %} 
