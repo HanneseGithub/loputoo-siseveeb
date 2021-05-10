@@ -9,27 +9,20 @@
 
   {# Only the logged in user can edit his/her password #}
   {% if current_user.ID == author.ID %}
-    {% include "components/user-forms/user-edits-password.twig" %}
+    {% include "components/author/author-profile-edit-password.twig" %}
   {% endif %}
 </div>
   {% if canEditUser  %}
-    {% include "components/user-forms/manager-edits-info.twig" %}
+    {% include "components/author/author-organization-info-edit.twig" %}
   {% endif %} 
   <div class="userinfo-container">
       <div class="avatar">
         <img src="{{ function('get_avatar_url', author.ID) }}">
       </div>        
       <div class="userinfo">
-        {% if current_user.ID == author.ID %}
         <div class="md-form  input-with-post-icon">
-          {% include "components/user-forms/user-edits-info.twig" %}
+          {% include "components/author/author-profile-info.twig" %}
         </div>
-        {% else %}
-        <div class="md-form  input-with-post-icon">
-          {% include "components/user-forms/user-profile-modal.twig" %}
-        </div>
-        {% endif %}
-
       </div>
 
   </div>

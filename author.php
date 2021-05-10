@@ -19,8 +19,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo']))
     $changeEmailFrom = esc_attr( $_POST['currentEmail']);
     $changeEmailTo = esc_attr( $_POST['email']);
     $phoneNumber =  $_POST['phoneNumber'];
-    $homeAddress = $_POST['homeAdress'];
     $isInSchool = $_POST['isInSchool'];
+    $personalId = $_POST['personalId'];
     
         if (isset( $changeEmailTo )) {
             // check if user is really updating the value
@@ -38,11 +38,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo']))
 
         $userfield = 'user_' . $userID;
         // Update ACF phone number field for this user
-        update_field('field_607d4cda3b47c', $phoneNumber, $userfield);
-        // Update home address
-        update_field('field_607d4cff3b47d', $homeAddress, $userfield);
+        update_field('field_6093c62793e61', $phoneNumber, $userfield);
         // Update if the user is still a student
-        update_field('field_607d4c0d1af9d', $isInSchool, $userfield);
+        update_field('field_6093c5812b67e', $isInSchool, $userfield);
 
 
         $user_data = wp_update_user(array( 
@@ -105,7 +103,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['managerEditsUserInfo']
 function editUserRole($userID){
     $options = array(
         'post_id' => 'user_' . $userID,
-        'field_groups' => array('group_607d4a30d0f6a'),
+        'field_groups' => array('group_607d4cd06f6b2'),
         'submit_value' => __("Muuda andmeid", 'acf'),
         'updated_message' => __("Andmed muudetud!", 'acf'),
         'html_submit_button'  => '<input type="submit" class="stylised-button submit-button" value="%s" />',
@@ -116,7 +114,7 @@ function editUserRole($userID){
 function editUserOrganisationalInfo(){
     $options = array(
     'post_id' => 'user_' . $userID,
-    'field_groups' => array('group_607d4a30d0f6a'),
+    'field_groups' => array('group_606c616a0f5af'),
     'submit_value' => __("Salvesta", 'acf'),
     'updated_message' => __("Andmed muudetud!", 'acf'),
     'html_submit_button'  => '<input type="submit" class="user-info__save-button" value="%s" />',
@@ -164,9 +162,10 @@ function returnCurrentUserProfileLink(){
 
 // Setting up who can edit user organisational info
 $bookie = current_user_can( 'bookie' );
+$admin = current_user_can( 'administrator' );
 $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
-$canEditUser = $president || $conductor || $bookie;
+$canEditUser = $president || $conductor || $bookie || $admin;
 
 
 global $wp_query;
@@ -179,4 +178,4 @@ if ( isset( $wp_query->query_vars['author'] ) ) {
 	$context['author'] = $author;
 	$context['title']  = 'Author Archives: ' . $author->name();
 }
-Timber::render( array( 'views/author.twig', 'archive.twig' ), $context );
+Timber::render( array( 'views/author-page.twig', 'archive.twig' ), $context );
