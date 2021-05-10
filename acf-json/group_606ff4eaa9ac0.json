@@ -1,6 +1,6 @@
 {
     "key": "group_606ff4eaa9ac0",
-    "title": "Sidenav icons",
+    "title": "Navigatsioonimenüü ikoonid",
     "fields": [
         {
             "key": "field_606ff52771c1d",
@@ -48,5 +48,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619603254
+    "modified": 1620639303
 }
