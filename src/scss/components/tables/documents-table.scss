@@ -1,0 +1,78 @@
+.documents-table{
+    .clickable-link{
+        color: $color-primary-blue;
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        padding: 2px;
+        & svg {
+            margin-right: 5px;
+            font-size: 24px;
+            padding: 2px;
+        }
+        @media (max-width: $bp-sm-min){
+            margin-right: 20px;
+        }
+    }
+        .clickable-link-delete{
+            color: $color-red;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 24px;
+            padding: 2px;
+            transition: 0.5s;
+            &:hover {
+                color:rgba($color: $color-red, $alpha: 0.5);
+            }
+            & svg {
+                margin-right: 5px;
+                
+            }
+            @media (max-width: $bp-sm-min){
+                margin-right: 20px;
+            }
+        }
+    .document-table-icon{
+        font-size: 20px;
+        color: $color-secondary-blue;
+
+
+        &.document-table-icon--delete-post {
+            font-size:30px;
+        }
+        @include bp(sm-min) {
+            font-size: 24px;
+        }
+    }
+    
+    & a{
+        text-decoration: none;
+        color: $color-secondary-blue;
+        display: flex;
+    }
+
+    & .naiskoor-table__body td {
+        padding: 10px 12px;
+
+        &:first-child {
+            padding: 10px 12px 10px 24px;
+
+            @include bp(sm-min) {
+                padding: 10px 16px 10px 24px;
+            }
+        }
+
+        &:last-child{
+            padding: 10px 24px 10px 12px;
+
+            @include bp(sm-min) {
+                padding: 10px 24px 10px 16px;
+            }
+        }
+
+        @include bp(sm-min) {
+            padding: 10px 16px;
+        }
+    }
+}

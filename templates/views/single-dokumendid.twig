@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="section h-padding-top-xxl h-padding-bottom-xxl">
+  
+  {# {% if userCanEditDocuments %} #}
+  <div class="webpage-heading-container">
+    <h2 class="h2 h-margin-bottom-lg">{{ post.title }}</h2>
+    <a class="post-edit-link h-margin-bottom-lg" href="{{ function('returnDocumentsUrl') }}">Tagasi dokumentide juurde</a>
+    <a class="post-edit-link-mobile" href="{{ function('returnDocumentsUrl') }}">{% include 'components/icon.twig' with { name: 'sprite-backspace' }%}</a>
+  </div>
+  {{ function('editPostInfo', post.id )  }}
+  
+  {# {% endif %} #}
+
+</div>
+
+{% endblock %}
