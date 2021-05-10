@@ -25,8 +25,123 @@
     }
 }
 
-.fixed-table-toolbar{
-    text-align: right;
+.fixed-table-toolbar {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::after {
+        content: none !important;
+    }
+
+    @include bp(sm-min) {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+.bootstrap-table .fixed-table-toolbar .columns-right,
+.bootstrap-table .fixed-table-toolbar .search {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.bootstrap-table .fixed-table-toolbar .columns .dropdown-menu {
+    display: block;
+
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    max-height: 300px;
+    width: max-content;
+
+    overflow: auto;
+
+    margin-top: 32px;
+    padding: 12px;
+
+    background-color: $color-white;
+
+    text-align: left;
+    white-space: nowrap;
+    z-index: 16;
+
+    transition: all 0.5s;
+    transition-property: visibility, opacity;
+
+    & #toggle-all-users {
+        pointer-events: none;
+    }
+}
+
+.bootstrap-table .fixed-table-toolbar .columns .keep-open {
+    & .dropdown-toggle {
+        display: inline-block;
+
+        padding: 4px 12px;
+
+        background: none;
+
+        background-color: #758EFF;
+        color: $color-white;
+
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+
+        border: none;
+        border-radius: 5px;
+
+        &::before {
+            content: 'Vali väljad';
+        }
+    }
+
+    &:hover .dropdown-menu,
+    &:active .dropdown-menu {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+// Dropdown item
+.bootstrap-table .fixed-table-toolbar .columns label {
+    display: block;
+    position: relative;
+    padding: 4px 12px;
+
+    transition: background-color 0.3s;
+
+    line-height: $line-height-base;
+
+    color: $color-primary-blue;
+
+    clear: unset;
+
+    &.is-active,
+    &:hover {
+        @include bp(sm-min) {
+            &::before {
+                content: '';
+
+                display: block;
+                position: absolute;
+
+                top: 0;
+                left: 0;
+
+                width: 4px;
+                height: 100%;
+
+                background-color: #758EFF;
+            }
+        }
+    }
 }
 
 /* Custom table styles */
@@ -124,4 +239,10 @@
     position: sticky;
 
     left: 0;
+}
+
+.naiskoor-table__link-with-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

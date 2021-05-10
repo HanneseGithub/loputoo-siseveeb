@@ -1,9 +1,9 @@
 {
-    "key": "group_607d4a30d0f6a",
-    "title": "Organisational info",
+    "key": "group_606c616a0f5af",
+    "title": "Liikmeinfo",
     "fields": [
         {
-            "key": "field_607d4a411af9b",
+            "key": "field_60916c26a42a7",
             "label": "Häälerühm",
             "name": "voice",
             "type": "select",
@@ -16,12 +16,12 @@
                 "id": ""
             },
             "choices": {
-                "I Sopran": "I Sopran",
-                "II Sopran": "II Sopran",
-                "I Alt": "I Alt",
-                "II Alt": "II Alt"
+                "I sopran": "I sopran",
+                "II sopran": "II sopran",
+                "I alt": "I alt",
+                "II alt": "II alt"
             },
-            "default_value": false,
+            "default_value": "I sopran",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -30,9 +30,9 @@
             "placeholder": ""
         },
         {
-            "key": "field_607d4af81af9c",
-            "label": "Tiitel",
-            "name": "title",
+            "key": "field_60916fb424156",
+            "label": "Hääle kõrgus",
+            "name": "voice_pitch",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -43,13 +43,10 @@
                 "id": ""
             },
             "choices": {
-                "Lauluema": "Lauluema",
-                "Laululaps": "Laululaps",
-                "Reservis": "Reservis",
-                "Veteraan": "Veteraan",
-                "Kättesaamatu": "Kättesaamatu"
+                "Kõrge": "Kõrge",
+                "Madal": "Madal"
             },
-            "default_value": false,
+            "default_value": "Kõrge",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -58,10 +55,10 @@
             "placeholder": ""
         },
         {
-            "key": "field_607d4c0d1af9d",
-            "label": "Kas on  tudeng",
-            "name": "is_in_school",
-            "type": "radio",
+            "key": "field_60916e943fcaa",
+            "label": "Noorlaulja",
+            "name": "is_new_singer",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -74,18 +71,19 @@
                 "Jah": "Jah",
                 "Ei": "Ei"
             },
+            "default_value": "Ei",
             "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "",
-            "layout": "vertical",
+            "multiple": 0,
+            "ui": 0,
             "return_format": "value",
-            "save_other_choice": 0
+            "ajax": 0,
+            "placeholder": ""
         },
         {
-            "key": "field_608fe31c8e06a",
-            "label": "Kas on noorlaulja",
-            "name": "is_beginner",
-            "type": "radio",
+            "key": "field_60917028760e7",
+            "label": "Reservlane",
+            "name": "in_reserve",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -98,25 +96,40 @@
                 "Jah": "Jah",
                 "Ei": "Ei"
             },
+            "default_value": "Ei",
             "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "",
-            "layout": "vertical",
+            "multiple": 0,
+            "ui": 0,
             "return_format": "value",
-            "save_other_choice": 0
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_606d5009b2f7f",
+            "label": "Juhatuse amet",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "-",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
         [
             {
-                "param": "user_role",
+                "param": "user_form",
                 "operator": "==",
-                "value": "all"
-            },
-            {
-                "param": "page",
-                "operator": "==",
-                "value": "16"
+                "value": "edit"
             }
         ]
     ],
@@ -128,5 +141,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620046132
+    "modified": 1620479962
 }

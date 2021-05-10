@@ -1,0 +1,38 @@
+.users-table__avatar {
+    .users-table & {
+        border-radius: 50%;
+        height: 24px;
+
+        vertical-align: middle;
+
+        @include bp(sm-min) {
+            height: 40px;
+        }
+    }
+}
+
+.users-table {
+    & .naiskoor-table__body td {
+        height: 44px
+    }
+
+    @include bp(sm-min) {
+        height: 48px;
+    }
+}
+
+.users-table__edit-icon {
+    font-size: 16px;
+
+    color: $color-primary-blue;
+
+    transition: color 0.3s;
+
+    &:hover {
+        color: rgba($color-primary-blue, 0.75);
+    }
+
+    @include bp(sm-min) {
+        font-size: 20px;
+    }
+}

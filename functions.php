@@ -61,8 +61,8 @@ Timber::$autoescape = false;
 class StarterSite extends Timber\Site
 {
 	/** Add timber support. */
-	public function __construct()
-	{
+
+	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
@@ -73,6 +73,7 @@ class StarterSite extends Timber\Site
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_my_scripts' ) );
 		add_action( 'login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
 		add_filter( 'login_headerurl', array($this, 'tyan_login_url'));
+		add_action( 'template_redirect', array($this, 'redirect_non_logged_users_to_specific_page'));
 		parent::__construct();
 	}
 

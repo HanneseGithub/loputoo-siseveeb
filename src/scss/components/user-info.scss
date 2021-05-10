@@ -1,0 +1,97 @@
+.user-info-modal {
+    padding: 24px;
+
+    & h3 {
+        font-family: $font-family-title;
+        font-size: $font-size-h3-lg;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-h3-lg;
+
+        color: $color-primary-blue;
+
+        @media (max-width: $bp-sm-min) {
+            text-align: center;
+            font-size: $font-size-h3-xs;
+            line-height: $line-height-h3-xs;
+        }
+    }
+
+    & .user-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        max-height: 60vh;
+
+        @include bp(sm-min) {
+            flex-direction: row;
+            align-items: normal;
+
+            max-height: 500px;
+        }
+    }
+
+    .user-info__fields {
+        width: 100%;
+        margin-left: 0;
+        overflow-y: auto;
+
+        @include bp(sm-min) {
+            margin-left: 32px;
+        }
+
+        & .updated {
+            display: none;
+        }
+    }
+
+    & .user-info__avatar {
+        height: 96px;
+        margin-bottom: 12px;
+
+        border-radius: 50%;
+
+        @include bp(sm-min) {
+            height: 128px;
+            margin-bottom: 0;
+        }
+    }
+
+    & .acf-form-submit {
+        padding: 0 12px;
+        margin-top: 8px;
+
+        @include bp(sm-min) {
+            padding: 0px;
+            margin-left: 12px;
+        }
+    }
+
+    & .user-info__save-button{
+        background-color: $color-primary-blue;
+        color: $color-white;
+
+        padding: 12px 36px;
+
+        width: 100%;
+
+        border: none;
+        border-radius: 5px;
+
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-small;
+
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-secondary-blue;
+        }
+
+        @include bp(sm-min) {
+            width: auto;
+        }
+    }
+}
