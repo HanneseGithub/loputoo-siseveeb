@@ -13,7 +13,7 @@
     <th data-sortable="true">Lisamise kuupäev</th>
     {% if userCanEditDocuments %}
     <th data-sortable="true">Tavakasutajale peidetud</th>
-    <th>Tegevused</th>
+    <th class="h-text-center">Tegevused</th>
     {% endif %}
   </tr>
 {% endblock %}
@@ -30,9 +30,10 @@
           <td>
             <a href="{{ document.website_link.url }}">{{ document.website_link.title }}</a>
           </td>
-          <td>
+          <td class="h-text-center">
             {% if document.document %}
-              <a href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link ">
+            <div class="music-options">
+              <a href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
                 {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
                 Ava uues aknas
               </a>
@@ -40,9 +41,10 @@
                 {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
                 Lae alla
               </a>
+            </div>
             {% endif %}
           </td>
-          <td>{{ document.date }}</td>
+          <td class="capitalize-text">{{ document.date }}</td>
           {% if userCanEditDocuments %}
             <td>
               {% if document.is_hidden %}
@@ -75,6 +77,7 @@
         </td>
         <td>
           {% if document.document %}
+          <div class="music-options">
             <a href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link ">
               {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
               Ava uues aknas
@@ -83,9 +86,10 @@
               {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
               Lae alla
             </a>
+          </div>
           {% endif %}
         </td>
-        <td>{{ document.date }}</td>
+        <td class="capitalize-text">{{ document.date }}</td>
         {% if userCanEditDocuments %}
           <td>
             {% if document.is_hidden %}
