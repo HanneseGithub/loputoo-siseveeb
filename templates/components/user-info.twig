@@ -1,0 +1,17 @@
+<a href="#modal-button-{{user.ID}}" rel="modal:open" class="naiskoor-table__link-with-icon">
+  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'users-table__edit-icon' } %}
+</a>
+
+<div id="modal-button-{{user.ID}}" class="modal user-info-modal">
+    <h3 class="h-margin-bottom-lg">Liikme andmed</h3>
+    <div class="h-margin-bottom-lg user-info-container">
+        <div>
+          <img class="user-info__avatar" src="{{ function('get_avatar_url', user.ID) }}">
+        </div>
+        <div class="user-info__fields">
+          {% if canEditUserChoirRoles %}
+            {{ function('editUserRole', user.ID )  }}
+          {% endif %}
+        </div>
+    </div>
+  </div>

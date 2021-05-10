@@ -61,8 +61,8 @@ Timber::$autoescape = false;
 class StarterSite extends Timber\Site
 {
 	/** Add timber support. */
-	public function __construct()
-	{
+
+	public function __construct() {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
