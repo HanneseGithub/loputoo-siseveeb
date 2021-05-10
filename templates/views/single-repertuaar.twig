@@ -2,8 +2,7 @@
 
 {% block content %}
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
-        {% include "components/events/single-event-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda'} %}
-        {% include "components/edit-song-info.twig" %}
+        {% include "components/single-repetuare-title.twig" with {title: post.title, link_text: 'Muuda', id: post.id} %}
     <div class="song-post-info">
         <div>
             Autor: {{ post.author_of_song}}

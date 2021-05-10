@@ -1,0 +1,11 @@
+<div class="single-event-heading-container">
+    <h3 class="h3 h-margin-bottom-lg single-event-heading__title">{{title}}</h3>
+        <a class="post-edit-link-mobile" rel="modal:open" href="#modalButton{{ id }}">{% include 'components/icon.twig' with { name: 'sprite-pencil-fill' }%}</a>
+        <a class="post-edit-link h-margin-bottom-lg" rel="modal:open" href="#modalButton{{ id }}">{{link_text}}</a>
+</div>
+
+<div id="modalButton{{ post.id }}" class="modal h-margin-top-lg ">
+    <h1 class="h3 h-margin-bottom-sm">Muuda: {{post.title}}</h1>
+
+      {{ function('editPostInfo', post.id )  }}
+  </div>
