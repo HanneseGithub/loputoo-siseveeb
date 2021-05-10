@@ -81,9 +81,18 @@ function createNewPostUrl($post_type){
     return $adminurl = admin_url($create_new_post_url_slug);
 }
 
+// User roles
+$administrator = current_user_can( 'administrator' );
+$conductor = current_user_can('conductor');
+$president = current_user_can( 'president' );
+
+$canAddNotifications = $administrator || $president || $conductor;
+
 $context = Timber::context();
 $context['post'] = new Timber\Post();
 $context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
 $context['createNewPostUrl'] = createNewPostUrl('uritused');
+
+$context['canAddNotifications'] = $canAddNotifications;
 
 Timber::render(array('views/events-page.twig', 'views/page.twig'), $context);

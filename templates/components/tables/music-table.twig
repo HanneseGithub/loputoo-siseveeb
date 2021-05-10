@@ -12,7 +12,9 @@
     <th class="h-text-center">Laulu fail</th>
     <th class="h-text-left" data-sortable="true">Hooaeg</th>
     <th class="h-text-left" data-sortable="true">Lisamise kuupäev</th>
+    {% if canAddNotifications %}
     <th class="h-text-center">Tegevused</th>
+    {% endif %}
   </tr>
 {% endblock %}
 
@@ -107,6 +109,7 @@
     {{ song.season|date("Y") }}
   </td>
   <td>{{ song.published_at|date("m/d/Y") }}</td>
+  {% if canAddNotifications %}
   <td>
     <span class="operations">
       {% include "components/delete-post.twig" with { title: song.title, id: song.ID, modifier: 'clickable-link-delete' } %}
@@ -115,7 +118,8 @@
       {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'music-table-icon'} %}  
     </a>
   </span>
-  </td>
+</td>
+{% endif %}
 </tr>
 {% endfor %}
 {% endblock %}

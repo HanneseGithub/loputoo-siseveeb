@@ -40,6 +40,7 @@ $bookie = current_user_can('bookie');
 
 $userCanEditDocuments = $administrator || $president || $conductor || $secretary;
 $userCanSeeHiddenDocuments = $administrator || $president || $conductor || $secretary || $bookie;
+$canAddNotifications = $administrator || $president || $conductor || $secretary;
 $args = array(
   'post_type' => 'dokumendid',
   // Order by post date
@@ -61,6 +62,7 @@ $context['createNewPostUrl'] = createNewPostUrl('dokumendid');
 $context['documents'] = $documents;
 $context['userCanEditDocuments'] = $userCanEditDocuments;
 $context['userCanSeeHiddenDocuments'] = $userCanSeeHiddenDocuments;
+$context['canAddNotifications'] = $canAddNotifications;
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
 Timber::render( array( 'views/documents.twig', 'views/page.twig' ), $context );
