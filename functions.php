@@ -73,6 +73,7 @@ class StarterSite extends Timber\Site
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_my_scripts' ) );
 		add_action( 'login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
 		add_filter( 'login_headerurl', array($this, 'tyan_login_url'));
+		add_action( 'template_redirect', array($this, 'redirect_non_logged_users_to_specific_page'));
 		parent::__construct();
 	}
 
