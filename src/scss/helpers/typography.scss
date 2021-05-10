@@ -66,6 +66,7 @@
     font-size: $font-size-small;
     line-height: $line-height-small;
     transition: 0.8s;
+    border:none;
     &:hover {
         background-color: $color-primary-blue-hover;
     }
