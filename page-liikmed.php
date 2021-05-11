@@ -9,7 +9,7 @@ $users = get_users(['role__in' => [
     'conductor',
     'president',
     'secretary',
-    'note-handler',
+    'note_handler',
 ]]);
 
 // Send an email when sending button is pressed.

@@ -1,5 +1,5 @@
 .documents-table{
-    .clickable-link{
+    .clickable-link {
         color: $color-primary-blue;
         display: flex;
         align-items: center;
@@ -9,30 +9,35 @@
             padding: 2px;
         }
     }
-        .clickable-link-delete{
-            color: $color-red;
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-            padding: 2px;
-            transition: 0.5s;
-            &:hover {
-                color:rgba($color: $color-red, $alpha: 0.5);
-            }
+    .clickable-link-delete{
+        color: $color-red;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        padding: 2px;
+        transition: 0.5s;
+
+        &:hover {
+            color:rgba($color: $color-red, $alpha: 0.5);
         }
+    }
     .document-table-icon{
         font-size: 20px;
         color: $color-secondary-blue;
 
-
         &.document-table-icon--delete-post {
             font-size:30px;
         }
+
         @include bp(sm-min) {
             font-size: 24px;
         }
+
+        &:hover {
+            color:rgba($color: $color-secondary-blue, $alpha: 0.5);
+        }
     }
-    
+
     & a{
         text-decoration: none;
         color: $color-secondary-blue;
@@ -62,5 +67,9 @@
         @include bp(sm-min) {
             padding: 10px 16px;
         }
+    }
+
+    .document-options {
+        display: flex;
     }
 }

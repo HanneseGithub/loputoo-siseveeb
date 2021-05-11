@@ -1,5 +1,5 @@
 .music-table{
-    .clickable-link{
+    .clickable-link {
         color: $color-primary-blue;
         display: flex;
         align-items: center;
@@ -9,18 +9,20 @@
             padding: 2px;
         }
     }
-        .clickable-link-delete{
-            color: $color-red;
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-            padding: 2px;
-            transition: 0.5s;
-            &:hover {
-                color:rgba($color: $color-red, $alpha: 0.5);
-            }
+
+    .clickable-link-delete {
+        color: $color-red;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        padding: 2px;
+        transition: 0.5s;
+        &:hover {
+            color:rgba($color: $color-red, $alpha: 0.5);
         }
-    input{
+    }
+
+    input {
         background-color: $color-primary-blue;
         text-transform: uppercase;
         color: $color-white;
@@ -29,12 +31,11 @@
         padding: 10px;
         text-decoration: none;
         display: inline-block;
-    
     }
-    .music-table-icon{
+
+    .music-table-icon {
         font-size: 20px;
         color: $color-secondary-blue;
-
 
         &.music-table-icon--delete-post {
             font-size:30px;
@@ -43,8 +44,12 @@
             font-size: 24px;
         }
     }
-    
-    & a{
+
+    & .music-table-notes-separator {
+        border-bottom: 1px solid $color-gray;
+    }
+
+    & a {
         text-decoration: none;
         color: $color-secondary-blue;
         display: flex;
@@ -74,8 +79,5 @@
             padding: 10px 16px;
         }
     }
-}
-.border-bottom-md {
-    border-bottom:1px solid $color-gray;
-    margin-bottom:10px;
+
 }
