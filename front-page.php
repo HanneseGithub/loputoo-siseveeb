@@ -58,11 +58,19 @@ function createNewPostUrl($post_type){
     $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
     return $adminurl = admin_url($create_new_post_url_slug);
 }
+// User roles
+$administrator = current_user_can( 'administrator' );
+$conductor = current_user_can('conductor');
+$secretary = current_user_can('secretary');
+
+$canAddNotifications = $administrator || $secretary || $conductor;
 
 $context = Timber::context();
 $context['createNewPostUrl'] = createNewPostUrl('teated');
 $context['events'] = $custom_events;
 $context['teated'] = Timber::get_posts($teated_args);
 $context['calendar_events'] = $events;
+
+$context['canAddNotifications'] = $canAddNotifications;
 
 Timber::render(array('views/front-page.twig', 'views/page.twig'), $context);

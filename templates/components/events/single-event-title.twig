@@ -1,7 +1,9 @@
 <div class="single-event-heading-container">
-    <h3 class="h3 h-margin-bottom-lg single-event-heading__title">{{title}}</h3>
-    {% if link %}
-        <a class="post-edit-link-mobile" href="{{ link }}">{% include 'components/icon.twig' with { name: 'sprite-pencil-fill' }%}</a>
-        <a class="post-edit-link h-margin-bottom-lg" href="{{link}}">{{link_text}}</a>
-    {% endif %}
+	<h3 class="h3 h-margin-bottom-lg single-event-heading__title">{{title}}</h3>
+	{% if canAddNotifications %}
+		{% if link %}
+			<a class="post-edit-link-mobile" href="{{ link }}">{% include 'components/icon.twig' with { name: 'sprite-pencil-fill' }%}</a>
+			<a class="post-edit-link h-margin-bottom-lg" href="{{link}}">{{link_text}}</a>
+		{% endif %}
+	{% endif %}
 </div>

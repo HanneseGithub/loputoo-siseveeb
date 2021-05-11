@@ -1,0 +1,109 @@
+{% extends "components/tables/table.twig" %}
+
+{% block table_classes %}
+  class="naiskoor-table documents-table"
+{% endblock %}
+
+{% block table_header %}
+  <tr>
+    <th data-sortable="true" class="h-text-left">Dokumendi tüüp</th>
+    <th data-sortable="true" class="h-text-left">Pealkiri</th>
+    <th data-sortable="true" class="h-text-center">Link</th>
+    <th class="h-text-center">Fail</th>
+    <th data-sortable="true" class="h-text-left">Lisamise kuupäev</th>
+    {% if userCanEditDocuments %}
+      <th data-sortable="true" class="h-text-left">Tavakasutajale peidetud</th>
+      <th class="h-text-center">Tegevused</th>
+    {% endif %}
+  </tr>
+{% endblock %}
+
+{% block table_body %}
+  {% for document in documents %}
+    {% if document.is_hidden %}
+      {% if userCanSeeHiddenDocuments %}
+        <tr>
+          <td>{{ document.document_type }}</td>
+          <td>{{ document.title }}</td>
+          <td>
+            <a href="{{ document.website_link.url }}" class="open-new-window">{{ document.website_link.title }}</a>
+          </td>
+          <td>
+            {% if document.document %}
+            <div class="music-options">
+              <a href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
+                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                Ava uues aknas
+              </a>
+              <a href="{{ function('retrieve_file_url', document.document) }}" download  class="clickable-link">
+                {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+                Lae alla
+              </a>
+            </div>
+            {% endif %}
+          </td>
+          <td>{{ document.date }}</td>
+          {% if userCanEditDocuments %}
+            <td>
+              {% if document.is_hidden %}
+                Peidetud
+              {% else %}
+                Avalik
+              {% endif %}
+            </td>
+            <td>
+              <span class="operations">
+                {% include "components/delete-post.twig" with {title: document.title, id: document.ID,  modifier: 'clickable-link-delete' } %}
+
+                <a href="{{ document.link }}"  class="clickable-link">
+                  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'document-table-icon'} %}
+                </a>
+              </span>
+            </td>
+          {% endif %}
+        </tr>
+      {% endif %}
+    {% else %}
+      <tr>
+        <td>{{ document.document_type }}</td>
+        <td>{{ document.title }}</td>
+        <td>
+          <a href="{{ document.website_link.url }}" class="open-new-window">{{ document.website_link.title }}</a>
+        </td>
+        <td>
+          {% if document.document %}
+          <div class="music-options">
+            <a href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
+              {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+              Ava uues aknas
+            </a>
+            <a href="{{ function('retrieve_file_url', document.document) }}" download  class="clickable-link">
+              {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+              Lae alla
+            </a>
+          </div>
+          {% endif %}
+        </td>
+        <td>{{ document.date }}</td>
+        {% if userCanEditDocuments %}
+          <td>
+            {% if document.is_hidden %}
+              Peidetud
+            {% else %}
+              Avalik
+            {% endif %}
+          </td>
+          <td>
+            <span class="operations">
+              {% include "components/delete-post.twig" with {title: document.title, id: document.ID,  modifier: 'clickable-link-delete' } %}
+
+              <a href="{{ document.link }}"  class="clickable-link">
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'document-table-icon'} %}
+              </a>
+            </span>
+          </td>
+        {% endif %}
+      </tr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

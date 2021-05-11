@@ -9,7 +9,7 @@ $users = get_users(['role__in' => [
     'conductor',
     'president',
     'secretary',
-    'note-handler',
+    'note_handler',
 ]]);
 
 // Send an email when sending button is pressed.
@@ -48,10 +48,12 @@ $administrator = current_user_can( 'administrator' );
 $bookie = current_user_can( 'bookie' );
 $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
+$secretary = current_user_can('secretary');
 
-$canSeePersonalId = $administrator || $president || $conductor;
+$canSeePersonalId = $administrator || $president || $conductor || $bookie;
 $canEditUserChoirRoles = $administrator;
 $canSendGroupEmails = $administrator || $bookie || $president || $conductor;
+$canAddEvents = $administrator || $secretary || $conductor;
 
 $context = Timber::context();
 
@@ -65,6 +67,7 @@ $context['isAdministrator'] = $administrator;
 $context['canSeePersonalId'] = $canSeePersonalId;
 $context['canEditUserChoirRoles'] = $canEditUserChoirRoles;
 $context['canSendGroupEmails'] = $canSendGroupEmails;
+
 
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
