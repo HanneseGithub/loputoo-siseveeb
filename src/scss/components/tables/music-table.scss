@@ -1,0 +1,83 @@
+.music-table{
+    .clickable-link {
+        color: $color-primary-blue;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        & svg {
+            font-size: 24px;
+            padding: 2px;
+        }
+    }
+
+    .clickable-link-delete {
+        color: $color-red;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        padding: 2px;
+        transition: 0.5s;
+        &:hover {
+            color:rgba($color: $color-red, $alpha: 0.5);
+        }
+    }
+
+    input {
+        background-color: $color-primary-blue;
+        text-transform: uppercase;
+        color: $color-white;
+        justify-content: space-around;
+        border-radius: 3px;
+        padding: 10px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .music-table-icon {
+        font-size: 20px;
+        color: $color-secondary-blue;
+
+        &.music-table-icon--delete-post {
+            font-size:30px;
+        }
+        @include bp(sm-min) {
+            font-size: 24px;
+        }
+    }
+
+    & .music-table-notes-separator {
+        border-bottom: 1px solid $color-gray;
+    }
+
+    & a {
+        text-decoration: none;
+        color: $color-secondary-blue;
+        display: flex;
+        align-items: center;
+    }
+
+    & .naiskoor-table__body td {
+        padding: 10px 12px;
+
+        &:first-child {
+            padding: 10px 12px 10px 24px;
+
+            @include bp(sm-min) {
+                padding: 10px 16px 10px 24px;
+            }
+        }
+
+        &:last-child{
+            padding: 10px 24px 10px 12px;
+
+            @include bp(sm-min) {
+                padding: 10px 24px 10px 16px;
+            }
+        }
+
+        @include bp(sm-min) {
+            padding: 10px 16px;
+        }
+    }
+
+}

@@ -16,6 +16,14 @@ $single_event_event_participation = $wpdb->get_var(
     $current_user_id, $timber_post->id)
 );
 
+
+// User roles
+$administrator = current_user_can( 'administrator' );
+$conductor = current_user_can('conductor');
+$president = current_user_can( 'president' );
+
+$canAddNotifications = $administrator || $president || $conductor;
+
 $nonce = wp_create_nonce("event_participation");
 
 $context = Timber::context();
@@ -24,5 +32,6 @@ $context['nonce'] = $nonce;
 $context['singleEventEditUrl'] = get_edit_post_link();
 $context['participationFunctionLink'] = admin_url('admin-ajax.php?action=event_participation&event_id='.$post->ID.'&nonce='.$nonce);
 $context['event_participation'] = $single_event_event_participation;
+$context['canAddNotifications'] = $canAddNotifications;
 
 Timber::render( 'views/single-event.twig', $context );

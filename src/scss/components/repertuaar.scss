@@ -1,0 +1,89 @@
+.music-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.music-header-buttons{
+    justify-content: center;
+}
+.add-post-button{
+    background-color: $color-primary-blue;
+    text-transform: uppercase;
+    color: $color-white;
+    justify-content: space-around;
+    border-radius: 5px;
+    border:none;
+    padding: 12px 25px;
+    text-decoration: none;
+    display: inline-block;
+}
+.delete-post-modal{
+    .button-holder{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        @media (max-width:$bp-sm-min) {
+            justify-content: center ;
+        }
+        & form {
+            margin-right: 8px;
+            @media (max-width:$bp-sm-min) {
+                margin-right: 25px;
+            }
+        }
+    }
+    .delete-post-button{
+        background-color: $color-red;
+        text-transform: uppercase;
+        color:$color-white;
+        padding: 12px 26px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: $font-size-small;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-small;
+        width: 100%;
+        border:none;
+        cursor: pointer;
+        pointer-events: all;
+        min-width: 120px;
+        font-family: $font-family-base;
+        @media (max-width:$bp-sm-min) {
+            padding:6px 16px;
+            min-width: 100px;
+        }
+    }
+    .close-modal-button {
+        font-family: $font-family-base;
+        background-color: $color-dark-gray;
+        padding: 10px 26px;
+        border-radius: 5px;
+        color:$color-white;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-small;
+        border:none;
+        width: 100%;
+        text-transform: uppercase;
+        cursor: pointer;
+        pointer-events: all;
+        min-width: 120px;
+        transition: background-color 3s;
+        @media (max-width:$bp-sm-min) {
+            padding:4px 16px;
+            min-width: 100px;
+            font-weight: $font-weight-regular;
+        }
+        &:hover {
+            background-color: $color-gray;
+        }
+    }
+
+
+}
+.operations {
+    display: flex;
+    justify-content: center;
+}
+.music-options {
+    display: flex;
+}

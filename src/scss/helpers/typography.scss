@@ -55,6 +55,15 @@
         line-height: $line-height-h3-xs;
     }
 }
+.h4 {
+    font-family: $font-family-base;
+    font-size: $font-size-h3-xs;
+    line-height: $line-height-h3-xs;
+    @media (max-width: $bp-sm-min) {
+        text-align: center;
+    }
+
+}
 
 .post-edit-link {
     color:$color-white;
@@ -86,4 +95,8 @@
         right: 0;
         top:4px;
     }
+}
+.capitalize-text {
+    text-transform: capitalize;
+    text-align: center;
 }

@@ -246,3 +246,12 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.open-new-window {
+    color: $color-light-blue-link!important;
+
+    & svg {
+        color: $color-light-blue-link!important;
+    }
+}

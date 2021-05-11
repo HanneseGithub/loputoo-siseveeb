@@ -7,10 +7,6 @@
 
     & .single-event-heading__title {
         width: 100%;
-
-        @media (max-width:$bp-sm-min) {
-            padding: 0px 28px;
-        }
     }
 
     & .post-edit-link-mobile {

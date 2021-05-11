@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="section h-padding-top-xxl h-padding-bottom-xxl">
+  
+  {# {% if userCanEditDocuments %} #}
+  {% include "components/single-document-title.twig" with {title: post.title, link_text: 'Tagasi'} %}
+  
+  {# {% endif %} #}
+
+</div>
+
+{% endblock %}

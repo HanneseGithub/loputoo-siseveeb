@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="section h-padding-top-xxl h-padding-bottom-xxl">
+  {% include "components/webpage-title.twig" with{ title: 'Dokumendid', link: createNewPostUrl, link_text: 'Lisa uus dokument'} %}
+  {% if documents %}
+    {% include "components/tables/documents-table.twig" with { documents: documents }%}
+  {% else %}
+    <p>Andmebaasis pole dokumente</p>
+  {% endif %}
+</div>
+{% endblock %}
