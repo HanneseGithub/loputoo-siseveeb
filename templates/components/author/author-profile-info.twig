@@ -1,0 +1,160 @@
+{% if current_user.ID == author.ID %}
+<form action="#" method="POST">
+{% endif %}
+	<table>
+		<tr>
+			<td>
+				Eesnimi
+			</td>
+			{% if current_user.ID == author.ID %}
+				<td>
+					<input type="text" name="firstName" value="{{ author.first_name }}">
+				</td>
+				<td>
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+				<td>
+					<input type="text" name="firstName" value="{{ author.first_name }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td>
+				Perenimi
+			</td>
+			{% if current_user.ID == author.ID %}
+				<td>
+					<input type="text" name="lastName" value="{{ author.last_name}}">
+				</td>
+				<td>
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+				<td>
+					<input type="text" name="lastName" value="{{ author.last_name}}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td>
+				Isikukood
+			</td>
+			<td>
+				<input type="text" name="personalId" value="{{ author.personal_id }}" disabled>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				E-mail
+			</td>
+			{% if current_user.ID == author.ID %}
+				<td>
+					<input type="email" name="email" value="{{ author.user_email }}">
+				</td>
+				<td>
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+				<td>
+					<input type="email" name="email" value="{{ author.user_email }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td>
+				Telefon
+			</td>
+			{% if current_user.ID == author.ID %}
+				<td>
+					<input type="number" name="phoneNumber" value="{{ author.phone_number }}">
+				</td>
+				<td>
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+
+				<td>
+					<input type="number" name="phoneNumber" value="{{ author.phone_number }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td>
+				Häälerühm
+			</td>
+			<td>
+				<input type="text" name="voice" value="{{ author.voice }}" disabled>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				TÜ tudeng või vilistlane
+			</td>
+			{% if current_user.ID == author.ID %}
+				<td>
+					{{ author.is_student_or_graduate }}
+					<select id="element" name="isInSchool" value="{{ author.is_student_or_graduate }}">
+						<option value="Jah">Jah</option>
+						<option value="Ei">Ei</option>
+					</select>
+				</td>
+				<td>
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+				<td>
+					<input type="text" name="isInSchool" value="{{  author.is_student_or_graduate }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td>
+				Noorlaulja
+			</td>
+			<td>
+				<input type="text" value="ei" disabled>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Tiitel
+			</td>
+			<td>
+				<input type="text" value=" {{ author.title }}" disabled>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Roll veebilehel
+			</td>
+			<td>
+				<input type="text" value="{{ author.roles|list }}" disabled>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Sünnipäev
+			</td>
+			<td>
+				<input type="text" value="{{author.birthday | date("d.m.Y")}}" disabled>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>
+				Registreerimise aeg
+			</td>
+			<td>
+				<input type="text" value="{{ author.user_registered }}" disabled>
+			</td>
+		</tr>
+	</table>
+{% if current_user.ID == author.ID %}
+		<input type="hidden" value="{{ author.ID }}" name="userID">
+		<input type="hidden" value="{{ author.user_email }}" name="currentEmail">
+	<div class="button-center h-padding-top-lg">
+		<input name="editUserInfo" type="submit" value="Muuda infot"  class="stylised-button">
+	</div>
+</form>
+{% endif %}

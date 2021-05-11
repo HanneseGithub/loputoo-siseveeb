@@ -13,5 +13,15 @@
             </div>
           </li>
       {% endfor %}
+
+      {# This is the my profile link #}
+      <li class="h-margin-bottom-sm-md side-nav__nav-item {{ item.current ? 'is-active' }}">
+        <div class="side-nav__content-wrapper">
+          <div class="side-nav__content">
+            {% include 'components/icon.twig' with { name: 'sprite-person-fill', modifier: 'side-nav__nav-icon' } %}
+            <a class="side-nav__nav-link" href="{{ current_user.link }}">Minu profiil</a>
+          </div>
+        </div>
+      </li>
     </ul>
 </div>

@@ -42,6 +42,10 @@ function editUserRole($userID){
     );
     acf_form($options);
 }
+function get_author_url($userID){
+    $url  = get_author_posts_url($userID);
+    return $url;
+}
 
 // Set rules for who can interact with the page
 $administrator = current_user_can( 'administrator' );
