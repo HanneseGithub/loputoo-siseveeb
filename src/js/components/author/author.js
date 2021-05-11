@@ -12,13 +12,3 @@ function showPasswordFields() {
     z.type = "password";
   }
 }
-
-
-jQuery(document).ready(function ($) {
-  $('#element option').each(function () {
-    if (!$(this).val() === $('#element').val()) {
-      $(this).attr('selected','selected')
-      console.log($(this))
-    }
-  })
-});

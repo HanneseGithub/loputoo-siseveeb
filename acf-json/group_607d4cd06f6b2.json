@@ -5,8 +5,8 @@
         {
             "key": "field_607d4d0b3b47e",
             "label": "Isikukood",
-            "name": "personal_identification_number",
-            "type": "number",
+            "name": "personal_id",
+            "type": "text",
             "instructions": "Seda näevad ainult veebilehe haldur, president ja koorivanem.",
             "required": 1,
             "conditional_logic": 0,
@@ -19,9 +19,7 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "maxlength": ""
         },
         {
             "key": "field_60916d22a7bca",
@@ -60,6 +58,31 @@
             "maxlength": ""
         },
         {
+            "key": "field_609a50005a409",
+            "label": "Tudeng",
+            "name": "is_student",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Jah": "Jah",
+                "Ei": "Ei"
+            },
+            "default_value": "Ei",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_6093c54e2b67d",
             "label": "TÜ tudeng või vilistlane",
             "name": "is_student_or_graduate",
@@ -73,11 +96,10 @@
                 "id": ""
             },
             "choices": {
-                "Tudeng": "Tudeng",
-                "Vilistlane": "Vilistlane",
-                "Muu": "Muu"
+                "Jah": "Jah",
+                "Ei": "Ei"
             },
-            "default_value": "Tudeng",
+            "default_value": "Jah",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -103,5 +125,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620656703
+    "modified": 1620725867
 }

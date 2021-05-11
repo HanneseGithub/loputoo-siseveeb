@@ -41,7 +41,7 @@
 				Isikukood
 			</td>
 			<td>
-				<input type="text" name="personalId" value="{{ author.personal_identification_number }}" disabled>
+				<input type="text" name="personalId" value="{{ author.personal_id }}" disabled>
 			</td>
 		</tr>
 		<tr>
@@ -95,9 +95,8 @@
 				<td>
 					{{ author.is_student_or_graduate }}
 					<select id="element" name="isInSchool" value="{{ author.is_student_or_graduate }}">
-						<option value="Tudeng">Tudeng</option>
-						<option value="Vilistlane">Vilistlane</option>
-						<option value="Muu">Muu</option>
+						<option value="Jah">Jah</option>
+						<option value="Ei">Ei</option>
 					</select>
 				</td>
 				<td>
