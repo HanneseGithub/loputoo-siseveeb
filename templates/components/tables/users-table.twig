@@ -50,7 +50,7 @@
         <img class="users-table__avatar" src="{{ function('get_avatar_url', user.ID) }}">
       </td>
       <td>
-        <a href="{{ function('get_author_url', user.ID) }}">
+        <a href="{{ function('get_author_url', user.ID) }}" class="open-new-window">
           {{ user.display_name }}
         </a>
       </td>

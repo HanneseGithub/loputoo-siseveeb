@@ -19,6 +19,9 @@
     @include bp(sm-min) {
         height: 48px;
     }
+    & a{
+        text-decoration: none;
+    }
 }
 
 .users-table__edit-icon {
