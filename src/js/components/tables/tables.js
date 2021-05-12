@@ -37,6 +37,16 @@ jQuery(document).ready(function( $ ) {
 });
 
 jQuery(document).ready(function( $ ) {
+    $(".form-control.search-input").keypress(function() {
+        setTimeout(function() {
+            if ($(".naiskoor-table__body tr.no-records-found").length) {
+                $(".naiskoor-table__body tr.no-records-found td").text('Vasteid ei leitud.');
+            }
+        }, 1000);
+    });
+});
+
+jQuery(document).ready(function( $ ) {
     if ($(".form-control.search-input").length) {
         $(".form-control.search-input").attr('placeholder', 'Otsi...')
     }
