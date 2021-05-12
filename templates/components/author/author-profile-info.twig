@@ -36,7 +36,7 @@
 				</td>
 			{% endif %}
 		</tr>
-		{% if authorCanSeePersonalId %}
+		{% if authorCanSeePersonalId or current_user.ID == author.ID %}
 			<tr>
 				<td>
 					Isikukood
@@ -49,7 +49,7 @@
 					<td>
 						{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 					</td>
-				{% else %}
+				{% elseif authorCanSeePersonalId %}
 					<td>
 						<input type="text" name="personalId" value="{{ author.personal_id }}" disabled>
 					</td>
