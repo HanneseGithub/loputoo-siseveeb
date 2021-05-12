@@ -9,9 +9,6 @@
         {% include "components/author/author-profile-edit-password.twig" %}
     {% endif %}
     </div>
-    {% if authorCanEditUser %}
-      {% include "components/author/author-organization-info-edit.twig" with { userID: author.ID } %}
-    {% endif %} 
       <div class="userinfo-container">
         <div class="avatar">
           <img src="{{ function('get_avatar_url', author.ID) }}">
