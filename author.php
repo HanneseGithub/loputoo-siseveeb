@@ -117,6 +117,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserPassword'])){
 
 
 $context['authorCanEditUser'] = $authorCanEditUser;
+$context['isAdministrator'] = $admin;
 $context['authorCanSeePersonalId'] = $authorCanSeePersonalId;
 $context['posts'] = new Timber\PostQuery();
 if ( isset( $wp_query->query_vars['author'] ) ) {
