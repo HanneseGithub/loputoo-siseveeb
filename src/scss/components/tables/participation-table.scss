@@ -1,0 +1,26 @@
+.participation-table__avatar {
+    .participation-table & {
+        border-radius: 50%;
+        height: 24px;
+
+        vertical-align: middle;
+
+        @include bp(sm-min) {
+            height: 40px;
+        }
+    }
+}
+
+.participation-table {
+    & .naiskoor-table__body td {
+        height: 44px
+    }
+
+    & a {
+        text-decoration: none;
+    }
+
+    @include bp(sm-min) {
+        height: 48px;
+    }
+}

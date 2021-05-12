@@ -37,6 +37,10 @@ jQuery(document).ready(function( $ ) {
 });
 
 jQuery(document).ready(function( $ ) {
+    if ($(".naiskoor-table__body tr.no-records-found").length) {
+        $(".naiskoor-table__body tr.no-records-found td").text('Vasteid ei leitud.');
+    }
+
     $(".form-control.search-input").keydown(function() {
         setTimeout(function() {
             if ($(".naiskoor-table__body tr.no-records-found").length) {
