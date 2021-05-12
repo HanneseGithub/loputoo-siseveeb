@@ -15,7 +15,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" name="firstName" value="{{ author.first_name }}" disabled>
+					<input class="author-input-disabled" type="text" name="firstName" value="{{ author.first_name }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -32,7 +32,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" name="lastName" value="{{ author.last_name}}" disabled>
+					<input class="author-input-disabled" type="text" name="lastName" value="{{ author.last_name}}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -51,7 +51,7 @@
 					</td>
 				{% elseif authorCanSeePersonalId %}
 					<td>
-						<input type="text" name="personalId" value="{{ author.personal_id }}" disabled>
+						<input class="author-input-disabled" type="text" name="personalId" value="{{ author.personal_id }}" disabled>
 					</td>
 				{% endif %}
 			</tr>
@@ -69,7 +69,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="email" name="email" value="{{ author.user_email }}" disabled>
+					<input class="author-input-disabled" type="email" name="email" value="{{ author.user_email }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -87,7 +87,7 @@
 			{% else %}
 
 				<td>
-					<input type="text" name="phoneNumber" value="{{ author.phone_number }}" disabled>
+					<input class="author-input-disabled" type="text" name="phoneNumber" value="{{ author.phone_number }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -109,7 +109,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" name="voice" value="{{ author.voice }}" disabled>
+					<input class="author-input-disabled" type="text" name="voice" value="{{ author.voice }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -129,7 +129,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" name="voice_pitch" value="{{ author.voice_pitch }}" disabled>
+					<input class="author-input-disabled" type="text" name="voice_pitch" value="{{ author.voice_pitch }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -150,7 +150,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" name="isInSchool" value="{{ author.is_student_or_graduate }}" disabled>
+					<input class="author-input-disabled" type="text" name="isInSchool" value="{{ author.is_student_or_graduate }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -170,7 +170,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" value="ei" disabled>
+					<input class="author-input-disabled" type="text" value="ei" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -187,7 +187,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" value=" {{ author.title }}" disabled>
+					<input class="author-input-disabled" type="text" value=" {{ author.title }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -204,7 +204,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" value="{{ author.roles|list }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.roles|list }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -221,7 +221,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" value="{{author.birthday | date("d.m.Y")}}" disabled>
+					<input class="author-input-disabled" type="text" value="{{author.birthday | date("d.m.Y")}}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -230,7 +230,7 @@
 				Registreerimise aeg
 			</td>
 			<td>
-				<input type="text" value="{{ author.user_registered }}" disabled>
+				<input class="author-input-disabled" type="text" value="{{ author.user_registered }}" disabled>
 			</td>
 		</tr>
 	</table>
