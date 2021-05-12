@@ -1,34 +1,38 @@
 <div class="single-event-info-container">
-    <div class="single-event-description-container">
-        <div class="single-event-header-container h-margin-bottom-lg">
-            {% include 'components/events/event-participation-buttons.twig' with { event_participation: event_participation, none: nonce, participationFunctionLink: participationFunctionLink, post: { id: post.id } } %}
-        </div>
+	<div class="single-event-description-container">
+		<div class="single-event-header-container h-margin-bottom-lg">
+			{% include 'components/events/event-participation-buttons.twig' with { event_participation: event_participation, none: nonce, participationFunctionLink: participationFunctionLink, post: { id: post.id } } %}
+		</div>
 
-        <div class="single-event-text-container h-margin-bottom-sm-md">
-            {% include 'components/icon.twig' with { name: 'sprite-clock-fill' } %}
-            {{ post.datestart| date("d. F Y. &#8226; H:i")}} - {{ post.dateend | date("G:i")}}
-        </div>
-        <div class="single-event-text-container h-margin-bottom-sm-md">
-            {% include 'components/icon.twig' with { name: 'sprite-geo-alt-fill' }%}
-            {{ post.location}}
-        </div>
-        <div class="single-event-text-container h-margin-bottom-sm-md">
-            {% include 'components/icon.twig' with { name: 'sprite-person-fill' }%}
-            {{post.organizer}}
-        </div>
-        <div class="single-event-text-container  h-margin-bottom-sm-md">
-            {% include 'components/icon.twig' with { name: 'sprite-info-circle-fill' }%}
-            <a class="single-event-info-page-link" href="{{post.info_page}}" target=" _blank ">Link infolehele</a>
-        </div>
-        <div class="single-event-description">{{post.description}}</div>
-    </div>
+		<div class="single-event-text-container h-margin-bottom-sm-md">
+			{% include 'components/icon.twig' with { name: 'sprite-clock-fill' } %}
+			{{ post.datestart| date("d. F Y. &#8226; H:i")}}
+			{% if post.dateend %}
+				-
+				{{ post.dateend | date("d. F Y. &#8226; G:i")}}
+			{% endif %}
+		</div>
+		<div class="single-event-text-container h-margin-bottom-sm-md">
+			{% include 'components/icon.twig' with { name: 'sprite-geo-alt-fill' }%}
+			{{ post.location}}
+		</div>
+		<div class="single-event-text-container h-margin-bottom-sm-md">
+			{% include 'components/icon.twig' with { name: 'sprite-person-fill' }%}
+			{{post.organizer}}
+		</div>
+		<div class="single-event-text-container  h-margin-bottom-sm-md">
+			{% include 'components/icon.twig' with { name: 'sprite-info-circle-fill' }%}
+			<a class="single-event-info-page-link" href="{{post.info_page}}" target=" _blank ">Link infolehele</a>
+		</div>
+		<div class="single-event-description">{{post.description}}</div>
+	</div>
 
-    <div class="single-event-image-container ">
-        {% if not post.image %}
-            {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
-            <img src="{{ placeholder.src | resize(750, 500) }}">
-        {% else %}
-            <img src="{{ Image(post.image).src|resize(750, 500) }}">
-        {% endif %}
-    </div>
+	<div class="single-event-image-container ">
+		{% if not post.image %}
+			{% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
+			<img src="{{ placeholder.src | resize(750, 500) }}">
+		{% else %}
+			<img src="{{ Image(post.image).src|resize(750, 500) }}">
+		{% endif %}
+	</div>
 </div>

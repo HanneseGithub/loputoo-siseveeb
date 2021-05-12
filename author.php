@@ -81,6 +81,7 @@ $admin = current_user_can( 'administrator' );
 $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
 $canEditUser = $president || $conductor || $bookie || $admin;
+$authorCanSeePersonalId = $bookie || $admin;
 
 
 global $wp_query;
@@ -116,6 +117,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserPassword'])){
 
 
 $context['canEditUser'] = $canEditUser;
+$context['authorCanSeePersonalId'] = $authorCanSeePersonalId;
 $context['posts'] = new Timber\PostQuery();
 if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author            = new Timber\User( $wp_query->query_vars['author'] );

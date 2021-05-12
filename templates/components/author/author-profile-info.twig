@@ -1,6 +1,6 @@
 {% if current_user.ID == author.ID %}
-<form action="#" method="POST">
-{% endif %}
+	<form action="#" method="POST">
+	{% endif %}
 	<table>
 		<tr>
 			<td>
@@ -36,14 +36,26 @@
 				</td>
 			{% endif %}
 		</tr>
-		<tr>
-			<td>
-				Isikukood
-			</td>
-			<td>
-				<input type="text" name="personalId" value="{{ author.personal_id }}" disabled>
-			</td>
-		</tr>
+		{% if authorCanSeePersonalId %}
+			<tr>
+				<td>
+					Isikukood
+				</td>
+
+				{% if current_user.ID == author.ID %}
+					<td>
+						<input type="text" name="personalId" value="{{ author.personal_id }}">
+					</td>
+					<td>
+						{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+					</td>
+				{% else %}
+					<td>
+						<input type="text" name="personalId" value="{{ author.personal_id }}" disabled>
+					</td>
+				{% endif %}
+			</tr>
+		{% endif %}
 		<tr>
 			<td>
 				E-mail
@@ -67,7 +79,7 @@
 			</td>
 			{% if current_user.ID == author.ID %}
 				<td>
-					<input type="number" name="phoneNumber" value="{{ author.phone_number }}">
+					<input type="text" name="phoneNumber" value="{{ author.phone_number }}">
 				</td>
 				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
@@ -75,7 +87,7 @@
 			{% else %}
 
 				<td>
-					<input type="number" name="phoneNumber" value="{{ author.phone_number }}" disabled>
+					<input type="text" name="phoneNumber" value="{{ author.phone_number }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -104,7 +116,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input type="text" name="isInSchool" value="{{  author.is_student_or_graduate }}" disabled>
+					<input type="text" name="isInSchool" value="{{ author.is_student_or_graduate }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -150,11 +162,11 @@
 			</td>
 		</tr>
 	</table>
-{% if current_user.ID == author.ID %}
+	{% if current_user.ID == author.ID %}
 		<input type="hidden" value="{{ author.ID }}" name="userID">
 		<input type="hidden" value="{{ author.user_email }}" name="currentEmail">
-	<div class="button-center h-padding-top-lg">
-		<input name="editUserInfo" type="submit" value="Muuda infot"  class="stylised-button">
-	</div>
-</form>
+		<div class="button-center h-padding-top-lg">
+			<input name="editUserInfo" type="submit" value="Muuda infot" class="stylised-button">
+		</div>
+	</form>
 {% endif %}

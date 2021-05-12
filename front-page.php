@@ -58,6 +58,11 @@ function createNewPostUrl($post_type){
     $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
     return $adminurl = admin_url($create_new_post_url_slug);
 }
+
+function returnUritusedUrl(){
+    $url =  get_site_url() . '/uritused';
+    return $url;
+}
 // User roles
 $administrator = current_user_can( 'administrator' );
 $conductor = current_user_can('conductor');
