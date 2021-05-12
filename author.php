@@ -73,6 +73,9 @@ function editUserRole($userID){
 if( isset($_GET['updated']) && $_GET['updated'] == 'true' ) {
     $context['userOrganisationalInfoWasUpdated'] = true;    
 }
+function retrivePassword(){
+    retrieve_password();
+}
 
 
 // Setting up who can edit user organisational info
