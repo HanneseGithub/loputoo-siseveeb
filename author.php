@@ -23,19 +23,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo']))
     $changeEmailTo = esc_attr( $_POST['email']);
     $phoneNumber =  $_POST['phoneNumber'];
     $isInSchool = $_POST['isInSchool'];
-    
+
         if (isset( $changeEmailTo )) {
             // check if user is really updating the value
-            if ( $changeEmailFrom  !=  $changeEmailTo ) {       
+            if ( $changeEmailFrom  !=  $changeEmailTo ) {
                 // check if email is free to use
                 if (email_exists( $changeEmailTo  )){
                     // Email exists, do not update value.
                     $context['emailAlreadyExists'] = true;
                 } else {
                     $changeEmailFrom == $changeEmailTo;
-               }   
+               }
            }
-        } 
+        }
 
         $userfield = 'user_' . $userID;
         // Update ACF phone number field for this user
@@ -43,8 +43,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo']))
         // Update if the user is is_student_or_graduate
         update_field('field_6093c54e2b67d', $isInSchool, $userfield);
 
-        $user_data = wp_update_user(array( 
-            'ID' => $userID, 
+        $user_data = wp_update_user(array(
+            'ID' => $userID,
             'first_name' => $changeFirstNameTo,
             'last_name' => $changeLastNameTo,
             'user_email' => esc_attr( $_POST['email'] )
@@ -55,23 +55,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo']))
     } else {
         $context['userChangedHisPersonalInfo'] = true;
     }
-}
-
-
-// author-organization-info-edit.twig
-function editUserRole($userID){
-    $options = array(
-        'post_id' => 'user_' . $userID,
-        'field_groups' => array('group_607d4cd06f6b2'),
-        'submit_value' => __("Muuda andmeid", 'acf'),
-        'updated_message' => __("Andmed muudetud!", 'acf'),
-        'html_submit_button'  => '<input type="submit" class="author-submit-button submit-button" value="%s" />',
-    );
-    acf_form($options);
-}
-// On successful update of author info run this code
-if( isset($_GET['updated']) && $_GET['updated'] == 'true' ) {
-    $context['userOrganisationalInfoWasUpdated'] = true;    
 }
 
 // Setting up who can edit user organisational info

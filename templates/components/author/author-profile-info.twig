@@ -1,6 +1,6 @@
 {% if current_user.ID == author.ID or isAdministrator %}
-	<form action="#" method="POST">
-	{% endif %}
+<form action="#" method="POST">
+{% endif %}
 	<table>
 		<tr>
 			<td>
@@ -233,11 +233,11 @@
 			</td>
 		</tr>
 	</table>
-	{% if current_user.ID == author.ID or isAdministrator %}
-		<input type="hidden" value="{{ author.ID }}" name="userID">
-		<input type="hidden" value="{{ author.user_email }}" name="currentEmail">
-		<div class="button-center h-padding-top-lg">
-			<input name="editUserInfo" type="submit" value="Muuda infot" class="author-submit-button">
-		</div>
-	</form>
+{% if current_user.ID == author.ID or isAdministrator %}
+	<input type="hidden" value="{{ author.ID }}" name="userID">
+	<input type="hidden" value="{{ author.user_email }}" name="currentEmail">
+	<div class="button-center h-padding-top-lg">
+		<input name="editUserInfo" type="submit" value="Muuda infot" class="author-submit-button">
+	</div>
+</form>
 {% endif %}
