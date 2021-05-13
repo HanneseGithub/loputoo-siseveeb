@@ -137,9 +137,8 @@
 			<td>
 				TÜ tudeng või vilistlane
 			</td>
-			{% if current_user.ID == author.ID or isAdministrator %}
+			{% if isAdministrator %}
 				<td>
-					{{ author.is_student_or_graduate }}
 					<select id="element" name="isInSchool" value="{{ author.is_student_or_graduate }}">
 						<option value="Jah">Jah</option>
 						<option value="Ei">Ei</option>

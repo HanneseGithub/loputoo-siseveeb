@@ -1,46 +1,62 @@
 {% extends "base.twig" %}
 
 {% block content %}
-  <div class="section h-padding-top-xxl h-padding-bottom-lg">
-    <div class="webpage-heading-container h-padding-bottom-lg">
-      <h2 class="h2">Minu andmed</h2>
-      {# Only the logged in user can edit his/her password #}
-      {% if current_user.ID == author.ID %}
-        {% include "components/author/author-profile-edit-password.twig" %}
-    {% endif %}
-    </div>
-      <div class="userinfo-container">
-        <div class="avatar">
-          <img src="{{ function('get_avatar_url', author.ID) }}">
-        </div>        
-        <div class="userinfo">
-          <div class="md-form  input-with-post-icon">
-            {% include "components/author/author-profile-info.twig" %}
-          </div>
-      </div>
-  </div>
-{% endblock %}
+	<div class="section h-padding-top-xxl h-padding-bottom-lg">
+		<div class="webpage-heading-container h-padding-bottom-lg">
+			<h2 class="h2">Minu andmed</h2>
+			{# Only the logged in user can edit his/her password #}
+			{% if current_user.ID == author.ID %}
+				{% include "components/author/author-profile-edit-password.twig" %}
+			{% endif %}
+		</div>
+		<div class="userinfo-container">
+			<div class="avatar">
+				<img src="{{ function('get_avatar_url', author.ID) }}">
+			</div>
+			<div class="userinfo">
+				<div class="md-form  input-with-post-icon">
+					{% include "components/author/author-profile-info.twig" %}
+				</div>
+			</div>
+		</div>
+	{% endblock %}
 
 
-{% block footer %}
-  {{ parent() }}
-  {% if successfulInfoUpdate %}
-    <script type="text/javascript">notifyOnSuccessfulPasswordChange();</script>
-  {% elseif passwordsDidNotMatch %}
-    <script type="text/javascript">notifyIfPasswordsDidNotMatch();</script>
-  {% elseif badPassword %}
-    <script type="text/javascript">notifyOnBadPasswords();</script>
-  {% elseif userChangedHisPersonalInfo %}
-    <script type="text/javascript">notifyOnUserinfoBeingUpdated();</script>
-  {% elseif emailAlreadyExists %}
-    <script type="text/javascript">notifyIfUserWantsToChangeEmailButCant();</script>
-  {% elseif anErrorOccuredOnPersonalInfoUpdating %}
-    <script type="text/javascript">notifyOnUserinfoNotBeingUpdated();</script>
-  {% elseif userOrganisationalInfoWasUpdated %}
-    <script type="text/javascript">notifyManagerThatUserinfoWasUpdated();</script>
-  {% elseif notifyManagerThatUserinfoWasAFailure %}
-    <script type="text/javascript">notifyManagerThatUserinfoWasAFailure();</script>
-  {% endif %}
+	{% block footer %}
+		{{ parent() }}
+		{% if successfulInfoUpdate %}
+			<script type="text/javascript">
+				notifyOnSuccessfulPasswordChange();
+			</script>
+		{% elseif passwordsDidNotMatch %}
+			<script type="text/javascript">
+				notifyIfPasswordsDidNotMatch();
+			</script>
+		{% elseif badPassword %}
+			<script type="text/javascript">
+				notifyOnBadPasswords();
+			</script>
+		{% elseif userChangedHisPersonalInfo %}
+			<script type="text/javascript">
+				notifyOnUserinfoBeingUpdated();
+			</script>
+		{% elseif emailAlreadyExists %}
+			<script type="text/javascript">
+				notifyIfUserWantsToChangeEmailButCant();
+			</script>
+		{% elseif anErrorOccuredOnPersonalInfoUpdating %}
+			<script type="text/javascript">
+				notifyOnUserinfoNotBeingUpdated();
+			</script>
+		{% elseif userOrganisationalInfoWasUpdated %}
+			<script type="text/javascript">
+				notifyManagerThatUserinfoWasUpdated();
+			</script>
+		{% elseif notifyManagerThatUserinfoWasAFailure %}
+			<script type="text/javascript">
+				notifyManagerThatUserinfoWasAFailure();
+			</script>
+		{% endif %}
 
-  
-{% endblock %}
+
+	{% endblock %}

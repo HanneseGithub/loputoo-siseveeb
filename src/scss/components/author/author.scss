@@ -22,6 +22,9 @@
             vertical-align: middle;
             color:$color-primary-blue;
         }
+        .td-height {
+            height: 60px;
+        }
         td:nth(1){
             max-width: 40px;
         }
@@ -48,16 +51,13 @@
             margin-left:10px;
             color:$color-secondary-blue;
         }
+        .author-input-disabled {
+            pointer-events: none;
+        }
     }
     
 }
-.button-center {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    align-items:center ;
-}
-.stylised-button{
+.author-submit-button{
     color: $color-white;
     text-decoration: none;
     background-color: $color-primary-blue;
@@ -104,9 +104,4 @@
       }
     }
 }
-.td-height {
-    height: 60px;
-}
-.author-input-disabled {
-    pointer-events: none;
-}
+

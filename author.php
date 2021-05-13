@@ -65,7 +65,7 @@ function editUserRole($userID){
         'field_groups' => array('group_607d4cd06f6b2'),
         'submit_value' => __("Muuda andmeid", 'acf'),
         'updated_message' => __("Andmed muudetud!", 'acf'),
-        'html_submit_button'  => '<input type="submit" class="stylised-button submit-button" value="%s" />',
+        'html_submit_button'  => '<input type="submit" class="author-submit-button submit-button" value="%s" />',
     );
     acf_form($options);
 }
@@ -73,10 +73,6 @@ function editUserRole($userID){
 if( isset($_GET['updated']) && $_GET['updated'] == 'true' ) {
     $context['userOrganisationalInfoWasUpdated'] = true;    
 }
-function retrivePassword(){
-    retrieve_password();
-}
-
 
 // Setting up who can edit user organisational info
 $bookie = current_user_can( 'bookie' );
