@@ -13,22 +13,23 @@ $users = get_users(['role__in' => [
 ]]);
 
 // Send an email when sending button is pressed.
-if (isset($_POST['submitGroupEmail'])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submitGroupEmail'])) {
     $websiteEmail = 'naiskoorintra@gmail.com';
     $subject = $_POST['subject'];
     $senderName = $_POST['sender-name'];
     $senderRole = $_POST['sender-role'];
     $recievers = $_POST['recievers'];
-    $headers = 'From: ' . $websiteEmail . "\r\n" .
-    'Reply-To: ' . $websiteEmail . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+    $headers[] = 'From: Naiskoori juhatus <' . $websiteEmail . '>';
+    $headers[] = 'Reply-To: Naiskoori juhatus <' . $websiteEmail . '>';
 
     $message = $_POST['message'];
     $messageToUs = $senderName . " saatis liikmetele järgneva e-maili:" . "\n\n" . $message . "\n\n" . ". E-mail saadeti järgmistele isikutele: " . $recievers;
     $messageToFrontend = "E-maili saatmine õnnestus!";
 
-    mail($websiteEmail,$subject,$messageToUs, $headers);
-    mail($recievers,$subject,$message, $headers);
+    // Send email to website's inbox.
+    wp_mail($websiteEmail,$subject,$messageToUs, $headers);
+    // Send email to selected people's inbox.
+    wp_mail($recievers, $subject, $message, $headers);
 }
 
 // Form for editing user info in the users view.
