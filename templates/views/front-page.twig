@@ -59,22 +59,22 @@
         </div>
         {% endfor %} {% endif %}
     </div>
-    <div class="section h-padding-top-lg h-padding-bottom-xxl">
-        <div class="webpage-heading-container">
-        <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
-        <a class="all-event-button h-margin-bottom-lg" href=""><p>Kõik üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
-    </div>
-        <div class="front-page-events-container">
-            {% if events is empty%}
-            <p class="no-posts">Hetkel pole üritusi</p>
-            {% else %}
-            {% for event in events %}
-            <a class="event-click-container-front-page" href="{{event.link}}">
-                <div class="h-margin-bottom-lg single-event-container">
-                    <div class="h-margin-bottom-md event-wrapper">
-                        {% if not event.image %} {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
-                        <img src="{{ placeholder.src | resize(750, 500) }}"> {% else %}
-                        <img src="{{ Image(event.image).src|resize(750, 500) }}"> {% endif %}
+<div class="section h-padding-top-lg h-padding-bottom-xxl">
+    <div class="webpage-heading-container">
+    <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
+    <a class="all-event-button h-margin-bottom-lg" href="{{ function('returnUritusedUrl') }}"><p>Kõik üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
+</div>
+    <div class="front-page-events-container">
+        {% if events is empty%}
+        <p class="no-posts">Hetkel pole üritusi</p>
+        {% else %}
+        {% for event in events %}
+        <a class="event-click-container-front-page" href="{{event.link}}">
+            <div class="h-margin-bottom-lg single-event-container">
+                <div class="h-margin-bottom-md event-wrapper">
+                    {% if not event.image %} {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
+                    <img src="{{ placeholder.src | resize(750, 500) }}"> {% else %}
+                    <img src="{{ Image(event.image).src|resize(750, 500) }}"> {% endif %}
 
                         {% include 'components/events/event-participation.twig' with { event: { event_participation: event.event_participation } } %}
 
