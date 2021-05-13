@@ -36,6 +36,10 @@
     color:$color-primary-blue;
     display: flex;
     align-items: center;
+    transition: 0.3s;
+    &:hover {
+    opacity: 0.8;
+    }
     & svg {
         font-size:20px;
         margin-left:10px;
@@ -90,6 +94,10 @@
         text-decoration: none;
         color: #758eff;
         font-style: italic;
+        transition: 0.3s;
+        &:hover {
+            color: $color-light-blue;
+        }
     }
     & .calendar-date-time {
         text-transform: capitalize;
@@ -118,6 +126,10 @@
         width: 350px;
 
         margin-right: 24px;
+
+        &:hover {
+            color:rgba($color-primary-blue, 0.8)
+        }
 
         @media (max-width: $bp-sm-min) {
             margin-right: 0;
@@ -169,6 +181,7 @@
         font-family: $font-family-title;
         font-size: $font-size-h4;
         line-height: $line-height-h4;
+        transition: color 0.3s;
     }
 }
 
