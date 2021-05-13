@@ -36,14 +36,17 @@
     color:$color-primary-blue;
     display: flex;
     align-items: center;
-    transition: 0.3s;
+    transition: opacity 0.3s;
+
     &:hover {
-    opacity: 0.8;
+        opacity: 0.8;
     }
+
     & svg {
         font-size:20px;
         margin-left:10px;
     }
+
     @media (max-width:$bp-md-min){
         display: none;
     }
@@ -94,7 +97,8 @@
         text-decoration: none;
         color: #758eff;
         font-style: italic;
-        transition: 0.3s;
+        transition: color 0.3s;
+
         &:hover {
             color: $color-light-blue;
         }
