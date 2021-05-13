@@ -13,7 +13,17 @@
                 <div></div>
             {% endif %}
 		</div>
+
         {% include "components/events/single-event-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda'} %}
 		{% include "components/single-event-info.twig" %}
+
+        <h3 class="h3 h-margin-bottom-lg h-margin-top-lg single-event-heading__title">Osalevad</h3>
+        {% include "components/tables/participation-table.twig" with { users: usersGoing } %}
+
+        <h3 class="h3 h-margin-bottom-lg h-margin-top-lg single-event-heading__title">Ei osale</h3>
+        {% include "components/tables/participation-table.twig" with { users: usersNotGoing } %}
+
+        <h3 class="h3 h-margin-bottom-lg h-margin-top-lg single-event-heading__title">Ei ole vastanud</h3>
+        {% include "components/tables/participation-table.twig" with { users: usersNotAnswered } %}
 	</div>
 </div>{% endblock %}
