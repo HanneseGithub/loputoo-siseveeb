@@ -74,7 +74,7 @@ class StarterSite extends Timber\Site
 		add_action( 'login_enqueue_scripts', array($this, 'enqueue_my_scripts'));
 		add_filter( 'login_headerurl', array($this, 'tyan_login_url'));
 		add_action( 'template_redirect', array($this, 'redirect_non_logged_users_to_specific_page'));
-		add_action( 'phpmailer_init', array($this, 'send_smtp_email' ));
+		add_action( 'phpmailer_init', array($this, 'send_smtp_email' ), 10, 1);
 		parent::__construct();
 	}
 
@@ -149,6 +149,24 @@ class StarterSite extends Timber\Site
 		return translate_user_role($currentUserRole);
 	}
 
+	public function redirect_non_logged_users_to_specific_page() {
+		if (!is_user_logged_in()) {
+			auth_redirect();
+		}
+	}
+
+    public function send_smtp_email($phpmailer) {
+    	$phpmailer->isSMTP();
+    	$phpmailer->Host       = SMTP_HOST;
+    	$phpmailer->SMTPAuth   = SMTP_AUTH;
+    	$phpmailer->Port       = SMTP_PORT;
+    	$phpmailer->Username   = SMTP_USER;
+    	$phpmailer->Password   = SMTP_PASS;
+    	$phpmailer->SMTPSecure = SMTP_SECURE;
+    	$phpmailer->From       = SMTP_FROM;
+    	$phpmailer->FromName   = SMTP_NAME;
+    }
+
 	/** This is where you can add your own functions to twig.
 	 *
 	 * @param string $twig get extension.
@@ -160,24 +178,6 @@ class StarterSite extends Timber\Site
 		$twig->addFunction(new Timber\Twig_Function( 'returnUserRoleDisplayName', array($this, 'returnUserRoleDisplayName')));
 		return $twig;
 	}
-
-	public function redirect_non_logged_users_to_specific_page()
-	{
-		if (!is_user_logged_in()) {
-			auth_redirect();
-		}
-	}
-    public function send_smtp_email( $phpmailer ) {
-    	$phpmailer->isSMTP();
-    	$phpmailer->Host       = SMTP_HOST;
-    	$phpmailer->SMTPAuth   = SMTP_AUTH;
-    	$phpmailer->Port       = SMTP_PORT;
-    	$phpmailer->Username   = SMTP_USER;
-    	$phpmailer->Password   = SMTP_PASS;
-    	$phpmailer->SMTPSecure = SMTP_SECURE;
-    	$phpmailer->From       = SMTP_FROM;
-    	$phpmailer->FromName   = SMTP_NAME;
-    }
 }
 
 new StarterSite();
