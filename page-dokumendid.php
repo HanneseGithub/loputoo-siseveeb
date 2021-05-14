@@ -43,8 +43,8 @@ $userCanSeeHiddenDocuments = $administrator || $president || $conductor || $secr
 $canAddNotifications = $administrator || $president || $conductor || $secretary;
 $args = array(
   'post_type' => 'dokumendid',
-  // Order by post date
-  'orderby' => array(
+ 'posts_per_page' => -1,
+    'orderby' => array(
       'date' => 'DESC'
   ));
 $documents = Timber::get_posts($args);

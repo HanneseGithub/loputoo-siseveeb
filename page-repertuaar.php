@@ -55,7 +55,7 @@ $note_handler = current_user_can('note-handler');
 $canAddNotifications = $administrator || $president || $conductor || $note_handler;
 
 $context['createNewPostUrl'] = createNewPostUrl('repertuaar');
-$context['repertoire'] = Timber::get_posts( ['post_type' => 'repertuaar'] );
+$context['repertoire'] = Timber::get_posts( ['post_type' => 'repertuaar', 'posts_per_page' => -1] );
 $context['canAddNotifications'] = $canAddNotifications;
 
 

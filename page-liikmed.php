@@ -2,15 +2,7 @@
 acf_form_head();
 
 // Display all the possible roles you want to see in the table.
-$users = get_users(['role__in' => [
-    'administrator',
-    'singer',
-    'bookie',
-    'conductor',
-    'president',
-    'secretary',
-    'note_handler',
-]]);
+$users = get_users( array( 'search' => '*' ) );
 
 // Send an email when sending button is pressed.
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submitGroupEmail'])) {
