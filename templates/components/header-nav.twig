@@ -18,47 +18,39 @@
       {% endif %}
   </div>
 
-  <div class="header-nav__above-content-wrapper">
-    <div class="header-nav__searchbar">
-      <div class="header-nav__text-field">
-        <input class="header-nav__input" type="text" placeholder="Otsige üritusi, noote, dokumente...">
-      </div>
-      {% include 'components/icon.twig' with { name: 'sprite-search', modifier: 'header-nav__search-icon' } %}
+  <div class="header-nav__user-info">
+    <div class="header-nav__user-avatar-wrapper">
+      <img class="header-nav__user-avatar" src="{{ current_user.avatar({size: 24}) }}" alt="User avatar">
     </div>
-    <div class="header-nav__user-info">
-      <div class="header-nav__user-avatar-wrapper">
-        <img class="header-nav__user-avatar" src="{{ current_user.avatar({size: 24}) }}" alt="User avatar">
+    <div class="header-nav__personal-info">
+      <div class="header-nav__username">{{ current_user.name }}</div>
+      <div>
+        {% for role in current_user.roles %}
+            {{ role }}
+        {% endfor %}
       </div>
-      <div class="header-nav__personal-info">
-        <div class="header-nav__username">{{ current_user.name }}</div>
-        <div>
-          {% for role in current_user.roles %}
-              {{ role }}
-          {% endfor %}
-        </div>
-      </div>
-      <div class="header-nav__user-dropdown__content-box">
-        <ul>
-          {% set canSeeAdminViewInDropdown = current_user.can('administrator') or current_user.can('bookie') or current_user.can('president') or current_user.can('conductor') or current_user.can('secretary') or current_user.can('note_handler') %}
-          {% if canSeeAdminViewInDropdown %}
-            <li class="h-margin-bottom-sm-md user-dropdown__nav-item">
-              <div class="user-dropdown__link-wrapper">
-                  <a class="user-dropdown__link" href="{{ function('admin_url') }}">Haldus</a>
-              </div>
-            </li>
-          {% endif %}
+    </div>
+    <div class="header-nav__user-dropdown__content-box">
+      <ul>
+        {% set canSeeAdminViewInDropdown = current_user.can('administrator') or current_user.can('bookie') or current_user.can('president') or current_user.can('conductor') or current_user.can('secretary') or current_user.can('note_handler') %}
+        {% if canSeeAdminViewInDropdown %}
           <li class="h-margin-bottom-sm-md user-dropdown__nav-item">
             <div class="user-dropdown__link-wrapper">
-                <a class="user-dropdown__link" href="{{ current_user.link }}">Minu profiil</a>
+                <a class="user-dropdown__link" href="{{ function('admin_url') }}">Haldus</a>
             </div>
           </li>
-          <li class="h-margin-bottom-sm-md user-dropdown__nav-item">
-            <div class="user-dropdown__link-wrapper">
-                <a class="user-dropdown__link" href="{{ function('wp_logout_url') }}">Logi välja</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+        {% endif %}
+        <li class="h-margin-bottom-sm-md user-dropdown__nav-item">
+          <div class="user-dropdown__link-wrapper">
+              <a class="user-dropdown__link" href="{{ current_user.link }}">Minu profiil</a>
+          </div>
+        </li>
+        <li class="h-margin-bottom-sm-md user-dropdown__nav-item">
+          <div class="user-dropdown__link-wrapper">
+              <a class="user-dropdown__link" href="{{ function('wp_logout_url') }}">Logi välja</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
