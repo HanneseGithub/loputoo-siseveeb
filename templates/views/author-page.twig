@@ -4,9 +4,10 @@
 	<div class="section h-padding-top-xxl h-padding-bottom-lg">
 		<div class="webpage-heading-container h-padding-bottom-lg">
 			<h2 class="h2">Minu andmed</h2>
-			{# Only the logged in user can edit his/her password #}
 			{% if current_user.ID == author.ID %}
 				{% include "components/author/author-profile-edit-password.twig" %}
+			{% elseif isAdministrator %}
+				{% include "components/author/author-profile-send-new-password.twig" %}
 			{% endif %}
 		</div>
 		<div class="userinfo-container">
@@ -57,6 +58,4 @@
 				notifyManagerThatUserinfoWasAFailure();
 			</script>
 		{% endif %}
-
-
 	{% endblock %}
