@@ -1,0 +1,18 @@
+#cookie-notice .cookie-notice-container{
+background-color: $color-white;
+box-shadow: 10px 10px 10px 5px $color-text;
+}
+.cn-text-container {
+    color: $color-text;
+}
+#cookie-notice .cn-button{
+    background-color: $color-primary-blue;
+    color:$color-text-white;
+    border-radius: 5px;
+}
+#cookie-notice, #cookie-notice * {
+    opacity: 1;
+    & .cn-close-icon:before, .cn-close-icon:after {
+        background-color:$color-red;
+    }
+}
