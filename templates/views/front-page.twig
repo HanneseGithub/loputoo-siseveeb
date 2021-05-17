@@ -79,7 +79,7 @@
                         {% include 'components/events/event-participation.twig' with { event: { event_participation: event.event_participation } } %}
 
                         <div class="event-date">
-                            <p>{{event.date}}</p>
+                            <p>{{event.datestart | date("d. F Y") }}</p>
                         </div>
                     </div>
                     <div class="event-title">

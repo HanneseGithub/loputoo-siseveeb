@@ -3,14 +3,12 @@
 {% endif %}
 	<table>
 		<tr>
-			<td>
-				Eesnimi
+			<td class="author-page-table-label">
+			Eesnimi
 			</td>
 			{% if  isAdministrator or current_user.ID == author.ID %}
 				<td>
 					<input type="text" name="firstName" value="{{ author.first_name }}">
-				</td>
-				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -20,14 +18,12 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Perenimi
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td>
 					<input  type="text" name="lastName" value="{{ author.last_name}}">
-				</td>
-				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -38,15 +34,13 @@
 		</tr>
 		{% if authorCanSeePersonalId or current_user.ID == author.ID %}
 			<tr>
-				<td>
+				<td class="author-page-table-label">
 					Isikukood
 				</td>
 
 				{% if current_user.ID == author.ID or isAdministrator %}
 					<td>
 						<input type="text" name="personalId" value="{{ author.personal_id }}">
-					</td>
-					<td>
 						{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 					</td>
 				{% elseif authorCanSeePersonalId %}
@@ -57,14 +51,12 @@
 			</tr>
 		{% endif %}
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				E-mail
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td>
 					<input type="email" name="email" value="{{ author.user_email }}">
-				</td>
-				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -74,14 +66,12 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Telefon
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td>
 					<input type="text" name="phoneNumber" value="{{ author.phone_number }}">
-				</td>
-				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -92,11 +82,11 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Häälerühm
 			</td>
 			{% if isAdministrator %}
-				<td>
+				<td class="select-input">
 					<select name="voice" value="{{author.voice}}">
 						<option value="I sopran">I sopran</option>
 						<option value="II sopran">II sopran</option>
@@ -104,28 +94,22 @@
 						<option value="II alt">II alt</option>
 					</select>
 				</td>
-				<td>
-					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
-				</td>
-			{% else %}
+				{% else %}
 				<td>
 					<input class="author-input-disabled" type="text" name="voice" value="{{ author.voice }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Hääle kõrgus
 			</td>
 			{% if isAdministrator %}
-				<td>
+				<td class="select-input">
 					<select name="voice_pitch" value="{{author.voice_pitch}}">
 						<option value="Kõrge">Kõrge</option>
 						<option value="Madal">Madal</option>
 					</select>
-				</td>
-				<td>
-					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
 				<td>
@@ -134,18 +118,15 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				TÜ tudeng või vilistlane
 			</td>
 			{% if isAdministrator %}
-				<td>
+				<td class="select-input">
 					<select id="element" name="isInSchool" value="{{ author.is_student_or_graduate }}">
 						<option value="Jah">Jah</option>
 						<option value="Ei">Ei</option>
 					</select>
-				</td>
-				<td>
-					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
 				<td>
@@ -154,18 +135,15 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Noorlaulja
 			</td>
 			{% if isAdministrator %}
-				<td>
+				<td class="select-input">
 					<select type="select" value="{{ author.is_new_singer }}">
 						<option value="Ei">Ei</option>
 						<option value="Jah">Jah</option>
 					</select>
-				</td>
-				<td>
-					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
 				<td>
@@ -174,14 +152,12 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Tiitel
 			</td>
 			{% if isAdministrator %}
 				<td>
 					<input type="text" value=" {{ author.title }}">
-				</td>
-				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -191,14 +167,12 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Roll veebilehel
 			</td>
 			{% if isAdministrator %}
 				<td>
 					<input type="text" value="{{ author.roles|list }}">
-				</td>
-				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -208,14 +182,12 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Sünnipäev
 			</td>
 			{% if isAdministrator or current_user.ID == author.ID  %}
 				<td>
 					<input placeholder="nt. 31.12.1989" type="text" value="{{author.birthday | date("d.m.Y")}}">
-				</td>
-				<td>
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -225,7 +197,7 @@
 			{% endif %}
 		</tr>
 		<tr>
-			<td>
+			<td class="author-page-table-label">
 				Registreerimise aeg
 			</td>
 			<td>

@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="section h-padding-top-xxl h-padding-bottom-lg">
-		<div class="webpage-heading-container h-padding-bottom-lg">
+		<div class="webpage-heading-container h-margin-bottom-lg">
 			<h2 class="h2">Minu andmed</h2>
 			{# Only the logged in user can edit his/her password #}
 			{% if current_user.ID == author.ID %}
@@ -10,13 +10,11 @@
 			{% endif %}
 		</div>
 		<div class="userinfo-container">
-			<div class="avatar">
+			<div class="author-page-avatar h-margin-bottom-lg">
 				<img src="{{ function('get_avatar_url', author.ID) }}">
 			</div>
-			<div class="userinfo">
-				<div class="md-form  input-with-post-icon">
-					{% include "components/author/author-profile-info.twig" %}
-				</div>
+			<div class="author-page-user-info">
+				{% include "components/author/author-profile-info.twig" %}
 			</div>
 		</div>
 	{% endblock %}
