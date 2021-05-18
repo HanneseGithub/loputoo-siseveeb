@@ -106,10 +106,10 @@
                     </div>
                 </div>
                 </div>
-                <audio controls>
-                    <source src="{{ function('retrieve_file_url', post.song_file) }}" type="audio/ogg">
-                    Your browser does not support the audio element.
-                </audio>
+                <audio id="repertoireAudio" controls="controls">
+					<source id="repertoireAudioSource" src="{{ function('retrieve_file_url', post.song_file) }}"></source>
+				Your browser does not support the audio format.
+			</audio>
             {% endif %}
             {% if post.note_file_2 %}
                 <div class="file-header">
@@ -129,10 +129,10 @@
                     </div>
                 </div>
                 </div>
-                <audio controls>
-                    <source src="{{ function('retrieve_file_url', post.song_file_2) }}" type="audio/ogg">
-                    Your browser does not support the audio element.
-                </audio>
+               <audio id="repertoireAudio" controls="controls">
+					<source id="repertoireAudioSource" src="{{ function('retrieve_file_url', post.song_file_2) }}"></source>
+				Your browser does not support the audio format.
+			</audio>
             {% endif %}
             {% if post.song_file_3 %}
                 <div class="file-header">
@@ -152,10 +152,10 @@
                     </div>
                 </div>
                 </div>
-                <audio controls>
-                    <source src="{{ function('retrieve_file_url', post.song_file_3) }}" type="audio/ogg">
-                    Your browser does not support the audio element.
-                </audio>
+                <audio id="repertoireAudio" controls="controls">
+					<source id="repertoireAudioSource" src="{{ function('retrieve_file_url', post.song_file_3) }}"></source>
+				Your browser does not support the audio format.
+			</audio>
             {% endif %}
         </div>
     </div>
