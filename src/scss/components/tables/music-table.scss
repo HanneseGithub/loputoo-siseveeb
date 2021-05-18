@@ -1,4 +1,4 @@
-.music-table{
+.music-table {
     .clickable-link {
         color: $color-primary-blue;
         display: flex;
@@ -18,7 +18,7 @@
         padding: 2px;
         transition: 0.5s;
         &:hover {
-            color:rgba($color: $color-red, $alpha: 0.5);
+            color: rgba($color: $color-red, $alpha: 0.5);
         }
     }
 
@@ -38,7 +38,7 @@
         color: $color-secondary-blue;
 
         &.music-table-icon--delete-post {
-            font-size:30px;
+            font-size: 30px;
         }
         @include bp(sm-min) {
             font-size: 24px;
@@ -67,7 +67,7 @@
             }
         }
 
-        &:last-child{
+        &:last-child {
             padding: 10px 24px 10px 12px;
 
             @include bp(sm-min) {
@@ -79,5 +79,15 @@
             padding: 10px 16px;
         }
     }
+}
 
+.repertoire-music-player {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    & audio {
+    }
+}
+audio::-webkit-media-controls-timeline {
+    width: 500px;
 }

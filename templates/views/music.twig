@@ -2,11 +2,16 @@
 
 {% block content %}
 	<div class="section h-padding-top-xxl h-padding-bottom-lg">
-			{% include "components/webpage-title.twig" with{ title: 'Repetuaar', link: createNewPostUrl, link_text: 'Lisa uus lugu'} %}
+		{% include "components/webpage-title.twig" with{ title: 'Repetuaar', link: createNewPostUrl, link_text: 'Lisa uus lugu'} %}
 		{% if repertoire is empty %}
 			<h1>Hetkel pole repertuaari lisatud</h1>
 		{% else %}
 			{% include "components/tables/music-table.twig" %}
-		{% endif %}		
+		{% endif %}
+		<div class="repertoire-music-player">
+				<audio id="repertoireAudio" controls="controls">
+					<source id="repertoireAudioSource" src=""></source>
+				Your browser does not support the audio format.
+			</audio>
 	</div>
-{% endblock %}
+</div>{% endblock %}
