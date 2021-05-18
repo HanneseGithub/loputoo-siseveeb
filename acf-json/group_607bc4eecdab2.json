@@ -8,7 +8,7 @@
             "name": "description",
             "type": "wysiwyg",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -51,7 +51,7 @@
             "name": "datestart",
             "type": "date_time_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -112,7 +112,7 @@
             "name": "location",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -131,7 +131,7 @@
             "name": "info_page",
             "type": "url",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -147,7 +147,7 @@
             "name": "organizer",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -180,5 +180,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1619526098
+    "modified": 1621325981
 }

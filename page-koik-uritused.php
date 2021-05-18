@@ -3,25 +3,20 @@ global $wpdb;
 
 $currentdate = date_i18n("Y-m-d H:i:s");
 
-$args = array(
+$allEventsArgs = array(
     'post_type' => 'uritused',
-    'meta_query'=> array(
-        array(
-          'key' => 'datestart',
-          'compare' => '>=',
-          'value' => $currentdate,
-          'type' => 'DATETIME',
-        )),
     'meta_key'	=> 'datestart',
     'orderby'   => 'meta_value',
     'order'     => 'ASC',
+    'posts_per_page' => '-1'
 );
-$events = Timber::get_posts($args);
+
+$allEvents = Timber::get_posts($allEventsArgs);
 
 $table_name = $wpdb->prefix . "event_participations";
 $current_user_id = get_current_user_id();
 
-foreach ($events as $event) {
+foreach ($allEvents as $event) {
     $event_participation = $wpdb->get_var(
         $wpdb->prepare(
         "
@@ -73,20 +68,14 @@ function compareMonthAndYear($eventDatestart, $eventMonthAndYear) {
     return $eventDateFormatted == $eventMonthAndYear;
 }
 
-$eventUniqueMonths = createUniqueMonths($events);
-$eventUniqueMonthsWithEvents = createUniqueMonthsWithEvents($eventUniqueMonths, $events);
+$allEventsUniqueMonths = createUniqueMonths($allEvents);
+$allEventsUniqueMonthsWithEvents = createUniqueMonthsWithEvents($allEventsUniqueMonths, $allEvents);
 
 function createNewPostUrl($post_type){
     $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
     return $adminurl = admin_url($create_new_post_url_slug);
 }
 
-function returnKoikUritusedUrl(){
-    $url =  get_site_url() . '/koik-uritused';
-    return $url;
-}
-
-// User roles
 $administrator = current_user_can( 'administrator' );
 $conductor = current_user_can('conductor');
 $president = current_user_can( 'president' );
@@ -95,9 +84,9 @@ $canAddNotifications = $administrator || $president || $conductor;
 
 $context = Timber::context();
 $context['post'] = new Timber\Post();
-$context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
+$context['uniqueMonthsWithEvents'] = $allEventsUniqueMonthsWithEvents;
 $context['createNewPostUrl'] = createNewPostUrl('uritused');
 
 $context['canAddNotifications'] = $canAddNotifications;
 
-Timber::render(array('views/events-page.twig', 'views/page.twig'), $context);
+Timber::render(array('views/events-page-all.twig', 'views/page.twig'), $context);
