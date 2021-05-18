@@ -47,9 +47,12 @@
 
         .author-page-table-label {
             padding-right: 8px;
+
             @media (max-width: $bp-sm-min) {
                 height: auto;
+
                 padding-right: 0px;
+                margin-bottom: 8px;
             }
         }
         td:nth(1) {

@@ -36,9 +36,7 @@
     display: flex;
     align-items: center;
     transition: opacity 0.3s;
-    & p {
-        color:$color-light-blue-link;
-    }
+    color:$color-light-blue-link;
 
     &:hover {
         opacity: 0.8;
