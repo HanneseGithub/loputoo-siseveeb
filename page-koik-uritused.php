@@ -5,16 +5,9 @@ $currentdate = date_i18n("Y-m-d H:i:s");
 
 $args = array(
     'post_type' => 'uritused',
-    'meta_query'=> array(
-        array(
-          'key' => 'datestart',
-          'compare' => '>=',
-          'value' => $currentdate,
-          'type' => 'DATETIME',
-        )),
-    'meta_key'	=> 'datestart',
     'orderby'   => 'meta_value',
     'order'     => 'ASC',
+    'posts_per_page' => '-1'
 );
 $events = Timber::get_posts($args);
 
@@ -81,22 +74,13 @@ function createNewPostUrl($post_type){
     return $adminurl = admin_url($create_new_post_url_slug);
 }
 function returnUritusedUrl(){
-    $url =  get_site_url() . '/koik-uritused';
+    $url =  get_site_url() . '/uritused';
     return $url;
 }
-
-// User roles
-$administrator = current_user_can( 'administrator' );
-$conductor = current_user_can('conductor');
-$president = current_user_can( 'president' );
-
-$canAddNotifications = $administrator || $president || $conductor;
 
 $context = Timber::context();
 $context['post'] = new Timber\Post();
 $context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
 $context['createNewPostUrl'] = createNewPostUrl('uritused');
 
-$context['canAddNotifications'] = $canAddNotifications;
-
-Timber::render(array('views/events-page.twig', 'views/page.twig'), $context);
+Timber::render(array('views/events-page-all.twig', 'views/page.twig'), $context);

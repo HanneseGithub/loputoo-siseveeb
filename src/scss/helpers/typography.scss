@@ -99,3 +99,18 @@
     text-transform: capitalize;
     text-align: center;
 }
+.past-event-btn {
+    text-decoration: none;
+    display: flex;
+    color:$color-light-blue-link;
+    align-items: center;
+    transition: opacity 0.3s;
+    &:hover {
+        opacity: 0.8;
+    }
+
+    & svg {
+        font-size:20px;
+        margin-left:10px;
+    }
+}

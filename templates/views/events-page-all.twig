@@ -4,12 +4,13 @@
 		{% include "components/webpage-title.twig" with { title: post.title, link: createNewPostUrl, link_text: 'Lisa Üritus' } %}
 		{% for uniqueMonth, monthEvents in uniqueMonthsWithEvents %}
 			<div class="h-margin-bottom-lg">
+
 				{% include 'components/events/event-page-date.twig' with { event: { datestart: uniqueMonth } } %}
 				{% for event in monthEvents %}
 					{% include 'components/events/event-page-events.twig' with { event: event } %}
 				{% endfor %}
 			</div>
 		{% endfor %}
-		<a class="past-event-btn  h-margin-bottom-lg" href="{{ function('returnUritusedUrl') }}"><p>Möödunud üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
+		<a class="past-event-btn  h-margin-bottom-lg" href="{{ function('returnUritusedUrl') }}"><p>Tulevad üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
 	</div>
-	{% endblock %}
+{% endblock %}
