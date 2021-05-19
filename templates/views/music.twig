@@ -8,12 +8,10 @@
 		{% else %}
 			{% include "components/tables/music-table.twig" %}
 		{% endif %}
-		<div class="repertoire-music-container">
 			<div class="repertoire-music-player">
 				<audio id="repertoireAudio" controls="controls">
 					<source id="repertoireAudioSource" src=""></source>
 				Your browser does not support the audio format.
 			</audio>
 		</div>
-	</div>
 </div>{% endblock %}

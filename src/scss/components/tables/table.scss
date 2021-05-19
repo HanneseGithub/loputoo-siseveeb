@@ -250,8 +250,8 @@
 
 .open-new-window {
     color: $color-light-blue-link!important;
-
-    & svg {
-        color: $color-light-blue-link!important;
+    transition: 0.5s;
+    &:hover {
+        color:rgba($color: $color-light-blue-link, $alpha: 0.5) !important;
     }
 }

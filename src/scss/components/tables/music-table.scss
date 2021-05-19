@@ -7,6 +7,7 @@
         & svg {
             font-size: 24px;
             padding: 2px;
+            
         }
     }
 
@@ -35,7 +36,6 @@
 
     .music-table-icon {
         font-size: 20px;
-        color: $color-secondary-blue;
 
         &.music-table-icon--delete-post {
             font-size: 30px;
@@ -80,17 +80,21 @@
         }
     }
 }
-.repertoire-music-container {
-    position: relative;
-    height: 50vh;
-}
 .repertoire-music-player {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
+    left: 200px;
+    width: calc(100% - 200px);
+    @media (max-width:$bp-sm-min) {
+        left: 0;
+        width: 100%;
+    }
 
     & #repertoireAudio {
         width: 100%;
+        border-radius:none;
     } 
+}
+audio::-webkit-media-controls-enclosure {
+    border-radius:0;
 }
