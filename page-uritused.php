@@ -5,6 +5,7 @@ $currentdate = date_i18n("Y-m-d H:i:s");
 
 $args = array(
     'post_type' => 'uritused',
+    'posts_per_page' => -1,
     'meta_query'=> array(
         array(
           'key' => 'datestart',
@@ -80,7 +81,8 @@ function createNewPostUrl($post_type){
     $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
     return $adminurl = admin_url($create_new_post_url_slug);
 }
-function returnUritusedUrl(){
+
+function returnKoikUritusedUrl(){
     $url =  get_site_url() . '/koik-uritused';
     return $url;
 }

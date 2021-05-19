@@ -1,11 +1,9 @@
 {% extends "base.twig" %}
 {% block content %}
-<div class="section h-padding-top-xxl h-padding-bottom-lg">
-<h2 class="privacy-title h-padding-bottom-lg">{{post.title}}</h2>
-
-<div class="privacy-container">
-    {{post.get_content}}
-
-</div>
-</div>
+    <div class="section h-padding-top-xxl h-padding-bottom-lg">
+        <h2 class="privacy-title h-padding-bottom-lg">{{post.title}}</h2>
+        <div class="privacy-container">
+            {{ post.get_content }}
+        </div>
+    </div>
 {% endblock %}
