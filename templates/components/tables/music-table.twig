@@ -105,7 +105,7 @@
 					{% if song.song_file_2 %}
 						<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file )}}">
 
-							<a  href="#" data-value="{{ function('retrieve_file_url', song.song_file) }}" class="clickable-link  h-margin-bottom-sm repertoire-play-button">
+							<a  href="#" data-value="{{ function('retrieve_file_url', song.song_file) }}" class="clickable-link  h-margin-bottom-sm repertoire-play-button open-new-window">
 								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 								Mängi
 							</a>

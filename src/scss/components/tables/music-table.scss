@@ -89,11 +89,8 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    & audio {
-        width: 100%;
-    }
-}
 
-audio::-webkit-media-controls-timeline {
-padding: 20px;
+    & #repertoireAudio {
+        width: 100%;
+    } 
 }
