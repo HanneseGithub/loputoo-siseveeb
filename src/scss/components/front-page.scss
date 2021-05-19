@@ -33,10 +33,10 @@
 }
 .all-event-button {
     text-decoration: none;
-    color:$color-primary-blue;
     display: flex;
     align-items: center;
     transition: opacity 0.3s;
+    color:$color-light-blue-link;
 
     &:hover {
         opacity: 0.8;

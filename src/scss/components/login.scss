@@ -242,6 +242,14 @@
     color: $color-primary-blue
 }
 
+.privacy-policy-page-link {
+    display: none;
+}
+
+.button.wp-generate-pw.hide-if-no-js {
+    display: none;
+}
+
 @media (max-width: 500px) {
     .login {
         background: url(../../images/login-bg-vertical.png);
