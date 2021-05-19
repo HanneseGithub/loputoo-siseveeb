@@ -83,6 +83,20 @@
             &:hover {
                 background-color: $color-light-gray;
             }
+
+            &.author-page-birthday {
+                padding: 5px 0 5px 4px;
+            }
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+
+            &[type=number] {
+                -moz-appearance: textfield;
+            }
         }
         svg {
             margin-left: 10px;

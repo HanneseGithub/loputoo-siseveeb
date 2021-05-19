@@ -1,8 +1,6 @@
 <?php
 global $wp_query;
-
-acf_form_head();
-acf_enqueue_uploader();
+global $wp_roles;
 
 $context = Timber::context();
 
@@ -16,88 +14,160 @@ $authorCanSeePersonalId = $bookie || $admin;
 
 // Author page - user information submit.
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
-    $userID = $_POST['userID'];
+    // Validate nonce
+    if (isset($_POST['uform_generate_nonce']) && wp_verify_nonce($_POST['uform_generate_nonce'], 'submit_user_data')) {
+        $userID = $_POST['userID'];
 
-    // Wordpress fields
-    $incomingFirstName = $_POST['firstName'];
-    $incomingLastName = $_POST['lastName'];
-    $incomingEmailFrom = esc_attr($_POST['email']);
+        // Wordpress fields
+        $incomingFirstName = sanitize_text_field($_POST['first_name']);
+        $incomingLastName = sanitize_text_field($_POST['last_name']);
+        $incomingEmail = sanitize_email($_POST['email']);
 
-    // ACF fields
-    $incomingPersonalId = $_POST['personal_id'];
-    $incomingPhoneNumber = $_POST['phone_number'];
-    $incomingVoice = $_POST['voice'];
-    $incomingVoicePitch = $_POST['voice_pitch'];
-    $incomingIsStudent = $_POST['is_student'];
-    $incomingIsStudentOrGraduate = $_POST['is_student_or_graduate'];
-    $incomingIsNewSinger = $_POST['is_new_singer'];
-    $incomingTitle = $_POST['title'];
-    $incomingRole = $_POST['role'];
-    $incomingBirthday = $_POST['birthday'];
+        // ACF fields that every user can edit
+        $incomingPersonalId = sanitize_text_field($_POST['personal_id']);
+        $incomingPhoneNumber = sanitize_text_field($_POST['phone_number']);
+        $incomingBirthday = sanitize_text_field($_POST['birthday']);
+        $incomingIsStudent = sanitize_text_field($_POST['is_student']);
+        $incomingIsStudentOrGraduate = sanitize_text_field($_POST['is_student_or_graduate']);
 
-    if (isset($userID)) {
-        $user = get_user_by('ID', $userID);
-
-        $userfield = 'user_' . $userID;
-
-        // Get user's data before the potential change.
-        $currentFirstName = $user->first_name;
-        $currentLastName = $user->last_name;
-        $currentEmail = $user->user_email;
-
-        $currentPersonalId = $user->personal_id;
-        $currentPhoneNumber = $user->phone_number;
-        $currentVoice = $user->voice;
-        $currentVoicePitch = $user->voice_pitch;
-        $currentIsStudent = $user->is_student;
-        $currentIsStudentOrGraduate = $user->is_student_or_graduate;
-        $currentIsNewSinger = $user->is_new_singer;
-        $currentTitle = $user->title;
-        $currentRole = implode(", ", $user->roles);
-        $currentBirthday = $user->birthday;
-
-        // Try updating field. IDEA: If it fails push it to errors array and show it in toast.
-
-        // NÄIDE:
-        $isInSchoolUpdate = update_field('field_6093c54e2b67d', $isInSchool, $userfield);
-
-        if ($isInSchoolUpdate) {
-            var_dump('Korras');
-            die();
+        // ACF fields that specific roles can edit
+        if (isset($_POST['voice'])) {
+            $incomingVoice = sanitize_text_field($_POST['voice']);
         }
-    }
+        if (isset($_POST['voice_pitch'])) {
+            $incomingVoicePitch = sanitize_text_field($_POST['voice_pitch']);
+        }
+        if (isset($_POST['is_new_singer'])) {
+            $incomingIsNewSinger = sanitize_text_field($_POST['is_new_singer']);
+        }
+        if(isset($_POST['title'])) {
+            $incomingTitle = sanitize_text_field($_POST['title']);
+        }
+        if(isset($_POST['role'])) {
+            $incomingRole = sanitize_text_field($_POST['role']);
+        }
 
-    // TEE ÜMBER user_email põhjal üleval funktsioonis. JUST IN CASE.
-    if (isset($changeEmailTo)) {
-        // Check if user wants to change account's email.
-        if ($changeEmailFrom != $changeEmailTo) {
-            // Check if new already exists on the site.
-            if (email_exists($changeEmailTo)) {
-                $context['emailAlreadyExists'] = true;
-            } else {
-                $changeEmailFrom == $changeEmailTo;
+        if (isset($userID)) {
+            $user = get_user_by('ID', $userID);
+
+            $userfield = 'user_' . $userID;
+
+            // Get user's data before the potential change.
+            $currentFirstName = $user->first_name;
+            $currentLastName = $user->last_name;
+            $currentEmail = $user->user_email;
+
+            $currentPersonalId = $user->personal_id;
+            $currentPhoneNumber = $user->phone_number;
+            $currentBirthday = $user->birthday;
+            $currentIsStudent = $user->is_student;
+            $currentIsStudentOrGraduate = $user->is_student_or_graduate;
+
+            $currentVoice = $user->voice;
+            $currentVoicePitch = $user->voice_pitch;
+            $currentIsNewSinger = $user->is_new_singer;
+            $currentTitle = $user->title;
+            $currentRole = implode(", ", $user->roles);
+
+            // Try updating fields. IDEA: If it fails push it to errors array and show it in toast.
+
+            // Try updating first name field
+            if ($currentFirstName != $incomingFirstName && isset($incomingFirstName)) {
+                $updatingFirstName = wp_update_user(array(
+                    'ID' => $userID,
+                    'first_name' => $incomingFirstName
+                ));
+            }
+
+            // Try updating last name field
+            if ($currentLastName != $incomingLastName && isset($incomingLastName)) {
+                $updatingLastName = wp_update_user(array(
+                    'ID' => $userID,
+                    'last_name' => $incomingLastName
+                ));
+            }
+
+            // Try updating email field
+            if ($currentEmail != $incomingEmail && isset($incomingEmail)) {
+                if (email_exists($incomingEmail)) {
+                    // $context['emailAlreadyExists'] = true;
+                } else {
+                    $updatingEmail = wp_update_user(array(
+                        'ID' => $userID,
+                        'user_email' => $incomingEmail
+                    ));
+                }
+            }
+
+            // Try updating personal id field
+            if ($currentPersonalId != $incomingPersonalId && isset($incomingPersonalId)) {
+                $updatingPersonalId = update_field('field_607d4d0b3b47e', $incomingPersonalId, $userfield);
+
+                // if ($updatingPersonalId) {
+                    // Update õnnestus
+                // }
+            }
+
+            // Try updating phone number field
+            if ($currentPhoneNumber != $incomingPhoneNumber && isset($incomingPhoneNumber)) {
+                $updatingPhoneNumber = update_field('field_6093c62793e61', $incomingPhoneNumber, $userfield);
+            }
+
+            // Try updating birthday field
+            if ($currentBirthday != $incomingBirthday && isset($incomingBirthday)) {
+                $updatingBirthday = update_field('field_60916d22a7bca', $incomingBirthday, $userfield);
+            }
+
+            // Try updating student field
+            if ($currentIsStudent != $incomingIsStudent && isset($incomingIsStudent)) {
+                $updatingIsStudent = update_field('field_609a50005a409', $incomingIsStudent, $userfield);
+            }
+
+            // Try updating student or graduate field
+            if ($currentIsStudentOrGraduate != $incomingIsStudentOrGraduate && isset($incomingIsStudentOrGraduate)) {
+                $updatingIsStudentOrGraduate = update_field('field_6093c54e2b67d', $incomingIsStudentOrGraduate, $userfield);
+            }
+
+            // Try updating voice field
+            if (isset($incomingVoice) && $currentVoice != $incomingVoice) {
+                $updatingVoice = update_field('field_60916c26a42a7', $incomingVoice, $userfield);
+            }
+
+            // Try updating voice pitch field
+            if (isset($incomingVoicePitch) && $currentVoicePitch != $incomingVoicePitch ) {
+                $updatingVoicePitch = update_field('field_60916fb424156', $incomingVoicePitch, $userfield);
+            }
+
+            // Try updating new singer field
+            if (isset($incomingIsNewSinger) && $currentIsNewSinger != $incomingIsNewSinger) {
+                $updatingIsNewSinger = update_field('field_60916e943fcaa', $incomingIsNewSinger, $userfield);
+            }
+
+            // Try updating title field
+            if (isset($incomingTitle) && $currentTitle != $incomingTitle) {
+                $updatingTitle = update_field('field_606d5009b2f7f', $incomingTitle, $userfield);
+            }
+
+            // Try updating role field
+            if (isset($incomingRole) && $currentRole != $incomingRole) {
+                foreach ($wp_roles->roles as $key => $role) {
+                    if ($incomingRole == $key) {
+                        $updatingRole = wp_update_user(array(
+                            'ID' => $userID,
+                            'role' => $incomingRole
+                        ));
+                    }
+                }
             }
         }
     }
 
-    // Update user's phone number field.
-    update_field('field_6093c62793e61', $phoneNumber, $userfield);
-    // Update user's tudeng field.
-    update_field('field_6093c54e2b67d', $isInSchool, $userfield);
 
-    // Update user's WordPress related fields.
-    $user_data = wp_update_user(array(
-        'ID' => $userID,
-        'first_name' => $changeFirstNameTo,
-        'last_name' => $changeLastNameTo,
-        'user_email' => esc_attr( $_POST['email'] )
-    ));
-
-    if ( is_wp_error( $user_data ) ) {
-        $context['anErrorOccuredOnPersonalInfoUpdating'] = true;
-    } else {
-        $context['userChangedHisPersonalInfo'] = true;
-    }
+    // if ( is_wp_error( $user_data ) ) {
+    //     $context['anErrorOccuredOnPersonalInfoUpdating'] = true;
+    // } else {
+    //     $context['userChangedHisPersonalInfo'] = true;
+    // }
 }
 
 // Author page - user new password submit.
@@ -131,6 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserPassword'])) 
 $context['authorCanEditUser'] = $authorCanEditUser;
 $context['isAdministrator'] = $admin;
 $context['authorCanSeePersonalId'] = $authorCanSeePersonalId;
+$context['listOfRoles'] = $wp_roles->get_names();
 $context['posts'] = new Timber\PostQuery();
 if ( isset( $wp_query->query_vars['author'] ) ) {
 	$author            = new Timber\User( $wp_query->query_vars['author'] );
