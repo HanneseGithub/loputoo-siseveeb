@@ -139,33 +139,67 @@
     }
 }
 
-.editUserinfoModal {
-    .inputWrapper {
-        border-bottom: 1px solid $color-gray;
-        margin-bottom: 16px;
+.author-profile__password-edit-modal {
+    max-width: 350px;
 
+    & .author-password-edit__input-wrapper {
         svg {
-            height: 24px;
+            position: absolute;
+            top: 8px;
+            right: 4px;
+
+            font-size: 16px;
+            color: $color-primary-blue;
         }
 
         label {
-            color: $color-dark-gray;
+            color: $color-primary-blue;
             display: block;
         }
 
-        .inputHolder {
-            display: flex;
-            justify-content: space-between;
+        .author-password-edit__input-with-icon {
+            position: relative;
 
             input {
-                padding: 5px;
+                padding: 4px;
                 border: none;
-                width: 90%;
+                border-bottom: 1px solid $color-gray;
+                width: 100%;
 
                 &:active {
                     border: none;
                 }
             }
+        }
+    }
+
+    & .author-password-edit__show-passwords-label {
+        color: $color-primary-blue;
+    }
+
+    & .author-password-edit__button {
+        padding: 8px 24px;
+
+        font-size: $font-size-small;
+        line-height: $line-height-small;
+
+        border:none;
+        border-radius: 5px;
+
+        color: $color-white;
+        background-color: $color-primary-blue;
+
+        text-decoration: none;
+        text-transform: uppercase;
+
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: $color-primary-blue-hover;
+        }
+
+        @media (max-width: $bp-xs-min) {
+            width: 100%;
         }
     }
 }
