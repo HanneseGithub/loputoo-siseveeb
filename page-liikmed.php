@@ -48,7 +48,7 @@ $conductor = current_user_can('conductor');
 $secretary = current_user_can('secretary');
 
 $canSeePersonalId = $administrator || $president || $conductor || $bookie;
-$canEditUserChoirRoles = $administrator;
+$canEditUserChoirRoles = $administrator || $conductor || $president;
 $canSendGroupEmails = $administrator || $bookie || $president || $conductor;
 $canAddEvents = $administrator || $secretary || $conductor;
 
@@ -60,7 +60,6 @@ if( isset($_GET['updated']) && $_GET['updated'] == 'true' ) {
 
 $context['users'] = $users;
 $context['isABookie'] = $bookie;
-$context['isAdministrator'] = $administrator;
 $context['canSeePersonalId'] = $canSeePersonalId;
 $context['canEditUserChoirRoles'] = $canEditUserChoirRoles;
 $context['canSendGroupEmails'] = $canSendGroupEmails;
