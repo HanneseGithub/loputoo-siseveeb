@@ -47,7 +47,7 @@
         </td>
       {% endif %}
       <td>
-        <img class="users-table__avatar" src="{{ function('get_avatar_url', user.ID) }}">
+        {{ function('get_avatar', user.ID, '40' ) }}
       </td>
       <td>
         <a href="{{ function('get_author_url', user.ID) }}" class="open-new-window">

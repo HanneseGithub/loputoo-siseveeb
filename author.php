@@ -1,6 +1,19 @@
 <?php
 global $wp_query;
 global $wp_roles;
+acf_form_head();
+
+// Form for editing user avatar.
+function editUsersAvatar($userID){
+    $options = array(
+        'post_id' => 'user_' . $userID,
+        'fields' => array('field_60a6b62c55846'),
+        'submit_value' => __("Salvesta profiilipilt", 'acf'),
+        'updated_message' => false,
+        'html_submit_button'  => '<input type="submit" class="author-submit-button h-margin-top-lg" value="%s" />',
+    );
+    acf_form($options);
+}
 
 $context = Timber::context();
 

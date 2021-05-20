@@ -16,8 +16,11 @@
 		</div>
 		<div class="userinfo-container">
 			<div class="author-page-avatar h-margin-bottom-lg">
-				<img src="{{ function('get_avatar_url', author.ID) }}">
+				{{ function('get_avatar', author.ID, '160') }}
 			</div>
+			{% if current_user.ID == author.ID or isAdministrator %}
+				{% include "components/author/author-profile-edit-avatar.twig" %}
+			{% endif %}
 			<div class="author-page-user-info">
 				{% include "components/author/author-profile-info.twig" %}
 			</div>

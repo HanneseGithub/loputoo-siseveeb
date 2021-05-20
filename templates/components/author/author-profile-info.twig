@@ -249,7 +249,7 @@
 	<input type="hidden" value="{{ author.ID }}" name="userID">
 	<input type="hidden" value="{{ author.user_email }}" name="currentEmail">
 	<div class="button-center h-padding-top-lg">
-		<input name="editUserInfo" type="submit" value="Muuda infot" class="author-submit-button">
+		<input name="editUserInfo" type="submit" value="Salvesta andmed" class="author-submit-button">
 	</div>
 	{{ function('wp_nonce_field', 'submit_user_data', 'uform_generate_nonce' )}}
 </form>
