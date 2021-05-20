@@ -138,7 +138,9 @@
     @include bp(sm-min) {
         right: auto;
         left: 0;
+
         width: 100%;
+        min-width: 124px;
     }
 }
 
