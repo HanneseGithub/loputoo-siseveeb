@@ -11,17 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submitGroupEmail'])) {
     $senderName = $_POST['sender-name'];
     $senderRole = $_POST['sender-role'];
     $recievers = $_POST['recievers'];
-    $headers[] = 'From: Naiskoori juhatus <' . $websiteEmail . '>';
-    $headers[] = 'Reply-To: Naiskoori juhatus <' . $websiteEmail . '>';
 
     $message = $_POST['message'];
     $messageToUs = $senderName . " saatis liikmetele järgneva e-maili:" . "\n\n" . $message . "\n\n" . ". E-mail saadeti järgmistele isikutele: " . $recievers;
     $messageToFrontend = "E-maili saatmine õnnestus!";
 
     // Send email to website's inbox.
-    wp_mail($websiteEmail,$subject,$messageToUs, $headers);
+    wp_mail($websiteEmail,$subject,$messageToUs);
     // Send email to selected people's inbox.
-    wp_mail($recievers, $subject, $message, $headers);
+    wp_mail($recievers, $subject, $message);
 }
 
 // Form for editing user info in the users view.
