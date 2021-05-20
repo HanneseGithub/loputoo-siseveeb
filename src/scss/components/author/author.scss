@@ -117,24 +117,27 @@
 }
 
 .author-submit-button {
-    color: $color-white;
-    text-decoration: none;
-    background-color: $color-primary-blue;
-    padding: 8px 24px 8px 24px;
+    padding: 8px 24px;
+
+    font-size: $font-size-small;
+    line-height: $line-height-small;
+
+    border:none;
     border-radius: 5px;
+
+    color: $color-white;
+    background-color: $color-primary-blue;
+
+    text-decoration: none;
     text-transform: uppercase;
-    font-size: 14px;
-    line-height: 20px;
-    border: none;
-    transition: 0.8s;
-    pointer-events: all;
-    cursor: pointer;
+
+    transition: background-color 0.3s;
 
     &:hover {
         background-color: $color-primary-blue-hover;
     }
 
-    @media (max-width: $bp-sm-min) {
+    @media (max-width: $bp-xs-min) {
         width: 100%;
     }
 }
@@ -175,31 +178,5 @@
 
     & .author-password-edit__show-passwords-label {
         color: $color-primary-blue;
-    }
-
-    & .author-password-edit__button {
-        padding: 8px 24px;
-
-        font-size: $font-size-small;
-        line-height: $line-height-small;
-
-        border:none;
-        border-radius: 5px;
-
-        color: $color-white;
-        background-color: $color-primary-blue;
-
-        text-decoration: none;
-        text-transform: uppercase;
-
-        transition: background-color 0.3s;
-
-        &:hover {
-            background-color: $color-primary-blue-hover;
-        }
-
-        @media (max-width: $bp-xs-min) {
-            width: 100%;
-        }
     }
 }
