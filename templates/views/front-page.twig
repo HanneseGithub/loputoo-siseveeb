@@ -7,7 +7,7 @@
         {% if teated is empty%}
             <p class="no-posts">Hetkel pole uusi teateid</p>
         {% else %}
-            <div class="home-notifications">
+            <div class="home-notifications h-margin-top-lg">
                 <div class="home-notifications-container h-margin-bottom-sm">
                     <div class="home-notifcations-border"></div>
                     <div class="notify-text-wrapper">
@@ -61,7 +61,11 @@
     </div>
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
     <div class="webpage-heading-container">
-    <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
+        {% if canAddNotifications %}
+        <h2 class="h2--with-icon h-margin-bottom-lg">Lähemad üritused</h2>
+        {% else %}
+        <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
+    {% endif %}
     <a class="all-event-button h-margin-bottom-lg" href="{{ function('returnUritusedUrl') }}"><p>Tulevad üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
 </div>
     <div class="front-page-events-container">
