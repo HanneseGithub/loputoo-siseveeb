@@ -181,29 +181,31 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
 
 // Author page - user new password submit.
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserPassword'])) {
-    $oldPassword = $_POST['oldPassword'];
-    $newPassword1 = $_POST['newPassword1'];
-    $newPassword2 = $_POST['newPassword2'];
+    if (isset($_POST['oldPassword']) && isset($_POST['newPassword1']) && isset($_POST['newPassword2'])) {
+        $oldPassword = $_POST['oldPassword'];
+        $newPassword1 = $_POST['newPassword1'];
+        $newPassword2 = $_POST['newPassword2'];
 
-    $userID = $_POST['userID'];
-    $user = get_user_by( 'ID', $userID );
-    $pass = $oldPassword;
-    $hash =  $user->data->user_pass;
-    $oldPasswordIsCorrect = wp_check_password( $pass, $hash, $userID );
+        if ($newPassword1 == $newPassword2) {
+            $userID = $_POST['userID'];
+            $user = get_user_by( 'ID', $userID );
 
-    if ( $user && $oldPasswordIsCorrect ) {
-        if($newPassword1 == $newPassword2){
-            // Set new password and immediatly log in again.
-            wp_set_password($newPassword1, $userID);
-            wp_set_auth_cookie($user->ID);
-            wp_set_current_user($user->ID);
-            do_action('wp_login', $user->user_login, $user);
-            $context['successfulInfoUpdate'] = true;
-        }else{
+            $oldPasswordHash =  $user->data->user_pass;
+            $oldPasswordIsCorrect = wp_check_password($oldPassword, $oldPasswordHash, $userID);
+
+            if ( $user && $oldPasswordIsCorrect ) {
+                // Set new password and immediatly log in again.
+                wp_set_password($newPassword1, $userID);
+                wp_set_auth_cookie($user->ID);
+                wp_set_current_user($user->ID);
+                do_action('wp_login', $user->user_login, $user);
+                $context['successfulInfoUpdate'] = true;
+            } else {
+                $context['badPassword'] = true;
+            }
+        } else {
             $context['passwordsDidNotMatch'] = true;
         }
-    } else {
-        $context['badPassword'] = true;
     }
 }
 
