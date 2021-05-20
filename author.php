@@ -40,6 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
         if (isset($_POST['is_new_singer'])) {
             $incomingIsNewSinger = sanitize_text_field($_POST['is_new_singer']);
         }
+        if (isset($_POST['in_reserve'])) {
+            $incomingInReserve = sanitize_text_field($_POST['in_reserve']);
+        }
         if(isset($_POST['title'])) {
             $incomingTitle = sanitize_text_field($_POST['title']);
         }
@@ -66,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             $currentVoice = $user->voice;
             $currentVoicePitch = $user->voice_pitch;
             $currentIsNewSinger = $user->is_new_singer;
+            $currentInReserve = $user->in_reserve;
             $currentTitle = $user->title;
             $currentRole = implode(", ", $user->roles);
 
@@ -141,6 +145,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             // Try updating new singer field
             if (isset($incomingIsNewSinger) && $currentIsNewSinger != $incomingIsNewSinger) {
                 $updatingIsNewSinger = update_field('field_60916e943fcaa', $incomingIsNewSinger, $userfield);
+            }
+
+            // Try updating in reserve field
+            if (isset($incomingInReserve) && $currentInReserve != $incomingInReserve) {
+                $updatingInReserve = update_field('field_60917028760e7', $incomingInReserve, $userfield);
             }
 
             // Try updating title field

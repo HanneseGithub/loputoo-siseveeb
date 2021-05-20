@@ -182,6 +182,23 @@
 		</tr>
 		<tr>
 			<td class="author-page-table-label">
+				Reservlane
+			</td>
+			{% if isAdministrator %}
+				<td class="author-page-select-input">
+					<select class="author-page-select" data-current-value="{{ author.in_reserve }}" name="in_reserve">
+						<option value="Ei">Ei</option>
+						<option value="Jah">Jah</option>
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.in_reserve }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
 				Tiitel
 			</td>
 			{% if isAdministrator %}
