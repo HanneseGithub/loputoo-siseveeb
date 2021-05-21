@@ -51,7 +51,11 @@
       </td>
       <td>
         <a href="{{ function('get_author_url', user.ID) }}" class="open-new-window">
-          {{ user.display_name }}
+          {% if user.first_name is not empty and user.last_name is not empty %}
+            {{ user.first_name ~ ' ' ~ user.last_name }}
+          {% else %}
+            {{ user.display_name }}
+          {% endif %}
         </a>
       </td>
       {% if canSeePersonalId %}
