@@ -1,3 +1,22 @@
+.single-repertoire-heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+
+    & .single-repertoire-heading__title {
+        width: 100%;
+    }
+
+    & .post-edit-link-mobile {
+        @media (max-width:$bp-sm-min){
+            font-size: 20px;
+            top: 6px;
+        }
+    }
+}
+
 .single-repertoire-song-post-info{
     display: flex;
     justify-content: space-between;
@@ -26,7 +45,7 @@
             @media (max-width:$bp-md-min) {
                 flex-direction:column-reverse;
                 justify-content: center;
-            } 
+            }
         }
         div{
             float: right;
@@ -100,7 +119,7 @@
 .acf-form-submit {
     display: flex;
     justify-content: center;
-  
+
 }
 .acf-form {
     max-height: 500px;
