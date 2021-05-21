@@ -3,16 +3,24 @@
 {% block content %}
 	<div class="section h-padding-top-xxl h-padding-bottom-xxl">
 		<div class="webpage-heading-container h-margin-bottom-lg">
-			<h2 class="h2">Minu andmed</h2>
-			{# Only the logged in user can edit his/her password #}
+			{% if current_user.ID == author.ID %}
+				<h2 class="h2">Minu andmed</h2>
+			{% elseif author.first_name is not empty and author.last_name is not empty %}
+				<h2 class="h2">{{author.first_name ~ ' ' ~ author.last_name}} andmed</h2>
+			{% else %}
+				<h2 class="h2">{{author.display_name}} andmed</h2>
+			{% endif %}
 			{% if current_user.ID == author.ID %}
 				{% include "components/author/author-profile-edit-password.twig" %}
 			{% endif %}
 		</div>
 		<div class="userinfo-container">
 			<div class="author-page-avatar h-margin-bottom-lg">
-				<img src="{{ function('get_avatar_url', author.ID) }}">
+				{{ function('get_avatar', author.ID, '160') }}
 			</div>
+			{% if current_user.ID == author.ID or isAdministrator %}
+				{% include "components/author/author-profile-edit-avatar.twig" %}
+			{% endif %}
 			<div class="author-page-user-info">
 				{% include "components/author/author-profile-info.twig" %}
 			</div>
@@ -55,6 +63,4 @@
 				notifyManagerThatUserinfoWasAFailure();
 			</script>
 		{% endif %}
-
-
 	{% endblock %}

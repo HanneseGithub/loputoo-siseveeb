@@ -12,3 +12,12 @@ function showPasswordFields() {
     z.type = "password";
   }
 }
+
+jQuery(document).ready(function( $ ) {
+  if ($(".author-page-user-info".length)) {
+    $(".author-page-select").each(function() {
+      let currentValue = $(this).data("current-value");
+      $(this).val(currentValue)
+    });
+  }
+});

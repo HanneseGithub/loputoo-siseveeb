@@ -1,16 +1,3 @@
-.users-table__avatar {
-    .users-table & {
-        border-radius: 50%;
-        height: 24px;
-
-        vertical-align: middle;
-
-        @include bp(sm-min) {
-            height: 40px;
-        }
-    }
-}
-
 .users-table {
     & .naiskoor-table__body td {
         height: 44px
@@ -21,6 +8,19 @@
     }
     & a{
         text-decoration: none;
+    }
+
+    & img {
+        border-radius: 50%;
+        height: 24px;
+        width: 24px;
+
+        vertical-align: middle;
+
+        @include bp(sm-min) {
+            height: 40px;
+            width: 40px;
+        }
     }
 }
 

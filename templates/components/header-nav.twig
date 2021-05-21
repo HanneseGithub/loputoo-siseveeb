@@ -20,7 +20,7 @@
 
   <div class="header-nav__user-info">
     <div class="header-nav__user-avatar-wrapper">
-      <img class="header-nav__user-avatar" src="{{ current_user.avatar({size: 24}) }}" alt="User avatar">
+      {{ function('get_avatar', current_user.ID, '40' ) }}
     </div>
     <div class="header-nav__personal-info">
       <div class="header-nav__username">

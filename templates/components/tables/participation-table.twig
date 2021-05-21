@@ -20,7 +20,7 @@
   {% for user in users %}
     <tr>
       <td>
-        <img class="participation-table__avatar" src="{{ function('get_avatar_url', user.ID) }}">
+        {{ function('get_avatar', user.ID, '40' ) }}
       </td>
       <td>
         {% if user.first_name is not empty and user.last_name is not empty %}

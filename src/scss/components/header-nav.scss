@@ -91,16 +91,20 @@
 
 .header-nav__user-avatar-wrapper {
     display: flex;
-}
 
-.header-nav__user-avatar {
-    border-radius: 50%;
+    & img {
+        height: 24px;
+        width: 24px;
 
-    @include bp(sm-min) {
-        height: 40px;
-        width: 40px;
+        border-radius: 50%;
 
-        margin-right: 4px;
+
+        @include bp(sm-min) {
+            height: 40px;
+            width: 40px;
+
+            margin-right: 4px;
+        }
     }
 }
 

@@ -6,14 +6,14 @@
 			<td class="author-page-table-label">
 			Eesnimi
 			</td>
-			{% if  isAdministrator or current_user.ID == author.ID %}
+			{% if isAdministrator or current_user.ID == author.ID %}
 				<td>
-					<input type="text" name="firstName" value="{{ author.first_name }}">
+					<input autocomplete="off" required type="text" name="first_name" value="{{ author.first_name }}">
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" name="firstName" value="{{ author.first_name }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.first_name }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -23,12 +23,27 @@
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td>
-					<input  type="text" name="lastName" value="{{ author.last_name}}">
+					<input autocomplete="off" required type="text" name="last_name" value="{{ author.last_name }}">
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" name="lastName" value="{{ author.last_name}}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.last_name }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				E-mail
+			</td>
+			{% if current_user.ID == author.ID or isAdministrator %}
+				<td>
+					<input autocomplete="off" required type="email" name="email" value="{{ author.user_email }}">
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="email" value="{{ author.user_email }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -37,147 +52,30 @@
 				<td class="author-page-table-label">
 					Isikukood
 				</td>
-
 				{% if current_user.ID == author.ID or isAdministrator %}
 					<td>
-						<input type="text" name="personalId" value="{{ author.personal_id }}">
+						<input autocomplete="off" required type="number" name="personal_id" value="{{ author.personal_id }}">
 						{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 					</td>
 				{% elseif authorCanSeePersonalId %}
 					<td>
-						<input class="author-input-disabled" type="text" name="personalId" value="{{ author.personal_id }}" disabled>
+						<input class="author-input-disabled" type="text" value="{{ author.personal_id }}" disabled>
 					</td>
 				{% endif %}
 			</tr>
 		{% endif %}
 		<tr>
 			<td class="author-page-table-label">
-				E-mail
-			</td>
-			{% if current_user.ID == author.ID or isAdministrator %}
-				<td>
-					<input type="email" name="email" value="{{ author.user_email }}">
-					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
-				</td>
-			{% else %}
-				<td>
-					<input class="author-input-disabled" type="email" name="email" value="{{ author.user_email }}" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
 				Telefon
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td>
-					<input type="text" name="phoneNumber" value="{{ author.phone_number }}">
-					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
-				</td>
-			{% else %}
-
-				<td>
-					<input class="author-input-disabled" type="text" name="phoneNumber" value="{{ author.phone_number }}" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
-				Häälerühm
-			</td>
-			{% if isAdministrator %}
-				<td class="author-page-select-input">
-					<select name="voice" value="{{author.voice}}">
-						<option value="I sopran">I sopran</option>
-						<option value="II sopran">II sopran</option>
-						<option value="I alt">I alt</option>
-						<option value="II alt">II alt</option>
-					</select>
-				</td>
-				{% else %}
-				<td>
-					<input class="author-input-disabled" type="text" name="voice" value="{{ author.voice }}" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
-				Hääle kõrgus
-			</td>
-			{% if isAdministrator %}
-				<td class="author-page-select-input">
-					<select name="voice_pitch" value="{{author.voice_pitch}}">
-						<option value="Kõrge">Kõrge</option>
-						<option value="Madal">Madal</option>
-					</select>
-				</td>
-			{% else %}
-				<td>
-					<input class="author-input-disabled" type="text" name="voice_pitch" value="{{ author.voice_pitch }}" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
-				TÜ tudeng või vilistlane
-			</td>
-			{% if isAdministrator %}
-				<td class="author-page-select-input">
-					<select id="element" name="isInSchool" value="{{ author.is_student_or_graduate }}">
-						<option value="Jah">Jah</option>
-						<option value="Ei">Ei</option>
-					</select>
-				</td>
-			{% else %}
-				<td>
-					<input class="author-input-disabled" type="text" name="isInSchool" value="{{ author.is_student_or_graduate }}" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
-				Noorlaulja
-			</td>
-			{% if isAdministrator %}
-				<td class="author-page-select-input">
-					<select type="select" value="{{ author.is_new_singer }}">
-						<option value="Ei">Ei</option>
-						<option value="Jah">Jah</option>
-					</select>
-				</td>
-			{% else %}
-				<td>
-					<input class="author-input-disabled" type="text" value="ei" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
-				Tiitel
-			</td>
-			{% if isAdministrator %}
-				<td>
-					<input type="text" value=" {{ author.title }}">
+					<input autocomplete="off" required type="number" name="phone_number" value="{{ author.phone_number }}">
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" value=" {{ author.title }}" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
-				Roll veebilehel
-			</td>
-			{% if isAdministrator %}
-				<td>
-					<input type="text" value="{{ author.roles|list }}">
-					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
-				</td>
-			{% else %}
-				<td>
-					<input class="author-input-disabled" type="text" value="{{ author.roles|list }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.phone_number }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -187,12 +85,154 @@
 			</td>
 			{% if isAdministrator or current_user.ID == author.ID  %}
 				<td>
-					<input placeholder="nt. 31.12.1989" type="text" value="{{author.birthday | date("d.m.Y")}}">
+					<input class="author-page-birthday" required type="date" name="birthday" value="{{ author.birthday | date("Y-m-d") }}">
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.birthday | date("d.m.Y") }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Tudeng
+			</td>
+			{% if current_user.ID == author.ID or isAdministrator %}
+				<td class="author-page-select-input">
+					<select class="author-page-select" data-current-value="{{ author.is_student }}" name="is_student">
+						<option value="Jah">Jah</option>
+						<option value="Ei">Ei</option>
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.is_student }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				TÜ tudeng või vilistlane
+			</td>
+			{% if current_user.ID == author.ID or isAdministrator %}
+				<td class="author-page-select-input">
+					<select class="author-page-select" data-current-value="{{ author.is_student_or_graduate }}" name="is_student_or_graduate">
+						<option value="Jah">Jah</option>
+						<option value="Ei">Ei</option>
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.is_student_or_graduate }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Häälerühm
+			</td>
+			{% if isAdministrator %}
+				<td class="author-page-select-input">
+					<select class="author-page-select" data-current-value="{{ author.voice }}" name="voice">
+						<option value="I sopran">I sopran</option>
+						<option value="II sopran">II sopran</option>
+						<option value="I alt">I alt</option>
+						<option value="II alt">II alt</option>
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.voice }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Hääle kõrgus
+			</td>
+			{% if isAdministrator %}
+				<td class="author-page-select-input">
+					<select class="author-page-select" data-current-value="{{ author.voice_pitch }}" name="voice_pitch">
+						<option value="Kõrge">Kõrge</option>
+						<option value="Madal">Madal</option>
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.voice_pitch }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Noorlaulja
+			</td>
+			{% if isAdministrator %}
+				<td class="author-page-select-input">
+					<select class="author-page-select" data-current-value="{{ author.is_new_singer }}" name="is_new_singer">
+						<option value="Ei">Ei</option>
+						<option value="Jah">Jah</option>
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.is_new_singer }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Reservlane
+			</td>
+			{% if isAdministrator %}
+				<td class="author-page-select-input">
+					<select class="author-page-select" data-current-value="{{ author.in_reserve }}" name="in_reserve">
+						<option value="Ei">Ei</option>
+						<option value="Jah">Jah</option>
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.in_reserve }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Tiitel
+			</td>
+			{% if isAdministrator %}
+				<td>
+					<input autocomplete="off" required type="text" name="title" value="{{ author.title }}">
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" value="{{author.birthday | date("d.m.Y")}}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.title }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Roll veebilehel
+			</td>
+			{% if isAdministrator and current_user.ID != author.ID %}
+				<td>
+					<select name="role">
+						{% set authorRole = author.roles | list %}
+						{% for key, role in listOfRoles %}
+							<option
+								{% if role == authorRole %}
+									selected
+								{% endif %}
+								value="{{ key }}">{{ role }}
+							</option>
+						{% endfor %}
+					</select>
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.roles | list }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -209,7 +249,8 @@
 	<input type="hidden" value="{{ author.ID }}" name="userID">
 	<input type="hidden" value="{{ author.user_email }}" name="currentEmail">
 	<div class="button-center h-padding-top-lg">
-		<input name="editUserInfo" type="submit" value="Muuda infot" class="author-submit-button">
+		<input name="editUserInfo" type="submit" value="Salvesta andmed" class="author-submit-button">
 	</div>
+	{{ function('wp_nonce_field', 'submit_user_data', 'uform_generate_nonce' )}}
 </form>
 {% endif %}
