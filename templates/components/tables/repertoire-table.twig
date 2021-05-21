@@ -99,8 +99,8 @@
 			<td>
 				{% if song.song_file %}
 					{% if song.song_file_2 %}
-						<span class="h-display-flex music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file )}}">
-							<a href="{{ function('retrieve_file_url', song.song_file) }}" class="open-new-window clickable-link h-margin-bottom-sm">
+						<span class="h-display-flex music-table-notes-separator h-margin-bottom-sm " title="{{ function('get_the_title', song.song_file )}}">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file) }}" class="open-new-window clickable-link h-margin-bottom-sm repertoire-play-button">
 								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 								Mängi
 							</a>
@@ -111,7 +111,7 @@
 						</span>
 					{% else %}
 						<span class="h-display-flex" title="{{ function('get_the_title', song.song_file )}}">
-							<a href="{{ function('retrieve_file_url', song.song_file) }}" class="open-new-window clickable-link">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file) }}" class="open-new-window clickable-link repertoire-play-button">
 								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 								Mängi
 							</a>
@@ -126,7 +126,7 @@
 				{% if song.song_file_2 %}
 					{% if song.song_file_3 %}
 						<span class="h-display-flex music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file_2 )}}">
-							<a href="{{ function('retrieve_file_url', song.song_file_2) }}" class="open-new-window clickable-link h-margin-bottom-sm">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file_2) }}" class="open-new-window clickable-link h-margin-bottom-sm repertoire-play-button">
 								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 								Mängi
 							</a>
@@ -137,11 +137,11 @@
 						</span>
 					{% else %}
 						<span class="h-display-flex" title="{{ function('get_the_title', song.song_file_2 )}}">
-							<a href="{{ function('retrieve_file_url', song.song_file_2) }}" class="open-new-window clickable-link">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file_2) }}" class="open-new-window clickable-link repertoire-play-button">
 							{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 							Mängi
 							</a>
-							<a href="{{ function('retrieve_file_url', song.song_file_2) }}" download class="clickable-link  music-table-link-and-icon--hover-blue">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file_2) }}" download class="clickable-link  music-table-link-and-icon--hover-blue">
 							{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
 							Lae alla
 							</a>
@@ -151,7 +151,7 @@
 
 				{% if song.song_file_3 %}
 					<span class="h-display-flex" title="{{ function('get_the_title', song.song_file_3 )}}">
-						<a href="{{ function('retrieve_file_url', song.song_file_3) }}" class="open-new-window clickable-link">
+						<a href="#" data-value="{{ function('retrieve_file_url', song.song_file_3) }}" class="open-new-window clickable-link repertoire-play-button">
 							{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 							Mängi
 						</a>
