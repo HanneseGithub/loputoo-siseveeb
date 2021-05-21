@@ -37,21 +37,11 @@
         text-align: center;
         font-size: $font-size-h1-xs;
         line-height: $line-height-h1-xs;
-        padding: 0 38px;
     }
 }
-.h2--with-icon {
-    font-family: $font-family-title;
-    font-size: $font-size-h2-lg;
-    font-weight: $font-weight-regular;
-    line-height: $line-height-h2-lg;
-
-    color: $color-primary-blue;
-
+.h2--with-mobile-icon {
     @media (max-width: $bp-sm-min) {
-        text-align: center;
-        font-size: $font-size-h1-xs;
-        line-height: $line-height-h1-xs;
+        padding: 0 38px;
     }
 }
 

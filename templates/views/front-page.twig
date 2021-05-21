@@ -3,7 +3,6 @@
 {% block content %}
     <div class="section h-padding-top-xxl h-padding-bottom-lg">
         {% include "components/webpage-title.twig" with {title: 'Teated', link: createNewPostUrl, link_text: 'Lisa Teade'} %}
-
         {% if teated is empty%}
             <p class="no-posts">Hetkel pole uusi teateid</p>
         {% else %}
@@ -40,8 +39,8 @@
             </div>
         {% endif %}
     </div>
-    <div class="section h-padding-top-lg h-padding-bottom-lg">
 
+    <div class="section h-padding-top-lg h-padding-bottom-lg">
         <h2 class="h2 h-margin-bottom-lg">Kalender</h2>
         {% if calendar_events is empty %}
         <p class="no-posts">Hetkel pole kalendris üritusi</p>
@@ -59,40 +58,37 @@
         </div>
         {% endfor %} {% endif %}
     </div>
-<div class="section h-padding-top-lg h-padding-bottom-xxl">
-    <div class="webpage-heading-container">
-        {% if canAddNotifications %}
-        <h2 class="h2--with-icon h-margin-bottom-lg">Lähemad üritused</h2>
-        {% else %}
-        <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
-    {% endif %}
-    <a class="all-event-button h-margin-bottom-lg" href="{{ function('returnUritusedUrl') }}"><p>Tulevad üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
-</div>
-    <div class="front-page-events-container">
-        {% if events is empty%}
-        <p class="no-posts">Hetkel pole üritusi</p>
-        {% else %}
-        {% for event in events %}
-        <a class="event-click-container-front-page" href="{{event.link}}">
-            <div class="h-margin-bottom-lg single-event-container">
-                <div class="h-margin-bottom-md event-wrapper">
-                    {% if not event.image %} {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
-                    <img src="{{ placeholder.src | resize(750, 500) }}"> {% else %}
-                    <img src="{{ Image(event.image).src|resize(750, 500) }}"> {% endif %}
 
-                        {% include 'components/events/event-participation.twig' with { event: { event_participation: event.event_participation } } %}
-
-                        <div class="event-date">
-                            <p>{{event.datestart | date("d. F Y") }}</p>
-                        </div>
-                    </div>
-                    <div class="event-title">
-                        <h3>{{event.title}}</h3>
-                    </div>
-                </div>
-            </a>
-            {% endfor %}
-            {% endif %}
+    <div class="section h-padding-top-lg h-padding-bottom-xxl">
+        <div class="webpage-heading-container">
+            <h2 class="h2 h-margin-bottom-lg">Lähemad üritused</h2>
+            <a class="all-event-button h-margin-bottom-lg" href="{{ function('returnUritusedUrl') }}"><p>Tulevad üritused</p> {% include 'components/icon.twig' with { name: 'sprite-arrow-right' }%}</a>
         </div>
+        <div class="front-page-events-container">
+            {% if events is empty%}
+                <p class="no-posts">Hetkel pole üritusi</p>
+            {% else %}
+                {% for event in events %}
+                    <a class="event-click-container-front-page" href="{{event.link}}">
+                        <div class="h-margin-bottom-lg single-event-container">
+                            <div class="h-margin-bottom-md event-wrapper">
+                                {% if not event.image %} {% set placeholder = Image("#{theme.link}/static/images/event-bg.png") %}
+                                <img src="{{ placeholder.src | resize(750, 500) }}"> {% else %}
+                                <img src="{{ Image(event.image).src|resize(750, 500) }}"> {% endif %}
+
+                                    {% include 'components/events/event-participation.twig' with { event: { event_participation: event.event_participation } } %}
+
+                                    <div class="event-date">
+                                        <p>{{event.datestart | date("d. F Y") }}</p>
+                                    </div>
+                                </div>
+                                <div class="event-title">
+                                    <h3>{{event.title}}</h3>
+                                </div>
+                            </div>
+                    </a>
+                {% endfor %}
+            {% endif %}
+            </div>
     </div>
 {% endblock %}
