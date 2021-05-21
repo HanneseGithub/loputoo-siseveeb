@@ -1,10 +1,10 @@
 {
     "key": "group_60812edb3d926",
-    "title": "Repertuaari lisaväljad",
+    "title": "Repertuaar",
     "fields": [
         {
             "key": "field_6096c24bab64d",
-            "label": "Tiitel",
+            "label": "Loo pealkiri",
             "name": "title",
             "type": "text",
             "instructions": "",
@@ -23,11 +23,11 @@
         },
         {
             "key": "field_6096c283ab64e",
-            "label": "Sisu",
+            "label": "Kommentaar noodi kohta",
             "name": "content",
             "type": "wysiwyg",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -42,11 +42,11 @@
         },
         {
             "key": "field_608261c6c461c",
-            "label": "Autor",
+            "label": "Loo autor",
             "name": "author_of_song",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -61,11 +61,11 @@
         },
         {
             "key": "field_60812f0af2e2f",
-            "label": "Laulu fail",
+            "label": "Helifail",
             "name": "song_file",
             "type": "file",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -80,7 +80,7 @@
         },
         {
             "key": "field_6087a988b461c",
-            "label": "Laulu fail 2",
+            "label": "Helifail 2",
             "name": "song_file_2",
             "type": "file",
             "instructions": "",
@@ -99,7 +99,7 @@
         },
         {
             "key": "field_6087e518be35d",
-            "label": "Laulu fail 3",
+            "label": "Helifail 3",
             "name": "song_file_3",
             "type": "file",
             "instructions": "",
@@ -118,11 +118,11 @@
         },
         {
             "key": "field_6081317cf2e30",
-            "label": "Noodi fail",
+            "label": "Noodifail",
             "name": "note_file",
             "type": "file",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -137,7 +137,7 @@
         },
         {
             "key": "field_6087a992b461d",
-            "label": "Noodi fail 2",
+            "label": "Noodifail 2",
             "name": "note_file_2",
             "type": "file",
             "instructions": "",
@@ -156,7 +156,7 @@
         },
         {
             "key": "field_6087e526be35e",
-            "label": "Noodi fail 3",
+            "label": "Noodifail 3",
             "name": "note_file_3",
             "type": "file",
             "instructions": "",
@@ -205,8 +205,10 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": true,
     "description": "",
-    "modified": 1621326073
+    "modified": 1621514711
 }

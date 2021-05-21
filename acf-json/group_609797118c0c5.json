@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Vajuta kui dokument on mõeldud ainult juhatusele",
+            "message": "Dokument on tavakasutajatele peidetud ning ainult juhatusele nähtav",
             "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
@@ -23,7 +23,7 @@
         },
         {
             "key": "field_6098edf3d091b",
-            "label": "Veebilehe link",
+            "label": "Dokumendi link",
             "name": "website_link",
             "type": "link",
             "instructions": "",
@@ -38,7 +38,7 @@
         },
         {
             "key": "field_60979779b7924",
-            "label": "Dokument",
+            "label": "Dokumendi fail",
             "name": "document",
             "type": "file",
             "instructions": "",
@@ -72,7 +72,8 @@
                 "Õppematerjal": "Õppematerjal",
                 "Juhatuse dokument": "Juhatuse dokument",
                 "Avaldus": "Avaldus",
-                "Eelarve": "Eelarve"
+                "Eelarve": "Eelarve",
+                "Muu": "Muu"
             },
             "default_value": false,
             "allow_null": 0,
@@ -97,8 +98,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": true,
     "description": "",
-    "modified": 1620642843
+    "modified": 1621513737
 }

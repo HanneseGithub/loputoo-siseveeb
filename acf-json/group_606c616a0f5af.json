@@ -130,6 +130,11 @@
                 "param": "user_form",
                 "operator": "==",
                 "value": "edit"
+            },
+            {
+                "param": "current_user_role",
+                "operator": "==",
+                "value": "administrator"
             }
         ]
     ],
@@ -141,5 +146,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621326119
+    "modified": 1621512949
 }
