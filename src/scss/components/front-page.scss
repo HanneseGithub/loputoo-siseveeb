@@ -21,15 +21,6 @@
         position: absolute;
         right: 12px;
     }
-    .delete-item-icon {
-        color: $color-red;
-        font-size: $font-size-h3-xs;
-        transition: 0.4s;
-        padding: 2px;
-        &:hover {
-            color: rgba($color-red, 0.5);
-        }
-    }
 }
 .all-event-button {
     text-decoration: none;

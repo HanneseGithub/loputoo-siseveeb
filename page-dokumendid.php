@@ -46,6 +46,11 @@ function createNewPostUrl($post_type){
   return $adminurl = admin_url($create_new_post_url_slug);
 }
 
+function editThisPostUrl($post_id){
+  return get_edit_post_link($post_id);
+}
+
+$context = Timber::context();
 
 $context['createNewPostUrl'] = createNewPostUrl('dokumendid');
 $context['documents'] = $documents;
@@ -54,4 +59,4 @@ $context['userCanSeeHiddenDocuments'] = $userCanSeeHiddenDocuments;
 $context['canAddNotifications'] = $canAddNotifications;
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
-Timber::render( array( 'views/documents.twig', 'views/page.twig' ), $context );
+Timber::render( array( 'views/documents-page.twig', 'views/page.twig' ), $context );
