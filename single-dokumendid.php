@@ -44,4 +44,4 @@ $context         = Timber::context();
 $timber_post     = Timber::get_post();
 $context['userCanEditDocuments'] = $userCanEditDocuments;
 $context['post'] = $timber_post;
-Timber::render( 'views/single-dokumendid.twig', $context );
+Timber::render( 'views/single-documents.twig', $context );
