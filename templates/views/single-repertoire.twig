@@ -2,13 +2,13 @@
 
 {% block content %}
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
-        {% include "components/single-repertoire-title.twig" with {title: post.title, link_text: 'Muuda', id: post.id} %}
+    {% include "components/single-repertoire-title.twig" with { title: post.title, link_text: 'Muuda', link: function('editThisPostUrl', post.id) } %}
     <div class="single-repertoire-song-post-info">
         <div>
             Autor: {{ post.author_of_song}}
         </div>
         <div>
-            Hooaeg: {{ post.terms('category') | join(', ') }}
+            Hooaeg: {{  song.season|date("Y") }}
         </div>
         <div>
             Lisatud: {{ post.post_date|time_ago }}
@@ -17,7 +17,6 @@
             Lisaja: {{ post.author }}
         </div>
     </div>
-    <hr>
     <div class="single-repertoire-content">
         <div class="post-info">
             {{ post.post_content|wpautop }}
@@ -43,13 +42,13 @@
                 </div>
             </div>
                 <iframe src="{{ function('retrieve_file_url', post.note_file) }}" title="W3Schools Free Online Web Tutorials">
-                </iframe>  
+                </iframe>
             {% endif %}
             {% if post.note_file_2 %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
                     <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
-                        Noodifail 2: 
+                        Noodifail 2:
                         {{ function('get_the_title', post.note_file_2 )}}
                     </h2>
                         <div class="buttons h-padding-bottom-lg">
@@ -63,7 +62,7 @@
                 </div>
                 </div>
                 <iframe src="{{ function('retrieve_file_url', post.note_file_2) }}" title="W3Schools Free Online Web Tutorials">
-                </iframe>  
+                </iframe>
             {% endif %}
             {% if post.note_file_3 %}
                 <div class="single-repertoire-file-header">
@@ -83,7 +82,7 @@
                 </div>
                 </div>
                 <iframe src="{{ function('retrieve_file_url', post.note_file_3) }}">
-                </iframe>  
+                </iframe>
             {% endif %}
         </div>
         <div class="audio-music-files">
@@ -115,7 +114,7 @@
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
                         <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
-                            Muusika fail 2: 
+                            Muusika fail 2:
                             {{ function('retrieve_file_name', post.song_file_2 )}}
                         </h2>
                         <div class="buttons h-padding-bottom-lg">

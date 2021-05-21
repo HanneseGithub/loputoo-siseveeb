@@ -1,5 +1,6 @@
 <?php
 acf_form_head();
+$context = Timber::context();
 
 // Display all the possible roles you want to see in the table.
 $users = get_users( array( 'search' => '*' ) );
@@ -14,12 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submitGroupEmail'])) {
 
     $message = $_POST['message'];
     $messageToUs = $senderName . " saatis liikmetele järgneva e-maili:" . "\n\n" . $message . "\n\n" . ". E-mail saadeti järgmistele isikutele: " . $recievers;
-    $messageToFrontend = "E-maili saatmine õnnestus!";
-
     // Send email to website's inbox.
     wp_mail($websiteEmail,$subject,$messageToUs);
     // Send email to selected people's inbox.
-    wp_mail($recievers, $subject, $message);
+    $sentGroupEmail = wp_mail($recievers, $subject, $message);
+
+    $arrayOfRecievers = explode(',', $recievers);
+
+    if (sizeof($arrayOfRecievers) == 1 && $sentGroupEmail) {
+        $context['successfulEmail'] = true;
+    } elseif (sizeof($arrayOfRecievers) > 1 && $sentGroupEmail) {
+        $context['successfulMultipleEmail'] = true;
+    }
 }
 
 // Form for editing user info in the users view.
@@ -50,7 +57,6 @@ $canEditUserChoirRoles = $administrator || $conductor || $president;
 $canSendGroupEmails = $administrator || $bookie || $president || $conductor;
 $canAddEvents = $administrator || $secretary || $conductor;
 
-$context = Timber::context();
 
 if( isset($_GET['updated']) && $_GET['updated'] == 'true' ) {
     $context['successfulInfoUpdate'] = true;

@@ -19,4 +19,11 @@
   {% if successfulInfoUpdate %}
 	  <script type="text/javascript">notifyOnSuccessfulUsersTableInfoChange();</script>
   {% endif %}
+
+  {% if successfulEmail %}
+      <script type="text/javascript">notifyOnSuccessfulEmailSent();</script>
+  {% elseif successfulMultipleEmail %}
+      <script type="text/javascript">notifyOnSuccessfulMultipleEmailSent();</script>
+  {% endif %}
+
 {% endblock %}
