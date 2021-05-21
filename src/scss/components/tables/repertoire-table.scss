@@ -10,18 +10,6 @@
         }
     }
 
-    .clickable-link-delete {
-        color: $color-red;
-        display: flex;
-        align-items: center;
-        font-size: 24px;
-        padding: 2px;
-        transition: 0.5s;
-        &:hover {
-            color:rgba($color: $color-red, $alpha: 0.5);
-        }
-    }
-
     input {
         background-color: $color-primary-blue;
         text-transform: uppercase;

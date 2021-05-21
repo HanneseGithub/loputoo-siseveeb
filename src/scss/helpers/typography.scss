@@ -114,3 +114,14 @@
         margin-left:10px;
     }
 }
+.delete-item-icon {
+    color: $color-red;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    padding: 2px;
+    transition: color 0.5s;
+    &:hover {
+        color:rgba($color: $color-red, $alpha: 0.5);
+    }
+}

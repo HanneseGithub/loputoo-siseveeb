@@ -32,7 +32,7 @@
 							<td>
 								{% if song.note_file %}
 									{% if song.note_file_2 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file )}}">
+										<span class="h-display-flex music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file )}}">
 											<a href="{{ function('retrieve_file_url', song.note_file) }}" class="open-new-window clickable-link h-margin-bottom-sm">
 												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
 												Ava uues aknas
@@ -44,7 +44,7 @@
 											</a>
 										</span>
 									{% else %}
-										<span class="music-options" title="{{ function('get_the_title', song.note_file )}}">
+										<span class="h-display-flex" title="{{ function('get_the_title', song.note_file )}}">
 											<a href="{{ function('retrieve_file_url', song.note_file) }}" class="open-new-window clickable-link ">
 												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
 												Ava uues aknas
@@ -62,7 +62,7 @@
 
 								{% if song.note_file_2 %}
 									{% if song.note_file_3 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file_2 )}}">
+										<span class="h-display-flex music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file_2 )}}">
 											<a href="{{ function('retrieve_file_url', song.note_file_2) }}" class="open-new-window clickable-link h-margin-bottom-sm">
 												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
 												Ava uues aknas
@@ -73,7 +73,7 @@
 											</a>
 										</span>
 									{% else %}
-										<span class="music-options" title="{{ function('get_the_title', song.note_file_2 )}}">
+										<span class="h-display-flex" title="{{ function('get_the_title', song.note_file_2 )}}">
 											<a href="{{ function('retrieve_file_url', song.note_file_2) }}" class="open-new-window clickable-link">
 												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
 												Ava uues aknas
@@ -87,7 +87,7 @@
 
 								{% endif %}
 								{% if song.note_file_3 %}
-									<span class="music-options" title="{{ function('get_the_title', song.note_file_3 )}}">
+									<span class="h-display-flex" title="{{ function('get_the_title', song.note_file_3 )}}">
 										<a href="{{ function('retrieve_file_url', song.note_file_3) }}" class=" open-new-window clickable-link">
 											{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
 											Ava uues aknas
@@ -103,7 +103,7 @@
 							<td>
 								{% if song.song_file %}
 									{% if song.song_file_2 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file )}}">
+										<span class="h-display-flex music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file )}}">
 											<a href="{{ function('retrieve_file_url', song.song_file) }}" class="clickable-link  h-margin-bottom-sm">
 												{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 												Mängi
@@ -114,7 +114,7 @@
 											</a>
 										</span>
 									{% else %}
-										<span class="music-options music-table-notes-separator" title="{{ function('get_the_title', song.song_file )}}">
+										<span class="h-display-flex music-table-notes-separator" title="{{ function('get_the_title', song.song_file )}}">
 											<a href="{{ function('retrieve_file_url', song.song_file) }}" class="clickable-link">
 												{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 												Mängi
@@ -128,7 +128,7 @@
 								{% endif %}
 								{% if song.song_file_2 %}
 									{% if song.song_file_3 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file_2 )}}">
+										<span class="h-display-flex music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file_2 )}}">
 											<a href="{{ function('retrieve_file_url', song.song_file_2) }}" class="clickable-link h-margin-bottom-sm">
 												{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 												Mängi
@@ -139,7 +139,7 @@
 											</a>
 										</span>
                   {% else %}
-                    <span class="music-options music-table-notes-separator" title="{{ function('get_the_title', song.song_file_2 )}}">
+                    <span class="h-display-flex music-table-notes-separator" title="{{ function('get_the_title', song.song_file_2 )}}">
                       <a href="{{ function('retrieve_file_url', song.song_file_2) }}" class="clickable-link">
                         {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
                         Mängi
@@ -152,7 +152,7 @@
 									{% endif %}
 								{% endif %}
 								{% if song.song_file_3 %}
-									<span class="music-options" title="{{ function('get_the_title', song.song_file_3 )}}">
+									<span class="h-display-flex" title="{{ function('get_the_title', song.song_file_3 )}}">
 										<a href="{{ function('retrieve_file_url', song.song_file_3) }}" class="clickable-link">
 											{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
 											Mängi
@@ -170,8 +170,8 @@
 							<td>{{ song.published_at|date("m/d/Y") }}</td>
 							{% if canAddNotifications %}
 								<td>
-									<span class="operations">
-										{% include "components/delete-post.twig" with { title: song.title, id: song.ID, modifier: 'clickable-link-delete' } %}
+									<span class="h-display-flex-justify">
+										{% include "components/delete-post.twig" with { title: song.title, id: song.ID, modifier: 'delete-item-icon' } %}
 
 										<a href="{{ function('editThisPostUrl', song.id) }}" class="clickable-link">
 											{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'music-table-icon'} %}

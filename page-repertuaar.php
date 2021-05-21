@@ -59,4 +59,4 @@ $context['repertoire'] = Timber::get_posts( ['post_type' => 'repertuaar', 'posts
 $context['canAddNotifications'] = $canAddNotifications;
 
 
-Timber::render( array( 'views/music.twig', 'views/page.twig' ), $context );
+Timber::render( array( 'views/repertoire-page.twig', 'views/page.twig' ), $context );
