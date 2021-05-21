@@ -12,3 +12,13 @@
 </div>
 </div>
 {% endblock %}
+
+
+{% block footer %}
+  {{ parent() }}
+  {% if documentTrashed %}
+    <script type="text/javascript">
+        notifyOnDocumentBeingTrashed( '{{ nameOfDeletedDocument }}' );
+    </script>
+  {% endif %}
+{% endblock %}
