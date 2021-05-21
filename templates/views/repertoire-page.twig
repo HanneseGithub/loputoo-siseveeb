@@ -23,8 +23,7 @@
   {{ parent() }}
   {% if musicItemtrashed %}
     <script type="text/javascript">
-      	let songName = '</scipt> {{ nameOfDeletedSong }}<scipt>';
-			notifyOnMusicBeingTrashed( songName );
+		notifyOnMusicBeingTrashed("{{ nameOfDeletedSong }}");
     </script>
   {% endif %}
 {% endblock %}

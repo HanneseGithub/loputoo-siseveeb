@@ -16,10 +16,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['deletePost']))
 {
     $nameOfDeletedDocument = get_the_title($_POST['ID']);
     $context['nameOfDeletedDocument'] = $nameOfDeletedDocument;
-    wp_trash_post($_POST['ID']);
-    $context['documentTrashed'] = true;
-}
+    $deleteDocument = wp_trash_post($_POST['ID']);
 
+    if ($deleteDocument) {
+      $context['documentTrashed'] = true;
+    }
+}
 
 // Set rules for who can add edit and delete documents
 $administrator = current_user_can( 'administrator' );
@@ -39,8 +41,6 @@ $args = array(
   ));
 $documents = Timber::get_posts($args);
 
-
-
 function createNewPostUrl($post_type){
   $create_new_post_url_slug = 'post-new.php?post_type=' . $post_type;
   return $adminurl = admin_url($create_new_post_url_slug);
@@ -49,8 +49,6 @@ function createNewPostUrl($post_type){
 function editThisPostUrl($post_id){
   return get_edit_post_link($post_id);
 }
-
-$context = Timber::context();
 
 $context['createNewPostUrl'] = createNewPostUrl('dokumendid');
 $context['documents'] = $documents;

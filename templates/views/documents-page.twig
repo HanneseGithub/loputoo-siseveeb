@@ -18,8 +18,7 @@
   {{ parent() }}
   {% if documentTrashed %}
     <script type="text/javascript">
-      	let documentName = '</scipt> {{ nameOfDeletedDocument }}<scipt>';
-          notifyOnDocumentBeingTrashed( documentName );
+        notifyOnDocumentBeingTrashed( '{{ nameOfDeletedDocument }}' );
     </script>
   {% endif %}
 {% endblock %}

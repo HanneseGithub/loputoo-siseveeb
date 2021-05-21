@@ -21,8 +21,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['deletePost']))
 {
     $nameOfDeletedSong = get_the_title($_POST['ID']);
     $context['nameOfDeletedSong'] = $nameOfDeletedSong;
-    wp_trash_post($_POST['ID']);
-    $context['musicItemtrashed'] = true;
+    $deleteSong = wp_trash_post($_POST['ID']);
+
+    if ($deleteSong) {
+        $context['musicItemtrashed'] = true;
+    }
 }
 
 function createNewPostUrl($post_type){

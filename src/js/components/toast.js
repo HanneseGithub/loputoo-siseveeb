@@ -37,7 +37,7 @@ function notifyManagerThatUserinfoWasAFailure(){
 // Posts are deleted
 function notifyOnMusicBeingTrashed(songName){
     let songDeletedHeader = songName + ' on kustutatud';
-    tata.success( songDeletedHeader, 'Laul on prügikastis')
+    tata.success( songDeletedHeader, 'Laul on edukalt eemaldatud')
 }
 function notifyOnDocumentBeingTrashed(documentName){
     let documentHeader = documentName + ' on kustutatud';

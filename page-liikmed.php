@@ -18,13 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submitGroupEmail'])) {
     // Send email to website's inbox.
     wp_mail($websiteEmail,$subject,$messageToUs);
     // Send email to selected people's inbox.
-    wp_mail($recievers, $subject, $message);
-    
+    $sentGroupEmail = wp_mail($recievers, $subject, $message);
+
     $arrayOfRecievers = explode(',', $recievers);
-    // notification logic for if there were multiple recipents.
-    if (sizeof($arrayOfRecievers) == 1) {
+
+    if (sizeof($arrayOfRecievers) == 1 && $sentGroupEmail) {
         $context['successfulEmail'] = true;
-    }else {
+    } elseif (sizeof($arrayOfRecievers) > 1 && $sentGroupEmail) {
         $context['successfulMultipleEmail'] = true;
     }
 }
