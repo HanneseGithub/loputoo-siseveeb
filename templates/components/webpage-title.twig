@@ -1,9 +1,10 @@
 <div class="webpage-heading-container">
-	<h2 class="h2 h-margin-bottom-lg">{{title}}</h2>
+
+	<h2 class="h2 {{ (canAddNotifications and link) ? 'h2--with-mobile-icon' : '' }}">{{title}}</h2>
 	{% if canAddNotifications %}
 		{% if link %}
 			<a class="post-edit-link-mobile" href="{{link}}">{% include 'components/icon.twig' with { name: 'sprite-plus-circle-fill' }%}</a>
-			<a class="post-edit-link h-margin-bottom-lg" href="{{link}}">{{link_text}}</a>
+			<a class="post-edit-link" href="{{link}}">{{link_text}}</a>
 		{% endif %}
 	{% endif %}
 </div>

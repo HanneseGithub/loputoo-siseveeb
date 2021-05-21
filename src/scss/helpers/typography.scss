@@ -37,6 +37,10 @@
         text-align: center;
         font-size: $font-size-h1-xs;
         line-height: $line-height-h1-xs;
+    }
+}
+.h2--with-mobile-icon {
+    @media (max-width: $bp-sm-min) {
         padding: 0 38px;
     }
 }
@@ -95,10 +99,12 @@
         right: 0;
     }
 }
+
 .capitalize-text {
     text-transform: capitalize;
     text-align: center;
 }
+
 .past-event-btn {
     text-decoration: none;
     display: flex;
@@ -112,5 +118,17 @@
     & svg {
         font-size:20px;
         margin-left:10px;
+    }
+}
+
+.delete-item-icon {
+    color: $color-red;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    padding: 1px;
+    transition: color 0.5s;
+    &:hover {
+        color:rgba($color: $color-red, $alpha: 0.5);
     }
 }
