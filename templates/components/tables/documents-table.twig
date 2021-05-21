@@ -30,13 +30,13 @@
           </td>
           <td>
             {% if document.document %}
-            <div class="music-options">
+            <div class="h-display-flex">
               <a target="_blank" href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
-                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'document-table-icon'} %}
                 Ava uues aknas
               </a>
-              <a href="{{ function('retrieve_file_url', document.document) }}" download  class="clickable-link">
-                {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+              <a href="{{ function('retrieve_file_url', document.document) }}" download  class="clickable-link document-table-link-and-icon--hover-blue">
+                {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'document-table-icon'} %}
                 Lae alla
               </a>
             </div>
@@ -52,11 +52,11 @@
               {% endif %}
             </td>
             <td>
-              <span class="operations">
-                {% include "components/delete-post.twig" with {title: document.title, id: document.ID,  modifier: 'clickable-link-delete' } %}
+              <span class="h-display-flex-justify">
+                {% include "components/delete-post.twig" with {title: document.title, id: document.ID, modifier: 'delete-item-icon' } %}
 
                 <a href="{{ document.link }}"  class="clickable-link">
-                  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'document-table-icon'} %}
+                  {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'document-table-icon document-table-link-and-icon--hover-blue'} %}
                 </a>
               </span>
             </td>
@@ -72,13 +72,13 @@
         </td>
         <td>
           {% if document.document %}
-          <div class="music-options">
+          <div class="h-display-flex">
             <a target="_blank" href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
-              {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+              {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'document-table-icon'} %}
               Ava uues aknas
             </a>
-            <a href="{{ function('retrieve_file_url', document.document) }}" download  class="clickable-link">
-              {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+            <a href="{{ function('retrieve_file_url', document.document) }}" download  class="clickable-link document-table-link-and-icon--hover-blue">
+              {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'document-table-icon'} %}
               Lae alla
             </a>
           </div>
@@ -94,11 +94,11 @@
             {% endif %}
           </td>
           <td>
-            <span class="operations">
-              {% include "components/delete-post.twig" with {title: document.title, id: document.ID,  modifier: 'clickable-link-delete' } %}
+            <span class="h-display-flex-justify">
+              {% include "components/delete-post.twig" with {title: document.title, id: document.ID, modifier: 'delete-item-icon'} %}
 
-              <a href="{{ document.link }}"  class="clickable-link">
-                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'document-table-icon'} %}
+              <a href="{{ function('editThisPostUrl', document.ID) }}" class="clickable-link">
+                {% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'document-table-icon document-table-link-and-icon--hover-blue'} %}
               </a>
             </span>
           </td>

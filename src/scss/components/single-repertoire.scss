@@ -1,9 +1,4 @@
-.single-repertuaar-header{
-    display: flex;
-    justify-content: space-between;
-
-}
-.song-post-info{
+.single-repertoire-song-post-info{
     display: flex;
     justify-content: space-between;
     font-weight: $font-weight-bold;
@@ -16,8 +11,8 @@
     }
 }
 
-.content{
-    .file-header{
+.single-repertoire-content{
+    .single-repertoire-file-header{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -38,7 +33,7 @@
             min-width: 180px;
         }
     }
-    .sheet-music-files{
+    .single-repertoire-sheet-music-files{
         iframe{
             width: 100%;
             height: 1000px;

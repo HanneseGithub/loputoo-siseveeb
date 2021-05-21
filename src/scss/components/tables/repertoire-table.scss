@@ -7,19 +7,7 @@
         & svg {
             font-size: 24px;
             padding: 2px;
-            
-        }
-    }
 
-    .clickable-link-delete {
-        color: $color-red;
-        display: flex;
-        align-items: center;
-        font-size: 24px;
-        padding: 2px;
-        transition: 0.5s;
-        &:hover {
-            color: rgba($color: $color-red, $alpha: 0.5);
         }
     }
 
@@ -37,11 +25,17 @@
     .music-table-icon {
         font-size: 20px;
 
-        &.music-table-icon--delete-post {
-            font-size: 30px;
-        }
         @include bp(sm-min) {
             font-size: 24px;
+        }
+    }
+
+    .music-table-link-and-icon--hover-blue {
+        color: $color-primary-blue;
+        transition: color 0.3s;
+
+        &:hover {
+            color: rgba($color-primary-blue, 0.5)
         }
     }
 
@@ -93,7 +87,7 @@
     & #repertoireAudio {
         width: 100%;
         border-radius:none;
-    } 
+    }
 }
 audio::-webkit-media-controls-enclosure {
     border-radius:0;

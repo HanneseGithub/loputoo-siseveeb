@@ -2,7 +2,7 @@
 acf_form_head();
 acf_enqueue_uploader();
 
-// Form for editing song info in the single-repertuaar view.
+// Form for editing song info in the single-repertoire view.
 function editPostInfo($post_id){
     $options = array(
         'post_id' => $post_id,
@@ -31,4 +31,4 @@ function retrieve_file_name($post_id){
 $context         = Timber::context();
 $timber_post     = Timber::get_post();
 $context['post'] = $timber_post;
-Timber::render( 'views/single-repertuaar.twig', $context );
+Timber::render( 'views/single-repertoire.twig', $context );
