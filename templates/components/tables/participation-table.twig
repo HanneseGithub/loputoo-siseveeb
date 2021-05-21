@@ -22,7 +22,13 @@
       <td>
         <img class="participation-table__avatar" src="{{ function('get_avatar_url', user.ID) }}">
       </td>
-      <td>{{ user.display_name }}</td>
+      <td>
+        {% if user.first_name is not empty and user.last_name is not empty %}
+          {{ user.first_name ~ ' ' ~ user.last_name }}
+        {% else %}
+          {{ user.display_name }}
+        {% endif %}
+      </td>
       <td>{{ user.voice }}
     </tr>
   {% endfor %}

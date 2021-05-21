@@ -23,7 +23,13 @@
       <img class="header-nav__user-avatar" src="{{ current_user.avatar({size: 24}) }}" alt="User avatar">
     </div>
     <div class="header-nav__personal-info">
-      <div class="header-nav__username">{{ current_user.name }}</div>
+      <div class="header-nav__username">
+        {% if current_user.first_name is not empty and current_user.last_name is not empty %}
+          {{ current_user.first_name ~ ' ' ~ current_user.last_name }}
+        {% else %}
+          {{ current_user.display_name }}
+        {% endif %}
+      </div>
       <div>
         {% for role in current_user.roles %}
             {{ role }}

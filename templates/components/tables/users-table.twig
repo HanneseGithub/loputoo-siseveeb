@@ -32,7 +32,7 @@
     <th class="h-text-left" data-visible="false">TÜ tudeng/vilistlane</th>
     <th class="h-text-left" data-visible="false">Reservlane</th>
     <th data-sortable="true" class="h-text-left" data-visible="false">Juhatuse amet</th>
-    {% if isAdministrator %}
+    {% if canEditUserChoirRoles %}
       <th class="h-text-center">Tegevused</th>
     {% endif %}
   </tr>
@@ -51,7 +51,11 @@
       </td>
       <td>
         <a href="{{ function('get_author_url', user.ID) }}" class="open-new-window">
-          {{ user.display_name }}
+          {% if user.first_name is not empty and user.last_name is not empty %}
+            {{ user.first_name ~ ' ' ~ user.last_name }}
+          {% else %}
+            {{ user.display_name }}
+          {% endif %}
         </a>
       </td>
       {% if canSeePersonalId %}
@@ -68,7 +72,7 @@
       <td>{{ user.is_student_or_graduate }}</td>
       <td>{{ user.in_reserve }}</td>
       <td>{{ user.title }}</td>
-      {% if isAdministrator %}
+      {% if canEditUserChoirRoles %}
         <td>{% include "components/user-info.twig" %}</td>
       {% endif %}
     </tr>
