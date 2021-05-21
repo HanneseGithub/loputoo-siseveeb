@@ -12,20 +12,21 @@
 
     .document-table-icon{
         font-size: 20px;
-        color: $color-secondary-blue;
-
-        &.document-table-icon--delete-post {
-            font-size:30px;
-        }
 
         @include bp(sm-min) {
             font-size: 24px;
         }
+    }
+
+    .document-table-link-and-icon--hover-blue {
+        color: $color-primary-blue;
+        transition: color 0.3s;
 
         &:hover {
-            color:rgba($color: $color-secondary-blue, $alpha: 0.5);
+            color: rgba($color-primary-blue, 0.5)
         }
     }
+
 
     & a{
         text-decoration: none;

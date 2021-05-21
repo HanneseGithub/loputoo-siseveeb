@@ -25,11 +25,17 @@
     .music-table-icon {
         font-size: 20px;
 
-        &.music-table-icon--delete-post {
-            font-size: 30px;
-        }
         @include bp(sm-min) {
             font-size: 24px;
+        }
+    }
+
+    .music-table-link-and-icon--hover-blue {
+        color: $color-primary-blue;
+        transition: color 0.3s;
+
+        &:hover {
+            color: rgba($color-primary-blue, 0.5)
         }
     }
 
