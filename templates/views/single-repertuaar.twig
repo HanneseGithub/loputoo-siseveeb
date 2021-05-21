@@ -8,7 +8,7 @@
             Autor: {{ post.author_of_song}}
         </div>
         <div>
-            Hooaeg: {{ post.terms('category') | join(', ') }}
+            Hooaeg: {{  song.season|date("Y") }}
         </div>
         <div>
             Lisatud: {{ post.post_date|time_ago }}

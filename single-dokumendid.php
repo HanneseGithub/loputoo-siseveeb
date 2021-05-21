@@ -4,6 +4,7 @@ acf_enqueue_uploader();
 
 // Form for editing song info in the single-repertuaar view.
 function editPostInfo($post_id){
+    $nameOfEditedDocument = get_the_title($post_id);
     function my_acf_prepare_field($field) {
         $field['label'] = 'Dokumendi pealkiri';
            return $field;
@@ -16,7 +17,10 @@ function editPostInfo($post_id){
         'submit_value'  => __('Muuda dokumendi infot'),
         'html_submit_button'  => '<input type="submit" class="edit-post-button" value="%s" />',
         'updated_message' => __("Dokumendi andmed on muudetud.", 'acf'),
-        'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
+        'html_updated_message'  => '
+            <script>
+                tata.success("Dokument on muudetud!", "'. $nameOfEditedDocument.' on muudetud")
+            </script>',
     );
     
     acf_form($options);

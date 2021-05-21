@@ -33,3 +33,19 @@ function notifyManagerThatUserinfoWasUpdated(){
 function notifyManagerThatUserinfoWasAFailure(){
     tata.error('Andmed Pole muudetud', 'Kasutaja andmeid ei muudetud edukalt')
 }
+
+// Posts are deleted
+function notifyOnMusicBeingTrashed(songName){
+    let songDeletedHeader = songName + ' on kustutatud';
+    tata.success( songDeletedHeader, 'Laul on prügikastis')
+}
+function notifyOnDocumentBeingTrashed(documentName){
+    let documentHeader = documentName + ' on kustutatud';
+    tata.success( documentHeader, 'Dokument on prügikastis')
+}
+function notifyOnSuccessfulEmailSent(){
+    tata.success( 'Email saadetud', 'E-mail on saadetud')
+}
+function notifyOnSuccessfulMultipleEmailSent(){
+    tata.success( 'Emailid saadetud', 'E-mailid on saadetud')
+}

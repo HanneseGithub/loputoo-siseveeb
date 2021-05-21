@@ -18,3 +18,13 @@
 		</div>
 	</div>
 {% endblock %}
+
+{% block footer %}
+  {{ parent() }}
+  {% if musicItemtrashed %}
+    <script type="text/javascript">
+      	let songName = '</scipt> {{ nameOfDeletedSong }}<scipt>';
+			notifyOnMusicBeingTrashed( songName );
+    </script>
+  {% endif %}
+{% endblock %}

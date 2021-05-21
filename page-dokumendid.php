@@ -1,22 +1,8 @@
 <?php
 acf_form_head();
 acf_enqueue_uploader();
+$context = Timber::context();
 
-function addNewDocument(){
-  $options = array(
-      'post_id' => 'new_post',
-      'post_title'    => true,
-      'new_post'		=> array(
-              'post_type'		=> 'document',
-              'post_status'	=> 'publish'
-          ),
-          'submit_value'  => __('Lisa uus dokument'),
-          'html_submit_button'  => '<input type="submit" class="edit-post-button" value="%s" />',
-      'updated_message' => __("Dokument on lisatud.", 'acf'),
-      'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
-  );
-  acf_form($options);
-}
 function retrieve_file_url( $number){
   $url = wp_get_attachment_url( $number );
   if(!$number){
@@ -28,8 +14,12 @@ function retrieve_file_url( $number){
 
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['deletePost']))
 {
+    $nameOfDeletedDocument = get_the_title($_POST['ID']);
+    $context['nameOfDeletedDocument'] = $nameOfDeletedDocument;
     wp_trash_post($_POST['ID']);
+    $context['documentTrashed'] = true;
 }
+
 
 // Set rules for who can add edit and delete documents
 $administrator = current_user_can( 'administrator' );
@@ -56,7 +46,6 @@ function createNewPostUrl($post_type){
   return $adminurl = admin_url($create_new_post_url_slug);
 }
 
-$context = Timber::context();
 
 $context['createNewPostUrl'] = createNewPostUrl('dokumendid');
 $context['documents'] = $documents;

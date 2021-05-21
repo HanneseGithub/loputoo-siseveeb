@@ -18,5 +18,10 @@
   {{ parent() }}
   {% if successfulInfoUpdate %}
 	  <script type="text/javascript">notifyOnSuccessfulUsersTableInfoChange();</script>
+  {% elseif successfulEmail %}
+      <script type="text/javascript">notifyOnSuccessfulEmailSent();</script>
+  {% elseif successfulMultipleEmail %}
+      <script type="text/javascript">notifyOnSuccessfulMultipleEmailSent();</script>
   {% endif %}
+
 {% endblock %}

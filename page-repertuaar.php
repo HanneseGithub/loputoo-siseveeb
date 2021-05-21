@@ -3,23 +3,6 @@ acf_form_head();
 acf_enqueue_uploader();
 
 $context = Timber::get_context();
-function addNewSong(){
-    $options = array(
-        'post_id' => 'new_post',
-        'post_title'    => true,
-        'post_content'  => true,
-		'new_post'		=> array(
-                'post_type'		=> 'repertuaar',
-                'post_status'	=> 'publish'
-            ),
-            'submit_value'  => __('Lisa uus laul'),
-            'html_submit_button'  => '<input type="submit" class="edit-post-button" value="%s" />',
-        'updated_message' => __("Laul on lisatud.", 'acf'),
-        'html_updated_message'  => '<div id="message" class="updated"><p>%s</p></div>',
-    );
-    acf_form($options);
-}
-
 
 function retrieve_file_url( $number){
     $url = wp_get_attachment_url( $number );
@@ -36,7 +19,10 @@ function retrieve_file_name($number){
 
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['deletePost']))
 {
+    $nameOfDeletedSong = get_the_title($_POST['ID']);
+    $context['nameOfDeletedSong'] = $nameOfDeletedSong;
     wp_trash_post($_POST['ID']);
+    $context['musicItemtrashed'] = true;
 }
 
 function createNewPostUrl($post_type){
