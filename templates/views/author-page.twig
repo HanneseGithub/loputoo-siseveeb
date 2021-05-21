@@ -3,12 +3,7 @@
 {% block content %}
 	<div class="section h-padding-top-xxl h-padding-bottom-xxl">
 		<div class="webpage-heading-container h-margin-bottom-lg">
-			{% if current_user.ID == author.ID%}
 			<h2 class="h2">Minu andmed</h2>
-			{% else %}
-			<h2 class="h2--with-icon">Minu andmed</h2>
-			{% endif %}
-
 			{# Only the logged in user can edit his/her password #}
 			{% if current_user.ID == author.ID %}
 				{% include "components/author/author-profile-edit-password.twig" %}
