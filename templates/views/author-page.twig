@@ -8,7 +8,7 @@
 			{% elseif author.first_name is not empty and author.last_name is not empty %}
 				<h2 class="h2">{{author.first_name ~ ' ' ~ author.last_name}} andmed</h2>
 			{% else %}
-				<h2 class="h2">{{author.user_display_name}} andmed</h2>
+				<h2 class="h2">{{author.display_name}} andmed</h2>
 			{% endif %}
 			{% if current_user.ID == author.ID %}
 				{% include "components/author/author-profile-edit-password.twig" %}
