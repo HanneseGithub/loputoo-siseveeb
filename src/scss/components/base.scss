@@ -1,5 +1,6 @@
 .webpage-content {
     margin-top: 40px;
+    position: relative;
 
     @include bp(sm-min) {
         margin-left: 200px;

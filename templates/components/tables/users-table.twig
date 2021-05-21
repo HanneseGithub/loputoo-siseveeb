@@ -32,7 +32,7 @@
     <th class="h-text-left" data-visible="false">TÜ tudeng/vilistlane</th>
     <th class="h-text-left" data-visible="false">Reservlane</th>
     <th data-sortable="true" class="h-text-left" data-visible="false">Juhatuse amet</th>
-    {% if isAdministrator %}
+    {% if canEditUserChoirRoles %}
       <th class="h-text-center">Tegevused</th>
     {% endif %}
   </tr>
@@ -68,7 +68,7 @@
       <td>{{ user.is_student_or_graduate }}</td>
       <td>{{ user.in_reserve }}</td>
       <td>{{ user.title }}</td>
-      {% if isAdministrator %}
+      {% if canEditUserChoirRoles %}
         <td>{% include "components/user-info.twig" %}</td>
       {% endif %}
     </tr>

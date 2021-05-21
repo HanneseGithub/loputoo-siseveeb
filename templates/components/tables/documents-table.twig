@@ -31,7 +31,7 @@
           <td>
             {% if document.document %}
             <div class="music-options">
-              <a href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
+              <a target="_blank" href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
                 {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
                 Ava uues aknas
               </a>
@@ -73,7 +73,7 @@
         <td>
           {% if document.document %}
           <div class="music-options">
-            <a href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
+            <a target="_blank" href="{{ function('retrieve_file_url', document.document) }}"  class="open-new-window clickable-link">
               {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
               Ava uues aknas
             </a>

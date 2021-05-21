@@ -1,184 +1,186 @@
 {% extends "components/tables/table.twig" %}
 
-				{% block table_classes %}
-					class="naiskoor-table music-table"
-				{% endblock %}
+{% block table_classes %}
+	class="naiskoor-table music-table"
+{% endblock %}
 
-				{% block table_header %}
-					<tr>
-						<th class="h-text-left table-cell--fixed" data-sortable="true">Loo pealkiri</th>
-						<th class="h-text-left" data-sortable="true">Autor</th>
-						<th class="h-text-center">Noodid</th>
-						<th class="h-text-center">Laulu fail</th>
-						<th class="h-text-left" data-sortable="true">Hooaeg</th>
-						<th class="h-text-left" data-sortable="true">Lisamise kuupäev</th>
-						{% if canAddNotifications %}
-							<th class="h-text-center">Tegevused</th>
-						{% endif %}
-					</tr>
-				{% endblock %}
+{% block table_header %}
+	<tr>
+		<th class="h-text-left table-cell--fixed" data-sortable="true">Loo pealkiri</th>
+		<th class="h-text-left" data-sortable="true">Autor</th>
+		<th class="h-text-center">Noodid</th>
+		<th class="h-text-center">Laulu fail</th>
+		<th class="h-text-left" data-sortable="true">Hooaeg</th>
+		<th class="h-text-left" data-sortable="true">Lisamise kuupäev</th>
+		{% if canAddNotifications %}
+			<th class="h-text-center">Tegevused</th>
+		{% endif %}
+	</tr>
+{% endblock %}
 
-				{% block table_body %}
-					{% for song in repertoire %}
-						<tr>
-							<td>
-								<a href="{{ song.guid }}" class="clickable-link open-new-window">
-									{{ song.title }}
-								</a>
-							</td>
-							<td>
-								{{ song.author_of_song }}
-							</td>
-							<td>
-								{% if song.note_file %}
-									{% if song.note_file_2 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file )}}">
-											<a href="{{ function('retrieve_file_url', song.note_file) }}" class="open-new-window clickable-link h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-												Ava uues aknas
-											</a>
+{% block table_body %}
+	{% for song in repertoire %}
+		<tr>
+			<td>
+				<a href="{{ song.guid }}" class="clickable-link open-new-window">
+					{{ song.title }}
+				</a>
+			</td>
+			<td>
+				{{ song.author_of_song }}
+			</td>
+			<td>
+				{% if song.note_file %}
+					{% if song.note_file_2 %}
+						<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file )}}">
+							<a target="_blank" href="{{ function('retrieve_file_url', song.note_file) }}" class="open-new-window clickable-link h-margin-bottom-sm">
+								{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+								Ava uues aknas
+							</a>
 
-											<a href="{{ function('retrieve_file_url', song.note_file) }}" download class="clickable-link h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-												Lae alla
-											</a>
-										</span>
-									{% else %}
-										<span class="music-options" title="{{ function('get_the_title', song.note_file )}}">
-											<a href="{{ function('retrieve_file_url', song.note_file) }}" class="open-new-window clickable-link ">
-												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-												Ava uues aknas
-											</a>
+							<a target="_blank" href="{{ function('retrieve_file_url', song.note_file) }}" download class="clickable-link h-margin-bottom-sm">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% else %}
+						<span class="music-options" title="{{ function('get_the_title', song.note_file )}}">
+							<a target="_blank" href="{{ function('retrieve_file_url', song.note_file) }}" class="open-new-window clickable-link ">
+								{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+								Ava uues aknas
+							</a>
 
-											<a href="{{ function('retrieve_file_url', song.note_file) }}" download class="clickable-link">
-												{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-												Lae alla
-											</a>
-										</span>
-									{% endif %}
+							<a href="{{ function('retrieve_file_url', song.note_file) }}" download class="clickable-link">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% endif %}
 
 
-								{% endif %}
+				{% endif %}
 
-								{% if song.note_file_2 %}
-									{% if song.note_file_3 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file_2 )}}">
-											<a href="{{ function('retrieve_file_url', song.note_file_2) }}" class="open-new-window clickable-link h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-												Ava uues aknas
-											</a>
-											<a href="{{ function('retrieve_file_url', song.note_file_2) }}" download class="clickable-link h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-												Lae alla
-											</a>
-										</span>
-									{% else %}
-										<span class="music-options" title="{{ function('get_the_title', song.note_file_2 )}}">
-											<a href="{{ function('retrieve_file_url', song.note_file_2) }}" class="open-new-window clickable-link">
-												{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-												Ava uues aknas
-											</a>
-											<a href="{{ function('retrieve_file_url', song.note_file_2) }}" download class="clickable-link">
-												{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-												Lae alla
-											</a>
-										</span>
-									{% endif %}
+				{% if song.note_file_2 %}
+					{% if song.note_file_3 %}
+						<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.note_file_2 )}}">
+							<a target="_blank" href="{{ function('retrieve_file_url', song.note_file_2) }}" class="open-new-window clickable-link h-margin-bottom-sm">
+								{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+								Ava uues aknas
+							</a>
+							<a href="{{ function('retrieve_file_url', song.note_file_2) }}" download class="clickable-link h-margin-bottom-sm">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% else %}
+						<span class="music-options" title="{{ function('get_the_title', song.note_file_2 )}}">
+							<a target="_blank" href="{{ function('retrieve_file_url', song.note_file_2) }}" class="open-new-window clickable-link">
+								{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+								Ava uues aknas
+							</a>
+							<a href="{{ function('retrieve_file_url', song.note_file_2) }}" download class="clickable-link">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% endif %}
 
-								{% endif %}
-								{% if song.note_file_3 %}
-									<span class="music-options" title="{{ function('get_the_title', song.note_file_3 )}}">
-										<a href="{{ function('retrieve_file_url', song.note_file_3) }}" class=" open-new-window clickable-link">
-											{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-											Ava uues aknas
-										</a>
-										<a href="{{ function('retrieve_file_url', song.note_file_3) }}" download class="clickable-link">
-											{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-											Lae alla
-										</a>
-									</span>
-								{% endif %}
-							</td>
+				{% endif %}
+				{% if song.note_file_3 %}
+					<span class="music-options" title="{{ function('get_the_title', song.note_file_3 )}}">
+						<a target="_blank" href="{{ function('retrieve_file_url', song.note_file_3) }}" class="open-new-window clickable-link">
+							{% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+							Ava uues aknas
+						</a>
+						<a href="{{ function('retrieve_file_url', song.note_file_3) }}" download class="clickable-link">
+							{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+							Lae alla
+						</a>
+					</span>
+				{% endif %}
+			</td>
 
-							<td>
-								{% if song.song_file %}
-									{% if song.song_file_2 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file )}}">
-											<a href="{{ function('retrieve_file_url', song.song_file) }}" class="clickable-link  h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
-												Mängi
-											</a>
-											<a href="{{ function('retrieve_file_url', song.song_file) }}" download class="clickable-link h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-												Lae alla
-											</a>
-										</span>
-									{% else %}
-										<span class="music-options music-table-notes-separator" title="{{ function('get_the_title', song.song_file )}}">
-											<a href="{{ function('retrieve_file_url', song.song_file) }}" class="clickable-link">
-												{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
-												Mängi
-											</a>
-											<a href="{{ function('retrieve_file_url', song.song_file) }}" download class="clickable-link">
-												{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-												Lae alla
-											</a>
-										</span>
-									{% endif %}
-								{% endif %}
-								{% if song.song_file_2 %}
-									{% if song.song_file_3 %}
-										<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file_2 )}}">
-											<a href="{{ function('retrieve_file_url', song.song_file_2) }}" class="clickable-link h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
-												Mängi
-											</a>
-											<a href="{{ function('retrieve_file_url', song.song_file_2) }}" download class="clickable-link h-margin-bottom-sm">
-												{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-												Lae alla
-											</a>
-										</span>
-                  {% else %}
-                    <span class="music-options music-table-notes-separator" title="{{ function('get_the_title', song.song_file_2 )}}">
-                      <a href="{{ function('retrieve_file_url', song.song_file_2) }}" class="clickable-link">
-                        {% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
-                        Mängi
-                      </a>
-                      <a href="{{ function('retrieve_file_url', song.song_file_2) }}" download class="clickable-link">
-                        {% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-                        Lae alla
-                      </a>
-                    </span>
-									{% endif %}
-								{% endif %}
-								{% if song.song_file_3 %}
-									<span class="music-options" title="{{ function('get_the_title', song.song_file_3 )}}">
-										<a href="{{ function('retrieve_file_url', song.song_file_3) }}" class="clickable-link">
-											{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
-											Mängi
-										</a>
-										<a href="{{ function('retrieve_file_url', song.song_file_3) }}" download class="clickable-link">
-											{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
-											Lae alla
-										</a>
-									</span>
-								{% endif %}
-							</td>
-							<td>
-								{{ song.season|date("Y") }}
-							</td>
-							<td>{{ song.published_at|date("m/d/Y") }}</td>
-							{% if canAddNotifications %}
-								<td>
-									<span class="operations">
-										{% include "components/delete-post.twig" with { title: song.title, id: song.ID, modifier: 'clickable-link-delete' } %}
+			<td>
+				{% if song.song_file %}
+					{% if song.song_file_2 %}
+						<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file )}}">
 
-										<a href="{{ function('editThisPostUrl', song.id) }}" class="clickable-link">
-											{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'music-table-icon'} %}
-										</a>
-									</span>
-								</td>
-							{% endif %}
-						</tr>
-					{% endfor %}
-				{% endblock %}
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file) }}" class="open-new-window clickable-link  h-margin-bottom-sm repertoire-play-button">
+								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
+								Mängi
+							</a>
+
+							<a href="{{ function('retrieve_file_url', song.song_file) }}" download class="clickable-link h-margin-bottom-sm">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% else %}
+						<span class="music-options" title="{{ function('get_the_title', song.song_file )}}">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file) }}" class="open-new-window clickable-link repertoire-play-button">
+								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
+								Mängi
+							</a>
+							<a href="{{ function('retrieve_file_url', song.song_file) }}" download class="clickable-link">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% endif %}
+				{% endif %}
+				{% if song.song_file_2 %}
+					{% if song.song_file_3 %}
+						<span class="music-options music-table-notes-separator h-margin-bottom-sm" title="{{ function('get_the_title', song.song_file_2 )}}">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file_2) }}" class="open-new-window clickable-link h-margin-bottom-sm repertoire-play-button open-new-window">
+								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
+								Mängi
+							</a>
+							<a href="{{ function('retrieve_file_url', song.song_file_2) }}" download class=" clickable-link h-margin-bottom-sm">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% else %}
+						<span class="music-options" title="{{ function('get_the_title', song.song_file_2 )}}">
+							<a href="#" data-value="{{ function('retrieve_file_url', song.song_file_2) }}" class="open-new-window clickable-link repertoire-play-button ">
+								{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
+								Mängi
+							</a>
+							<a href="{{ function('retrieve_file_url', song.song_file_2) }}" download class="clickable-link repertoire-play-button">
+								{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+								Lae alla
+							</a>
+						</span>
+					{% endif %}
+				{% endif %}
+				{% if song.song_file_3 %}
+					<span class="music-options" title="{{ function('get_the_title', song.song_file_3 )}}">
+						<a href="#" data-value="{{ function('retrieve_file_url', song.song_file_3) }}" class="clickable-link repertoire-play-button open-new-window">
+							{% include 'components/icon.twig' with { name: 'sprite-play-circle-fill', modifier: 'music-table-icon'} %}
+							Mängi
+						</a>
+						<a href="{{ function('retrieve_file_url', song.song_file_3) }}" download class="clickable-link">
+							{% include 'components/icon.twig' with { name: 'sprite-download-icon', modifier: 'music-table-icon'} %}
+							Lae alla
+						</a>
+					</span>
+				{% endif %}
+			</td>
+			<td>
+				{{ song.season|date("Y") }}
+			</td>
+			<td>{{ song.published_at|date("m/d/Y") }}</td>
+			{% if canAddNotifications %}
+				<td>
+					<span class="operations">
+						{% include "components/delete-post.twig" with { title: song.title, id: song.ID, modifier: 'clickable-link-delete' } %}
+
+						<a href="{{ function('editThisPostUrl', song.id) }}" class="clickable-link">
+							{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'music-table-icon'} %}
+						</a>
+					</span>
+				</td>
+			{% endif %}
+		</tr>
+	{% endfor %}
+{% endblock %}
