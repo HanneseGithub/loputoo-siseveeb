@@ -21,8 +21,7 @@
     {% if canSeePersonalId %}
       <th class="h-text-left" data-visible="false">Isikukood</th>
     {% endif %}
-    <th data-sortable="true" class="h-text-left">Häälerühm</th>
-    <th class="h-text-left" data-visible="false">Hääle kõrgus</th>
+    <th data-sortable="true" class="h-text-left">Häälerühm ja kõrgus</th>
     <th class="h-text-left">Telefoninumber</th>
     <th class="h-text-left">Email</th>
     <th data-sortable="true" class="h-text-left">Sünnipäev</th>
@@ -61,8 +60,7 @@
       {% if canSeePersonalId %}
         <td>{{ user.personal_id }}</td>
       {% endif %}
-      <td>{{ user.voice }}</td>
-      <td>{{ user.voice_pitch }}</td>
+      <td>{{ user.voice_and_pitch }}</td>
       <td>{{ user.phone_number }}</td>
       <td>{{ user.user_email }}</td>
       <td>{{ user.birthday|date("d.m.Y") }}</td>

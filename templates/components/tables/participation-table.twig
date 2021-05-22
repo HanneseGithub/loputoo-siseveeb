@@ -12,7 +12,7 @@
   <tr>
     <th class="h-text-center">Pilt</th>
     <th class="h-text-left">Liikme nimi</th>
-    <th data-sortable="true" class="h-text-left">Häälerühm</th>
+    <th data-sortable="true" class="h-text-left">Häälerühm ja kõrgus</th>
   </tr>
 {% endblock %}
 
@@ -29,7 +29,7 @@
           {{ user.display_name }}
         {% endif %}
       </td>
-      <td>{{ user.voice }}
+      <td>{{ user.voice_and_pitch }}
     </tr>
   {% endfor %}
 {% endblock %}
