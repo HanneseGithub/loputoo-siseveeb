@@ -12,11 +12,11 @@
 {% block table_header %}
   <tr>
     {% if canSendGroupEmails %}
-      <th data-width="36" class="h-text-center table-cell--fixed users-table__checkbox-js">
+      <th data-searchable="false" data-width="36" class="h-text-center table-cell--fixed users-table__checkbox-js">
         <input onClick="toggleAllUsersCheckboxes(this)" type="checkbox" id="toggle-all-users">
       </th>
     {% endif %}
-    <th class="h-text-center table-cell--fixed users-table__avatar-js">Pilt</th>
+    <th data-searchable="false" class="h-text-center table-cell--fixed users-table__avatar-js">Pilt</th>
     <th class="h-text-left table-cell--fixed users-table__name-js">Liikme nimi</th>
     {% if canSeePersonalId %}
       <th class="h-text-left" data-visible="false">Isikukood</th>
@@ -27,13 +27,13 @@
     <th class="h-text-left">Email</th>
     <th data-sortable="true" class="h-text-left">Sünnipäev</th>
     <th data-sortable="true" class="h-text-left">Amet naiskooris</th>
-    <th class="h-text-left" data-visible="false">Noorlaulja</th>
-    <th class="h-text-left" data-visible="false">Tudeng</th>
-    <th class="h-text-left" data-visible="false">TÜ tudeng/vilistlane</th>
-    <th class="h-text-left" data-visible="false">Reservlane</th>
+    <th data-searchable="false" class="h-text-left" data-visible="false">Noorlaulja</th>
+    <th data-searchable="false" class="h-text-left" data-visible="false">Tudeng</th>
+    <th data-searchable="false" class="h-text-left" data-visible="false">TÜ tudeng/vilistlane</th>
+    <th data-searchable="false" class="h-text-left" data-visible="false">Reservlane</th>
     <th data-sortable="true" class="h-text-left" data-visible="false">Juhatuse amet</th>
     {% if canEditUserChoirRoles %}
-      <th class="h-text-center">Tegevused</th>
+      <th data-searchable="false" class="h-text-center">Tegevused</th>
     {% endif %}
   </tr>
 {% endblock %}
