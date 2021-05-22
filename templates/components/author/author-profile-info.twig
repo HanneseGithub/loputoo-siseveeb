@@ -214,6 +214,36 @@
 		</tr>
 		<tr>
 			<td class="author-page-table-label">
+				Lauluema
+			</td>
+			{% if isAdministrator %}
+				<td>
+					<input autocomplete="off" required type="text" name="singing_mentor" value="{{ author.singing_mentor|default('-') }}">
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.singing_mentor|default('-') }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
+				Laululapsed
+			</td>
+			{% if isAdministrator %}
+				<td>
+					<input autocomplete="off" required type="text" name="singing_apprentices" value="{{ author.singing_apprentices|default('-') }}">
+					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.singing_apprentices|default('-') }}" disabled>
+				</td>
+			{% endif %}
+		</tr>
+		<tr>
+			<td class="author-page-table-label">
 				Roll veebilehel
 			</td>
 			{% if isAdministrator and current_user.ID != author.ID %}

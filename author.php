@@ -59,6 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
         if(isset($_POST['title'])) {
             $incomingTitle = sanitize_text_field($_POST['title']);
         }
+        if(isset($_POST['singing_mentor'])) {
+            $incomingSingingMentor = sanitize_text_field($_POST['singing_mentor']);
+        }
+        if(isset($_POST['singing_apprentices'])) {
+            $incomingSingingApprentices = sanitize_text_field($_POST['singing_apprentices']);
+        }
         if(isset($_POST['role'])) {
             $incomingRole = sanitize_text_field($_POST['role']);
         }
@@ -84,6 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             $currentIsNewSinger = $user->is_new_singer;
             $currentInReserve = $user->in_reserve;
             $currentTitle = $user->title;
+            $currentSingingMentor = $user->singing_mentor;
+            $currentSingingApprentices = $user->singing_apprentices;
             $currentRole = implode(", ", $user->roles);
 
             // Try updating fields. IDEA: If it fails push it to errors array and show it in toast.
@@ -168,6 +176,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             // Try updating title field
             if (isset($incomingTitle) && $currentTitle != $incomingTitle) {
                 $updatingTitle = update_field('field_606d5009b2f7f', $incomingTitle, $userfield);
+            }
+
+            // Try updating singing mentor field
+            if (isset($incomingSingingMentor) && $currentSingingMentor != $incomingSingingMentor) {
+                $updatingSingingMentor = update_field('field_60a92297a8d02', $incomingSingingMentor, $userfield);
+            }
+
+            // Try updating singing apprentices field
+            if (isset($incomingSingingApprentices) && $currentSingingApprentices != $incomingSingingApprentices) {
+                $updatingSingingApprentices = update_field('field_60a9231eab2e4', $incomingSingingApprentices, $userfield);
             }
 
             // Try updating role field
