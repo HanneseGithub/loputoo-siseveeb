@@ -2,6 +2,8 @@
 
 {% block table_options %}
     data-toggle="table"
+    data-sort-name="name"
+    data-sort-order="asc"
 {% endblock %}
 
 {% block table_classes %}
@@ -11,7 +13,7 @@
 {% block table_header %}
   <tr>
     <th class="h-text-center">Pilt</th>
-    <th class="h-text-left">Liikme nimi</th>
+    <th data-field="name" class="h-text-left">Liikme nimi</th>
     <th data-sortable="true" class="h-text-left">Häälerühm</th>
   </tr>
 {% endblock %}

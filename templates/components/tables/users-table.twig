@@ -3,6 +3,8 @@
 {% block table_options %}
   {{ parent() }}
   data-show-columns="true"
+  data-sort-name="name"
+  data-sort-order="asc"
 {% endblock %}
 
 {% block table_classes %}
@@ -17,7 +19,7 @@
       </th>
     {% endif %}
     <th class="h-text-center table-cell--fixed users-table__avatar-js">Pilt</th>
-    <th class="h-text-left table-cell--fixed users-table__name-js">Liikme nimi</th>
+    <th data-field="name" class="h-text-left table-cell--fixed users-table__name-js">Liikme nimi</th>
     {% if canSeePersonalId %}
       <th class="h-text-left" data-visible="false">Isikukood</th>
     {% endif %}

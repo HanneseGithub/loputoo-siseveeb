@@ -2,12 +2,14 @@
 
 {% block table_classes %}
   class="naiskoor-table documents-table"
+  data-sort-name="title"
+  data-sort-order="asc"
 {% endblock %}
 
 {% block table_header %}
   <tr>
     <th data-sortable="true" class="h-text-left">Dokumendi tüüp</th>
-    <th data-sortable="true" class="h-text-left">Pealkiri</th>
+    <th data-field="title" data-sortable="true" class="h-text-left">Pealkiri</th>
     <th data-sortable="true" class="h-text-center">Link</th>
     <th class="h-text-center">Fail</th>
     <th data-sortable="true" class="h-text-left">Lisamise kuupäev</th>
