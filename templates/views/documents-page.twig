@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="section h-padding-top-xxl h-padding-bottom-xxl">
-  {% include "components/webpage-title.twig" with{ title: 'Dokumendid', link: createNewPostUrl, link_text: 'Lisa uus dokument'} %}
+  {% include "components/webpage-title.twig" with{ title: 'Dokumendid', link: createNewPostUrl, link_text: 'Lisa uus dokument', role_group: canAddDocuments} %}
   <div class="h-margin-top-lg">
   {% if documents %}
     {% include "components/tables/documents-table.twig" with { documents: documents }%}

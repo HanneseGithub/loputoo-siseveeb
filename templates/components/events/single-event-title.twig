@@ -1,6 +1,7 @@
 <div class="single-event-heading-container">
-	<h3 class="h3 h-margin-bottom-lg single-event-heading__title">{{title}}</h3>
-	{% if canAddNotifications %}
+	<h3 class="h3 {{ (role_group and link) ? 'h3--with-mobile-icon' : '' }} single-event-heading__title">{{title}}</h3>
+
+	{% if role_group %}
 		{% if link %}
 			<a class="post-edit-link-mobile" href="{{ link }}">{% include 'components/icon.twig' with { name: 'sprite-pencil-fill' }%}</a>
 			<a class="post-edit-link h-margin-bottom-lg" href="{{link}}">{{link_text}}</a>

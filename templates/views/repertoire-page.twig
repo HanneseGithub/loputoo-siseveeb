@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="section h-padding-top-xxl h-padding-bottom-lg">
-		{% include "components/webpage-title.twig" with { title: 'Repetuaar', link: createNewPostUrl, link_text: 'Lisa uus lugu'} %}
+		{% include "components/webpage-title.twig" with { title: 'Repetuaar', link: createNewPostUrl, link_text: 'Lisa uus lugu', role_group: canAddSongs} %}
 		<div class="h-margin-top-lg">
 			{% if repertoire is empty %}
 				<h1>Hetkel pole repertuaari lisatud</h1>
