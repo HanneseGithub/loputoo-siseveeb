@@ -4,7 +4,7 @@
 	<div class="section h-padding-top-xxl h-padding-bottom-xxl">
 		<div class="webpage-heading-container h-margin-bottom-lg">
 			{% if current_user.ID == author.ID %}
-				<h2 class="h2">Minu andmed</h2>
+				<h2 class="h2 h2--with-mobile-icon">Minu andmed</h2>
 			{% elseif author.first_name is not empty and author.last_name is not empty %}
 				<h2 class="h2">{{author.first_name ~ ' ' ~ author.last_name}} andmed</h2>
 			{% else %}

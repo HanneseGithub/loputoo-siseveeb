@@ -129,37 +129,24 @@
 		</tr>
 		<tr>
 			<td class="author-page-table-label">
-				Häälerühm
+				Häälerühm ja kõrgus
 			</td>
 			{% if isAdministrator %}
 				<td class="author-page-select-input">
-					<select class="author-page-select" data-current-value="{{ author.voice }}" name="voice">
-						<option value="I sopran">I sopran</option>
-						<option value="II sopran">II sopran</option>
-						<option value="I alt">I alt</option>
-						<option value="II alt">II alt</option>
+					<select class="author-page-select" data-current-value="{{ author.voice_and_pitch }}" name="voice_and_pitch">
+						<option value="I sopran, kõrge">I sopran, kõrge</option>
+						<option value="I sopran, madal">I sopran, madal</option>
+						<option value="II sopran, kõrge">II sopran, kõrge</option>
+						<option value="II sopran, madal">II sopran, madal</option>
+						<option value="I alt, kõrge">I alt, kõrge</option>
+						<option value="I alt, madal">I alt, madal</option>
+						<option value="II alt, kõrge">II alt, kõrge</option>
+						<option value="II alt, madal">II alt, madal</option>
 					</select>
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" value="{{ author.voice }}" disabled>
-				</td>
-			{% endif %}
-		</tr>
-		<tr>
-			<td class="author-page-table-label">
-				Hääle kõrgus
-			</td>
-			{% if isAdministrator %}
-				<td class="author-page-select-input">
-					<select class="author-page-select" data-current-value="{{ author.voice_pitch }}" name="voice_pitch">
-						<option value="Kõrge">Kõrge</option>
-						<option value="Madal">Madal</option>
-					</select>
-				</td>
-			{% else %}
-				<td>
-					<input class="author-input-disabled" type="text" value="{{ author.voice_pitch }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.voice_and_pitch }}" disabled>
 				</td>
 			{% endif %}
 		</tr>

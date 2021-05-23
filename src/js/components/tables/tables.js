@@ -42,11 +42,13 @@ jQuery(document).ready(function( $ ) {
     }
 
     $(".form-control.search-input").keydown(function() {
-        setTimeout(function() {
+        debounce(function() {
             if ($(".naiskoor-table__body tr.no-records-found").length) {
                 $(".naiskoor-table__body tr.no-records-found td").text('Vasteid ei leitud.');
             }
-        }, 1000);
+
+            refreshUsersTableStickyHeaderValues();
+        }, 1000, 'users-table-search')
     });
 });
 
