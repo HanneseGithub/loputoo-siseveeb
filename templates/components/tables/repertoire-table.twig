@@ -2,6 +2,8 @@
 
 {% block table_classes %}
 	class="naiskoor-table music-table"
+	data-sort-name="season"
+  	data-sort-order="desc"
 {% endblock %}
 
 {% block table_header %}
@@ -10,7 +12,7 @@
 		<th class="h-text-left" data-sortable="true">Autor</th>
 		<th class="h-text-center">Noodid</th>
 		<th class="h-text-center">Laulu fail</th>
-		<th class="h-text-left" data-sortable="true">Hooaeg</th>
+		<th data-field="season" class="h-text-left" data-sortable="true">Hooaeg</th>
 		<th class="h-text-left" data-sortable="true">Lisamise kuupäev</th>
 		{% if canAddSongs %}
 			<th class="h-text-center">Tegevused</th>
@@ -165,7 +167,7 @@
 			<td>
 				{{ song.season|date("Y") }}
 			</td>
-			<td>{{ song.published_at|date("m/d/Y") }}</td>
+			<td>{{ song.published_at|date("d. F Y") }}</td>
 				{% if canAddSongs %}
 					<td>
 						<span class="h-display-flex-justify">
