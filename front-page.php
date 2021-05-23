@@ -87,8 +87,10 @@ function returnUritusedUrl(){
 $administrator = current_user_can( 'administrator' );
 $conductor = current_user_can('conductor');
 $secretary = current_user_can('secretary');
+$president = current_user_can('president');
+$bookie = current_user_can('bookie');
 
-$canAddNotifications = $administrator || $secretary || $conductor;
+$canAddFrontpageNotifications = $administrator || $secretary || $conductor || $president || $bookie;
 
 $context = Timber::context();
 $context['createNewPostUrl'] = createNewPostUrl('teated');
@@ -97,6 +99,6 @@ $context['teated'] = Timber::get_posts($teated_args);
 $context['usersWithBirthday'] = implode(', ', $usersWithBirthday);
 $context['calendar_events'] = $events;
 
-$context['canAddNotifications'] = $canAddNotifications;
+$context['canAddFrontpageNotifications'] = $canAddFrontpageNotifications;
 
 Timber::render(array('views/front-page.twig', 'views/page.twig'), $context);

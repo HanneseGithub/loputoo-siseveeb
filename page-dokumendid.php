@@ -29,10 +29,12 @@ $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
 $secretary = current_user_can('secretary');
 $bookie = current_user_can('bookie');
+$note_handler = current_user_can('note-handler');
 
 $userCanEditDocuments = $administrator || $president || $conductor || $secretary;
-$userCanSeeHiddenDocuments = $administrator || $president || $conductor || $secretary || $bookie;
-$canAddNotifications = $administrator || $president || $conductor || $secretary;
+$userCanSeeHiddenDocuments = $administrator || $president || $conductor || $secretary || $bookie || $note_handler;
+$canAddDocuments = $administrator || $president || $conductor || $secretary;
+
 $args = array(
   'post_type' => 'dokumendid',
  'posts_per_page' => -1,
@@ -54,7 +56,8 @@ $context['createNewPostUrl'] = createNewPostUrl('dokumendid');
 $context['documents'] = $documents;
 $context['userCanEditDocuments'] = $userCanEditDocuments;
 $context['userCanSeeHiddenDocuments'] = $userCanSeeHiddenDocuments;
-$context['canAddNotifications'] = $canAddNotifications;
+$context['canAddDocuments'] = $canAddDocuments;
+
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
 Timber::render( array( 'views/documents-page.twig', 'views/page.twig' ), $context );

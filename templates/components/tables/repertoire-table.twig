@@ -12,7 +12,7 @@
 		<th class="h-text-center">Laulu fail</th>
 		<th class="h-text-left" data-sortable="true">Hooaeg</th>
 		<th class="h-text-left" data-sortable="true">Lisamise kuupäev</th>
-		{% if canAddNotifications %}
+		{% if canAddSongs %}
 			<th class="h-text-center">Tegevused</th>
 		{% endif %}
 	</tr>
@@ -166,7 +166,7 @@
 				{{ song.season|date("Y") }}
 			</td>
 			<td>{{ song.published_at|date("m/d/Y") }}</td>
-				{% if canAddNotifications %}
+				{% if canAddSongs %}
 					<td>
 						<span class="h-display-flex-justify">
 							{% include "components/delete-post.twig" with { title: song.title, id: song.ID } %}
