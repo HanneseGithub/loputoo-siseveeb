@@ -33,6 +33,8 @@
     <th data-searchable="false" class="h-text-left" data-visible="false">TÜ tudeng/vilistlane</th>
     <th data-searchable="false" class="h-text-left" data-visible="false">Reservlane</th>
     <th data-sortable="true" class="h-text-left" data-visible="false">Juhatuse amet</th>
+    <th class="h-text-left" data-visible="false">Lauluema</th>
+    <th class="h-text-left" data-visible="false">Laululapsed</th>
     {% if canEditUserChoirRoles %}
       <th data-searchable="false" class="h-text-center">Tegevused</th>
     {% endif %}
@@ -72,6 +74,8 @@
       <td>{{ user.is_student_or_graduate }}</td>
       <td>{{ user.in_reserve }}</td>
       <td>{{ user.title }}</td>
+      <td>{{ user.singing_mentor }}</td>
+      <td>{{ user.singing_apprentices }}</td>
       {% if canEditUserChoirRoles %}
         <td>{% include "components/user-info.twig" %}</td>
       {% endif %}
