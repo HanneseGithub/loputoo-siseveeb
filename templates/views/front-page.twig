@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="section h-padding-top-xxl h-padding-bottom-lg">
-        {% include "components/webpage-title.twig" with {title: 'Teated', link: createNewPostUrl, link_text: 'Lisa Teade'} %}
+        {% include "components/webpage-title.twig" with { title: 'Teated', link: createNewPostUrl, link_text: 'Lisa Teade', role_group: canAddFrontpageNotifications } %}
         {% if teated is empty%}
             <p class="no-posts">Hetkel pole uusi teateid</p>
         {% else %}
@@ -29,7 +29,7 @@
                                 <p>{{ teade.description }}</p>
                             </div>
                         </div>
-                        {% if canAddNotifications %}
+                        {% if canAddFrontpageNotifications %}
                             <div class="delete-item-button-container">
                                 {% include "components/delete-post.twig" with { title: teade.title, id: teade.ID, modifier: 'delete-icon-style' } %}
                             </div>

@@ -2,8 +2,9 @@
 
 {% block content %}
 <div class="section h-padding-top-lg h-padding-bottom-xxl">
-    {% include "components/single-repertoire-title.twig" with { title: post.title, link_text: 'Muuda', link: function('editThisPostUrl', post.id) } %}
-    <div class="single-repertoire-song-post-info">
+    {% include "components/single-repertoire-title.twig" with { title: post.title, link_text: 'Muuda', link: function('editThisPostUrl', post.id), role_group: canChangeRepertoire } %}
+
+    <div class="single-repertoire-song-post-info h-margin-top-lg">
         <div>
             Autor: {{ post.author_of_song}}
         </div>

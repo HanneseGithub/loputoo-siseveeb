@@ -92,13 +92,13 @@ $administrator = current_user_can( 'administrator' );
 $conductor = current_user_can('conductor');
 $president = current_user_can( 'president' );
 
-$canAddNotifications = $administrator || $president || $conductor;
+$canAddEvents = $administrator || $president || $conductor;
 
 $context = Timber::context();
 $context['post'] = new Timber\Post();
 $context['uniqueMonthsWithEvents'] = $eventUniqueMonthsWithEvents;
 $context['createNewPostUrl'] = createNewPostUrl('uritused');
 
-$context['canAddNotifications'] = $canAddNotifications;
+$context['canAddEvents'] = $canAddEvents;
 
 Timber::render(array('views/events-page.twig', 'views/page.twig'), $context);

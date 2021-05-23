@@ -35,17 +35,16 @@ function createNewPostUrl($post_type){
 function editThisPostUrl($post_id){
     return get_edit_post_link($post_id);
 }
+
 // User roles
 $administrator = current_user_can( 'administrator' );
-$conductor = current_user_can('conductor');
-$president = current_user_can( 'president' );
 $note_handler = current_user_can('note-handler');
 
-$canAddNotifications = $administrator || $president || $conductor || $note_handler;
+$canAddSongs = $administrator || $note_handler;
 
 $context['createNewPostUrl'] = createNewPostUrl('repertuaar');
 $context['repertoire'] = Timber::get_posts( ['post_type' => 'repertuaar', 'posts_per_page' => -1] );
-$context['canAddNotifications'] = $canAddNotifications;
+$context['canAddSongs'] = $canAddSongs;
 
 
 Timber::render( array( 'views/repertoire-page.twig', 'views/page.twig' ), $context );
