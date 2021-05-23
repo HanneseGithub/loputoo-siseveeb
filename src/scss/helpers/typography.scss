@@ -59,6 +59,13 @@
         line-height: $line-height-h3-xs;
     }
 }
+
+.h3--with-mobile-icon {
+    @media (max-width: $bp-sm-min) {
+        padding: 0 24px;
+    }
+}
+
 .h4 {
     font-family: $font-family-base;
     font-size: $font-size-h3-xs;

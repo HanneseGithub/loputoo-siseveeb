@@ -44,11 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
         $incomingIsStudentOrGraduate = sanitize_text_field($_POST['is_student_or_graduate']);
 
         // ACF fields that specific roles can edit
-        if (isset($_POST['voice'])) {
-            $incomingVoice = sanitize_text_field($_POST['voice']);
-        }
-        if (isset($_POST['voice_pitch'])) {
-            $incomingVoicePitch = sanitize_text_field($_POST['voice_pitch']);
+        if (isset($_POST['voice_and_pitch'])) {
+            $incomingVoiceAndPitch = sanitize_text_field($_POST['voice_and_pitch']);
         }
         if (isset($_POST['is_new_singer'])) {
             $incomingIsNewSinger = sanitize_text_field($_POST['is_new_singer']);
@@ -79,8 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             $currentIsStudent = $user->is_student;
             $currentIsStudentOrGraduate = $user->is_student_or_graduate;
 
-            $currentVoice = $user->voice;
-            $currentVoicePitch = $user->voice_pitch;
+            $currentVoiceAndPitch = $user->voice_and_pitch;
             $currentIsNewSinger = $user->is_new_singer;
             $currentInReserve = $user->in_reserve;
             $currentTitle = $user->title;
@@ -145,14 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
                 $updatingIsStudentOrGraduate = update_field('field_6093c54e2b67d', $incomingIsStudentOrGraduate, $userfield);
             }
 
-            // Try updating voice field
-            if (isset($incomingVoice) && $currentVoice != $incomingVoice) {
-                $updatingVoice = update_field('field_60916c26a42a7', $incomingVoice, $userfield);
-            }
-
-            // Try updating voice pitch field
-            if (isset($incomingVoicePitch) && $currentVoicePitch != $incomingVoicePitch ) {
-                $updatingVoicePitch = update_field('field_60916fb424156', $incomingVoicePitch, $userfield);
+            // Try updating voice and pitch field
+            if (isset($incomingVoiceAndPitch) && $currentVoiceAndPitch != $incomingVoiceAndPitch) {
+                $updatingVoiceAndPitch = update_field('field_60916c26a42a7', $incomingVoiceAndPitch, $userfield);
             }
 
             // Try updating new singer field

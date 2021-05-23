@@ -20,11 +20,9 @@ function editThisPostUrl($post_id){
 }
 
 $administrator = current_user_can( 'administrator' );
-$conductor = current_user_can('conductor');
-$president = current_user_can( 'president' );
 $note_handler = current_user_can('note-handler');
 
-$canChangeRepertoire = $administrator || $president || $conductor || $note_handler;
+$canChangeRepertoire = $administrator || $note_handler;
 
 $context         = Timber::context();
 $timber_post     = Timber::get_post();

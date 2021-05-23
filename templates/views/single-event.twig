@@ -14,7 +14,7 @@
             {% endif %}
 		</div>
 
-        {% include "components/events/single-event-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda'} %}
+        {% include "components/events/single-event-title.twig" with {title: post.title, link: singleEventEditUrl, link_text: 'Muuda', role_group: canEditEvents} %}
 		{% include "components/single-event-info.twig" %}
 
         <h3 class="h3 h-margin-bottom-lg h-margin-top-lg single-event-heading__title">Osalevad</h3>
