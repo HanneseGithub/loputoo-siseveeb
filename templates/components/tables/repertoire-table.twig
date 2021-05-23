@@ -10,12 +10,12 @@
 	<tr>
 		<th class="h-text-left table-cell--fixed" data-sortable="true">Loo pealkiri</th>
 		<th class="h-text-left" data-sortable="true">Autor</th>
-		<th class="h-text-center">Noodid</th>
-		<th class="h-text-center">Laulu fail</th>
+		<th data-searchable="false" class="h-text-center">Noodid</th>
+		<th data-searchable="false" class="h-text-center">Laulu fail</th>
 		<th data-field="season" class="h-text-left" data-sortable="true">Hooaeg</th>
 		<th class="h-text-left" data-sortable="true">Lisamise kuupäev</th>
 		{% if canAddSongs %}
-			<th class="h-text-center">Tegevused</th>
+			<th data-searchable="false" class="h-text-center">Tegevused</th>
 		{% endif %}
 	</tr>
 {% endblock %}
