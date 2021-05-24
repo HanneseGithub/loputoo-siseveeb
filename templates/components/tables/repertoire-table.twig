@@ -8,12 +8,12 @@
 
 {% block table_header %}
 	<tr>
-		<th class="h-text-left table-cell--fixed" data-sortable="true">Loo pealkiri</th>
-		<th class="h-text-left" data-sortable="true">Autor</th>
+		<th data-sortable="true" class="h-text-left table-cell--fixed" >Loo pealkiri</th>
+		<th data-sortable="true" class="h-text-left" >Autor</th>
 		<th data-searchable="false" class="h-text-center">Noodid</th>
 		<th data-searchable="false" class="h-text-center">Laulu fail</th>
-		<th data-field="season" class="h-text-left" data-sortable="true">Hooaeg</th>
-		<th class="h-text-left" data-sortable="true">Lisamise kuupäev</th>
+		<th data-sortable="true" data-field="season" class="h-text-left">Hooaeg</th>
+		<th data-sortable="true" class="h-text-left">Lisamise kuupäev</th>
 		{% if canAddSongs %}
 			<th data-searchable="false" class="h-text-center">Tegevused</th>
 		{% endif %}
