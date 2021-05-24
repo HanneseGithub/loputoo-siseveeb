@@ -74,11 +74,16 @@
         }
     }
 }
+
 .repertoire-music-player {
+    display: flex;
+
     position: fixed;
     bottom: 0;
     left: 200px;
+
     width: calc(100% - 200px);
+
     @media (max-width:$bp-sm-min) {
         left: 0;
         width: 100%;
@@ -89,6 +94,7 @@
         border-radius:none;
     }
 }
+
 audio::-webkit-media-controls-enclosure {
     border-radius:0;
 }
