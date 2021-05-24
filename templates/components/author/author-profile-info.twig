@@ -112,13 +112,15 @@
 		</tr>
 		<tr>
 			<td class="author-page-table-label">
-				TÜ tudeng või vilistlane
+				Seos Tartu Ülikooliga
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td class="author-page-select-input">
 					<select class="author-page-select" data-current-value="{{ author.is_student_or_graduate }}" name="is_student_or_graduate">
-						<option value="Jah">Jah</option>
-						<option value="Ei">Ei</option>
+						<option value="TÜ tudeng">TÜ tudeng</option>
+						<option value="TÜ vilistlane">TÜ vilistlane</option>
+						<option value="Muu seos TÜ-ga">Muu seos TÜ-ga</option>
+						<option value="TÜ-ga seos puudub">TÜ-ga seos puudub</option>
 					</select>
 				</td>
 			{% else %}

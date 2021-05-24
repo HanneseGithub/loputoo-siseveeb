@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
                 $updatingIsStudent = update_field('field_609a50005a409', $incomingIsStudent, $userfield);
             }
 
-            // Try updating student or graduate field
+            // Try updating seos Tartu Ülikooliga field
             if ($currentIsStudentOrGraduate != $incomingIsStudentOrGraduate && isset($incomingIsStudentOrGraduate)) {
                 $updatingIsStudentOrGraduate = update_field('field_6093c54e2b67d', $incomingIsStudentOrGraduate, $userfield);
             }
