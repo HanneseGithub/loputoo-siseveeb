@@ -99,7 +99,7 @@
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td class="author-page-select-input">
-					<select class="author-page-select" data-current-value="{{ author.is_student }}" name="is_student">
+					<select class="author-page-select" required data-current-value="{{ author.is_student }}" name="is_student">
 						<option value="Jah">Jah</option>
 						<option value="Ei">Ei</option>
 					</select>
@@ -116,7 +116,7 @@
 			</td>
 			{% if current_user.ID == author.ID or isAdministrator %}
 				<td class="author-page-select-input">
-					<select class="author-page-select" data-current-value="{{ author.is_student_or_graduate }}" name="is_student_or_graduate">
+					<select class="author-page-select" required data-current-value="{{ author.is_student_or_graduate }}" name="is_student_or_graduate">
 						<option value="TÜ tudeng">TÜ tudeng</option>
 						<option value="TÜ vilistlane">TÜ vilistlane</option>
 						<option value="Muu seos TÜ-ga">Muu seos TÜ-ga</option>
@@ -135,7 +135,7 @@
 			</td>
 			{% if isAdministrator %}
 				<td class="author-page-select-input">
-					<select class="author-page-select" data-current-value="{{ author.voice_and_pitch }}" name="voice_and_pitch">
+					<select class="author-page-select" required data-current-value="{{ author.voice_and_pitch }}" name="voice_and_pitch">
 						<option value="I sopran, kõrge">I sopran, kõrge</option>
 						<option value="I sopran, madal">I sopran, madal</option>
 						<option value="II sopran, kõrge">II sopran, kõrge</option>
@@ -158,7 +158,7 @@
 			</td>
 			{% if isAdministrator %}
 				<td class="author-page-select-input">
-					<select class="author-page-select" data-current-value="{{ author.is_new_singer }}" name="is_new_singer">
+					<select class="author-page-select" required data-current-value="{{ author.is_new_singer }}" name="is_new_singer">
 						<option value="Ei">Ei</option>
 						<option value="Jah">Jah</option>
 					</select>
@@ -175,7 +175,7 @@
 			</td>
 			{% if isAdministrator %}
 				<td class="author-page-select-input">
-					<select class="author-page-select" data-current-value="{{ author.in_reserve }}" name="in_reserve">
+					<select class="author-page-select" required data-current-value="{{ author.in_reserve }}" name="in_reserve">
 						<option value="Ei">Ei</option>
 						<option value="Jah">Jah</option>
 					</select>
@@ -192,7 +192,7 @@
 			</td>
 			{% if isAdministrator %}
 				<td>
-					<input autocomplete="off" required type="text" name="title" value="{{ author.title }}">
+					<input autocomplete="off" type="text" name="title" value="{{ author.title }}">
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -207,7 +207,7 @@
 			</td>
 			{% if isAdministrator %}
 				<td>
-					<input autocomplete="off" required type="text" name="singing_mentor" value="{{ author.singing_mentor|default('-') }}">
+					<input autocomplete="off" type="text" name="singing_mentor" value="{{ author.singing_mentor }}">
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -222,7 +222,7 @@
 			</td>
 			{% if isAdministrator %}
 				<td>
-					<input autocomplete="off" required type="text" name="singing_apprentices" value="{{ author.singing_apprentices|default('-') }}">
+					<input autocomplete="off" type="text" name="singing_apprentices" value="{{ author.singing_apprentices }}">
 					{% include 'components/icon.twig' with { name: 'sprite-pencil-fill', modifier: 'edit-user-pencil-icon'} %}
 				</td>
 			{% else %}
@@ -237,7 +237,7 @@
 			</td>
 			{% if isAdministrator and current_user.ID != author.ID %}
 				<td>
-					<select name="role">
+					<select name="role" required>
 						{% set authorRole = author.roles | list %}
 						{% for key, role in listOfRoles %}
 							<option
