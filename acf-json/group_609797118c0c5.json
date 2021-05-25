@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Dokument on tavakasutajatele peidetud ning ainult juhatusele nähtav",
+            "message": "Dokument on tavakasutajatele peidetud ning ainult juhatuse liikmetele nähtav.",
             "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
@@ -103,5 +103,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1621513737
+    "modified": 1621937818
 }

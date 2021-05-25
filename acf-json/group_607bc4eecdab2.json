@@ -112,7 +112,7 @@
             "name": "location",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -131,7 +131,7 @@
             "name": "info_page",
             "type": "url",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -147,7 +147,7 @@
             "name": "organizer",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -180,5 +180,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1621325981
+    "modified": 1621941072
 }

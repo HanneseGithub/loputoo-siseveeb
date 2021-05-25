@@ -3,44 +3,6 @@
     "title": "Repertuaar",
     "fields": [
         {
-            "key": "field_6096c24bab64d",
-            "label": "Loo pealkiri",
-            "name": "title",
-            "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_6096c283ab64e",
-            "label": "Kommentaar noodi kohta",
-            "name": "content",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "text",
-            "media_upload": 0,
-            "toolbar": "full",
-            "delay": 0
-        },
-        {
             "key": "field_608261c6c461c",
             "label": "Loo autor",
             "name": "author_of_song",
@@ -177,18 +139,22 @@
             "key": "field_608131eaf2e32",
             "label": "Hooaeg",
             "name": "season",
-            "type": "date_picker",
-            "instructions": "",
-            "required": 1,
+            "type": "number",
+            "instructions": "Aasta",
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y",
-            "return_format": "d\/m\/Y",
-            "first_day": 1
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         }
     ],
     "location": [
@@ -210,5 +176,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1621514711
+    "modified": 1621940801
 }
