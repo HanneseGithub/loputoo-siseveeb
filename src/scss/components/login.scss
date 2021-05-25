@@ -6,6 +6,7 @@
 
 #login {
     width: 100%;
+    padding-bottom: 50px;
 }
 
 .login h1 a {
@@ -21,6 +22,8 @@
     margin: 0 auto;
     border-left: 8px solid $color-red;
     border-radius: 3px;
+    font-size:$font-size-small;
+    line-height: $line-height-small;
 }
 
 .login #login_error,
@@ -33,7 +36,7 @@
 .login .button.wp-hide-pw .dashicons {
     width: 1.25rem;
     height: 1.25rem;
-    top: .5rem;
+    top: 0.5rem;
 }
 
 .login form {
@@ -80,7 +83,7 @@
     border-radius: 2px;
     border: 1px solid rgba(236, 236, 236);
     font-size: 16px;
-    font-family: 'Lato';
+    font-family: "Lato";
 }
 
 .login form .input,
@@ -91,7 +94,7 @@
     height: 48px;
 }
 
-#login form>p {
+#login form > p {
     width: 80%;
     margin: 0 auto;
 }
@@ -125,21 +128,19 @@
     color: $color-primary-blue;
 }
 
-
 /* Links */
 
 .login a {
     color: #0073aa;
 }
 
-
 /* Forms */
 
-.login input[type=checkbox]:checked:before {
+.login input[type="checkbox"]:checked:before {
     color: $color-primary-blue;
 }
 
-.login input[type=radio]:checked:before {
+.login input[type="radio"]:checked:before {
     background: $color-primary-blue;
 }
 
@@ -147,12 +148,13 @@
 .login .success {
     border-left: 7px solid $color-green;
     border-radius: 3px;
+    font-size: $font-size-small;
+    line-height: $line-height-small;
 }
 
 #backtoblog {
     display: none;
 }
-
 
 /* Core UI */
 
@@ -162,7 +164,6 @@
     text-transform: uppercase;
     width: 187px;
     height: 44px;
-    margin-top: 1em;
 }
 
 .wp-core-ui .button-primary.button-hero {
@@ -225,29 +226,29 @@
     color: $color-white;
 }
 
-.login input[type=checkbox]:checked::before {
-    content: '\2713';
-    margin: .475rem 0 0 -.15rem;
+.login input[type="checkbox"]:checked::before {
+    content: "\2713";
+    margin: 0.475rem 0 0 -0.15rem;
     color: $color-primary-blue;
 }
 
-.widefat tfoot td input[type=checkbox]:before,
-.widefat th input[type=checkbox]:before,
-.widefat thead td input[type=checkbox]:before,
-.login input[type=checkbox]:checked:before {
+.widefat tfoot td input[type="checkbox"]:before,
+.widefat th input[type="checkbox"]:before,
+.widefat thead td input[type="checkbox"]:before,
+.login input[type="checkbox"]:checked:before {
     color: $color-primary-blue;
 }
 
 .login .button.wp-hide-pw {
-    color: $color-primary-blue
+    color: $color-primary-blue;
 }
 
 .privacy-policy-page-link {
     display: none;
 }
 
-.button.wp-generate-pw.hide-if-no-js {
-    display: none;
+.reset-pass-submit .wp-generate-pw {
+    display: none !important;
 }
 
 @media (max-width: 500px) {
@@ -275,9 +276,9 @@
         font-size: 14px;
     }
     .login .button.wp-hide-pw .dashicons {
-        top: .5rem;
+        top: 0.5rem;
     }
-    #login form>p {
+    #login form > p {
         width: 250px;
         margin: 0 auto;
     }
@@ -285,10 +286,10 @@
         width: 250px;
         margin: 0 auto;
     }
-    .login input[type=checkbox],
-    .login input[type=radio] {
-        width: .56rem;
-        margin: 0rem .25rem 0 0;
+    .login input[type="checkbox"],
+    .login input[type="radio"] {
+        width: 0.56rem;
+        margin: 0rem 0.25rem 0 0;
         height: 1rem;
     }
     .login #login_error,
@@ -296,16 +297,16 @@
     .login .success {
         width: 100%;
     }
-    .login input[type=checkbox]:checked::before {
-        margin: .475rem 0 0 -.4rem;
+    .login input[type="checkbox"]:checked::before {
+        margin: 0.475rem 0 0 -0.4rem;
     }
     .login h1 a {
         width: 70%;
     }
 }
 
-@media (max-height:500px) {
-    #login form>p {
+@media (max-height: 500px) {
+    #login form > p {
         width: 400px;
         margin: 0 auto;
     }
@@ -315,11 +316,5 @@
     }
     .login .wp-pwd {
         width: 400px;
-    }
-}
-
-@media (max-width: $bp-xs-min) {
-    .login form {
-        height: 350px;
     }
 }
