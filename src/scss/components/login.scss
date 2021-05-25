@@ -246,28 +246,10 @@
     display: none;
 }
 
-.button.wp-generate-pw.hide-if-no-js {
-    height: 44px;
-    padding: 5px 12px 5px 12px;
-    text-transform: uppercase;
-    color: $color-white;
-    background: $color-primary-blue;
-    border:none;
-    transition: background-color 0.5s;
-    width: 187px;
-    &:hover {
-        background-color: $color-primary-blue-hover;
-    }
-    @media (max-width:$bp-xs-min) {
-        margin-right: 0;
-    }
+.reset-pass-submit .wp-generate-pw {
+    display: none !important;
 }
-.login .reset-pass-submit {
-    display: flex;
-    @media (max-width:$bp-sm-min) {
-        display: block;
-    }
-}
+
 @media (max-width: 500px) {
     .login {
         background: url(../../images/login-bg-vertical.png);
