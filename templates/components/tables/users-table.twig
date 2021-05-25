@@ -27,12 +27,14 @@
     <th data-sortable="true" class="h-text-left">Telefoninumber</th>
     <th data-sortable="true" class="h-text-left">Email</th>
     <th data-sortable="true" class="h-text-left">Sünnipäev</th>
-    <th data-sortable="true" class="h-text-left">Amet naiskooris</th>
+    {% if isAdministrator %}
+      <th data-sortable="true" class="h-text-left">Roll siseveebis</th>
+    {% endif %}
     <th data-sortable="true" data-searchable="false" class="h-text-left" data-visible="false">Noorlaulja</th>
     <th data-sortable="true" data-searchable="false" class="h-text-left" data-visible="false">Tudeng</th>
     <th data-sortable="true" data-searchable="false" class="h-text-left" data-visible="false">Seos Tartu Ülikooliga</th>
     <th data-sortable="true" data-searchable="false" class="h-text-left" data-visible="false">Reservlane</th>
-    <th data-sortable="true" class="h-text-left" data-visible="false">Juhatuse amet</th>
+    <th data-sortable="true" class="h-text-left" data-visible="false">Amet naiskooris</th>
     <th data-sortable="true" class="h-text-left" data-visible="false">Lauluema</th>
     <th data-sortable="true" class="h-text-left" data-visible="false">Laululapsed</th>
     {% if canEditUserChoirRoles %}
@@ -68,7 +70,9 @@
       <td>{{ user.phone_number }}</td>
       <td>{{ user.user_email }}</td>
       <td>{{ user.birthday|date("d. F Y") }}</td>
-      <td>{{ returnUserRoleDisplayName(user.roles) }}</td>
+      {% if isAdministrator %}
+        <td>{{ returnUserRoleDisplayName(user.roles) }}</td>
+      {% endif %}
       <td>{{ user.is_new_singer }}</td>
       <td>{{ user.is_student }}</td>
       <td>{{ user.is_student_or_graduate }}</td>

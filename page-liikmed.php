@@ -67,6 +67,7 @@ $context['isABookie'] = $bookie;
 $context['canSeePersonalId'] = $canSeePersonalId;
 $context['canEditUserChoirRoles'] = $canEditUserChoirRoles;
 $context['canSendGroupEmails'] = $canSendGroupEmails;
+$context['isAdministrator'] = $administrator;
 
 
 $timber_post     = new Timber\Post();
