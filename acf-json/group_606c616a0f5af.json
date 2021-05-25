@@ -139,6 +139,23 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_60ad66bed96c6",
+            "label": "Sisseastumise aeg",
+            "name": "admission_time",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
         }
     ],
     "location": [
@@ -163,5 +180,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621933900
+    "modified": 1621976887
 }

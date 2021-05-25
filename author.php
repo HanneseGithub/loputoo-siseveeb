@@ -65,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
         if(isset($_POST['role'])) {
             $incomingRole = sanitize_text_field($_POST['role']);
         }
+        if(isset($_POST['admission_time'])) {
+            $incomingAdmissionTime= sanitize_text_field($_POST['admission_time']);
+        }
 
         if (isset($userID)) {
             $user = get_user_by('ID', $userID);
@@ -89,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             $currentSingingMentor = $user->singing_mentor;
             $currentSingingApprentices = $user->singing_apprentices;
             $currentRole = implode(", ", $user->roles);
+            $currentAdmissionTime = $user->admission_time;
 
             // Try updating first name field
             if ($currentFirstName != $incomingFirstName && isset($incomingFirstName)) {
@@ -242,6 +246,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
                             $userUpdatingErrors[] = 'Siseveebi rolli uuendamine ebaõnnestus';
                         }
                     }
+                }
+            }
+
+            // Try updating admission time field
+            if (isset($incomingAdmissionTime) && $currentAdmissionTime != $incomingAdmissionTime) {
+                $updatingAdmissionTime = update_field('field_60ad66bed96c6', $incomingAdmissionTime, $userfield);
+
+                if (!$updatingAdmissionTime) {
+                    $userUpdatingErrors[] = 'Sisseastumise aja välja uuendamine ebaõnnestus';
                 }
             }
 
