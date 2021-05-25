@@ -214,13 +214,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserPassword'])) 
             $oldPasswordHash =  $user->data->user_pass;
             $oldPasswordIsCorrect = wp_check_password($oldPassword, $oldPasswordHash, $userID);
 
-            if ( $user && $oldPasswordIsCorrect ) {
+            if ($user && $oldPasswordIsCorrect) {
                 // Set new password and immediatly log in again.
                 wp_set_password($newPassword1, $userID);
                 wp_set_auth_cookie($user->ID);
                 wp_set_current_user($user->ID);
                 do_action('wp_login', $user->user_login, $user);
-                $context['successfulInfoUpdate'] = true;
+                $context['successfulPasswordUpdate'] = true;
             } else {
                 $context['badPassword'] = true;
             }

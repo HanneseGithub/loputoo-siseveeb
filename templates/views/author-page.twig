@@ -30,19 +30,21 @@
 
 	{% block footer %}
 		{{ parent() }}
-		{% if successfulInfoUpdate %}
+		{% if successfulPasswordUpdate %}
 			<script type="text/javascript">
-				notifyOnSuccessfulPasswordChange();
-			</script>
-		{% elseif passwordsDidNotMatch %}
-			<script type="text/javascript">
-				notifyIfPasswordsDidNotMatch();
+				notifyOnSuccess('Parool muudetud!', 'Kasutaja parool edukalt muudetud');
 			</script>
 		{% elseif badPassword %}
 			<script type="text/javascript">
-				notifyOnBadPasswords();
+				notifyOnError('Vale parool!', 'Sisestatud parool oli vale');
 			</script>
-		{% elseif userChangedHisPersonalInfo %}
+		{% elseif passwordsDidNotMatch %}
+			<script type="text/javascript">
+				notifyOnError('Parooli ei muudetud!', 'Uued paroolid erinesid üksteisest');
+			</script>
+		{% endif %}
+
+		{% if userChangedHisPersonalInfo %}
 			<script type="text/javascript">
 				notifyOnUserinfoBeingUpdated();
 			</script>
