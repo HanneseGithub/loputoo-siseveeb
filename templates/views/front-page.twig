@@ -14,7 +14,12 @@
                             <h3>Sünnipäevalised</h3>
                         </div>
                         <div class="home-notify-content">
-                            <p>{{ usersWithBirthday }}</p>
+                            {% if usersWithBirthday %}
+                                <p>{{ usersWithBirthday }}</p>
+                            {% else %}
+                                <p>Täna pole kellelgi sünnipäeva mida tähistada.</p>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>

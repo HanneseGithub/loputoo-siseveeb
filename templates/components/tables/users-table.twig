@@ -64,22 +64,22 @@
         </a>
       </td>
       {% if canSeePersonalId %}
-        <td>{{ user.personal_id }}</td>
+        <td>{{ user.personal_id|default('-') }}</td>
       {% endif %}
-      <td>{{ user.voice_and_pitch }}</td>
-      <td>{{ user.phone_number }}</td>
-      <td>{{ user.user_email }}</td>
-      <td>{{ user.birthday|date("d. F Y") }}</td>
+      <td>{{ user.voice_and_pitch|default('-') }}</td>
+      <td>{{ user.phone_number|default('-') }}</td>
+      <td>{{ user.user_email|default('-') }}</td>
+      <td>{{ user.birthday|date("d. F Y")|default('-') }}</td>
       {% if isAdministrator %}
         <td>{{ returnUserRoleDisplayName(user.roles) }}</td>
       {% endif %}
-      <td>{{ user.is_new_singer }}</td>
-      <td>{{ user.is_student }}</td>
-      <td>{{ user.is_student_or_graduate }}</td>
-      <td>{{ user.in_reserve }}</td>
-      <td>{{ user.title }}</td>
-      <td>{{ user.singing_mentor }}</td>
-      <td>{{ user.singing_apprentices }}</td>
+      <td>{{ user.is_new_singer|default('-') }}</td>
+      <td>{{ user.is_student|default('-') }}</td>
+      <td>{{ user.is_student_or_graduate|default('-') }}</td>
+      <td>{{ user.in_reserve|default('-') }}</td>
+      <td>{{ user.title|default('-') }}</td>
+      <td>{{ user.singing_mentor|default('-') }}</td>
+      <td>{{ user.singing_apprentices|default('-') }}</td>
       {% if canEditUserChoirRoles %}
         <td>{% include "components/user-info.twig" %}</td>
       {% endif %}

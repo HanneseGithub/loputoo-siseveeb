@@ -24,31 +24,29 @@
             {% if post.note_file %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
-                    <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
-                        Noodifail
-                        {% if post.note_file_2 %}1{% endif %}:
-                        {{ function('get_the_title', post.note_file )}}
-                    </h2>
-                    <div class="buttons h-padding-bottom-lg">
-                        <span title="{{ function('get_the_title', post.note_file )}}">
-                            <a target="_blank" href="{{ function('retrieve_file_url', post.note_file) }}"  class="open-in-new-window-button h-padding-bottom-lg">
-                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-                                Ava uues aknas
-                            </a>
-                        </span>
+                        <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
+                            Noodifail {% if post.note_file_2 %}1{% endif %}:
+                            {{ function('get_the_title', post.note_file )}}
+                        </h2>
+                        <div class="buttons h-padding-bottom-lg">
+                            <span title="{{ function('get_the_title', post.note_file )}}">
+                                <a target="_blank" href="{{ function('retrieve_file_url', post.note_file) }}"  class="open-in-new-window-button">
+                                    {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                    Ava uues aknas
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-                <iframe src="{{ function('retrieve_file_url', post.note_file) }}" title="W3Schools Free Online Web Tutorials">
-                </iframe>
+                <iframe src="{{ function('retrieve_file_url', post.note_file) }}" title="W3Schools Free Online Web Tutorials"></iframe>
             {% endif %}
             {% if post.note_file_2 %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
-                    <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
-                        Noodifail 2:
-                        {{ function('get_the_title', post.note_file_2 )}}
-                    </h2>
+                        <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
+                            Noodifail 2:
+                            {{ function('get_the_title', post.note_file_2 )}}
+                        </h2>
                         <div class="buttons h-padding-bottom-lg">
                             <span title="{{ function('get_the_title', post.note_file_2 )}}">
                                 <a target="_blank" href="{{ function('retrieve_file_url', post.note_file_2) }}"  class="open-in-new-window-button">
@@ -57,7 +55,7 @@
                                 </a>
                             </span>
                         </div>
-                </div>
+                    </div>
                 </div>
                 <iframe src="{{ function('retrieve_file_url', post.note_file_2) }}" title="W3Schools Free Online Web Tutorials">
                 </iframe>
@@ -65,49 +63,49 @@
             {% if post.note_file_3 %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
-                    <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
-                        Noodifail 3:
-                        {{ function('retrieve_file_name', post.note_file_3 )}}
-                    </h2>
-                    <div class="buttons h-padding-bottom-lg">
-                        <span title="{{ function('get_the_title', post.note_file_3 )}}">
-                            <a target="_blank" href="{{ function('retrieve_file_url', post.note_file_3 ) }}"  class="open-in-new-window-button">
-                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-                                Ava uues aknas
-                            </a>
-                        </span>
+                        <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
+                            Noodifail 3:
+                            {{ function('retrieve_file_name', post.note_file_3 )}}
+                        </h2>
+                        <div class="buttons h-padding-bottom-lg">
+                            <span title="{{ function('get_the_title', post.note_file_3 )}}">
+                                <a target="_blank" href="{{ function('retrieve_file_url', post.note_file_3 ) }}"  class="open-in-new-window-button">
+                                    {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                    Ava uues aknas
+                                </a>
+                            </span>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <iframe src="{{ function('retrieve_file_url', post.note_file_3) }}">
                 </iframe>
             {% endif %}
         </div>
+
         <div class="audio-music-files">
             {% if post.song_file %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
-                    <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
-                        Muusika fail
-                        {% if post.song_file_2 %}1{% endif %}:
-                        {{ function('retrieve_file_name', post.song_file )}}
-                    </h2>
-                    <div class="buttons h-padding-bottom-lg">
-                        <span title="{{ function('retrieve_file_name', post.song_file )}}">
-                            <a target="_blank" href="{{ function('retrieve_file_url', post.song_file) }}"  class="open-in-new-window-button">
-                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-                                Ava uues aknas
-                            </a>
-                        </span>
+                        <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
+                            Muusika fail {% if post.song_file_2 %}1{% endif %}:
+                            {{ function('retrieve_file_name', post.song_file )}}
+                        </h2>
+                        <div class="buttons h-padding-bottom-lg">
+                            <span title="{{ function('retrieve_file_name', post.song_file )}}">
+                                <a target="_blank" href="{{ function('retrieve_file_url', post.song_file) }}"  class="open-in-new-window-button">
+                                    {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                    Ava uues aknas
+                                </a>
+                            </span>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <audio id="repertoireAudio" controls="controls">
 					<source id="repertoireAudioSource" src="{{ function('retrieve_file_url', post.song_file) }}"></source>
-				Your browser does not support the audio format.
-			</audio>
+				    Sinu brauser ei toeta antud audio formaati.
+			    </audio>
             {% endif %}
-            {% if post.note_file_2 %}
+            {% if post.song_file_2 %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
                         <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
@@ -115,20 +113,19 @@
                             {{ function('retrieve_file_name', post.song_file_2 )}}
                         </h2>
                         <div class="buttons h-padding-bottom-lg">
-
-                        <span title="{{ function('retrieve_file_name', post.song_file_2 )}}">
-                            <a target="_blank" href="{{ function('retrieve_file_url', post.song_file_2) }}"  class="open-in-new-window-button">
-                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-                                Ava uues aknas
-                            </a>
-                        </span>
+                            <span title="{{ function('retrieve_file_name', post.song_file_2 )}}">
+                                <a target="_blank" href="{{ function('retrieve_file_url', post.song_file_2) }}"  class="open-in-new-window-button">
+                                    {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                    Ava uues aknas
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-                </div>
-               <audio id="repertoireAudio" controls="controls">
+                <audio id="repertoireAudio" controls="controls">
 					<source id="repertoireAudioSource" src="{{ function('retrieve_file_url', post.song_file_2) }}"></source>
-				Your browser does not support the audio format.
-			</audio>
+                    Sinu brauser ei toeta antud audio formaati.
+			    </audio>
             {% endif %}
             {% if post.song_file_3 %}
                 <div class="single-repertoire-file-header">
@@ -138,20 +135,19 @@
                             {{ function('retrieve_file_name', post.song_file_3 )}}
                         </h2>
                         <div class="buttons h-padding-bottom-lg">
-
-                        <span title="{{ function('retrieve_file_name', post.song_file_3 )}}">
-                            <a target="_blank" href="{{ function('retrieve_file_url', post.song_file_3 ) }}"  class="open-in-new-window-button">
-                                {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
-                                Ava uues aknas
-                            </a>
-                        </span>
+                            <span title="{{ function('retrieve_file_name', post.song_file_3 )}}">
+                                <a target="_blank" href="{{ function('retrieve_file_url', post.song_file_3 ) }}"  class="open-in-new-window-button">
+                                    {% include 'components/icon.twig' with { name: 'sprite-file-music', modifier: 'music-table-icon'} %}
+                                    Ava uues aknas
+                                </a>
+                            </span>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <audio id="repertoireAudio" controls="controls">
 					<source id="repertoireAudioSource" src="{{ function('retrieve_file_url', post.song_file_3) }}"></source>
-				Your browser does not support the audio format.
-			</audio>
+                    Sinu brauser ei toeta antud audio formaati.
+			    </audio>
             {% endif %}
         </div>
     </div>
