@@ -13,23 +13,6 @@ function notifyOnSuccessfulUsersTableInfoChange(){
     tata.success('Andmed muudetud!', 'Liikme andmed edukalt muudetud!')
 }
 
-// User edits his information
-function notifyOnUserinfoBeingUpdated(){
-    tata.success('Andmed muudetud', 'Andmed muudetud edukalt')
-}
-function notifyOnUserinfoNotBeingUpdated(){
-    tata.error('Esines probleem', 'Kasutaja andmed ei muutunud!')
-}
-function notifyIfUserWantsToChangeEmailButCant(){
-    tata.info('E-maili ei muudetud!', 'See e-mail on juba andmebaasis')
-}
-function notifyManagerThatUserinfoWasUpdated(){
-    tata.success('Andmed muudetud', 'Kasutaja andmed muudeti edukalt')
-}
-function notifyManagerThatUserinfoWasAFailure(){
-    tata.error('Andmed Pole muudetud', 'Kasutaja andmeid ei muudetud edukalt')
-}
-
 // Posts are deleted
 function notifyOnMusicBeingTrashed(songName){
     let songDeletedHeader = songName + ' on kustutatud';

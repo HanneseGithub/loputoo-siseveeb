@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
     // Validate nonce
     if (isset($_POST['uform_generate_nonce']) && wp_verify_nonce($_POST['uform_generate_nonce'], 'submit_user_data')) {
         $userID = $_POST['userID'];
+        $userUpdatingErrors = [];
 
         // Wordpress fields
         $incomingFirstName = sanitize_text_field($_POST['first_name']);
@@ -89,14 +90,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             $currentSingingApprentices = $user->singing_apprentices;
             $currentRole = implode(", ", $user->roles);
 
-            // Try updating fields. IDEA: If it fails push it to errors array and show it in toast.
-
             // Try updating first name field
             if ($currentFirstName != $incomingFirstName && isset($incomingFirstName)) {
                 $updatingFirstName = wp_update_user(array(
                     'ID' => $userID,
                     'first_name' => $incomingFirstName
                 ));
+
+                if (is_wp_error($updatingFirstName)) {
+                    $userUpdatingErrors[] = 'Eesnime uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating last name field
@@ -105,17 +108,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
                     'ID' => $userID,
                     'last_name' => $incomingLastName
                 ));
+
+                if (is_wp_error($updatingLastName)) {
+                    $userUpdatingErrors[] = 'Perenime uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating email field
             if ($currentEmail != $incomingEmail && isset($incomingEmail)) {
                 if (email_exists($incomingEmail)) {
-                    // $context['emailAlreadyExists'] = true;
+                    $userUpdatingErrors[] = 'E-mail on juba kasutuses';
                 } else {
                     $updatingEmail = wp_update_user(array(
                         'ID' => $userID,
                         'user_email' => $incomingEmail
                     ));
+
+                    if (is_wp_error($updatingEmail)) {
+                        $userUpdatingErrors[] = 'E-maili uuendamine ebaõnnestus';
+                    }
                 }
             }
 
@@ -123,59 +134,99 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
             if ($currentPersonalId != $incomingPersonalId && isset($incomingPersonalId)) {
                 $updatingPersonalId = update_field('field_607d4d0b3b47e', $incomingPersonalId, $userfield);
 
-                // if ($updatingPersonalId) {
-                    // Update õnnestus
-                // }
+                if (!$updatingPersonalId) {
+                    $userUpdatingErrors[] = 'Isikukoodi uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating phone number field
             if ($currentPhoneNumber != $incomingPhoneNumber && isset($incomingPhoneNumber)) {
                 $updatingPhoneNumber = update_field('field_6093c62793e61', $incomingPhoneNumber, $userfield);
+
+                if (!$updatingPhoneNumber) {
+                    $userUpdatingErrors[] = 'Telefoninumbri uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating birthday field
             if ($currentBirthday != $incomingBirthday && isset($incomingBirthday)) {
                 $updatingBirthday = update_field('field_60916d22a7bca', $incomingBirthday, $userfield);
+
+                if (!$updatingBirthday) {
+                    $userUpdatingErrors[] = 'Sünnipäeva uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating student field
             if ($currentIsStudent != $incomingIsStudent && isset($incomingIsStudent)) {
                 $updatingIsStudent = update_field('field_609a50005a409', $incomingIsStudent, $userfield);
+
+                if (!$updatingIsStudent) {
+                    $userUpdatingErrors[] = 'Tudengi välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating seos Tartu Ülikooliga field
             if ($currentIsStudentOrGraduate != $incomingIsStudentOrGraduate && isset($incomingIsStudentOrGraduate)) {
                 $updatingIsStudentOrGraduate = update_field('field_6093c54e2b67d', $incomingIsStudentOrGraduate, $userfield);
+
+                if (!$updatingIsStudentOrGraduate) {
+                    $userUpdatingErrors[] = 'Seos Tartu Ülikooliga välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating voice and pitch field
             if (isset($incomingVoiceAndPitch) && $currentVoiceAndPitch != $incomingVoiceAndPitch) {
                 $updatingVoiceAndPitch = update_field('field_60916c26a42a7', $incomingVoiceAndPitch, $userfield);
+
+                if (!$updatingVoiceAndPitch) {
+                    $userUpdatingErrors[] = 'Häälerühma ja kõrguse välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating new singer field
             if (isset($incomingIsNewSinger) && $currentIsNewSinger != $incomingIsNewSinger) {
                 $updatingIsNewSinger = update_field('field_60916e943fcaa', $incomingIsNewSinger, $userfield);
+
+                if (!$updatingIsNewSinger) {
+                    $userUpdatingErrors[] = 'Noorlaulja välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating in reserve field
             if (isset($incomingInReserve) && $currentInReserve != $incomingInReserve) {
                 $updatingInReserve = update_field('field_60917028760e7', $incomingInReserve, $userfield);
+
+                if (!$updatingInReserve) {
+                    $userUpdatingErrors[] = 'Reservlase välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating title field
             if (isset($incomingTitle) && $currentTitle != $incomingTitle) {
                 $updatingTitle = update_field('field_606d5009b2f7f', $incomingTitle, $userfield);
+
+                if (!$updatingTitle) {
+                    $userUpdatingErrors[] = 'Amet naiskooris välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating singing mentor field
             if (isset($incomingSingingMentor) && $currentSingingMentor != $incomingSingingMentor) {
                 $updatingSingingMentor = update_field('field_60a92297a8d02', $incomingSingingMentor, $userfield);
+
+                if (!$updatingSingingMentor) {
+                    $userUpdatingErrors[] = 'Lauluema välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating singing apprentices field
             if (isset($incomingSingingApprentices) && $currentSingingApprentices != $incomingSingingApprentices) {
                 $updatingSingingApprentices = update_field('field_60a9231eab2e4', $incomingSingingApprentices, $userfield);
+
+                if (!$updatingSingingApprentices) {
+                    $userUpdatingErrors[] = 'Laululaste välja uuendamine ebaõnnestus';
+                }
             }
 
             // Try updating role field
@@ -186,18 +237,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
                             'ID' => $userID,
                             'role' => $incomingRole
                         ));
+
+                        if (is_wp_error($updatingRole)) {
+                            $userUpdatingErrors[] = 'Siseveebi rolli uuendamine ebaõnnestus';
+                        }
                     }
                 }
             }
+
+            if ( $userUpdatingErrors) {
+                $context['errorsOccuredWhileUpdatingPersonalInfo'] = true;
+                $context['updatingErrors'] = implode(', ', $userUpdatingErrors);
+            } else {
+                $context['userChangedHisPersonalInfo'] = true;
+            }
         }
     }
-
-
-    // if ( is_wp_error( $user_data ) ) {
-    //     $context['anErrorOccuredOnPersonalInfoUpdating'] = true;
-    // } else {
-    //     $context['userChangedHisPersonalInfo'] = true;
-    // }
 }
 
 // Author page - user new password submit.
