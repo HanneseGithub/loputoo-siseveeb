@@ -6,6 +6,7 @@
 
 #login {
     width: 100%;
+    padding-bottom: 50px;
 }
 
 .login h1 a {
@@ -21,6 +22,8 @@
     margin: 0 auto;
     border-left: 8px solid $color-red;
     border-radius: 3px;
+    font-size:$font-size-small;
+    line-height: $line-height-small;
 }
 
 .login #login_error,
@@ -145,6 +148,7 @@
 .login .success {
     border-left: 7px solid $color-green;
     border-radius: 3px;
+    line-height: $line-height-small;
 }
 
 #backtoblog {
@@ -159,7 +163,6 @@
     text-transform: uppercase;
     width: 187px;
     height: 44px;
-    margin-top: 1em;
 }
 
 .wp-core-ui .button-primary.button-hero {
@@ -249,12 +252,22 @@
     text-transform: uppercase;
     color: $color-white;
     background: $color-primary-blue;
-    margin-right: 5px;
+    border:none;
+    transition: background-color 0.5s;
+    width: 187px;
+    &:hover {
+        background-color: $color-primary-blue-hover;
+    }
+    @media (max-width:$bp-xs-min) {
+        margin-right: 0;
+    }
 }
-.login .reset-pass-submit .button {
-    margin-left:5px;
+.login .reset-pass-submit {
+    display: flex;
+    @media (max-width:$bp-sm-min) {
+        display: block;
+    }
 }
-
 @media (max-width: 500px) {
     .login {
         background: url(../../images/login-bg-vertical.png);
@@ -320,11 +333,5 @@
     }
     .login .wp-pwd {
         width: 400px;
-    }
-}
-
-@media (max-width: $bp-xs-min) {
-    .login form {
-        height: 350px;
     }
 }
