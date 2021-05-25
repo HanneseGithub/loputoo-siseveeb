@@ -22,8 +22,7 @@ $bookie = current_user_can( 'bookie' );
 $admin = current_user_can( 'administrator' );
 $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
-$authorCanEditUser = $president || $conductor || $bookie || $admin;
-$authorCanSeePersonalId = $bookie || $admin;
+$authorCanSeePersonalId = $president || $conductor || $admin;
 
 // Author page - user information submit.
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserInfo'])) {
@@ -231,7 +230,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['editUserPassword'])) 
     }
 }
 
-$context['authorCanEditUser'] = $authorCanEditUser;
 $context['isAdministrator'] = $admin;
 $context['authorCanSeePersonalId'] = $authorCanSeePersonalId;
 $context['listOfRoles'] = $wp_roles->get_names();
