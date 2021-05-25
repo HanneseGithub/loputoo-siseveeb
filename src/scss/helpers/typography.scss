@@ -105,11 +105,13 @@
     display: none;
 
     @media (max-width:$bp-sm-min){
-        font-size: $font-size-h1-xs;
-        color: $color-secondary-blue;
-        display: block;
+        display: flex;
+
         position: absolute;
         right: 0;
+
+        font-size: $font-size-h1-xs;
+        color: $color-secondary-blue;
     }
 }
 
