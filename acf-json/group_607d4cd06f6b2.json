@@ -84,7 +84,7 @@
         },
         {
             "key": "field_6093c54e2b67d",
-            "label": "TÜ tudeng või vilistlane",
+            "label": "Seos Tartu Ülikooliga",
             "name": "is_student_or_graduate",
             "type": "select",
             "instructions": "",
@@ -96,10 +96,12 @@
                 "id": ""
             },
             "choices": {
-                "Jah": "Jah",
-                "Ei": "Ei"
+                "TÜ tudeng": "TÜ tudeng",
+                "TÜ vilistlane": "TÜ vilistlane",
+                "Muu seos TÜ-ga": "Muu seos TÜ-ga",
+                "TÜ-ga seos puudub": "TÜ-ga seos puudub"
             },
-            "default_value": "Jah",
+            "default_value": "TÜ tudeng",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -125,5 +127,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621513786
+    "modified": 1621886121
 }
