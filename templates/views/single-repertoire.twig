@@ -9,7 +9,7 @@
             Autor: {{ post.author_of_song}}
         </div>
         <div>
-            Hooaeg: {{  song.season|date("Y") }}
+            Hooaeg: {{  post.season }}
         </div>
         <div>
             Lisatud: {{ post.post_date|time_ago }}
@@ -18,12 +18,9 @@
             Lisaja: {{ post.author }}
         </div>
     </div>
-    <div class="single-repertoire-content">
-        <div class="post-info">
-            {{ post.post_content|wpautop }}
-        </div>
-        <div class="single-repertoire-sheet-music-files">
 
+    <div class="single-repertoire-content">
+        <div class="single-repertoire-sheet-music-files">
             {% if post.note_file %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
@@ -87,11 +84,10 @@
             {% endif %}
         </div>
         <div class="audio-music-files">
-
             {% if post.song_file %}
                 <div class="single-repertoire-file-header">
                     <div class="song-title-container">
-                    <h2 class="h4 h-margin-bottom-lg h-margin-top-lg" >
+                    <h2 class="h4 h-margin-bottom-lg h-margin-top-lg">
                         Muusika fail
                         {% if post.song_file_2 %}1{% endif %}:
                         {{ function('retrieve_file_name', post.song_file )}}
@@ -159,6 +155,6 @@
             {% endif %}
         </div>
     </div>
-    </div>
+</div>
 
 {% endblock %}
