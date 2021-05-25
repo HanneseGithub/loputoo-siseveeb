@@ -148,7 +148,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" value="{{ author.voice_and_pitch }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.voice_and_pitch|default('-') }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -165,7 +165,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" value="{{ author.is_new_singer }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.is_new_singer|default('-') }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -182,7 +182,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" value="{{ author.in_reserve }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.in_reserve|default('-') }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
@@ -197,7 +197,7 @@
 				</td>
 			{% else %}
 				<td>
-					<input class="author-input-disabled" type="text" value="{{ author.title }}" disabled>
+					<input class="author-input-disabled" type="text" value="{{ author.title|default('-') }}" disabled>
 				</td>
 			{% endif %}
 		</tr>
