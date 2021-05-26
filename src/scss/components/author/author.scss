@@ -26,6 +26,14 @@
             }
         }
     }
+
+    .post-edit-link-mobile {
+        @media (max-width:$bp-sm-min){
+            position: static;
+            font-size: 24px;
+        }
+    }
+
     form {
         @media (max-width: $bp-sm-min) {
         width: 100%;
@@ -87,7 +95,7 @@
                 background-color: $color-light-gray;
             }
 
-            &.author-page-birthday {
+            &.author-page-date {
                 padding: 5px 0 5px 4px;
             }
 
@@ -183,5 +191,15 @@
 
     & .author-password-edit__show-passwords-label {
         color: $color-primary-blue;
+    }
+}
+
+.author-profile__avatar-edit-modal {
+    padding: 24px;
+
+    & .acf-form {
+        @media (max-width:$bp-sm-min) {
+            height: auto;
+        }
     }
 }

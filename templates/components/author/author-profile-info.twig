@@ -85,7 +85,7 @@
 			</td>
 			{% if isAdministrator or current_user.ID == author.ID  %}
 				<td>
-					<input class="author-page-birthday" required type="date" name="birthday" value="{{ author.birthday | date("Y-m-d") }}">
+					<input class="author-page-date" required type="date" name="birthday" value="{{ author.birthday | date("Y-m-d") }}">
 				</td>
 			{% else %}
 				<td>
@@ -257,11 +257,17 @@
 		</tr>
 		<tr>
 			<td class="author-page-table-label">
-				Registreerimise aeg
+				Sisseastumise aeg
 			</td>
-			<td>
-				<input class="author-input-disabled" type="text" value="{{ author.user_registered }}" disabled>
-			</td>
+			{% if isAdministrator %}
+				<td>
+					<input class="author-page-date" required type="date" name="admission_time" value="{{ author.admission_time ? author.admission_time|date("Y-m-d") : author.user_registered|date("Y-m-d") }}">
+				</td>
+			{% else %}
+				<td>
+					<input class="author-input-disabled" type="text" value="{{ author.admission_time ? author.admission_time|date("d.m.Y") : author.user_registered|date("d.m.Y") }}" disabled>
+				</td>
+			{% endif %}
 		</tr>
 	</table>
 {% if current_user.ID == author.ID or isAdministrator %}

@@ -25,42 +25,32 @@
 				{% include "components/author/author-profile-info.twig" %}
 			</div>
 		</div>
-	{% endblock %}
+	</div>
+{% endblock %}
 
+{% block footer %}
+	{{ parent() }}
+	{% if successfulPasswordUpdate %}
+		<script type="text/javascript">
+			notifyOnSuccess('Parool muudetud!', 'Kasutaja parool edukalt muudetud');
+		</script>
+	{% elseif badPassword %}
+		<script type="text/javascript">
+			notifyOnError('Vale parool!', 'Sisestatud parool oli vale');
+		</script>
+	{% elseif passwordsDidNotMatch %}
+		<script type="text/javascript">
+			notifyOnError('Parooli ei muudetud!', 'Uued paroolid erinesid üksteisest');
+		</script>
+	{% endif %}
 
-	{% block footer %}
-		{{ parent() }}
-		{% if successfulInfoUpdate %}
-			<script type="text/javascript">
-				notifyOnSuccessfulPasswordChange();
-			</script>
-		{% elseif passwordsDidNotMatch %}
-			<script type="text/javascript">
-				notifyIfPasswordsDidNotMatch();
-			</script>
-		{% elseif badPassword %}
-			<script type="text/javascript">
-				notifyOnBadPasswords();
-			</script>
-		{% elseif userChangedHisPersonalInfo %}
-			<script type="text/javascript">
-				notifyOnUserinfoBeingUpdated();
-			</script>
-		{% elseif emailAlreadyExists %}
-			<script type="text/javascript">
-				notifyIfUserWantsToChangeEmailButCant();
-			</script>
-		{% elseif anErrorOccuredOnPersonalInfoUpdating %}
-			<script type="text/javascript">
-				notifyOnUserinfoNotBeingUpdated();
-			</script>
-		{% elseif userOrganisationalInfoWasUpdated %}
-			<script type="text/javascript">
-				notifyManagerThatUserinfoWasUpdated();
-			</script>
-		{% elseif notifyManagerThatUserinfoWasAFailure %}
-			<script type="text/javascript">
-				notifyManagerThatUserinfoWasAFailure();
-			</script>
-		{% endif %}
-	{% endblock %}
+	{% if userChangedHisPersonalInfo %}
+		<script type="text/javascript">
+			notifyOnSuccess('Andmed muudetud!', 'Kasutaja andmed edukalt muudetud');
+		</script>
+	{% elseif errorsOccuredWhileUpdatingPersonalInfo %}
+		<script type="text/javascript">
+			notifyOnError('Andmete muutmisel esines tõrkeid', "{{ updatingErrors }}" );
+		</script>
+	{% endif %}
+{% endblock %}
