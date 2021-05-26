@@ -38,7 +38,7 @@ function editThisPostUrl($post_id){
 
 // User roles
 $administrator = current_user_can( 'administrator' );
-$note_handler = current_user_can('note-handler');
+$note_handler = current_user_can('note_handler');
 
 $canAddSongs = $administrator || $note_handler;
 
