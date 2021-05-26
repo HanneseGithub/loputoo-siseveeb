@@ -29,7 +29,7 @@ $president = current_user_can( 'president' );
 $conductor = current_user_can('conductor');
 $secretary = current_user_can('secretary');
 $bookie = current_user_can('bookie');
-$note_handler = current_user_can('note-handler');
+$note_handler = current_user_can('note_handler');
 
 $userCanEditDocuments = $administrator || $president || $conductor || $secretary;
 $userCanSeeHiddenDocuments = $administrator || $president || $conductor || $secretary || $bookie || $note_handler;
